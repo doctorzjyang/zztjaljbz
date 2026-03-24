@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 陈姓案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·陈姓医案（四七）</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg font-medium">
+                陳（四七），肝血肾液内枯。阳扰风旋乘窍。大忌风药寒凉。
+                <br>
+                <span class="text-gray-600 text-base">处方：炒杞子、桂圆肉、炒菊花、炙黑甘草、黄耆（去心）、牡蛎。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">息风滋补</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒、恶风、脉浮、头痛身痛、浮肿身痒（病位：表）。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者表现为内脏精血枯竭导致的“风旋”，非外邪袭表。且叶氏明言“大忌风药”，反证非太阳表证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热（病位：里）。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病机为“精液内枯”，虽有“阳扰”之热象，但属于虚热，而非阳明经府之实热。大忌寒凉亦排除了阳明实热证。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦、诸孔窍疾患（病位：半表半里）。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：疑似/关联（窍部症状）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：风旋“乘窍”涉及窍道，与少阳主枢及循行有关，但其本质是阴虚风动，不具备少阳半表半里之实热特征。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀、畏寒肢冷、脉沉弱无力（病位：里）。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（虚损层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：属里证、阴证、虚证范畴。肝肾亏损（阴虚）与太阴（脾阴/气虚）在里证虚损上有交集，但案中未显脾胃寒湿之象。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、精血亏损（病位：表及全身）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：深度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“肾液内枯”直指少阴之本。少阴主肾，阴精不足则阳无所附，导致“阳扰风旋”，是典型的少阴精亏虚损证。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/肝木失调）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：阴阳失调、虚实夹杂、上热下寒（涉及里与半表半里）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“肝血内枯”为本虚（太阴/少阴），“风旋乘窍”为标实（阳动/内风），肝风内动是厥阴病的核心表现之一。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（肝肾、窍道）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、虚风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴厥阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">肝肾精血衰少，阴不敛阳，导致虚风内动，上乘孔窍。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>滋填精血（补本）：</strong>炒杞子、桂圆肉。杞子入肝肾，桂圆肉补心脾血，旨在充盈内枯之血脉。</li>
+                        <li><strong>柔肝息风（治标）：</strong>炒菊花。菊花清利头目，炒用则药性较缓，能平肝而不伤正。</li>
+                        <li><strong>固涩潜阳（重镇）：</strong>牡蛎。重镇潜阳，收敛扰动之虚阳，防止风旋。</li>
+                        <li><strong>益气和中（辅助）：</strong>黄耆、炙甘草。黄耆去心重在补气，甘草和中。此处黄耆配伍滋阴药，有“气能生血、气能摄阳”之意。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法说明】</h3>
+                    <p class="leading-relaxed">
+                        <strong>1. 严禁风药与寒凉：</strong>
+                        叶氏强调“大忌风药”，是因为风药（如羌活、防风）多燥，会进一步劫夺干枯的肝血；“忌寒凉”是因为虚证不宜苦寒直折，否则会伤及元阳。
+                        <br><br>
+                        <strong>2. “黄耆去心”与“炒菊花”：</strong>
+                        药用细节极严。黄耆补气而不令火升，菊花炒用减其寒凉性，专注平肝，体现了对阴虚体质的极度呵护。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        基于少阴厥阴合病的逻辑，可参考以下方剂：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>大定风珠：</strong>用于阴血大亏，虚风内动之证。</li>
+                        <li>• <strong>阿胶鸡子黄汤：</strong>侧重滋阴润燥，柔肝息风。</li>
+                        <li>• <strong>杞菊地黄丸：</strong>若偏于肝肾阴虚导致的头目眩晕，为平补之剂。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

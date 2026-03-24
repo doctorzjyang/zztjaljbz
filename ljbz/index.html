@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案精读 - 目录</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D4A574;
+            --bg-color: #FDF6E3;
+            --text-color: #3D2914;
+            --accent-color: #C41E3A;
+            --card-bg: #FFFBF0;
+            --border-color: #D4A574;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', 'SimSun', serif;
+            background-color: var(--bg-color);
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A574' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                linear-gradient(to bottom, rgba(253,246,227,0.9), rgba(253,246,227,0.9));
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* 头部装饰 */
+        .header-decoration {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+            height: 8px;
+            position: relative;
+        }
+
+        .header-decoration::before,
+        .header-decoration::after {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #D4A574;
+            font-size: 20px;
+        }
+
+        .header-decoration::before { left: 20px; }
+        .header-decoration::after { right: 20px; }
+
+        /* 主标题区域 */
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, rgba(139,69,19,0.05), transparent);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(139,69,19,0.2);
+            letter-spacing: 0.3em;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            letter-spacing: 0.2em;
+        }
+
+        .hero-section .divider {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 20px auto;
+        }
+
+        /* 导航栏 */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(139,69,19,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-tab:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 内容区域 */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* 目录结构 */
+        .directory-tree {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(139,69,19,0.1);
+        }
+
+        .directory-item {
+            margin-bottom: 20px;
+        }
+
+        .directory-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .subdirectory {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .subdirectory-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .case-list {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .case-item {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(212,165,116,0.1);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .case-item:hover {
+            background: rgba(212,165,116,0.2);
+            transform: translateX(5px);
+        }
+
+        .case-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .case-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer .decoration {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .nav-tab {
+                width: 180px;
+                text-align: center;
+            }
+
+            .directory-tree {
+                padding: 20px;
+            }
+
+            .subdirectory {
+                margin-left: 20px;
+            }
+
+            .case-list {
+                margin-left: 10px;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="header-decoration"></div>
+
+    <header class="hero-section">
+        <h1>医案精读</h1>
+        <div class="divider"></div>
+        <p class="subtitle">传承中医智慧 · 解析经典医案</p>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="../index.html" class="nav-tab">返回主页</a>
+        <a href="#" class="nav-tab active">医案目录</a>
+        <a href="lzznya/zf1.html" class="nav-tab">临证指南医案</a>
+    </nav>
+
+    <section class="content-section">
+        <h2 class="section-title fade-in">医案类别目录</h2>
+        
+        <div class="directory-tree fade-in">
+            <!-- 临证指南医案 -->
+            <div class="directory-item">
+                <h3 class="directory-title">临证指南医案</h3>
+                
+                <!-- 中风 -->
+                <div class="subdirectory">
+                    <h4 class="subdirectory-title">中风</h4>
+                    <div class="case-list">
+                        <div class="case-item"><a href="lzznya/zf1.html">中风病案1</a></div>
+                        <div class="case-item"><a href="lzznya/zf2.html">中风病案2</a></div>
+                        <div class="case-item"><a href="lzznya/zf3.html">中风病案3</a></div>
+                    </div>
+                </div>
+                
+                <!-- 肝风 -->
+                <div class="subdirectory">
+                    <h4 class="subdirectory-title">肝风</h4>
+                    <div class="case-list">
+                        <div class="case-item"><a href="#">肝风病案1</a></div>
+                        <div class="case-item"><a href="#">肝风病案2</a></div>
+                    </div>
+                </div>
+                
+                <!-- 其他类别 -->
+                <div class="subdirectory">
+                    <h4 class="subdirectory-title">其他类别</h4>
+                    <div class="case-list">
+                        <div class="case-item"><a href="#">眩晕</a></div>
+                        <div class="case-item"><a href="#">咳嗽</a></div>
+                        <div class="case-item"><a href="#">胃脘痛</a></div>
+                        <div class="case-item"><a href="#">泄泻</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他医案集 -->
+            <div class="directory-item">
+                <h3 class="directory-title">其他医案集</h3>
+                <div class="subdirectory">
+                    <h4 class="subdirectory-title">伤寒论医案</h4>
+                    <div class="case-list">
+                        <div class="case-item"><a href="#">伤寒论病案1</a></div>
+                        <div class="case-item"><a href="#">伤寒论病案2</a></div>
+                    </div>
+                </div>
+                
+                <div class="subdirectory">
+                    <h4 class="subdirectory-title">金匮要略医案</h4>
+                    <div class="case-list">
+                        <div class="case-item"><a href="#">金匮要略病案1</a></div>
+                        <div class="case-item"><a href="#">金匮要略病案2</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="decoration">❖ ❖ ❖</div>
+        <p>医案精读</p>
+        <p>传承中医智慧 · 解析经典医案</p>
+        <p>&copy; 2026 版权所有</p>
+    </footer>
+
+    <script>
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.directory-tree, .section-title').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

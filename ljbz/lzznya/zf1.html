@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 钱姓偏枯案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·钱姓偏枯案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                钱，偏枯在左。血虚不萦筋骨，内风袭络。脉左缓大。
+                <br>
+                <span class="text-gray-600 text-base">处方：制首乌、枸杞子、归身、淮牛膝、明天麻、三角胡麻、黄甘菊、川石斛、小黑豆皮。用三汁膏加蜜丸。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者虽有“左侧偏枯”，但无表证之恶寒发热，脉象“左缓大”而非浮脉，病不在表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中未提及口渴、便秘或烦躁等实热症状，且病机明确为“血虚”，与实热性质相反。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、咽干、目眩、往来寒热、胸胁苦满、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：缺乏少阳枢机不利的典型症状，脉象缓大非弦脉。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（病性层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：核心病机为“血虚”，属于里阴证范畴。但并非典型的脾胃虚寒（太阴主证），而是偏向于肝肾阴血亏虚。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、身痛、表部虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：深度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：偏枯属于“筋骨失养”，根本在于肝肾精血亏损。少阴主肾，精血不足导致脉现“缓大”（虚大），符合少阴虚损之本质。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、多经合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中“血虚不萦”为里虚（太阴/少阴），“内风袭络”为动风之象（属热/阳/少阳标证），表现为虚实夹杂、阴阳失调，符合厥阴病复杂的病理基础。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（及经络）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、内风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病并内风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">肝肾亏损，精血不足，虚风内动，络脉失养。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>滋填精血（补本）：</strong>制首乌、枸杞、归身、胡麻。此类药入肝肾，旨在补益亏虚的阴血。</li>
+                        <li><strong>通络熄风（治标）：</strong>明天麻、淮牛膝。天麻平肝熄风，牛膝引血下行且强筋骨。</li>
+                        <li><strong>清热柔润（兼顾）：</strong>黄甘菊、川石斛、黑豆皮。清散内风所化之微热，补津液。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：三汁膏】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此使用了<strong>“三汁膏”</strong>（甘菊、石斛、黑豆皮煎汁）配合蜜丸。
+                        <br><br>
+                        <strong>理由：</strong>偏枯久病多虚，若单纯用干燥的药末成丸，难以滋润干枯的经络。通过提取植物汁液熬膏，增强了药剂的“濡润”之力，正如枯木逢甘霖，最利于阴血化生与灌溉筋骨。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证为基准，临床常用替代方包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>地黄饮子：</strong>用于阴阳并补，下元虚衰之偏瘫。</li>
+                        <li>• <strong>大秦艽汤：</strong>若风邪较盛，偏向于经络搜剔。</li>
+                        <li>• <strong>虎潜丸：</strong>侧重于滋阴降火，强壮筋骨。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>
