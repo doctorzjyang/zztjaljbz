@@ -2190,9 +2190,101 @@ CEO在分配预算时，不能只看ROI（投资回报率），要看<strong>“
             event.currentTarget.classList.add('active');
         }
 
+        // 加载Markdown文件内容
+        async function loadMarkdownContent() {
+            try {
+                // 加载原文
+                const originalResponse = await fetch('原文.md');
+                const originalText = await originalResponse.text();
+                document.querySelector('.original-text').textContent = originalText;
+                
+                // 加载白话文
+                const modernResponse = await fetch('白话文.md');
+                const modernText = await modernResponse.text();
+                document.querySelector('.modern-text').textContent = modernText;
+                
+                // 加载ChatGPT
+                const chatgptResponse = await fetch('chatgpt.md');
+                const chatgptText = await chatgptResponse.text();
+                document.querySelector('#chatgpt .ai-content').innerHTML = convertMarkdownToHtml(chatgptText);
+                
+                // 加载DeepSeek
+                const deepseekResponse = await fetch('deepseek.md');
+                const deepseekText = await deepseekResponse.text();
+                document.querySelector('#deepseek .ai-content').innerHTML = convertMarkdownToHtml(deepseekText);
+                
+                // 加载Gemini
+                const geminiResponse = await fetch('gemini.md');
+                const geminiText = await geminiResponse.text();
+                document.querySelector('#gemini .ai-content').innerHTML = convertMarkdownToHtml(geminiText);
+                
+                // 加载Grok
+                const grokResponse = await fetch('grok.md');
+                const grokText = await grokResponse.text();
+                document.querySelector('#grok .ai-content').innerHTML = convertMarkdownToHtml(grokText);
+                
+                // 加载Kimi
+                const kimiResponse = await fetch('kimi.md');
+                const kimiText = await kimiResponse.text();
+                document.querySelector('#kimi .ai-content').innerHTML = convertMarkdownToHtml(kimiText);
+                
+                // 加载智谱
+                const zhipuResponse = await fetch('智谱.md');
+                const zhipuText = await zhipuResponse.text();
+                document.querySelector('#zhipu .ai-content').innerHTML = convertMarkdownToHtml(zhipuText);
+                
+                // 加载千问
+                const qianwenResponse = await fetch('千问.md');
+                const qianwenText = await qianwenResponse.text();
+                document.querySelector('#qianwen .ai-content').innerHTML = convertMarkdownToHtml(qianwenText);
+                
+                console.log('Markdown内容加载完成');
+            } catch (error) {
+                console.error('加载Markdown内容失败:', error);
+            }
+        }
+
+        // 将Markdown转换为HTML
+        function convertMarkdownToHtml(markdown) {
+            // 基本的Markdown转换
+            let html = markdown
+                // 标题
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^#### (.*$)/gim, '<h4>$1</h4>')
+                // 粗体
+                .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+                // 斜体
+                .replace(/\*(.*)\*/gim, '<em>$1</em>')
+                // 无序列表
+                .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                // 有序列表
+                .replace(/^\d+\. (.*$)/gim, '<li>$1</li>')
+                // 引用
+                .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+                // 分隔线
+                .replace(/^---$/gim, '<hr>')
+                // 代码块
+                .replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')
+                // 表格
+                .replace(/\|(.*)\|/gim, function(match) {
+                    return match;
+                });
+            
+            // 处理列表
+            html = html.replace(/(<li>.*?<\/li>)/gs, '<ul>$1</ul>');
+            
+            // 处理段落
+            html = html.replace(/^(?!<h|(<ul)|(<blockquote)|(<pre)|(<hr))(.*$)/gim, '<p>$2</p>');
+            
+            return html;
+        }
+
         // 页面加载完成后执行
         window.onload = function() {
             console.log('页面加载完成');
+            loadMarkdownContent();
         };
     </script>
 </body>
