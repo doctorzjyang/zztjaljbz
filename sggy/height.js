@@ -89,13 +89,13 @@ function drawGrowthChart(gender, currentHeight, birthDate, geneticHeight) {
         GENETIC: '#4B0082',     // 靛紫色 - 遗传身高
         GRID: '#F0F0F0',        // 网格线颜色
         CURVES: {
-            '3rd': '#1E90FF',   // 道奇蓝
-            '10th': '#20B2AA',  // 浅海蓝
-            '25th': '#3CB371',  // 中海蓝绿
-            '50th': '#808080',  // 灰色
-            '75th': '#DEB887',  // 实木色
-            '90th': '#CD853F',  // 秘鲁色
-            '97th': '#8B4513'   // 马鞍棕色
+            '3rd': '#FF0000',   // 红色
+            '10th': '#FF7F00',  // 橙色
+            '25th': '#FFFF00',  // 黄色
+            '50th': '#00FF00',  // 绿色
+            '75th': '#0000FF',  // 蓝色
+            '90th': '#8B00FF',  // 紫色
+            '97th': '#FF1493'   // 深粉色
         }
     };
     
@@ -237,10 +237,7 @@ function drawGrowthChart(gender, currentHeight, birthDate, geneticHeight) {
                 }]
             },
             legend: {
-                position: 'bottom',
-                labels: {
-                    fontColor: '#000000'
-                }
+                display: false
             },
             annotation: {
                 annotations: [
