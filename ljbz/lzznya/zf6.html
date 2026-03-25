@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 卢姓案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·卢姓嗔怒动阳案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                卢，嗔怒动阳。恰值春木司升。厥阴内风乘阳明脉络之虚。上凌咽喉。环绕耳后清空之地。升腾太过。脂液无以营养四末。而指节为之麻木。是皆痱中根萌。所谓下虚上实。多致巅顶之疾。夫情志变蒸之热。阅方书无芩连苦降羌防辛散之理。肝为刚脏。非柔润不能调和也。
+                <br>
+                <span class="text-gray-600 text-base">处方：鲜生地、元参心、桑叶、丹皮、羚羊角、连翘心。又方：生地、阿胶、牡蛎、川斛、知母。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">内风痱萌</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。位表、性阳实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中无恶寒、脉浮等表证。虽有“上凌咽喉、耳后”，但属内风上窜而非外邪袭表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干。位里、性阳热实。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（病位在里，有化热象）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：提及“阳明脉络之虚”，且有“变蒸之热”。但病性非“实热”，而是虚风乘虚，忌用苦寒直折。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。位半表半里。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（涉及孔窍病变）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病位涉及“咽喉、耳后”，符合标准中“诸孔窍疾患，热郁半表半里循孔道上冲”的描述。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：便稀、腹胀、畏寒、脉沉弱无力。位里、性阴虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（主证不符）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案为阴亏阳亢之“热蒸”，非脾胃虚寒之“寒湿”。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、恶寒、身痛。位表（统括全身虚损）。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：深度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中定性为“下虚上实”，下虚即肾精肝血亏损，脂液不足，属于少阴精血亏虚之本。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂。本质为少阳/阳明与太阴/少阴合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：最为符合（核心定性）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：原文明确指出“厥阴内风乘阳明脉络之虚”。既有阳升热蒸之标热（少阳/阳明），又有下元亏损之本虚（少阴/太阴），且涉及肝木失调。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里、半表半里（孔窍）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴虚阳亢、虚实夹杂</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">厥阴少阳合病（下虚上实）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">精血亏耗，肝阳化风，乘虚上凌。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>滋阴凉血：</strong>鲜生地、元参心、丹皮、知母。针对“液亏”与“情志变蒸之热”。</li>
+                        <li><strong>平肝熄风：</strong>羚羊角、桑叶。羚羊角为熄风圣药，桑叶清上焦之风热。</li>
+                        <li><strong>潜阳柔润：</strong>阿胶、牡蛎、川斛。阿胶补血滋阴，牡蛎潜阳，石斛滋养阳明胃液。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：以柔调刚】</h3>
+                    <p class="leading-relaxed">
+                        叶氏明确指出<strong>“肝为刚脏，非柔润不能调和”</strong>。
+                        <br><br>
+                        <strong>核心逻辑：</strong>否定了当时常用的“芩连苦降”（苦燥伤阴）和“羌防辛散”（辛燥动风）。他主张通过“脂液营养”，用大剂量甘寒滋润之品化生津液，以“水”涵“木”，使内风自息。这种“育阴熄风”法是针对痱中（中风先兆）下虚上实病机的精准打击。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        基于厥阴、少阴虚风内动的辨证，临床可参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>镇肝熄风汤：</strong>现代治疗类此证候的代表方，更重降逆。</li>
+                        <li>• <strong>大定风珠：</strong>若病重至阴血大亏、动风严重，此方滋阴力更强。</li>
+                        <li>• <strong>天麻钩藤饮：</strong>若阳亢偏实、头痛眩晕明显者适用。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士《临证指南医案》分析生成
+        </footer>
+    </div>
+</body>
+</html>

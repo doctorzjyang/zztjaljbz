@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 金姓中风案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .status-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士 · 金姓案（老者厥中）</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                金（六九），初起神呆遗溺，老人厥中显然。数月来夜不得寐，是阳气不交于阴。勿谓痰火，专以攻消，乃下虚不纳，议与潜阳。
+                <br>
+                <span class="text-gray-600 text-base">处方：龟腹甲心、熟地炭、干苁蓉、天冬、生虎胫骨、淮牛膝、炒杞子、黄柏。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">潜阳封髓</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经诊断对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：本案为中风后遗症，无恶寒发热等表证，非病在表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热证。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：医案明确指出“勿谓痰火，专以攻消”，否定了阳明实热/痰火热证的可能。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：缺乏枢机不利、口苦、胁痛等少阳典型热化指征。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/里虚）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、脉沉弱无力、虚损。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：患者“神呆遗溺”，遗溺反映下焦约束无力，属于里阴虚损范畴；“下虚不纳”体现了里部虚衰之本质。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、肢冷、身痛、心烦不得眠。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（核心病位）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：案中“夜不得寐，是阳气不交于阴”，属于经典的少阴病“心肾不交”。遗溺、下虚是肾（少阴）不藏精、气化失司的表现。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：消渴、气上撞心、心中疼热、寒热错杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不典型</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 text-sm">依据：虽然中风（厥中）涉及阴阳不相顺接，但本案主线为单纯虚证，未见明显的寒热错杂表现。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center text-[#8d7665]">最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（下焦心肾）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">里阴证、虚证</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴太阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">下元虚损，水不涵木，虚阳上浮，阴阳不交。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>镇潜补肾（潜阳）：</strong>龟腹甲、生虎胫骨。龟甲入肾滋阴镇潜，虎骨（现临床多用豹骨或龙骨代）壮骨定痛，重镇潜阳。</li>
+                        <li><strong>填精补髓（补本）：</strong>熟地炭、干苁蓉、炒杞子。温润填精，针对“下虚”之本。</li>
+                        <li><strong>滋阴清源（清上）：</strong>天冬、黄柏。天冬滋肺肾之阴，黄柏清退虚热，使浮阳归位。</li>
+                        <li><strong>引药下行：</strong>淮牛膝。强筋骨并引导药力直达下焦。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法说明】</h3>
+                    <p class="leading-relaxed">
+                        <strong>“潜阳封髓”法：</strong>
+                        叶天士在此案中强调“勿谓痰火，专以攻消”。对于高龄患者的中风后遗症，神呆、不寐常被误认为痰迷心窍或火扰神明，若滥用克伐之品，必伤下焦元气。他采用<strong>重镇与滋腻</strong>并用的方法，通过“潜阳”使散乱的阳气回归阴精之中，是“阳气不交于阴”的针对性治法。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        基于少阴虚损、虚阳外越的辨证，临床可考虑：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>封髓丹：</strong>（黄柏、砂仁、甘草）用于纳气归肾，虚火上炎。</li>
+                        <li>• <strong>地黄饮子：</strong>（熟地、山茱萸、肉苁蓉等）用于下元虚衰、痰厥中风之舌强不能言、足废不能行。</li>
+                        <li>• <strong>大补阴丸：</strong>用于阴虚火旺较甚者。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医六经思维生成
+        </footer>
+    </div>
+</body>
+</html>
