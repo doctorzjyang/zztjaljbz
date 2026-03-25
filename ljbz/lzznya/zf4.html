@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 沈姓偏痿案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .status-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·沈姓偏痿案（液虚风动）</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <div class="leading-loose text-lg space-y-4">
+                <p>沈（四九）脉细而数。细为脏阴之亏，数为营液之耗。上年夏秋病伤，更因冬暖失藏。入春地气升，肝木风动，遂令右肢偏痿，舌本络强，言謇。都因根蒂有亏之症。庸俗泄气降痰，发散攻风，再劫真阴，渐渐神憒如寐。议用仲景复脉法。</p>
+                <p class="text-gray-600 text-base">处方：天冬、生地、人参、麦冬、五味子（固本丸加减）。</p>
+            </div>
+            <div class="text-right mt-4">
+                <span class="stamp">育阴熄风</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。位表，性阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉象“细数”主里虚热，非太阳浮脉；虽见肢体偏痿，但非表部受邪之关节疼痛，叶氏严厉批评了“发散攻风”的误治。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里阳证。位里，性阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽有“数”脉，但伴随“细”脉，提示为阴亏之虚热，而非阳明经腑实热。无口大渴、大汗出、便秘等阳明实指征。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。位半表半里，性阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（病位关联）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病机涉及“肝木风动”，肝胆互为表里。入春地气升引动内风，病位涉及半表半里之枢纽。但本案性属“虚”而非少阳病之“实热”。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、畏寒肢冷、脉沉弱无力。位里，性阴、虚、寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：不符合（主证不符）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：太阴主里虚寒，而本案为“营液消耗”的虚热证，且无腹满时痛、自利等脾阳虚表现。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、身痛、全身虚损。位表/全，性阴、虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病性病本）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉“细数”不仅主热，更主阴亏。叶氏言“细为脏阴之亏”，沈氏由于长期劳神损精，导致“根蒂有亏”，正符合少阴肾精亏虚、水不涵木的本质。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、多经合病。位涉及里/半表里。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：深度符合（传变层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案具备“阴亏于下（里虚）”与“风动于上（标热/动风）”的特点。符合厥阴病中“阴阳气不相顺接”引发的偏痿、言謇，是典型的下虚上盛、虚风内动之候。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（涉及肝肾、络脉）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">里阴证、虚热、动风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴厥阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">根蒂亏损，营液耗竭，水不涵木，虚风内动。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>主方思路：</strong>仲景复脉汤（炙甘草汤）去姜、桂。</li>
+                        <li><strong>滋阴敛营：</strong>生地、麦冬、天冬、五味子。去温热的姜、桂，加强滋清之力，专为“营液之耗”而设，旨在填补下焦。</li>
+                        <li><strong>益气固本：</strong>人参。在中风偏痿的重症中，人参不仅益气，更配合大量滋阴药“化阴”，以求“气旺阴生”。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：育阴熄风】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此展现了极高的临床智慧。对于“右肢偏痿”，常人易用大秦艽汤等“发散攻风”或二陈汤“降痰”。
+                        <br><br>
+                        <strong>深度解析：</strong>叶氏认为此风非外来之风，而是“虚风”。若再用攻散药，则“再劫真阴”，会导致“神憒如寐”甚至昏厥。故用<strong>“育阴熄风”</strong>法，不治风而风自息，不治痿而肢自荣，即所谓的“培其根蒂”。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        根据六经及病机，临床可参考以下替代或进阶方：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>三甲复脉汤：</strong>若风动更剧（颤振），可加龟甲、鳖甲、牡蛎潜阳。</li>
+                        <li>• <strong>大补阴丸：</strong>若骨蒸潮热、虚火上炎症状明显。</li>
+                        <li>• <strong>六味地黄丸：</strong>作为长期固本調理之选（正如案中提及的固本丸）。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士《临证指南医案》生成
+        </footer>
+    </div>
+</body>
+</html>
