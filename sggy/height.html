@@ -402,19 +402,6 @@
     
     <div class="chart-container">
         <canvas id="growthChart"></canvas>
-        <div class="chart-explanation">
-            <h3>生长曲线说明</h3>
-            <p>曲线图上的主要百分位线包括3%、10%、25%、50%、75%、90%、97%等，代表同龄儿童在身高的分布位置。</p>
-            <p>例如，50%百分位线表示中位数，即一半儿童高于此值，一半低于此值；3%和97%百分位线是正常范围的边界，低于3%或高于97%可能提示异常。</p>
-            <h4>观察曲线趋势</h4>
-            <p><strong>正常情况：</strong>孩子的生长曲线在3%-97%之间，且大致平行于某条百分位线或在相邻百分位线之间平稳上升，说明生长发育正常。</p>
-            <p><strong>需关注的情况：</strong></p>
-            <ul>
-                <li>曲线快速向上或向下跨越两条主要百分位线（如从50%跌至15%以下或从15%升至50%以上），可能提示生长过快或过慢，需排查疾病、营养等问题。</li>
-                <li>曲线长时间变平（无增长趋势），可能表示生长停滞，需及时就医。</li>
-                <li>曲线持续低于3%或高于97%，属于异常范围，需专业评估。</li>
-            </ul>
-        </div>
     </div>
 
     <!-- 干预方法模块 -->
@@ -456,15 +443,10 @@
                 }
             });
 
-            // 为所有设备添加点击事件，确保日期选择器能正常打开
+            // 为输入框添加点击事件，确保日期选择器能正常打开
             document.getElementById('birthDate').addEventListener('click', function(e) {
-                // 只在移动端显示年份选择器
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    birthDatePicker.close();
-                    showYearSelector();
-                }
-                // 桌面端会自动打开flatpickr
+                e.stopPropagation();
+                birthDatePicker.open();
             });
         }
 
