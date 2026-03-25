@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少儿拔节之道 - 身高干预指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: '#F7F4ED',    /* 宣纸白 */
+                        ink: '#2B2B2B',      /* 水墨黑 */
+                        inkLight: '#555555', /* 淡墨 */
+                        cinnabar: '#9E3D3F', /* 朱砂红 */
+                        bamboo: '#5C7A6B',   /* 竹青绿 */
+                        gold: '#C4A977',     /* 古雅金 */
+                        borderGray: '#DCD4C6'/* 边框灰 */
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'SimSun', 'STSong', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F7F4ED;
+            background-image: radial-gradient(#DCD4C6 1px, transparent 1px);
+            background-size: 32px 32px;
+            font-family: 'Noto Serif SC', serif;
+            color: #2B2B2B;
+            line-height: 1.8;
+        }
+
+        /* 传统印章样式 */
+        .stamp {
+            display: inline-block;
+            border: 2px solid #9E3D3F;
+            color: #9E3D3F;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transform: rotate(-3deg);
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* 竖排文字 */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 4px;
+        }
+
+        /* 章节标题下划线装饰 */
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 2px;
+            background-color: #9E3D3F;
+            margin-top: 12px;
+        }
+
+        /* 传统中式内边框 */
+        .chinese-border {
+            position: relative;
+        }
+        .chinese-border::before {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 1px solid #C4A977;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* 平滑出现动画 */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen py-8 px-4 md:py-16 selection:bg-gold selection:text-white">
+
+    <!-- 侧边装饰文字（仅在宽屏显示） -->
+    <div class="hidden xl:block fixed left-12 top-1/4 vertical-text text-gold text-2xl font-light opacity-50 select-none">
+        顺时而长 · 应季而生
+    </div>
+    <div class="hidden xl:block fixed right-12 top-1/4 vertical-text text-gold text-2xl font-light opacity-50 select-none">
+        调理阴阳 · 健脾固本
+    </div>
+
+    <!-- 主体内容容器 -->
+    <main class="max-w-4xl mx-auto bg-paper/95 backdrop-blur-sm shadow-xl shadow-ink/5 chinese-border relative z-10 fade-in">
+        
+        <div class="p-8 md:p-16 lg:p-20">
+            
+            <!-- 头部 -->
+            <header class="text-center mb-16 md:mb-24 relative">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 w-1 px-8 border-t border-inkLight/30"></div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-ink mb-6 tracking-widest">
+                    少儿拔节之道
+                </h1>
+                
+                <div class="flex justify-center items-center gap-4 mb-8">
+                    <span class="w-12 h-[1px] bg-gold"></span>
+                    <h2 class="text-lg md:text-xl text-inkLight tracking-[0.2em] font-light">
+                        身高科学干预与多维度管理
+                    </h2>
+                    <span class="w-12 h-[1px] bg-gold"></span>
+                </div>
+
+                <p class="text-inkLight max-w-2xl mx-auto leading-relaxed text-justify md:text-center text-sm md:text-base">
+                    干预身高的方法主要涵盖了从基础生活管理到专业医疗手段的多维度策略，核心在于<span class="text-cinnabar font-semibold">抓住生长发育的黄金时期</span>并进行科学管理。
+                </p>
+
+                <!-- 印章装饰 -->
+                <div class="absolute right-0 top-0 hidden md:block">
+                    <div class="stamp">科学拔节</div>
+                </div>
+            </header>
+
+            <!-- 内容区块一：基础生活方式管理 -->
+            <section class="mb-16 md:mb-20">
+                <div class="flex items-baseline gap-4 mb-8">
+                    <span class="text-4xl text-cinnabar/20 font-black italic">〇一</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink section-title tracking-wider">基础生活方式管理</h3>
+                </div>
+                <p class="text-gold mb-6 text-sm tracking-widest uppercase">/ 干预的基石 /</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 卡片 1 -->
+                    <div class="border border-borderGray p-6 hover:shadow-md transition duration-300 group bg-white/50">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-bamboo"></span>
+                            <h4 class="text-lg font-bold text-ink group-hover:text-bamboo transition">优质睡眠</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            生长激素的分泌在夜间深度睡眠时达到高峰（通常为 <span class="text-ink font-semibold">22:00至02:00</span>），建议孩子在21:30前入睡，保证每日 <span class="text-ink font-semibold">8至10小时</span> 的睡眠时间。
+                        </p>
+                    </div>
+
+                    <!-- 卡片 2 -->
+                    <div class="border border-borderGray p-6 hover:shadow-md transition duration-300 group bg-white/50">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-bamboo"></span>
+                            <h4 class="text-lg font-bold text-ink group-hover:text-bamboo transition">科学运动</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            推荐以<strong class="font-semibold text-ink">纵向跳跃类</strong>运动为主（跳绳、摸高、篮球、游泳）。每日应保证1至2小时的户外活动，增加阳光照射以促进维生素D合成和钙质吸收。
+                        </p>
+                    </div>
+
+                    <!-- 卡片 3 -->
+                    <div class="border border-borderGray p-6 hover:shadow-md transition duration-300 group bg-white/50">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-bamboo"></span>
+                            <h4 class="text-lg font-bold text-ink group-hover:text-bamboo transition">饮食营养</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            强调均衡摄入优质蛋白质（奶、蛋、瘦肉）、矿物质和维生素，同时应<strong class="font-semibold text-ink">少食生冷、油腻、甜腻</strong>食物及零食。
+                        </p>
+                    </div>
+
+                    <!-- 卡片 4 -->
+                    <div class="border border-borderGray p-6 hover:shadow-md transition duration-300 group bg-white/50">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-bamboo"></span>
+                            <h4 class="text-lg font-bold text-ink group-hover:text-bamboo transition">情绪调护</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            轻松温暖的家庭氛围有利于神经-内分泌系统的稳定，避免给孩子过度压力，以免<strong class="font-semibold text-ink">肝气不舒</strong>导致生长缓慢。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 分隔线 -->
+            <div class="flex justify-center items-center gap-4 my-16 opacity-30">
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+                <span class="w-2 h-2 rounded-full bg-ink"></span>
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+            </div>
+
+            <!-- 内容区块二：中医特色外治法 -->
+            <section class="mb-16 md:mb-20">
+                <div class="flex items-baseline gap-4 mb-8">
+                    <span class="text-4xl text-cinnabar/20 font-black italic">〇二</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink section-title tracking-wider">中医特色外治法</h3>
+                </div>
+                <p class="text-gold mb-6 text-sm tracking-widest uppercase">/ 绿色干预手段 /</p>
+
+                <div class="space-y-6">
+                    <!-- 条目 1 -->
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start pb-6 border-b border-dashed border-borderGray">
+                        <div class="md:w-1/4 shrink-0">
+                            <h4 class="text-lg font-bold text-ink border-l-4 border-cinnabar pl-3">小儿推拿</h4>
+                        </div>
+                        <div class="md:w-3/4">
+                            <p class="text-inkLight text-sm leading-loose">通过揉按足三里、涌泉、身柱以及捏脊等手法，起到调理阴阳、健脾开胃和激活生长机能的作用。</p>
+                        </div>
+                    </div>
+
+                    <!-- 条目 2 -->
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start pb-6 border-b border-dashed border-borderGray">
+                        <div class="md:w-1/4 shrink-0">
+                            <h4 class="text-lg font-bold text-ink border-l-4 border-cinnabar pl-3">穴位贴敷<span class="text-sm font-normal text-inkLight ml-1">(生长贴)</span></h4>
+                        </div>
+                        <div class="md:w-3/4">
+                            <p class="text-inkLight text-sm leading-loose">将特制中药膏剂贴于特定穴位（如脾俞、肾俞等），通过皮肤渗透药物成分，达到温肾固本、长效调理的效果。</p>
+                        </div>
+                    </div>
+
+                    <!-- 条目 3 -->
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start pb-6 border-b border-dashed border-borderGray">
+                        <div class="md:w-1/4 shrink-0">
+                            <h4 class="text-lg font-bold text-ink border-l-4 border-cinnabar pl-3">温和灸法<span class="text-sm font-normal text-inkLight ml-1">(艾灸/脐灸)</span></h4>
+                        </div>
+                        <div class="md:w-3/4">
+                            <p class="text-inkLight text-sm leading-loose">艾灸身柱、神阙、关元等穴位可以补足阳气、改善虚寒体质，从而助力骨骼生长。</p>
+                        </div>
+                    </div>
+
+                    <!-- 条目 4 -->
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                        <div class="md:w-1/4 shrink-0">
+                            <h4 class="text-lg font-bold text-ink border-l-4 border-cinnabar pl-3">其他辅助疗法</h4>
+                        </div>
+                        <div class="md:w-3/4">
+                            <p class="text-inkLight text-sm leading-loose">包括耳穴压豆调节内分泌、中药沐足安神助眠以及针刺四缝穴改善脾胃功能。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 分隔线 -->
+            <div class="flex justify-center items-center gap-4 my-16 opacity-30">
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+                <span class="w-2 h-2 rounded-full bg-ink"></span>
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+            </div>
+
+            <!-- 内容区块三：中药内服 -->
+            <section class="mb-16 md:mb-20">
+                <div class="flex items-baseline gap-4 mb-8">
+                    <span class="text-4xl text-cinnabar/20 font-black italic">〇三</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink section-title tracking-wider">中医内服</h3>
+                </div>
+                
+                <div class="bg-gold/10 p-8 md:p-10 border border-gold/30 rounded-sm relative">
+                    <!-- 装饰引号 -->
+                    <div class="absolute top-4 left-4 text-6xl text-gold/20 font-serif leading-none">“</div>
+                    
+                    <p class="text-inkLight leading-loose text-justify relative z-10 pl-6 indent-8">
+                        医师会根据孩子的体质进行<strong class="text-ink font-semibold">辨证施治</strong>。常见的治疗大法包括益肾健脾、滋阴降火等。在临床调理中，常用方剂如<span class="text-cinnabar font-semibold border-b border-cinnabar/30 pb-0.5">异功散</span>、<span class="text-cinnabar font-semibold border-b border-cinnabar/30 pb-0.5">六味地黄丸</span>等，以达到调和脏腑、助力拔节生长的目的。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 分隔线 -->
+            <div class="flex justify-center items-center gap-4 my-16 opacity-30">
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+                <span class="w-2 h-2 rounded-full bg-ink"></span>
+                <span class="w-1 h-1 rounded-full bg-ink"></span>
+            </div>
+
+            <!-- 内容区块四：科学监测与时机把控 -->
+            <section>
+                <div class="flex items-baseline gap-4 mb-8">
+                    <span class="text-4xl text-cinnabar/20 font-black italic">〇四</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink section-title tracking-wider">科学监测与时机把控</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 重点高亮块：黄金期 -->
+                    <div class="md:col-span-3 bg-cinnabar text-white p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg shadow-cinnabar/20">
+                        <div class="shrink-0 w-16 h-16 rounded-full border-2 border-white/50 flex items-center justify-center text-2xl font-black">
+                            春
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 tracking-wider">抓住黄金期</h4>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                每年的 <strong>3月至6月（春季）</strong> 是儿童生长速度最快的季节，身高增长值可达秋冬季的 <strong>2至2.5倍</strong>。万物生发，正是干预的最佳时机。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 定期评估 -->
+                    <div class="md:col-span-1 border-t border-b md:border-t-0 md:border-b-0 md:border-r border-borderGray py-6 md:py-0 md:pr-6 mt-4 md:mt-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            <h4 class="text-lg font-bold text-ink">定期评估</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            家长应每3个月定期测量身高，利用生长曲线图监测生长轨迹。若发现身高低于第10百分位（P10）或生长速率缓慢（4岁后每年&lt;5cm），应及时就医评估。
+                        </p>
+                    </div>
+
+                    <!-- 动态评估 -->
+                    <div class="md:col-span-2 py-6 md:py-0 md:pl-6 mt-0 md:mt-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            <h4 class="text-lg font-bold text-ink">动态监测 (骨龄)</h4>
+                        </div>
+                        <p class="text-inkLight text-sm leading-loose">
+                            建议定期拍摄<strong class="text-ink">骨龄片</strong>，这是评估儿童发育最客观的指标。明确孩子是否属于“晚长”或是否存在性早熟等风险，以避免错过最佳干预时机。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 底部 -->
+        <footer class="border-t border-borderGray bg-black/5 p-6 text-center">
+            <p class="text-inkLight text-xs tracking-widest uppercase">
+                &copy; 科学管理 · 护航成长 | 仅供科普参考，具体诊疗请遵医嘱
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

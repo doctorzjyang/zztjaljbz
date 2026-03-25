@@ -195,6 +195,49 @@
             color: white;
         }
         
+        /* 干预方法模块样式 */
+        .intervention-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            text-align: center;
+        }
+
+        .intervention-section h3 {
+            color: #8B0000;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .intervention-section p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8B0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid #8B0000;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #8B0000;
+        }
+
         /* 年份选择器样式 */
         .year-selector {
             display: none;
@@ -321,7 +364,6 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="return-link">← 返回首页</a>
     <h1>身高评估</h1>
     
     <div class="input-group">
@@ -375,9 +417,13 @@
         </div>
     </div>
 
-    <div class="visitor-stats">
-        <p>今日访问人数：<span id="todayVisitors">0</span></p>
-        <p>总访问人数：<span id="totalVisitors">0</span></p>
+    <!-- 干预方法模块 -->
+    <div class="intervention-section">
+        <h3>干预方法</h3>
+        <p>针对不同的生长情况，我们提供科学的干预建议，帮助孩子健康成长。</p>
+        <div class="btn-container">
+            <a href="gyff/index.html" class="btn">查看详细干预方法</a>
+        </div>
     </div>
 
     <!-- 年份选择器 -->
@@ -410,14 +456,16 @@
                 }
             });
 
-            // 在移动端点击输入框时显示年份选择器
-            if (window.innerWidth <= 768) {
-                document.getElementById('birthDate').addEventListener('click', function(e) {
+            // 为所有设备添加点击事件，确保日期选择器能正常打开
+            document.getElementById('birthDate').addEventListener('click', function(e) {
+                // 只在移动端显示年份选择器
+                if (window.innerWidth <= 768) {
                     e.preventDefault();
                     birthDatePicker.close();
                     showYearSelector();
-                });
-            }
+                }
+                // 桌面端会自动打开flatpickr
+            });
         }
 
         function showYearSelector() {
@@ -476,34 +524,9 @@
             }
         }
 
-        // 获取访问统计
-        function updateVisitorStats() {
-            // 从localStorage获取访问记录
-            let stats = JSON.parse(localStorage.getItem('visitorStats') || '{"total": 0, "today": 0, "lastDate": ""}');
-            let today = new Date().toLocaleDateString();
-            
-            // 如果是新的一天，重置今日计数
-            if (stats.lastDate !== today) {
-                stats.today = 0;
-                stats.lastDate = today;
-            }
-            
-            // 增加访问计数
-            stats.today++;
-            stats.total++;
-            
-            // 保存到localStorage
-            localStorage.setItem('visitorStats', JSON.stringify(stats));
-            
-            // 更新显示
-            document.getElementById('todayVisitors').textContent = stats.today;
-            document.getElementById('totalVisitors').textContent = stats.total;
-        }
-
-        // 页面加载时更新访问统计
+        // 页面加载时初始化
         window.addEventListener('load', function() {
             initDatePicker();
-            updateVisitorStats();
         });
     </script>
 </body>

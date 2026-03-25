@@ -436,9 +436,15 @@ async function startEvaluation() {
         <p class="calculation" style="color: #4B0082;">${evaluation.geneticPercentile}</p>
         <p class="calculation" style="color: #FF6B00;">${evaluation.currentPercentile}</p>
         <p class="percentile-info" style="color: #4B0082;">
-            ${gender === 'male' ? '男孩' : '女孩'}18岁时的百分位对应身高：<br>${eighteenHeightText}
+            曲线图上的主要百分位线包括3%、10%、25%、50%、75%、90%、97%等，代表同龄儿童在身高的分布位置。<br>
+            例如，50%百分位线表示中位数，即一半儿童高于此值，一半低于此值；3%和97%百分位线是正常范围的边界，低于3%或高于97%可能提示异常。<br>
+            <strong>观察曲线趋势</strong><br>
+            正常情况：孩子的生长曲线在3%-97%之间，且大致平行于某条百分位线或在相邻百分位线之间平稳上升，说明生长发育正常。<br>
+            需关注的情况：<br>
+            - 曲线快速向上或向下跨越两条主要百分位线（如从50%跌至15%以下或从15%升至50%以上），可能提示生长过快或过慢，需排查疾病、营养等问题。<br>
+            - 曲线长时间变平（无增长趋势），可能表示生长停滞，需及时就医。<br>
+            - 曲线持续低于3%或高于97%，属于异常范围，需专业评估。
         </p>
-        <p class="disclaimer">注意：此计算结果仅供参考。儿童青少年的生长发育受多种因素影响，包括遗传、营养、运动、睡眠等。建议定期进行身高测量，保持良好的生活习惯。</p>
     `;
     
     drawGrowthChart(gender, currentHeight, birthDate, geneticHeight);
