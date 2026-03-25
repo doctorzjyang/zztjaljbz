@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 汪姓麻木案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·汪姓麻木案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                汪（五三），左肢麻木。膝盖中牵纵忽如针刺。中年后，精血内虚，虚风自动。乃阴中之阳损伤（阴中阳虚）。
+                <br>
+                <span class="text-gray-600 text-base">处方：淡肉蓉、枸杞、归身、生虎骨、沙苑、巴戟天、明天麻、桑寄生。用精羊肉胶、阿胶成丸。早服四钱。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">精血同补</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。病位：表；病性：阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者无恶寒、头痛等表证。麻木与针刺感虽在肢体皮肤及关节，但属精血不荣而非外感风寒邪气郁于肌表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。病位：里；病性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确指明是“精血内虚”，属于虚证。无口渴、便秘、里实热结之象。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。病位：半表半里；病性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病机为“内风”而非“少阳枢机不利之热郁”。缺乏口苦、胸胁满等标准指征。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/里虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃胀、畏寒肢冷、脉沉弱无力。病位：里；病性：阴、虚、寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（病性基础）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提及“精血内虚”，符合里阴证（虚证）的大框架。虽然侧重点不在脾胃，但病性属于虚损范畴。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、身痛（虚寒凝滞）。病位：表；病性：阴、虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-800">
+                        <span>结论：高度符合（病根所在）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：此案病根在于“阴中之阳损伤”。少阴主肾，主藏精，肾阳、肾阴均为生命之本。膝盖针刺感、左肢麻木反映了下元亏损导致的骨节、肢体失养。属于少阴病位延伸出的虚损证。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/肝肾同病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：寒热错杂、虚实夹杂。病位：复杂，涉及半表半里及里。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（病机演变）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“精血内虚”为阴（太阴/少阴），“虚风自动”为阳动。由于精血不能濡养肝木，导致虚风内旋，这种“阴虚风动”的格局符合厥阴病“肝肾精血亏虚、阳气疏泄失常”的病理特征。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（及经络骨节）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、阳损</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴太阴合病并内风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">下元亏损，精血不荣，阴损及阳，经络虚风。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>填精补髓：</strong>沙苑、枸杞、归身、桑寄生。重点在于滋补肝肾精血。</li>
+                        <li><strong>补阳中之阴：</strong>淡肉蓉、巴戟天。这两味药虽补肾阳，但性温不燥，旨在“从阴引阳”，修复“阴中之阳”。</li>
+                        <li><strong>强骨镇风：</strong>生虎骨、明天麻。虎骨强筋健骨（现今临床多以龙骨、牡蛎或透骨草替代），天麻平熄虚风。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：精羊肉胶】</h3>
+                    <p class="leading-relaxed">
+                        叶天士选用了<strong>“精羊肉胶”与“阿胶”</strong>混合成丸。
+                        <br><br>
+                        <strong>解析：</strong>本案属于虚损重症。草木之药虽能补益，但力量有时难以及时填补精髓之大亏。
+                        “精羊肉胶”属于<strong>血肉有情之品</strong>，能大补元气与精血，其性质与人体组织最为亲近，易于吸收利用。此法体现了“以形补形、精不足者补之以味”的中医高级补益策略。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此辨证基础，现代临床可参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>右归丸：</strong>若侧重于“阴中阳虚”，温补肾阳填精。</li>
+                        <li>• <strong>地黄饮子：</strong>适用于下元虚衰、筋骨不利之偏瘫麻木。</li>
+                        <li>• <strong>大补阴丸合补阳还五汤（加减）：</strong>若虚风与络阻并见。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士临证指南思维生成
+        </footer>
+    </div>
+</body>
+</html>
