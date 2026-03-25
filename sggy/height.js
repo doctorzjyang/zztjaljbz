@@ -1,6 +1,7 @@
 // 获取身高数据
 let boyData = null;
 let girlData = null;
+let growthChartInstance = null; // 存储图表实例
 
 async function loadData() {
     try {
@@ -75,6 +76,12 @@ function getClosestAgeData(age, gender) {
 function drawGrowthChart(gender, currentHeight, birthDate, geneticHeight) {
     const data = gender === 'male' ? boyData : girlData;
     const ctx = document.getElementById('growthChart').getContext('2d');
+    
+    // 销毁旧图表
+    if (growthChartInstance) {
+        growthChartInstance.destroy();
+        growthChartInstance = null;
+    }
     
     // 定义颜色常量
     const COLORS = {
@@ -157,7 +164,7 @@ function drawGrowthChart(gender, currentHeight, birthDate, geneticHeight) {
     });
 
     // 创建图表
-    const chart = new Chart(ctx, {
+    growthChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ages,
@@ -223,7 +230,10 @@ function drawGrowthChart(gender, currentHeight, birthDate, geneticHeight) {
                         callback: function(value) {
                             return formatDecimal(parseFloat(value));
                         }
-                    }
+                    },
+                    // 增加y轴范围，让曲线之间有更多空间
+                    suggestedMin: Math.min(...data.map(item => parseFloat(item['3rd']))) - 60,
+                    suggestedMax: Math.max(...data.map(item => parseFloat(item['97 th']))) + 60
                 }]
             },
             legend: {
@@ -426,8 +436,8 @@ async function startEvaluation() {
         
         <p class="calculation" style="color: #4B0082;">${calculation}</p>
         
-        <p class="calculation">${evaluation.geneticPercentile}</p>
-        <p class="calculation">${evaluation.currentPercentile}</p>
+        <p class="calculation" style="color: #4B0082;">${evaluation.geneticPercentile}</p>
+        <p class="calculation" style="color: #FF6B00;">${evaluation.currentPercentile}</p>
         <p class="percentile-info" style="color: #4B0082;">
             ${gender === 'male' ? '男孩' : '女孩'}18岁时的百分位对应身高：<br>${eighteenHeightText}
         </p>

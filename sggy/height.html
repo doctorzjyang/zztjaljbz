@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="height.js"></script>
+    <script src="height.js?v=1.0.1"></script>
     <style>
         body {
             font-family: "Microsoft YaHei", sans-serif;
@@ -261,6 +261,38 @@
             cursor: pointer;
         }
 
+        /* 颜色图例样式 */
+        .color-legend {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .color-legend h3 {
+            color: #8B0000;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .color-box {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
         @media (max-width: 768px) {
             .flatpickr-calendar {
                 width: 100%;
@@ -279,6 +311,11 @@
             .year-item {
                 padding: 15px 10px;
                 font-size: 16px;
+            }
+            
+            .legend-item {
+                display: block;
+                margin-right: 0;
             }
         }
     </style>
@@ -323,6 +360,45 @@
     
     <div class="chart-container">
         <canvas id="growthChart"></canvas>
+        <div class="color-legend">
+            <h3>颜色说明</h3>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #1E90FF;"></span>
+                <span>3% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #20B2AA;"></span>
+                <span>10% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #3CB371;"></span>
+                <span>25% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #808080;"></span>
+                <span>50% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #DEB887;"></span>
+                <span>75% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #CD853F;"></span>
+                <span>90% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #8B4513;"></span>
+                <span>97% 百分位</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #FF6B00;"></span>
+                <span>当前身高</span>
+            </div>
+            <div class="legend-item">
+                <span class="color-box" style="background-color: #4B0082;"></span>
+                <span>遗传身高</span>
+            </div>
+        </div>
     </div>
 
     <div class="visitor-stats">
