@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 陳姓中络案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·陳姓中络案（痰火阻络）</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                陳　脈左數。右弦緩。有年。形盛氣衰。冬春之交。真炁不相維續。內風日熾。左肢麻木不仁。舌歪言謇。此屬中絡。調理百日。戒酒肉。可望向愈。（痰火阻络）<br>
+                羚羊角　陳膽星　丹皮　橘紅　連翹心　石菖蒲　鉤藤　川斛<br><br>
+                又　羚羊角　元參　連翹　花粉　川貝母　橘紅　竹瀝<br><br>
+                又　丹溪云。麻為氣虛。木是濕痰敗血。診左脈濡澀。有年偏枯。是氣血皆虛。方書每稱左屬血虛。右屬氣虛。未必盡然。<br>
+                人參　半夏　廣皮　茯苓　歸身　白芍　炙草　桑枝<br><br>
+                又　經絡為痰阻。大便不爽。昨日跌僕氣亂。痰出甚艱。轉方以宣經隧。<br>
+                炒半夏　石菖蒲　廣橘紅　茯苓　膽星　枳實　竹瀝　薑汁
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+
+                <!-- 太阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：恶寒恶风、脉浮、头痛身痛、身痒、浮肿等表部营卫不和。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：冬春之交、真气不相维续、內風日熾，为内伤虚风中络，无恶寒发热、脉浮、身痛等表实证。</p>
+                </div>
+
+                <!-- 阳明病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里阳热实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽有痰火，但叶氏明言“痰火阻络”，脉右弦缓而非滑数，大便不爽为痰阻而非阳明腑实燥结。</p>
+                </div>
+
+                <!-- 少阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口苦、往来寒热、胸胁苦满、脉弦、诸窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：舌歪言謇、左肢麻木为上窍疾患，脉右弦，痰火阻络类似少阳热郁循孔窍。但整体以内风痰火中络为主，非典型少阳枢机不利。</p>
+                </div>
+
+                <!-- 太阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力（里虚寒、水湿、气虚等）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：有年形盛气衰、脉右弦缓、左脉濡涩，后诊明确“氣血皆虛”，方用四君子加味益气健脾，符合太阴里虚（气虚）不能荣养经络。</p>
+                </div>
+
+                <!-- 少阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：脉沉细无力、恶寒、汗出、表部虚寒、关节疼痛。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：有年、真炁不相维续，为少阴肾气虚衰之本。但主症为内风痰火阻络，故以太阴为主，少阴为根。</p>
+                </div>
+
+                <!-- 厥阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂、虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：上热下寒、少阳/阳明与太阴合病、寒热虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（核心病机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：內風日熾、左肢麻木不仁、舌歪言謇（肝风上扰清窍），脉左数（热）、右弦（风），明确“痰火阻络”，为少阳热郁+厥阴风动；兼太阴气血亏虚（上热下虚、虚实夹杂），本质为少阳厥阴合病（痰火阻络）。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（经络、肝络）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">热证、痰火、虚风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">厥阴（少阳）合病兼太阴虚</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">厥阴内风痰火阻络（中络），兼太阴气血亏虚，真气不相维续。</span>
+            </p>
+            <p class="mt-3 text-center text-sm text-gray-600">叶氏先清肝息风化痰火，后补气血宣络，调理百日，切中六经厥阴病虚实夹杂之病机。</p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>初诊（清肝息风、化痰开窍）：</strong>羚羊角、钩藤、丹皮（凉肝息风）；陈胆星、橘红、石菖蒲（化痰开窍）；连翘心、川斛（清热生津）。</li>
+                        <li><strong>二诊（清热化痰、养阴开窍）：</strong>羚羊角、元参、连翹（清热养阴）；花粉、川贝、橘红、竹沥（化痰生津）。</li>
+                        <li><strong>三诊（益气养血、化痰通络）：</strong>人参、茯苓、炙草、广皮、半夏（四君子加味益气健脾）；归身、白芍（养血）；桑枝（通络）。</li>
+                        <li><strong>四诊（宣通经隧、化痰开窍）：</strong>炒半夏、胆星、广橘红、茯苓（化痰）；石菖蒲、枳实、竹沥、姜汁（开窍宣络）。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【治法特点】</h3>
+                    <p class="leading-relaxed">
+                        叶天士先以羚羊角、钩藤等<strong>凉肝息风、化痰开窍</strong>治痰火阻络之标；继而针对“氣血皆虛”转用四君子加养血通络补太阴之本；最后跌仆后以宣通经隧、化痰开窍收功。<br><br>
+                        全程“調理百日、戒酒肉”，标本兼顾，切中厥阴（少阳）痰火阻络兼太阴虚之病机，忌纯攻伐。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证（厥阴痰火阻络兼太阴气血虚）为基准，临床常用替代方剂包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>羚角钩藤汤合温胆汤：</strong>凉肝息风、化痰开窍，中络风痰首选。</li>
+                        <li>• <strong>四君子汤合牵正散：</strong>益气健脾、祛风通络，气虚偏枯常用。</li>
+                        <li>• <strong>涤痰汤加减：</strong>化痰开窍，痰阻经络明显者。</li>
+                        <li>• <strong>补阳还五汤合二陈汤：</strong>益气活血、化痰通络，若气虚血瘀明显。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》严格六经辨证生成 · 按“先辨六经，再辨八纲，后辨方证”原则
+        </footer>
+    </div>
+</body>
+</html>

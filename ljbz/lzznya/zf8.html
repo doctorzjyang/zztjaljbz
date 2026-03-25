@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 钱姓精滑耳聋案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士 · 钱姓精滑耳聋案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                钱（五八），用力努挣，精从溺管沥出。已经两耳失聪，肾窍失司，显然虚象。凡肾液虚耗，肝风 Shibang（张），身肢麻木，内风暗袭，多有痱中之累。滋液熄风，温柔药涵养肝肾。经言肝为刚脏，而肾脏恶燥，若攻风劫痰，舍本逐末矣。（阴阳并虚）
+                <br>
+                <span class="text-gray-600 text-base italic">处方：熟地、枸杞、蓉、石菖蒲、当归、沙苑、巴戟、远志。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">肾液虚耗</span>
+                <span class="stamp">肝风内动</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经诊断对照表 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者无表证（恶寒发热），虽有“身肢麻木”类似表部症状，但本质是内风袭络而非外邪犯表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：口干、脉滑数、大便干、核心病机为里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病案明确指出“显然虚象”、“肾液虚耗”，与阳明实热之证格格不入。叶氏特别告诫不可“劫痰攻风”，即反对误用阳明病清热泻下之法。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：口苦、往来寒热、胸胁苦满、脉弦、孔窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：疑似符合（仅限于孔窍症状）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽见“两耳失聪”（孔窍疾患），但非由于少阳火郁，而是肾虚精脱。无往来寒热、口苦等实热指征。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">四、太阴病（里阴证/里虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：大便稀、胃脘胀、脉沉弱无力、里虚寒或气血虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（病性层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案属于“里阴证”中的血虚、精亏。精从溺管沥出、肾窍失司，皆为里部虚损之象。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：脉沉细无力、恶寒、虚寒凝滞、周身痛。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病位与本质）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提及“肾液虚耗”、“阴阳并虚”。少阴主肾，精血亏损导致的耳聋、精滑、麻木，正触及少阴经根本，表现为极度虚损。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2 text-[#8d7665]">六、厥阴病（寒热错杂/虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：上热下寒、寒热错杂、虚实夹杂、病机复杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（动态病机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：肾虚于下（阴证/太阴少阴），肝风动于上（阳动/内风袭络），呈现下虚上动的复杂病态。符合厥阴病“肝肾同源、虚实交错”的特点。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（及经络）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴阳并虚、内风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病，厥阴动风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">下元虚惫，精血不固，肝肾阴虚导致虚风内煽。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>填补精血（固本）：</strong>熟地、当归、枸杞。重在滋补亏损的肾液与肝血。</li>
+                        <li><strong>温润养肾（补阳）：</strong>肉苁蓉、巴戟天、沙苑子。针对“阴阳并虚”，这些药温而不燥，补肾阳而不伤阴，符合叶氏“温柔药”的原则。</li>
+                        <li><strong>宣窍安神（治标）：</strong>石菖蒲、远志。交通心肾，并针对“耳聋”进行宣窍通络。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：温柔药与涵养法】</h3>
+                    <p class="leading-relaxed">
+                        叶天士强调<strong>“温柔药涵养肝肾”</strong>，严禁<strong>“攻风劫痰”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>患者精血已枯，如干渴之树。若按常法用羌活、独活等祛风燥药，或用半夏、南星等劫痰药，会进一步耗竭津液，使“内风”更烈，加速痱中（中风）的发生。唯有柔润之品，方能潜镇风阳。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证为基准，临床常用替代方包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>地黄饮子：</strong>用于阴阳并补、交通心肾，最合此案“耳聋、精滑”之病机。</li>
+                        <li>• <strong>大补元煎：</strong>重在填补三阴，适用于精血极度亏损。</li>
+                        <li>• <strong>还少丹：</strong>侧重于脾肾双补，温和填精。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

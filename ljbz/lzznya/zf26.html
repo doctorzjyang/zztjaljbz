@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 曾姓眩晕案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·曾姓眩晕案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                曾（五二），脉弦动。眩晕耳聋，行走气促无力，肛痔下垂。此未老欲衰。肾阴弱，收纳无权；肝阳炽，虚风蒙窍。乃上实下虚之象。质厚填阴，甘味熄风，节劳戒饮。可免仆中。
+                <br>
+                <span class="text-gray-600 text-base">处方：虎潜去锁阳、知母，加大肉蓉，炼蜜丸。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者表现为内伤虚损，无外感表证，脉象“弦动”主里主热而非浮脉。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中虽见“肝阳炽”，但属于虚热动风之“上实”，并非肠胃燥结之阳明实热。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、耳聋目眩、胸胁苦满、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病位层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：现“眩晕耳聋”、“脉弦”，符合少阳经气机不利、虚热上扰孔窍的特征。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（虚损层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“气促无力”、“肛痔下垂”属中气不足、阳虚下陷，病性属里阴（虚）。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、身痛、精血虚损。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：深度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：明确诊断为“肾阴弱，收纳无权”，属于少阴病本质的精血亏损，水不涵木。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：完全符合（核心病机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：下有肾阴虚、中气陷（太阴少阴虚证），上有肝阳炽、风火动（少阳/厥阴热证），典型的上实下虚、寒热错杂之厥阴病机。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（肝肾）及孔窍</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴阳俱损、内风蒙窍</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴厥阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">下元亏损，水不涵木，肝阳暴张，虚风上扰。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <p class="mb-4 text-gray-700"><strong>方名：虎潜丸（去锁阳、知母，加肉苁蓉）</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>虎潜丸：</strong>原方滋阴降火，强筋壮骨。用于肝肾不足、阴虚火旺。</li>
+                        <li><strong>去锁阳、知母：</strong>锁阳性温燥易伤阴，知母苦寒恐伤及中焦（患者气促无力，已有脾虚之象），故去掉以求平稳。</li>
+                        <li><strong>加肉苁蓉：</strong>补肾阳而性温润，配合丸剂可资助收纳之权，且对痔疮（肠燥或下陷）有濡润通便、补虚之效。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：质厚填阴与戒饮】</h3>
+                    <p class="leading-relaxed">
+                        叶氏强调<strong>“质厚填阴，甘味熄风”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>患者“未老欲衰”，精血枯竭。清淡之品难以填补下焦。必须用重质的血肉有情之品（如虎潜丸中龟板等）来填补精血。同时嘱咐“节劳戒饮”，是因为酒易助火动风，劳则伤气耗精，这对防止“仆中”（中风）至关重要。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        根据此六经辨证（少阴肾虚、肝风内动），临床亦可参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>大补阴丸：</strong>侧重于重镇降火，滋阴封髓。</li>
+                        <li>• <strong>杞菊地黄丸：</strong>若眩晕耳聋为主，偏向于清利头目。</li>
+                        <li>• <strong>补中益气汤合六味地黄：</strong>针对“气促无力、痔疮下垂”与肾虚并见的情况。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

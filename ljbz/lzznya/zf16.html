@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 张姓痱中案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·张姓痱中案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                張（五七）痱中經年。眩暈汗出。陽氣有升無降。內風無時不動。此竟夜不寐。屬衛陽不肯交於營陰矣。沉痼之症。循理按法。尚難速效。紛紛亂藥。焉望向安。議用固陽明一法。（胃虛陽升）
+                <br>
+                <span class="text-gray-600 text-base">处方：桂枝木、生黄耆、川熟附、炒远志、龙骨、牡蛎、姜、枣。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">固阳明法</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中虽有“汗出”，但属阳虚不固之汗，非表实之发热恶寒。病程“经年”，属内伤沉痼，非太阳表证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（假性阳明之象）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽叶氏言“固阳明”，但此为“胃虚”导致阳气浮越，非阳明腑实之实热证。无口渴、便秘、苔黄燥等指征。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、默默不欲饮食、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（标证层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者“眩晕”、“内风无时不动”，符合少阳相火上炎、风火扰动之象。但缺乏口苦、脉弦等核心实热证据，属虚风而非实火。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：核心病机为“胃虚”，且久病痱中，阳气有升无降，中焦虚馁无法敛降，属于太阴里虚之本质。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴虚寒/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、恶寒、汗出、全身虚损。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（程度深重）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者“汗出”不止、“竟夜不寐”，乃阳不入阴、卫外不固。用附子、龙牡等药，正为温补下元、潜镇少阴浮越之阳。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、虚实夹杂、寒热错杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（动态表现）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：阳气上窜（眩晕、不寐）类似热证，而胃虚、汗出、经年不愈为虚寒。此种“上盛下虚、虚风内动”的格局符合厥阴病复杂的阴阳失调特征。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（脾胃）及下元（肾）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">虚寒、阳气浮越、动风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病并内风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">胃虚气弱，阳气不降，卫强营弱，内风扰动。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>助阳固表：</strong>生黄耆、桂枝木。黄耆固表敛汗，桂枝调和营卫，引卫阳入于营阴。</li>
+                        <li><strong>温经扶阳：</strong>川熟附。针对“沉痼之症”，补益下元，化气降逆。</li>
+                        <li><strong>潜镇摄纳：</strong>龙骨、牡蛎。重镇安神，收敛浮越之阳气，解决“竟夜不寐”。</li>
+                        <li><strong>调中助运：</strong>姜、枣。补益脾胃，为“固阳明”之基。</li>
+                        <li><strong>宁心交通：</strong>远志。交通心肾，协助入眠。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：固阳明法】</h3>
+                    <p class="leading-relaxed">
+                        叶天士提出<strong>“固阳明一法”</strong>，并非使用清热泻下的承气类方，而是用温补敛降。
+                        <br><br>
+                        <strong>机理：</strong>阳明为多气多血之府，主降。若中焦虚弱（胃虚），则阳气无所依附而上浮。通过温固中焦，使阳气“有降”，从而平息内风。这是“从本论治”的高级体现。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>桂枝加龙骨牡蛎汤：</strong>若侧重于调和营卫、潜镇浮阳，此方为首选。</li>
+                        <li>• <strong>黄耆建中汤：</strong>若患者脾胃虚寒迹象更明显，以此方化气生血。</li>
+                        <li>• <strong>潜阳丹：</strong>若属纯粹的下焦虚寒、虚火上炎，可参考此法。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士临床经验生成
+        </footer>
+    </div>
+</body>
+</html>

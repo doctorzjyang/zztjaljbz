@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 刘姓痿证案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·刘（七三）痿证案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg italic">
+                “刘（七三）神伤思虑则肉脱。意伤忧愁则肢废。皆痿象也。缘高年阳明脉虚。加以愁烦。则厥阴风动。木橫土衰。培中可效。若穷治风痰。便是劫烁则谬。”
+                <br>
+                <span class="text-gray-600 text-base not-italic">处方：黄耆、於朮、桑寄生、天麻、白蒺藜、当归、枸杞、菊花汁、加蜜丸。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">培中熄风</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经诊断对照表 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。位：表；性：阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者表现为“肉脱”、“肢废”，属于内伤虚损。无表证之恶寒发热，病位不在表。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：口干、脉滑数、大便干。位：里；性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（但涉及阳明虚证）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：标准为阳明实热，而本案明确指出是“阳明脉虚”。虽病位在阳明（胃主肌肉），但病性为虚而非实热。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：口苦、往来寒热、胸胁苦满、脉弦。位：半表半里；性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中未见口苦、心烦喜呕等枢机不利之症，虽有“风动”，但属于内风虚动。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：便稀、脘胀、畏寒、脉沉弱无力。位：里；性：阴、虚、寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病性与病位核心）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中“神伤思虑则肉脱”、“木横土衰”，直指脾胃（太阴）运化无力，精微不能濡养肌肉。病性属于里、虚、阴证。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：脉沉细无力、恶寒身痛、表部虚寒。位：表；性：阴、虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（虚损层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：高年患者“神伤”、“意伤”，乃精气神全面亏损之象，肢废肉脱提示下元及整体机能衰退，符合少阴主虚、主全身损耗的特征。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/肝脾合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2 font-semibold">标准：上热下寒、寒热错杂、多经合病。位：涉及半表半里及里。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病机转化层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确提出“厥阴风动，木横土衰”。这是典型的厥阴（肝）与太阴（脾）的合病表现：肝木失调（风动）克伐脾土（虚衰），属于虚实夹杂的复杂格局。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（脾、胃、肝）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、内风虚动</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴厥阴合病（木横土衰）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">高年土虚，思虑伤神，肝风乘虚而动，筋骨肌肉失养。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>培土固中（补太阴）：</strong>黄耆、於朮（白术）。旨在补益脾胃元气，使土厚则风自息。</li>
+                        <li><strong>滋阴养血（补厥阴少阴）：</strong>当归、枸杞、桑寄生。桑寄生补肝肾兼强筋骨。</li>
+                        <li><strong>柔肝熄风（治标）：</strong>天麻、白蒺藜、菊花汁。天麻为熄内风之圣药，与白蒺藜、菊花同用，清灵柔润。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特药法：汁液制丸】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此使用了<strong>“菊花汁”</strong>加蜜为丸。
+                        <br><br>
+                        <strong>解析：</strong>老年痿证，最忌燥药。常规丸药若纯用末，易伤津。取菊花鲜汁，既能清散肝经微热，又增加了药剂的“濡润”之性，体现了叶氏“治风先治血，血行风自灭”及“柔剂润剂”治疗内风的特色，避免了“劫烁”津液。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        以此辨证框架，临床亦可参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>补中益气汤合天麻钩藤饮：</strong>侧重于升提中气并平肝风。</li>
+                        <li>• <strong>归脾汤：</strong>若思虑伤神严重，侧重于心脾同治。</li>
+                        <li>• <strong>六君子汤加味：</strong>若脾虚痰湿迹象明显，可考虑此方。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

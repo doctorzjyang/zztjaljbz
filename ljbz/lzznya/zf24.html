@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 徐姓水亏风动案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士 · 徐姓水亏风动案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                徐（四一），水亏风动。舌强肢麻。中络之象。当通补下焦。复以清上。
+                <br>
+                <span class="text-gray-600 text-base">处方：熟地、淡丛蓉、杞子、牛膝、五味、远志、羚羊角、茯苓、麦冬、菖蒲。蜜丸。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">通补下焦</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经诊断对照表 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：表 | 病性：阳、实</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者无恶寒恶风等表证表现，其“肢麻、舌强”属于经络内部失养，非表部感受风邪。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：口干、脉滑数、大便干、核心为里实热证。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：里 | 病性：阳、热、实</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确提出“水亏”，即阴液不足。虽有“风动”之标阳，但非胃肠实火之燥结。羚羊角清上而非下夺肠胃。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：口苦、咽干、目眩、往来寒热、胸胁苦满、脉弦。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：半表半里 | 病性：阳、热、实</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分涉及（标证层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：所谓“风动”多涉及少阳枢机与肝胆升发失常。此处为虚风，非少阳胆经之实热郁结，故仅表现为标部之“动”。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：大便稀、胃脘胀、畏寒肢冷、脉沉弱、血虚、气虚。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：里 | 病性：阴、虚、寒</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病性层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：医案定性为“水亏”，属于里阴证范畴。阴血精液之亏损即为太阴病之“里虚”延伸。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：脉沉细无力、恶寒、身痛（本质为虚寒）。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：表 | 病性：阴、虚</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：核心符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病位定于“下焦”，且涉及神志（菖蒲、远志），水亏即肾精亏。这种深层次的精血损耗，符合少阴“脉微细，但欲寐”背后的生命真元亏损。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-1">标准：上热下寒、寒热错杂、本虚标实、多经合病。</p>
+                    <p class="text-xs text-gray-500 mb-2">病位：涉及里与半表半里 | 病性：虚实夹杂</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：精准诊断（综合层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本病呈现典型的“下虚上实”：下焦水亏为本（太阴/少阴阴虚），上部风动舌强为标（少阳/厥阴风火）。虚实夹杂，寒热不调（阴虚发热），故为厥阴病机。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（下焦）及络脉</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证（本）、风动（标）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病，厥阴风动</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">肾阴涸竭，肝风内动，蒙蔽清窍，血不荣络。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>滋填下焦（通补）：</strong>熟地、杞子、淡丛蓉。丛蓉补阳而不燥，合熟地旨在“填精”，而非单纯补水，体现“通补”之意。</li>
+                        <li><strong>镇熄内风（清上）：</strong>羚羊角。此药专门镇肝熄风，针对“风动”与“舌强”之标。</li>
+                        <li><strong>开窍通络：</strong>远志、菖蒲。针对“舌强”与“中络之象”，开窍化痰，引导药力入络。</li>
+                        <li><strong>固摄收敛：</strong>五味子、茯苓、麦冬。仿“地黄饮子”之意，交通心肾，收敛虚火。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：清上与通下并行】</h3>
+                    <p class="leading-relaxed">
+                        叶天士强调<strong>“当通补下焦，复以清上”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>此案是典型的“水不涵木”。若只补下，则上部之风火不退，易生卒中之变；若只清上，则下部水愈亏，风愈动。叶氏通过蜜丸缓治，既保证了精血的持续滋填，又通过羚羊角等药平抑上亢之气，平衡阴阳。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>地黄饮子：</strong>本案处方实为地黄饮子之化裁，原方更适用于阴阳两虚。</li>
+                        <li>• <strong>大补阴丸：</strong>若阴虚火旺之象更突出，可用此方滋阴降火。</li>
+                        <li>• <strong>镇肝熄风汤：</strong>若血压高、气血上逆明显者，可考虑此方加强镇潜之力。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

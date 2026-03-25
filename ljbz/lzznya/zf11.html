@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 周姓案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士 · 周姓中风预兆案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                周，大寒土旺节候。中年劳倦，阳气不藏，内风动越。令人麻痹，肉瞤心悸，汗泄烦躁。乃里虚欲暴中之象。
+                <br>
+                <span class="text-gray-600 text-base">议用封固护阳为主，无暇论及痰饮他歧。（阳虚卫疏）处方：人参、黄芪、附子、熟术。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">封固护阳</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。病位在表，病性为阳实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽有“汗泄”，但非伤寒表证之发热恶寒，而是阳气不固的自汗。病机直指“里虚”，非表部实证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。病位在里，病性为阳热实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者表现为“烦躁”，虽似阳明，但系阳气外越、阴不敛阳的虚烦，并非里实热证。案中明确提到“无暇论及痰饮他歧”，否定了实邪干扰。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、心烦喜呕、脉弦。病位在半表半里，病性为阳热实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：缺乏枢机不利、口苦、胁满等典型少阳证候。内风动越虽涉及风木，但其根源在于里虚阳脱。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱。病位在里，病性为阴虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病性与病位）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提及“土旺节候”却见“劳倦、里虚”，体现了脾胃（太阴）中气之虚。人参、黄芪、熟术（白术）皆为太阴补益主药。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、恶寒、自汗、身痛。病位在表（虚寒）或全身，病性为阴虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：极度符合（病机核心）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“阳气不藏”是典型的少阴肾阳不固。心悸、汗泄、内风动越（虚阳外浮）均为少阴虚寒、阳气欲脱的危候。使用附子是针对少阴病的核心治法。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂。病位涉及里与半表半里。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（标本错杂）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：内风（动、麻痹、肉瞤）属木气亢动，烦躁属上热，而根源在里虚阳虚。此种“下虚标动”的状态呈现了厥阴阴阳不相顺接、风木内动的特征。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（及全身卫外）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚寒、阳浮</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">中气内虚，下元不固，阳浮于外，虚风内动。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>人参、黄芪、熟术：</strong> 典型补中益气组合，重在培补“太阴”之本，固摄中气。</li>
+                        <li><strong>附子：</strong> 大补“少阴”肾阳，旨在温阳潜阳，收纳浮游之火。</li>
+                        <li><strong>组合逻辑：</strong> 四味药构成了一剂强力的“封固护阳”方。这不仅仅是补气，更是通过补脾肾之阳来“强其主”，使内风自息。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：急则治本】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此案中表现了极高的临床定力。面对“麻痹、肉瞤、内风”等标症，通常医者易从“熄风、化痰、通络”入手。
+                        <br><br>
+                        <strong>独特见解：</strong> 叶氏指出“无暇论及痰饮他歧”。他认为当前的急务是防止阳气彻底溃散导致的“暴中”（中风脱证）。通过大剂量的参、芪、附，直接封固关口，这种“不治风而风自定”的策略是针对虚极欲脱证的特有治法。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>参附汤：</strong> 若阳虚欲脱征象更重，首选此方。</li>
+                        <li>• <strong>补中益气汤加附子：</strong> 侧重于中气下陷显著者。</li>
+                        <li>• <strong>真武汤：</strong> 若患者兼有严重的水湿不化或水气凌心。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

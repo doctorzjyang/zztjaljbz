@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 张姓中风案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·张姓中风案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                张（四九），中风以后。肢麻言謇。足不能行。是肝肾精血残惫。虚风动络。下寒。二便艰阻。凡肾虚忌燥。以辛润温药。
+                <br>
+                <span class="text-gray-600 text-base italic">处方：肉苁蓉、枸杞、当归、柏子仁、牛膝、巴戟、川斛、小茴。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">六经辨证</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒、恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者无恶寒发热、脉浮等表证。虽有“足不能行”，但属于中风后遗证，而非外感初期表郁。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干（里热伤津）。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽有“二便艰阻”，但病机明确指出是“下寒”与“精血残惫”，并非里实热证。此时便秘属虚秘，非阳明病。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：无口苦、心烦等半表半里热性症状。患者病情偏向下焦深重虚损。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病位在里）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确提及“下寒”，属于里虚寒范畴。虽然大便不稀反阻，但这源于“精血残惫”无力传导，其寒湿虚损之性符合太阴。 </p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒身痛、表部虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：深度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“肝肾精血残惫”是核心。肾为少阴，精血不足导致肢体麻木、足不能行。少阴主筋骨之根，本案呈现典型的少阴精血枯竭之象。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、多经合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（病机演变）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者既有“下寒”（太阴/少阴），又有“虚风动络”导致肢麻言謇（肝木动风），表现为虚实错杂。肝肾同源，病及厥阴与少阴。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（下焦肝肾）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、下寒</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴太阴合病并内风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">下焦虚寒，精血枯竭，筋骨失养，虚风上扰。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>温润填精（主药）：</strong>肉苁蓉、巴戟、枸杞。肉苁蓉温而不燥，补肾阳兼润肠通便，最合“二便艰阻”且“肾虚忌燥”之理。</li>
+                        <li><strong>滋阴养血：</strong>当归、柏子仁、川斛。滋补肝血、心血，川斛养胃肾之阴，防止温药过燥。</li>
+                        <li><strong>通络导行：</strong>牛膝、小茴。牛膝强筋骨且引血下行，小茴温散下焦寒邪，助阳气生发。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：辛润温药】</h3>
+                    <p class="leading-relaxed">
+                        叶氏提出<strong>“凡肾虚忌燥，以辛润温药”</strong>。
+                        <br><br>
+                        <strong>深度解析：</strong>中风后遗症常见阴血亏损，若单纯用辛燥药祛风或温补，会进一步耗伤残存的精血。叶天士改用<strong>肉苁蓉、柏子仁、当归</strong>等油脂丰富的药物，既能温阳补肾，又能润滑肠道、滋养经脉，使“血行风自灭”。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><span class="font-bold">• 地黄饮子：</span>若舌苔薄腻、足废不能用、舌强言謇，此方为首选，属于阴阳并补、开窍化痰。</li>
+                        <li><span class="font-bold">• 济川煎：</span>针对“二便艰阻”且属于肾虚不温者，济川煎中肉苁蓉与牛膝的配伍与此案思路一致。</li>
+                        <li><span class="font-bold">• 补阳还五汤：</span>若气虚血瘀症状明显（面色萎黄、脉缓弱），可考虑此方，但需注意其药性偏于走动，需结合滋润之品。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士临床经验生成
+        </footer>
+    </div>
+</body>
+</html>

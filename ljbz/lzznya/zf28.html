@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 某（嫗）内风痱中案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·某（嫗）内风痱中案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                某（嫗）今年風木司天。春夏陽升之候。兼因平昔怒勞憂思。以致五志氣火交併於上。肝膽內風鼓動盤旋。上盛則下虛。故足膝無力。肝木內風壯火。乘襲胃土。胃主肌肉。脈絡應肢。繞出環口。故唇舌麻木。肢節如痿。固為中厥之萌。觀河間內火召風之論。都以苦降辛泄。少佐微酸。最合經旨。折其上騰之威。使清空諸竅毋使濁痰壯火矇蔽。乃暫藥權衡也。至於頤養工夫。寒暄保攝。尤當加意於藥餌之先。上午服。<br>
+                金石斛（三錢）　化橘紅（五分）　白蒺藜（二錢）　真北秦皮（一錢）　草決明（二錢）　冬桑葉（一錢）　嫩鉤藤（一錢）　生白芍（一錢）<br><br>
+                又　前議苦辛酸降一法。肝風胃陽已折其上引之威。是諸症亦覺小愈。雖曰治標。正合歲氣節候而設。思夏至一陰來復。高年本病。預宜持護。自來中厥。最防於暴寒驟加。致身中陰陽兩不接續耳。議得攝納肝腎真氣。補益下虛本病。<br>
+                九制熟地……（後略，詳見醫案）　肉蓯蓉……　生虎膝骨……　淮牛膝……　制首烏……　川萆薢……　川石斛……　赤白茯苓……　柏子霜……<br>
+                上藥照方制末。另用小黑穭豆皮八兩。煎濃汁法丸。每早百滾水服三錢。<br><br>
+                議晚上用健中運痰。兼制亢陽。火動風生。從外臺茯苓飲意。<br>
+                人參……　熟半夏……　茯苓……　廣皮肉……　川連……　枳實……　明天麻……　鉤藤……　白蒺藜……　地慄粉……<br>
+                上末用竹瀝一杯。薑汁十匙。法丸。食遠開水服三錢。<br><br>
+                又　近交秋令。燥氣加臨……（後續多診隨症加減，至冬至後虎潛法、瓊玉膏、甘寒養陰等，詳見醫案）
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+
+                <!-- 太阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：恶寒恶风、脉浮、头痛身痛、身痒、浮肿等表部营卫不和。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病起于风木司天、怒劳忧思，五志气火内生，肝胆内风鼓动，无恶寒发热、脉浮、身痛等表实证。纯属内伤，非外感表邪。</p>
+                </div>
+
+                <!-- 阳明病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里阳热实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分涉及</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：肝木壮火乘袭胃土，胃主肌肉、绕环口，故唇舌麻木、肢节如痿，有胃阳被扰之象。但脉细小带弦，非滑数；病机为肝风乘胃而非阳明腑实燥热。</p>
+                </div>
+
+                <!-- 少阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口苦、往来寒热、胸胁苦满、脉弦、诸窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：肝胆内风鼓动、脉带弦、上盛清窍（唇舌麻木、语言謇），类似少阳风热上扰。但整体为肾虚肝风内动，非典型半表半里实热枢机不利。</p>
+                </div>
+
+                <!-- 太阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力（里虚寒、水湿、气虚等）。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（治法层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：晚服健中运痰（外台茯苓饮意），提示兼太阴脾胃气虚不能运化。但主病不在太阴里虚寒，而在肝肾下虚。</p>
+                </div>
+
+                <!-- 少阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：脉沉细无力、恶寒、汗出、表部虚寒、关节疼痛。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：高年本虚、冬季藏纳少固、足膝无力、下虚明显，脉细小（少阴肾虚本脉），肾脉不营舌络、舌络强言謇，符合少阴肾阴亏虚、精气不藏之本质。</p>
+                </div>
+
+                <!-- 厥阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂、虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：上热下寒、少阳/阳明与太阴合病、寒热虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（核心病机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：肝胆内风鼓动、上盛（唇舌麻木、肢痿、中厥之萌、火乘胃土）、下虚（足膝无力、肾虚液亏），五志气火交并，符合厥阴“上热下寒、虚实夹杂”。本质为少阴肾虚与厥阴肝风合病，肝木乘胃、阴阳失交。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（肝肾胃络）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、内风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴厥阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">肝肾阴虚，肝胆内风鼓动，上盛下虚，风火乘胃，痱中之萌（厥阴风动、少阴下虚）。</span>
+            </p>
+            <p class="mt-3 text-center text-sm text-gray-600">叶氏明言“上盛則下虛”“中厥之萌”“肝木內風壯火”，治以苦降辛泄凉肝为标，摄纳肝肾为本，切合六经厥阴病复杂病机。</p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>初诊上午方（苦辛酸降、凉肝息风治标）：</strong>金石斛、草决明、冬桑叶、嫩钩藤、生白芍、白蒺藜、北秦皮、化橘红。苦降辛泄、微酸敛肝，折上腾风火，护清空诸窍。</li>
+                        <li><strong>摄纳肝肾丸（补少阴厥阴本）：</strong>九制熟地、肉苁蓉、制首乌、淮牛膝、川石斛、虎膝骨等。填精补肾、摄纳下虚，治本。</li>
+                        <li><strong>晚服健中运痰丸（兼顾太阴、制亢阳）：</strong>人参、茯苓、广皮、半夏、川连、枳实、天麻、钩藤等。从外台茯苓饮意，益气化痰、和胃制风。</li>
+                        <li><strong>后续季节加减（清燥养阴、虎潜、琼玉膏等）：</strong>甘寒生津（麦冬、沙参、梨汁、柿霜）、滋阴潜阳（虎潜法）、补心养液（琼玉膏），标本兼顾，随四时调整。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【治法特点】</h3>
+                    <p class="leading-relaxed">
+                        叶天士先以“苦降辛泄、少佐微酸”折肝风上腾之威（暂治标，合岁气节候）；继以摄纳肝肾真气补下虚（治本）；晚服健中运痰兼制亢阳；秋燥后清润上焦、甘寒养阴；冬至后虎潜、琼玉膏滋液救焚。<br><br>
+                        全程“治本為法”，忌纯攻风劫痰，强调“頤養工夫、寒暄保攝”，切中少阴厥阴合病“上盛下虛、虛實夾雜”之病机。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证（少阴厥阴合病，肝肾阴虚内风上盛下虚）为基准，临床常用替代方剂包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>地黄饮子：</strong>滋肾阴、平肝风，治肾虚痱中、语言謇涩。</li>
+                        <li>• <strong>虎潜丸：</strong>滋阴降火、强筋壮骨，适用于阴虚风动之痿证。</li>
+                        <li>• <strong>大定风珠：</strong>滋阴潜阳、息风止痉，若风动较甚。</li>
+                        <li>• <strong>琼玉膏：</strong>滋阴润燥、补益心肾，液亏火亢者。</li>
+                        <li>• <strong>天麻钩藤饮合六味地黄丸：</strong>滋阴平肝、标本同治。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》严格六经辨证生成 · 按“先辨六经，再辨八纲，后辨方证”原则
+        </footer>
+    </div>
+</body>
+</html>

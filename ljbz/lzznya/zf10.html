@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 陈姓中络案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·陈姓中络案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                陈（五九），中络舌喑不言。痛自足起渐上。麻木䐜胀。已属痼疾。参苓益气。兼养血络。仅堪保久。
+                <br>
+                <span class="text-gray-600 text-base">处方：人参、茯苓、白术、枸杞、当归、白芍、天麻、桑叶。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">久病入络</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。病位在表，病性属阳实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病程已久（痼疾），无恶寒发热等表证。虽有肢体疼痛，但非外感风寒所致，而是“自足起渐上”的内损表现。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干。核心为里实热证。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中未见阳明实热之象。且治法使用人参、白术等补益药，与阳明病清热、攻下之法截然相反。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。诸孔窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：疑似/部分涉及</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者有“舌喑不言”，涉及孔窍窍道不利，且方中使用天麻、桑叶有疏调风阳之意。但缺乏少阳病典型的实热证据。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便偏稀、胃脘胀满、脉沉弱无力。核心为里虚寒或气虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（基础病机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：叶氏明确提出“参苓益气”，说明存在脾肺气虚。太阴主运化，气虚则血行无力，导致“中络”及“麻木”。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/精血亏损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、周身疼痛、虚寒凝滞。主精血亏虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（本质病机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：年五十九，久病痼疾。方用枸杞、当归、白芍滋养阴血。血虚不萦筋骨，本质属少阴精血不足，失于濡养。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、虚实夹杂。本质为少阳、阳明与太阴之合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病程表现为虚实夹杂（内虚与络阻内风并见），但寒热错杂表现不典型，更多体现为太阴少阴之虚证。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（脾肾）及经络</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、气血两虚</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴少阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">中气亏欠，精血不足，致络脉空虚，风邪趁虚袭络。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>补中益气（太阴）：</strong>人参、茯苓、白术。此为四君子汤化裁，旨在扶助中焦，化生气血。</li>
+                        <li><strong>滋养血络（少阴）：</strong>枸杞、当归、白芍。填补肝肾精血，濡养干枯的脉络，改善“麻木䐜胀”。</li>
+                        <li><strong>搜风通络（治标）：</strong>天麻、桑叶。天麻熄风定惊，桑叶轻清疏散，针对“中络”导致的风动之象。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别药法：保久之计】</h3>
+                    <p class="leading-relaxed">
+                        叶氏强调<strong>“仅堪保久”</strong>，体现了对慢性痼疾的清醒认识。
+                        <br><br>
+                        <strong>药法特征：</strong>此方并非一味猛攻风邪（如大秦艽汤类），而是通过<strong>“培本以化风”</strong>。这种补益剂中加入少量通络药的方法，是针对老年久病、气血已衰之人的典型思路。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>补阳还五汤：</strong>若患者伴有明显的半身不遂、气虚血滞严重。</li>
+                        <li>• <strong>圣愈汤：</strong>若单纯偏向于气血不足，不伴明显风证。</li>
+                        <li>• <strong>还少丹：</strong>若侧重于脾肾双补，以应对长期衰老衰惫。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

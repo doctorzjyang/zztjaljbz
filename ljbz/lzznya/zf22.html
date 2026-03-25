@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 程姓中风案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·程姓中风案（阴风湿晦中脾络）</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                程　脈濡無熱。厥後右肢偏痿。口喎舌歪。聲音不出。此陰風濕晦中於脾絡。加以寒滯湯藥。蔽其清陽。致清氣無由展舒。法宗古人星附六君子湯益氣。仍能攻風祛痰。若曰風中廉泉，乃任脈為病。與太陰脾絡有間矣。（風濕中脾絡）<br>
+                人參　茯苓　新會皮　香附汁　南星（薑汁炒）　竹節白附子（薑汁炒）
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+
+                <!-- 太阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：恶寒恶风、脉浮、头痛身痛、身痒、浮肿等表部营卫不和。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉濡无热，右肢偏痿、口喎舌歪为络脉病变，无表实恶寒发热、身痛等太阳表证。</p>
+                </div>
+
+                <!-- 阳明病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里阳热实证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉濡无热，明确“陰風濕晦”，为阴湿之邪，非里实热证。</p>
+                </div>
+
+                <!-- 少阳病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：口苦、往来寒热、胸胁苦满、脉弦、诸窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：声音不出、口喎舌歪虽涉及窍络，但无口苦、寒热往来、脉弦等少阳典型证候，且病机为阴风湿晦，非实热。</p>
+                </div>
+
+                <!-- 太阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力（里虚寒、水湿、气虚等）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（核心病位病性）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉濡（湿象）、无热、右肢偏痿、口喎舌歪、声音不出，明确“陰風濕晦中於脾絡”，为太阴脾络受阴风湿邪阻滞，清阳不展。叶氏指出与任脉风中廉泉有别，强调太阴脾络病机。</p>
+                </div>
+
+                <!-- 少阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴虚寒证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：脉沉细无力、恶寒、表部虚寒、关节疼痛。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉濡、无热，有阴邪性质，但主病在脾络（太阴）而非少阴表虚寒，厥后偏痿亦非典型少阴虚寒厥逆。</p>
+                </div>
+
+                <!-- 厥阴病 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂、虚实夹杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">诊断标准：上热下寒、少阳/阳明与太阴合病、寒热虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（标本合病）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本为太阴脾络阴风湿晦（里阴虚寒湿），标见口喎舌歪、声音不出（阴风上扰清窍，夹有风动）。整体为太阴病为主，兼厥阴阴风内动，寒湿与风邪夹杂。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（太阴脾络）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、寒湿夹风</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阴病为主，兼厥阴阴风</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">阴风湿晦中于太阴脾络，清阳被蔽，气机不展，络脉失养。</span>
+            </p>
+            <p class="mt-3 text-center text-sm text-gray-600">叶氏特别指出“與太陰脾絡有間矣”，明确病在太阴而非任脉。</p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>益气健脾（补太阴本）：</strong>人参、茯苓，补脾益气，助清阳展舒。</li>
+                        <li><strong>理气化湿：</strong>新會皮（陈皮）、香附汁，理气行滞，化湿开郁。</li>
+                        <li><strong>祛风化痰（治标）：</strong>南星（姜汁炒）、竹節白附子（姜汁炒），燥湿化痰，祛风通络，专走脾络。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【治法特点】</h3>
+                    <p class="leading-relaxed">
+                        法宗古人<strong>星附六君子汤</strong>加减：益气同时仍能攻风祛痰。<br><br>
+                        针对“陰風濕晦中於脾絡”“寒滯湯藥蔽其清陽”，以温运太阴、化湿祛风为要，姜汁炒南星、白附子增强燥湿祛风之力，避免寒凉再伤清阳。<br><br>
+                        强调病在太阴脾络而非单纯风中廉泉，治法直达病所。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证（太阴为主，阴风湿中脾络）为基准，临床常用替代方剂包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>星附六君子汤：</strong>益气祛痰、祛风通络，正合本案。</li>
+                        <li>• <strong>六君子汤合牵正散：</strong>健脾化痰、祛风止歪。</li>
+                        <li>• <strong>附子理中汤加减：</strong>若寒湿较重，温脾散寒。</li>
+                        <li>• <strong>黄芪桂枝五物汤合二陈汤：</strong>益气通络、化湿祛痰。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》严格六经辨证生成 · 按“先辨六经，再辨八纲，后辨方证”原则
+        </footer>
+    </div>
+</body>
+</html>

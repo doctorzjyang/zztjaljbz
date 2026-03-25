@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 俞氏痱中案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .conclusion-box {
+            border: 2px dashed #8d7665;
+            background-color: #fffaf0;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·俞（氏）痱中案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                俞（氏）寡居一十四載。獨陰無陽。平昔操持。有勞無逸。當夏四月。忽然右肢麻木。如墮不舉。汗出麻冷。心中卒痛。而呵欠不已。大便不通。診脈小弱。
+                <br>
+                <span class="text-gray-600 text-base italic">处方：桂枝、附子、生黄芪、炒远志、片姜黄、羌活。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">固卫通络</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。位：表；性：阳、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽有“汗出”，但系阳虚不固之汗，非表实之发热恶寒。脉“小弱”而非浮，不属太阳实证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干。位：里；性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：疑似符合（仅见症）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者虽有“大便不通”，但脉象“小弱”，结合病史属气虚无力推动，非阳明里实热证。此为“虚秘”。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。位：半表半里；性：阳、热、实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：缺乏少阳枢机不利之典型口苦、寒热往来等证。病位偏于表卫及经络。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀、畏寒、脉沉弱无力。位：里；性：阴、虚、寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：高度符合（病性层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：脉“小弱”，平昔劳累，由于“独阴无阳”，里气大亏。且大便不通属气虚太阴范畴。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、汗出、肢冷、身痛。位：表；性：阴、虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：核心符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者“汗出麻冷”、“如堕不举”，脉“小弱”，符合少阴表虚寒、卫阳不固之征兆。汗出冷感是少阴阳虚的典型表现。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂。其本质是多经合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（合病层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案主要表现为纯虚损，尚未形成明显的寒热错杂。但由于其病机涉及经络痹阻与脏腑虚损，具有厥阴病深层虚损的特征。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 conclusion-box shadow-inner">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">表卫、经络及里</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚寒证</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴太阴合病（卫虚络痹）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">阳气大泄，卫外不固，阳虚络痹，气不布津。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>扶阳固卫（治本）：</strong>生黄芪、附子、桂枝。此为“芪附汤”合“桂枝汤”意，旨在温补少阴，大固卫阳，解决汗出、麻冷之根源。</li>
+                        <li><strong>宣通脉络（治标）：</strong>片姜黄、羌活。姜黄走血分通络，羌活走气分搜风，针对“右肢麻木、如堕不举”之络痹。</li>
+                        <li><strong>宁心开窍（兼顾）：</strong>炒远志。针对“心中卒痛、呵欠不已”之神气不振。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【特别治法：温通法】</h3>
+                    <p class="leading-relaxed">
+                        叶天士明确指出：<strong>“攻风劫痰之治，非其所宜”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>患者乃因“意伤忧愁”及“劳倦”致虚，夏月阳气外泄，本质是虚。若按常法用燥烈的搜风药或化痰药，会进一步耗伤阴血阳气。叶氏反其道而行之，重用<strong>固卫阳</strong>之品，辅以<strong>宣通脉络</strong>，通过温补的力量推动经络运行，此所谓“温通法”。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>黄芪桂枝五物汤：</strong>专门针对“血痹”导致的肢体麻木，性质温和。</li>
+                        <li>• <strong>补阳还五汤：</strong>若气虚更甚且伴有瘀血症状，此方为首选。</li>
+                        <li>• <strong>再造散：</strong>针对阳虚体质的外感或经络不通，具阳虚外散之功。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>
