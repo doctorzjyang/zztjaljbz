@@ -189,14 +189,18 @@
         .case-list {
             margin-left: 20px;
             margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .case-item {
-            margin-bottom: 8px;
+            flex: 0 0 calc(20% - 8px); /* 5 items per row with gap */
             padding: 8px 12px;
             background: rgba(212,165,116,0.1);
             border-radius: 5px;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .case-item:hover {
@@ -261,6 +265,17 @@
 
             .case-list {
                 margin-left: 10px;
+                gap: 8px;
+            }
+
+            .case-item {
+                flex: 0 0 calc(33.333% - 6px); /* 3 items per row on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-item {
+                flex: 0 0 calc(50% - 4px); /* 2 items per row on small mobile */
             }
         }
 
@@ -291,6 +306,7 @@
         <a href="../index.html" class="nav-tab">返回主页</a>
         <a href="#" class="nav-tab active">医案目录</a>
         <a href="lzznya/zf1.html" class="nav-tab">临证指南医案</a>
+        <a href="lzznya/zfzj.html" class="nav-tab">中风总结</a>
     </nav>
 
     <section class="content-section">

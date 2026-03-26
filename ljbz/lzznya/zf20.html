@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 沈 風中廉泉案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">沈 風中廉泉案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                沈　風中廉泉。舌腫喉痹。麻木厥昏。內風亦令阻竅。上則語言難出。下則二便皆不通調。考古人呂元膺。每用芳香宣竅解毒。勿令壅塞致危也。（胞絡熱邪阻竅）<br>
+                <span class="text-gray-600 text-base">处方：至寶丹四丸勻四服。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者虽有麻木、厥昏，但无表证之恶寒、恶风、脉浮、身痛等表现。病位在里（胞络、诸窍），非表阳实证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热（痰热、湿热、瘀热等）。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（热邪层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：胞络热邪阻窍，舌肿喉痹、二便不通调均为里热上冲、下注之象。但核心在心包络热闭，非典型胃肠实热（无口干、烦躁、脉滑数记载），治法非白虎、承气类。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦、诸孔窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（孔窍层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：舌肿、喉痹、语言难出均属孔窍疾患（咽部病变），内风阻窍可兼少阳枢机不利。但无口苦、往来寒热、胸胁苦满、脉弦等典型半表半里实热证，且有厥昏重症。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽二便不通调，但无里虚寒、水湿不化之象，反见热邪阻窍、厥昏，病性属热而非虚寒。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒汗出、关节疼痛、表部虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：麻木、厥昏虽有虚损可能，但案中核心为“胞络热邪阻窍”，无表虚寒、恶寒、汗出、脉沉细等少阴表阴证。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂、多经合病（里热证＋里虚寒证）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“胞络热邪阻窍”属里实热（痰热、热邪上冲），舌肿喉痹、语言难出为上热；“内风阻窍、麻木厥昏、二便不通调”为窍闭神昏、虚实夹杂之象；整体上热下阻、阴阳逆乱，符合厥阴病“少阳/阳明与太阴合病”本质。心包络属厥阴经，内风动窍为典型厥阴风动。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（心包络及诸窍）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阳证、热证、虚实夹杂</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">厥阴病（胞络热邪阻窍并内风）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">胞络热邪阻窍，内风内动，上闭下阻，神明失守，窍闭厥昏。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>芳香开窍（宣闭）：</strong>麝香、冰片等，辛香走窜，直达心包络，通诸窍，速开内风阻闭之窍。</li>
+                        <li><strong>清热解毒（除邪）：</strong>牛黄、犀角（或代用品）、朱砂等，清胞络热邪，解毒化浊，针对“热邪阻窍”。</li>
+                        <li><strong>重镇安神（定志）：</strong>黄金、琥珀等，镇惊定神，防止厥昏进一步加重。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：芳香宣窍解毒】</h3>
+                    <p class="leading-relaxed">
+                        案中明确“考古人呂元膺。每用芳香宣竅解毒。勿令壅塞致危也。”<br><br>
+                        <strong>理由：</strong>胞络热邪与内风互结，窍闭神昏为急症。若单纯清热或补虚，恐壅滞更甚；芳香走窜之品能“宣窍解毒”，使热邪得泄、内风得散，二便得通、语言得复，最合厥阴病热闭窍阻之急。叶氏以此为“至宝”，体现“急则治标、开窍为先”的六经辨证要义。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证（厥阴病胞络热邪阻窍并内风）为基准，临床常用替代方包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>安宫牛黄丸：</strong>清心包热、开窍豁痰，热闭神昏更重者首选。</li>
+                        <li>• <strong>紫雪丹：</strong>清热熄风、开窍定惊，兼内风动甚、抽搐者。</li>
+                        <li>• <strong>至宝丹合羚羊角汤：</strong>增强平肝熄风，针对“内风亦令阻窍”。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及传统中医临床思维生成
+        </footer>
+    </div>
+</body>
+</html>
