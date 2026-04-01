@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析报告 - 吳（四一）咳嗽聲音漸窒案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">吳（四一）咳嗽。聲音漸窒。診脈右寸獨堅。此寒熱客氣。包裹肺俞。鬱則熱。先以麻杏石甘湯。（寒包熱）又　葦莖湯。</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                吳（四一）咳嗽。聲音漸窒。診脈右寸獨堅。此寒熱客氣。包裹肺俞。鬱則熱。先以麻杏石甘湯。（寒包熱）<br>
+                又　葦莖湯。
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">辨证施治</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒、恶风、脉浮、头痛身痛、身痒等表证。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（表寒外束）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“寒熱客氣包裹肺俞”明确指出寒邪客于肺俞（表位），为寒包热之太阳表寒证。右寸独坚提示肺气郁闭，麻杏石甘汤为太阳表寒郁热之经典方剂。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑或数、大便干、里实热（痰热、湿热等）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（里热郁肺）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“鬱則熱”明确为热郁于肺，声音渐窒、咳嗽为肺热壅盛之象。麻杏石甘汤中石膏清里热，杏仁、麻黄宣肺，切中阳明肺经实热。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦等。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：无口苦、胸胁苦满、往来寒热等少阳枢机不利症状，病位在肺（表里之间但偏表），非典型少阳。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱无力。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：无脾肺虚寒、大便稀溏、脉沉弱等里虚寒表现，脉右寸独坚为实象，非太阴虚证。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒身痛、表虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：右寸独坚为实邪郁闭之象，非少阴脉沉细无力；病性为寒包热而非纯虚寒。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂（少阳太阴或阳明太阴合病）。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：医案明言“寒包熱”，外有寒邪包裹（太阳/太阴寒），内有郁热（阳明热），寒热并存、虚实夹杂，符合厥阴病“寒热错杂”之本质，即太阳阳明合病或少阳阳明太阴合病之复杂表现。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">表里同病（肺卫与肺俞）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">寒热错杂（寒包热）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阳阳明合病（厥阴病范畴）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">寒邪外束，热郁于肺，寒包热证。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>先方：麻杏石甘汤</strong> —— 麻黄宣肺散寒，杏仁降气止咳，石膏清肺郁热，甘草和中。专治“寒包热”咳嗽、声音渐窒。</li>
+                        <li><strong>后方：葦莖湯</strong> —— 苇茎、薏苡仁、冬瓜仁、桃仁。清肺化痰、逐瘀排脓，善治肺热痰瘀、声音窒塞。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法要点】</h3>
+                    <p class="leading-relaxed">
+                        叶天士先以<strong>麻杏石甘汤</strong>辛凉宣肺、清热散寒，解“寒包熱”之表里郁闭；继用<strong>葦莖湯</strong>清肺化痰、逐瘀排脓，善后肺热痰阻。<br><br>
+                        <strong>理由：</strong>右寸独坚、声音渐窒为肺气郁闭、寒束热郁之象。先解表清里，再清肺化痰，层次分明，切中寒热错杂之厥阴病机。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证为基准，临床常用方剂包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>麻杏石甘汤合葦莖湯</strong>：寒包热重者。</li>
+                        <li>• <strong>越婢加半夏汤</strong>：风水夹热咳喘者。</li>
+                        <li>• <strong>小青龙加石膏汤</strong>：外寒内热明显者。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》逐一对照六经辨证生成
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 徐姓外感留邪案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·徐姓外感留邪案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                徐（四七），瘧屬外邪。瘧止聲音不揚。必是留邪干於肺系。故咳嗽不已。納食起居如常。中下無病。但以搜逐上焦。勿令邪結。可望病已。
+                <br>
+                <span class="text-gray-600 text-base">处方：麻黄、杏仁、生甘草、射干、苡仁。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">搜逐上焦</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、水肿、身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（余邪在表）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确提出“疟属外邪”，虽疟止但“咳嗽不已、声音不扬”，此为外邪未尽，郁于肺卫（太阳经及肺系）。叶氏用麻黄、杏仁、甘草（即三拗汤意），正是从太阳表证论治，开宣肺气以达邪。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里阳证。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者“纳食起居如常”，说明胃家不实，无里热燥结之象。明确指出“中下无病”，排除了阳明里实证。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：往来寒热、胸胁苦满、心烦喜呕、口苦脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（病程后期）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽然原发病是疟疾（多属少阳），但此时“疟止”，说明半表半里的枢机已不争，目前的矛盾集中在肺系的留邪，而非少阳相火上炎。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀溏、胃脘胀满、畏寒肢冷、脉沉弱。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中直言“中下无病”，纳食正常，说明脾胃运化如常，无太阴虚寒之忧。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、恶寒、身痛、表部虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者神志及体能尚可（起居如常），病变局限于肺系上焦，不具备少阴病脉微细、但欲寐或表虚寒的特征。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案病机单纯，即外邪留恋上焦肺系，未见寒热交错或复杂的阴阳失调表现。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">表（肺系上焦）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阳证、实证（留邪）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">六经归属</p>
+                    <p class="font-bold text-xl">太阳病肺系受邪</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">新疟虽止，余邪未清，干于肺系，宣降失常。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>开宣肺气（宣表）：</strong>麻黄。针对“声音不扬”，麻黄不仅散表寒，更能开肺闭，号称“肺家专药”。</li>
+                        <li><strong>降气平喘（利咽）：</strong>杏仁、射干。杏仁辅助麻黄宣降肺气；射干专于利咽开音，消痰散结。</li>
+                        <li><strong>祛湿化痰：</strong>苡仁。考虑到疟疾多兼湿邪，苡仁可清利肺热湿痰，而不伤正。</li>
+                        <li><strong>调和诸药：</strong>生甘草。合麻黄、杏仁即为“三拗汤”，专门用于风寒袭肺、咳嗽失音。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：搜逐上焦】</h3>
+                    <p class="leading-relaxed">
+                        叶天士强调<strong>“但以搜逐上焦，勿令邪结”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>疟疾之后，由于正气抗邪，邪气容易残留在肺系咽喉之间。若此时误用滋阴止咳药（如熟地、五味子等），则会“闭门留寇”，导致邪气深伏变成久咳痼疾。叶氏反其道而行之，用辛散之品轻快搜逐，使邪去而音自开。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        基于太阳病肺系受邪的辨证：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>三拗汤：</strong>最基础的开肺方，适用于本案的咳嗽声嘶。</li>
+                        <li>• <strong>甘桔汤：</strong>若咽喉不利感更重，可用甘草配桔梗宣肺开音。</li>
+                        <li>• <strong>桑菊饮：</strong>若余邪化热迹象明显（咳痰黄），可改用桑菊饮清利头目上焦。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及温病学派“邪留上焦”思维生成
+        </footer>
+    </div>
+</body>
+</html>
