@@ -32,122 +32,23 @@
             line-height: 1.8;
         }
 
-        /* 头部装饰 */
-        .header-decoration {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
-            height: 8px;
-            position: relative;
-        }
-
-        .header-decoration::before,
-        .header-decoration::after {
-            content: '❖';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #D4A574;
-            font-size: 20px;
-        }
-
-        .header-decoration::before { left: 20px; }
-        .header-decoration::after { right: 20px; }
-
-        /* 主标题区域 */
-        .hero-section {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: linear-gradient(to bottom, rgba(139,69,19,0.05), transparent);
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(139,69,19,0.2);
-            letter-spacing: 0.3em;
-        }
-
-        .hero-section .subtitle {
-            font-size: 1.3rem;
-            color: var(--secondary-color);
-            font-style: italic;
-            letter-spacing: 0.2em;
-        }
-
-        .hero-section .divider {
-            width: 200px;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-            margin: 25px auto;
-        }
-
-        /* 导航栏 */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px 20px;
-            background: rgba(139,69,19,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            flex-wrap: wrap;
-        }
-
-        .nav-tab {
-            padding: 15px 30px;
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            font-size: 1.1rem;
-            color: var(--text-color);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-tab:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .nav-tab.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* 内容区域 */
-        .content-section {
+        /* 容器 */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
-        .section-title {
+        /* 标题 */
+        .title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 20px;
+            margin-bottom: 60px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--accent-color);
+        .title h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
         /* 卡片容器 */
@@ -155,18 +56,19 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
+        /* 卡片 */
         .card {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px 30px;
             box-shadow: 0 4px 20px rgba(139,69,19,0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .card::before {
@@ -180,26 +82,31 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(139,69,19,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(139,69,19,0.15);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
         .card h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .card p {
             color: var(--text-color);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: justify;
         }
 
         .card .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 12px 30px;
             background: var(--primary-color);
             color: white;
             text-decoration: none;
@@ -215,257 +122,53 @@
             color: var(--primary-color);
         }
 
-        .card .btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* 特色区块 */
-        .feature-section {
-            background: rgba(139,69,19,0.03);
-            padding: 60px 20px;
-            margin: 40px 0;
-        }
-
-        .feature-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-item {
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .feature-item h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .feature-item p {
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* 页脚 */
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer .decoration {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        .footer p {
-            margin: 10px 0;
-        }
-
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-tabs {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .nav-tab {
-                width: 200px;
-                text-align: center;
-            }
-
             .cards-container {
                 grid-template-columns: 1fr;
             }
 
-            .content-section {
-                padding: 40px 20px;
+            .title h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 30px 20px;
             }
         }
-
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
-    <div class="header-decoration"></div>
+    <div class="container">
+        <div class="title">
+            <h1>国学智慧与健康</h1>
+        </div>
 
-    <header class="hero-section">
-        <h1>国学智慧与健康</h1>
-        <div class="divider"></div>
-        <p class="subtitle">传承经典 · 智慧生活</p>
-    </header>
-
-    <nav class="nav-tabs">
-        <a href="#zztj" class="nav-tab active">资治通鉴精读</a>
-        <a href="#medical" class="nav-tab">医案精读</a>
-        <a href="#height" class="nav-tab">身高评估</a>
-    </nav>
-
-    <!-- 特色区块 -->
-    <div class="feature-section">
-        <div class="feature-grid">
-            <div class="feature-item fade-in">
-                <div class="feature-icon">📚</div>
-                <h3>经典传承</h3>
-                <p>深入解读资治通鉴等经典著作，汲取历史智慧，指导现代生活</p>
+        <div class="cards-container">
+            <!-- 资治通鉴精读 -->
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>资治通鉴精读</h3>
+                <p>深入解读资治通鉴等经典著作，汲取历史智慧，指导现代生活。包含智氏兴衰、智伯灭族、豫让之义等经典历史事件的深入解读。</p>
+                <a href="zztj/index.html" class="btn">查看目录</a>
             </div>
-            <div class="feature-item fade-in delay-1">
-                <div class="feature-icon">🏥</div>
-                <h3>中医智慧</h3>
-                <p>精选经典医案，传承中医精髓，提供健康养生指导</p>
+
+            <!-- 医案精读 -->
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h3>医案精读</h3>
+                <p>精选《伤寒论》《金匮要略》等经典医籍中的案例，深入分析辨证思路与治疗方法，传承中医临床智慧。</p>
+                <a href="ljbz/index.html" class="btn">查看医案</a>
             </div>
-            <div class="feature-item fade-in delay-2">
-                <div class="feature-icon">📊</div>
-                <h3>科学评估</h3>
-                <p>基于科学数据的身高评估工具，助力儿童健康成长</p>
+
+            <!-- 身高评估 -->
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>身高评估</h3>
+                <p>基于科学数据的身高评估工具，助力儿童健康成长。包括儿童身高预测、生长发育监测和营养运动指导。</p>
+                <a href="sggy/height.html" class="btn">开始评估</a>
             </div>
         </div>
     </div>
-
-    <!-- 资治通鉴精读 -->
-    <section id="zztj" class="content-section">
-        <h2 class="section-title fade-in">资治通鉴精读</h2>
-        <div class="cards-container">
-            <div class="card fade-in">
-                <h3>资治通鉴目录</h3>
-                <p>浏览资治通鉴精读系列内容，包括智氏兴衰、智伯灭族、豫让之义等经典历史事件的深入解读。</p>
-                <div class="btn-container">
-                    <a href="zztj/index.html" class="btn">查看目录</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 医案精读 -->
-    <section id="medical" class="content-section">
-        <h2 class="section-title fade-in">医案精读</h2>
-        <div class="cards-container">
-            <div class="card fade-in">
-                <h3>经典医案解析</h3>
-                <p>精选《伤寒论》《金匮要略》等经典医籍中的案例，深入分析辨证思路与治疗方法，传承中医临床智慧。</p>
-                <div class="btn-container">
-                    <a href="ljbz/index.html" class="btn">查看医案</a>
-                </div>
-            </div>
-            <div class="card fade-in delay-1">
-                <h3>名医经验传承</h3>
-                <p>整理历代名医的临床经验与学术思想，探讨中医理论与实践的结合，为现代中医临床提供参考。</p>
-                <div class="btn-container">
-                    <a href="#" class="btn">学习经验</a>
-                </div>
-            </div>
-            <div class="card fade-in delay-2">
-                <h3>养生保健指导</h3>
-                <p>基于中医理论的养生保健方法，包括饮食调理、起居养生、运动保健等方面，助您健康生活。</p>
-                <div class="btn-container">
-                    <a href="#" class="btn">养生指南</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 身高评估 -->
-    <section id="height" class="content-section">
-        <h2 class="section-title fade-in">身高评估</h2>
-        <div class="cards-container">
-            <div class="card fade-in">
-                <h3>儿童身高预测</h3>
-                <p>基于年龄、性别、父母身高等因素，科学预测儿童成年后的身高范围，为生长发育提供参考。</p>
-                <div class="btn-container">
-                    <a href="sggy/height.html" class="btn">开始评估</a>
-                </div>
-            </div>
-            <div class="card fade-in delay-1">
-                <h3>生长发育监测</h3>
-                <p>记录儿童不同年龄段的身高数据，绘制生长曲线，及时发现生长异常，提供科学干预建议。</p>
-                <div class="btn-container">
-                    <a href="sggy/height.html" class="btn">监测工具</a>
-                </div>
-            </div>
-            <div class="card fade-in delay-2">
-                <h3>营养与运动指导</h3>
-                <p>根据儿童生长发育阶段，提供科学的营养方案和运动建议，促进健康成长。</p>
-                <div class="btn-container">
-                    <a href="sggy/height.html" class="btn">指导方案</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="decoration">❖ ❖ ❖</div>
-        <p>国学智慧与健康</p>
-        <p>传承经典 · 智慧生活</p>
-        <p>&copy; 2026 版权所有</p>
-    </footer>
-
-    <script>
-        // 导航切换
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // 移除所有激活状态
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // 滚动到对应区域
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // 滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // 观察所有需要动画的元素
-        document.querySelectorAll('.card, .section-title, .feature-item').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
