@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 邱姓风温案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·邱姓风温案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                邱，向來陽氣不充。得溫補每每奏效。近因勞煩。令陽氣弛張。致風溫過肺衛以擾心營。欲咳心中先癢。痰中偶帶血點。不必過投沉降清散。以辛甘涼理上燥。清絡熱。蔬食安閒。旬日可安。
+                <br>
+                <span class="text-gray-600 text-base">处方：冬桑葉、玉竹、大沙參、甜杏仁、生甘草、苡仁。糯米湯煎。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">風溫化燥</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、鼻塞流涕。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（初期/卫分阶段）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：原文明确指出“风温过肺卫”，风温外袭首犯太阳表部，表现为咳而心中痒，虽未详述恶寒，但属于太阳表证向里传变的起始点。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、里热伤津、里实热证。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（化燥阶段）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：风温化燥，扰动心营，出现“痰中偶带血点”，此为里热（阳明/营分）初萌之象，肺燥津伤，符合阳明病里热耗伤津液的病机趋势。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：诸孔窍疾患（咽、肺管）、心烦、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（波及孔窍/上焦枢机）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：咳而“心中先痒”，痒为风火之象，且累及咽喉肺系孔窍，属于热郁上焦半表半里之范畴，干扰心营。且“劳烦”往往先动少阳相火。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀、畏寒肢冷、脉沉弱。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（现症层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：目前表现为风温、咳嗽、血点，属于热证燥证，与太阴虚寒性质相反。但患者“向来阳气不充”，提示有太阴/少阴之宿疾底子。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、虚寒、全身虚损。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（体质病本）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案首即云“向来阳气不充”，这是典型的少阴/太阴虚损体质。此次发病是因“劳烦”导致少阴潜阳“弛张”外浮，引动外风。这解释了为何不能重用清降，恐伤其本。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、虚实夹杂、多经合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（整体格局）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案是典型的“虚人感冒”。底层是阳虚（少阴/太阴），表层是风温化燥（太阳/阳明），这种本虚标实、寒热虚实错杂的状态，正符合厥阴病“合病”的复杂特点。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">肺卫、心营（偏表及上焦）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阳证（标）、阴证（本）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阳少阴合病化燥</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">素体阳虚，劳倦伤神，风温外袭，化燥伤络。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>辛凉清散（解表）：</strong>冬桑叶、甜杏仁。桑叶轻清宣散肺卫风热，杏仁宣肺止咳。</li>
+                        <li><strong>甘凉滋润（理燥）：</strong>玉竹、大沙参。针对“化燥”与“血点”，滋养肺胃之阴，润燥生津。</li>
+                        <li><strong>清热渗利（调营）：</strong>苡仁、生甘草。苡仁清肺热而利湿，甘草和中清热。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：糯米汤煎】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此要求用<strong>“糯米汤”</strong>煎药。
+                        <br><br>
+                        <strong>理由：</strong>患者“阳气不充”，且肺燥伤津。糯米汤甘平，具有益气生津、养胃护阴的作用。在此不仅能增强滋阴润燥的效果，还能保护其本已不充的阳气不被寒凉药克伐，体现了“轻清护阳”的微妙心思。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证为基准，临床常用替代方包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>桑杏汤：</strong>用于秋燥或温燥初起，侧重润肺止咳。</li>
+                        <li>• <strong>沙参麦冬汤：</strong>若燥热较甚，阴伤明显时使用。</li>
+                        <li>• <strong>甘桔汤：</strong>若咽痒痒感极重，可用此方宣肺利咽。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士《温热论》思想生成
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 某外受风温案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士 · 外受风温案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                某，外受風溫郁遏。內因肝膽陽升莫制。斯皆肺失清肅。咳痰不解。經月來。猶覺氣壅不降。進食頗少。大便不爽。津液久已乏上供。腑中之氣。亦不宣暢。
+                <br>
+                <span class="text-gray-600 text-base">处方：麦冬、沙参、玉竹、生白芍、扁豆、茯苓。议养胃阴以杜阳逆，不得泛泛治咳。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">审证求因</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（曾经过往）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提到“外受风温郁遏”，说明最初曾有表证。但目前已“经月来”，恶寒等表证已罢，病位已由表入里。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（津亏层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：存在“津液久已乏上供”、“大便不爽”，符合阳明内热耗伤津液的特征。但无“实热鼓动”之躁动，且叶氏强调是“阴伤”而非“实结”。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、默默不欲饮食、脉弦。</p>
+                    <div class="flex items-center gap-2 font-bold text-orange-700">
+                        <span>结论：高度符合（气机层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提及“肝胆阳升莫制”、“气壅不降”、“进食颇少”，皆属少阳枢机不利、木火刑金之象。阳气不宣，致腑气不通。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀、脉沉弱无力、里虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：符合（胃阴亏虚）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病机定位为“里阴证”（非寒证，而是阴虚证）。“进食颇少”反映了太阴运化无力，但病理本质是阴液不足（胃阴）而非阳气不足。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、身痛。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案表现为热灼津伤，属于阳性病程中的阴液亏损，而非少阴之阳虚寒化。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、多经合病。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（虚实夹杂）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：既有“肝胆阳升”之热（少阳/阳明标证），又有“津枯气壅、食少”之虚（太阴本证）。属于典型的少阳太阴合病，木旺乘土。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（太阴、阳明）兼半表半里（少阳）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴虚（胃阴）、内热、气滞</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阳太阴合病（木火刑金）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">风温余热郁伏，耗伤胃津，致使土虚木旺，肺失清肃。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>甘平滋胃（养阴）：</strong>沙参、麦冬、玉竹。此为叶氏“养胃阴”核心药组，旨在化生津液，上供肺金。</li>
+                        <li><strong>柔肝敛阳（杜逆）：</strong>生白芍。配合滋阴药，能柔肝缓急，抑制“肝胆阳升莫制”之势。</li>
+                        <li><strong>健脾化湿（通降）：</strong>扁豆、茯苓。保护太阴脾胃，使气机宣畅，助腑气下行。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：不治咳而治咳】</h3>
+                    <p class="leading-relaxed">
+                        叶氏提出<strong>“不得泛泛治咳”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>患者咳痰不解是“标”，主因是“胃阴虚导致阳气上逆”。如果只用苦燥的止咳化痰药，会进一步耗伤残存的胃津，形成恶性循环。通过“滋胃阴、降阳逆”，使肺气自降，咳痰自愈。此即“金水相生”与“培土生金”的综合运用。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        根据此辨证逻辑，可考虑以下方剂作为参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>沙参麦冬汤：</strong>《温病条辨》名方，功能甘寒退热，养阴洁燥。</li>
+                        <li>• <strong>五汁饮：</strong>若津伤极甚，可作为辅助代茶饮。</li>
+                        <li>• <strong>麦门冬汤：</strong>若咳逆严重，可用大剂量麦冬配合人参、粳米补益中气并下气止逆。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及温病派临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

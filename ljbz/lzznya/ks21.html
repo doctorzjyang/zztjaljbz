@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 风温咳案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·风温咳案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg">
+                某，積勞更受風溫。咽乾熱咳。形脈不充。與甘緩柔方。
+                <br>
+                <span class="text-gray-600 text-base italic">桑葉、玉竹、南沙參、生甘草、甜水梨皮。</span>
+                <br><br>
+                又，風邪鬱蒸化燥。發熱後。咳嗽口乾喉癢。先進清肺。
+                <br>
+                <span class="text-gray-600 text-base italic">杏仁、花粉、蘇子、象貝、山梔、橘紅。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">清燥救肺</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。（位：表；性：阳、实）</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（表证阶段）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中提及“受风温”，说明病起于表。但目前表现为“热咳”、“化燥”，已由表入里化热，非单纯太阳伤寒或中风之表证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热。（位：里；性：阳、热、实）</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（病性层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：患者“咽干热咳”、“口干”，属于阳明里热伤津之范畴。叶氏所云“郁蒸化燥”，正是阳明热盛灼伤肺金津液的表现。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、诸孔窍疾患、脉弦。（位：半表半里；性：阳、热、实）</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（局部特征）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：“咽部病变”属少阳标准之一，风温邪气易郁于半表半里之枢机，进而上冲咽喉。但缺乏口苦、胸胁苦满等典型症状。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、脉沉弱无力。（位：里；性：阴、虚、寒）</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（性质相反）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案为热证、燥证，无腹满呕吐或下利等里寒表现。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、形气虚损。（位：表/全身；性：阴、虚）</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：深度符合（体质背景）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案首强调“积劳”、“形脉不充”，说明患者本有少阴亏损、阴血不足的体质背景。这是导致“受风温”后迅速“化燥”的根本原因。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、虚实夹杂。（位：复杂；性：寒热错杂）</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案表现为纯粹的燥热伤阴，暂无明显的寒热错杂表现。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">表里同病（由表入里）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阳证、热证、虚实夹杂（燥）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">太阳阳明少阴合病</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">素体亏损（少阴），外感风温（太阳），内郁化燥伤津（阳明）。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <p class="mb-4"><strong>初诊（甘缓柔方）：</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>宣肺疏表：</strong>桑叶。轻宣肺经风热。</li>
+                        <li><strong>滋阴润燥（补少阴）：</strong>玉竹、南沙参。此二药甘平润极，专门针对“形脉不充”的虚燥。</li>
+                        <li><strong>甘缓和中：</strong>生甘草、梨皮。梨皮润肺止咳、生津止渴，药性极柔。</li>
+                    </ul>
+                    <p class="mt-4 mb-4"><strong>二诊（清肺化痰）：</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>降气化痰：</strong>杏仁、苏子、象贝、橘红。针对“喉痒咳嗽”而设。</li>
+                        <li><strong>清解里热（清阳明）：</strong>山栀、花粉。山栀清郁热，花粉生津润燥。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：甜水梨皮】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在方中大量使用了<strong>“甜水梨皮（二两）”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>风温化燥最忌苦寒直折，因苦能燥湿，反伤津液。梨皮虽为平淡之物，但最得“甘润”之旨，且分量极重（二两），作为药引或主药能直达肺经，在不伤正气的前提下化去燥气，体现了温病学家“存得一分津液，便有一分生机”的思想。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>清燥救肺汤：</strong>若燥热较重，出现气促而喘，可用此方滋阴清热、宣肺平喘。</li>
+                        <li>• <strong>桑菊饮：</strong>若表证较重，咳嗽初起，可用此方疏风清热。</li>
+                        <li>• <strong>五汁饮：</strong>若患者口渴严重、津伤极甚，可作为辅助食疗。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及温病学派临床思维生成
+        </footer>
+    </div>
+</body>
+</html>
