@@ -103,8 +103,8 @@
             color: var(--primary-color);
         }
 
-        /* 内容区域 */
-        .content-section {
+        /* 主容器 */
+        .main-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -144,15 +144,16 @@
             box-shadow: 0 4px 15px rgba(139,69,19,0.3);
         }
 
-        /* 内容卡片 */
-        .content-section {
+        /* 标签内容 */
+        .tab-content {
             display: none;
         }
 
-        .content-section.active {
+        .tab-content.active {
             display: block;
         }
 
+        /* 内容卡片 */
         .text-card {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
@@ -304,7 +305,7 @@
                 font-size: 2.2rem;
             }
 
-            .content-section {
+            .main-container {
                 padding: 30px 20px;
             }
 
@@ -343,7 +344,7 @@
         <p class="subtitle">资治通鉴·周纪</p>
     </header>
 
-    <main class="content-section">
+    <main class="main-container">
         <nav class="nav-tabs">
             <button class="nav-tab active" onclick="showSection('original')">原文</button>
             <button class="nav-tab" onclick="showSection('modern')">白话文</button>
@@ -352,7 +353,7 @@
         </nav>
 
         <!-- 原文 -->
-        <section id="original" class="content-section active">
+        <section id="original" class="tab-content active">
             <div class="text-card">
                 <h2>📜 原文</h2>
                 <p class="original-text">初，智宣子将以瑶为后。智果曰："不如宵也。瑶之贤于人者五，其不逮者一也。美鬓长大则贤，射御足力则贤，伎艺毕给则贤，巧文辩慧则贤，强毅果敢则贤，如是而甚不仁。夫以其五贤陵人，而以不仁行之，其谁能待之？若果立瑶也，智宗必灭。"弗听，智果别族于太史为辅氏。赵简子之子，长曰伯鲁，幼曰无恤。将置后，不知所立。乃书训戒之辞于二简，以授二子曰："谨识之。"三年而问之，伯鲁不能举其辞，求其简，已失之矣。问无恤，诵其辞甚习，求其简，出诸袖中而奏之。于是简子以无恤为贤，立以为后。简子使尹铎为晋阳。请曰："以为茧丝乎？抑为保障乎？"简子曰："保障哉！"尹铎损其户数。简子谓无恤曰："晋国有难，而无以尹铎为少，无以晋阳为远，必以为归。"及智宣子卒，智襄子为政，与韩康子、魏桓子宴于蓝台。智伯戏康子而侮段规，智国闻之，谏曰："主不备难，难必至矣！"智伯曰："难将由我。我不为难，谁敢兴之？"对曰："不然。《夏书》有之曰：'一人三失，怨岂在明，不见是图。'夫君子能勤小物，故无大患。今主一宴而耻人之君相，又弗备，曰不敢兴难，无乃不可乎！蚋、蚁、蜂、虿，皆能害人，况君相乎！"弗听。</p>
@@ -363,7 +364,7 @@
         </section>
 
         <!-- 白话文 -->
-        <section id="modern" class="content-section">
+        <section id="modern" class="tab-content">
             <div class="text-card">
                 <h2>📖 白话文</h2>
                 <p class="modern-text">当初，智宣子打算立智瑶为继承人。智果说："不如立智宵。智瑶有五项长处超越他人，只有一项短处。须发秀美、身材高大是长处，射箭驾车、力气充足是长处，技艺齐全、样样精通是长处，文辞巧妙、善辩聪慧是长处，刚强坚毅、果断敢为是长处，即便如此，他却极为不仁。凭借这五项长处欺凌他人，再用不仁之心行事，谁能容忍他？如果真的立智瑶为继承人，智氏宗族必定覆灭。"智宣子不听，智果便到太史那里脱离智族，改姓辅氏。</p>
@@ -382,7 +383,7 @@
         </section>
 
         <!-- 总结 -->
-        <section id="summary" class="content-section">
+        <section id="summary" class="tab-content">
             <div class="text-card">
                 <h2>💡 核心启示</h2>
                 <ul class="summary-list">
@@ -404,7 +405,7 @@
         </section>
 
         <!-- AI分析 -->
-        <section id="ai" class="content-section">
+        <section id="ai" class="tab-content">
             <div class="text-card">
                 <h2>🤖 AI深度分析</h2>
                 <p>各AI平台从不同学科视角对"三家灭智"这一历史事件的深度解读</p>
@@ -452,7 +453,7 @@
     <!-- JavaScript -->
     <script>
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
+            const sections = document.querySelectorAll('.tab-content');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             
