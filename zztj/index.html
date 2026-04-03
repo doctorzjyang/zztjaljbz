@@ -105,7 +105,7 @@
 
         /* 内容区域 */
         .content-section {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -130,14 +130,26 @@
             background: var(--accent-color);
         }
 
-        /* 目录列表 */
-        .directory-list {
-            list-style: none;
-            margin-top: 30px;
+        /* 周纪标题 */
+        .zhouji-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
-        .directory-item {
-            margin-bottom: 20px;
+        /* 周纪横向排列 */
+        .zhouji-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .zhouji-item {
+            flex: 1;
+            min-width: 150px;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 10px;
@@ -145,9 +157,10 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
-        .directory-item::before {
+        .zhouji-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -157,37 +170,58 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
-        .directory-item:hover {
+        .zhouji-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(139,69,19,0.15);
         }
 
-        .directory-item h3 {
-            font-size: 1.3rem;
+        .zhouji-item h3 {
+            font-size: 1.2rem;
             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* 子目录 */
+        .sub-directory {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sub-item {
+            margin-bottom: 10px;
+            padding: 15px;
+            background: rgba(212,165,116,0.1);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sub-item:hover {
+            background: rgba(212,165,116,0.2);
+            transform: translateX(5px);
+        }
+
+        .sub-item h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
             margin-bottom: 10px;
         }
 
-        .directory-item p {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .directory-item .btn {
+        .sub-item .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 8px 16px;
             background: var(--primary-color);
             color: white;
             text-decoration: none;
-            border-radius: 20px;
+            border-radius: 15px;
             transition: all 0.3s ease;
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             border: 2px solid var(--primary-color);
         }
 
-        .directory-item .btn:hover {
+        .sub-item .btn:hover {
             background: transparent;
             color: var(--primary-color);
         }
@@ -221,8 +255,14 @@
                 padding: 30px 20px;
             }
 
-            .directory-item {
-                padding: 20px;
+            .zhouji-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .zhouji-item {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
@@ -238,6 +278,9 @@
 
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
     </style>
 </head>
 <body>
@@ -252,28 +295,32 @@
 
     <section class="content-section">
         <h2 class="section-title fade-in">目录</h2>
-        <ul class="directory-list">
-            <li class="directory-item fade-in">
-                <h3>智氏兴衰与赵氏崛起</h3>
-                <p>深入分析智伯灭族的历史事件，探讨权力斗争、人性弱点与制度设计的关系，从历史中汲取管理智慧。</p>
-                <a href="智氏兴衰与赵氏崛起/index.html" class="btn">阅读详情</a>
-            </li>
-            <li class="directory-item fade-in delay-1">
-                <h3>智伯灭族</h3>
-                <p>详细解读智伯灭亡的全过程，分析才与德的关系，探讨领导者素质对组织命运的影响。</p>
-                <a href="智伯灭族/index.html" class="btn">阅读详情</a>
-            </li>
-            <li class="directory-item fade-in delay-2">
-                <h3>豫让之义与赵氏之乱</h3>
-                <p>剖析豫让的忠义精神与赵氏家族的权力传承问题，探讨忠义观念与制度建设的平衡。</p>
-                <a href="豫让之义与赵氏之乱/index.html" class="btn">阅读详情</a>
-            </li>
-            <li class="directory-item fade-in">
-                <h3>魏文侯治理</h3>
-                <p>探讨魏文侯的治理之道，分析其任用贤才、推行仁政的策略，以及对现代管理的启示。</p>
-                <a href="魏文侯治理/index.html" class="btn">阅读详情</a>
-            </li>
-        </ul>
+        
+        <h3 class="zhouji-title fade-in">周纪</h3>
+        
+        <div class="zhouji-container">
+            <div class="zhouji-item fade-in">
+                <h3>周纪一</h3>
+                <div class="sub-directory">
+                    <div class="sub-item">
+                        <h4>三家灭智</h4>
+                        <a href="三家灭智/index.html" class="btn">阅读详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="zhouji-item fade-in delay-1">
+                <h3>周纪二</h3>
+            </div>
+            <div class="zhouji-item fade-in delay-2">
+                <h3>周纪三</h3>
+            </div>
+            <div class="zhouji-item fade-in delay-3">
+                <h3>周纪四</h3>
+            </div>
+            <div class="zhouji-item fade-in delay-4">
+                <h3>周纪五</h3>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
@@ -299,7 +346,7 @@
         }, observerOptions);
 
         // 观察所有需要动画的元素
-        document.querySelectorAll('.directory-item, .section-title').forEach(el => {
+        document.querySelectorAll('.zhouji-item, .section-title, .zhouji-title').forEach(el => {
             observer.observe(el);
         });
     </script>
