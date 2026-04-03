@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智伯之亡 · 十二维度深度拆解</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;600;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f14;
+            --bg-secondary: #121a22;
+            --bg-card: #1a242e;
+            --text-primary: #e8e4dc;
+            --text-secondary: #9ca3af;
+            --accent-vermilion: #c54b3c;
+            --accent-gold: #b8860b;
+            --accent-jade: #2d5a4a;
+            --border-subtle: rgba(200, 180, 150, 0.15);
+        }
+        
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-vermilion) var(--bg-secondary);
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'ZCOOL XiaoWei', serif;
+        }
+        
+        .ink-wash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26, 36, 46, 0.8) 100%);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            border-color: rgba(197, 75, 60, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(197, 75, 60, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
+            background: var(--accent-vermilion);
+        }
+        
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: rgba(197, 75, 60, 0.1);
+            border-left-color: var(--accent-vermilion);
+            color: var(--text-primary);
+        }
+        
+        .nav-item::after {
+            content: attr(data-num);
+            position: absolute;
+            right: 16px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(90deg, rgba(197, 75, 60, 0.15) 0%, transparent 100%);
+            border-left: 3px solid var(--accent-vermilion);
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        
+        .wisdom-card {
+            background: rgba(45, 90, 74, 0.2);
+            border: 1px solid rgba(45, 90, 74, 0.4);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .wisdom-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 16px;
+            font-size: 48px;
+            color: var(--accent-jade);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-vermilion);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--accent-vermilion);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes inkSpread {
+            0% { transform: scale(0); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .floating-seal {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: var(--accent-vermilion);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .floating-seal:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(197, 75, 60, 0.5);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-vermilion);
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .matrix-cell {
+            border: 1px solid var(--border-subtle);
+            padding: 12px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        
+        .matrix-cell:hover {
+            background: rgba(197, 75, 60, 0.1);
+        }
+        
+        .compare-card {
+            border: 1px dashed var(--border-subtle);
+            padding: 20px;
+            margin: 12px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .compare-card:hover {
+            border-color: var(--accent-vermilion);
+            border-style: solid;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Ink Wash Background -->
+    <canvas class="ink-wash" id="inkCanvas"></canvas>
+    
+    <!-- Header -->
+    <header class="relative z-10 py-16 px-6 text-center border-b border-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-sm tracking-widest text-gray-500 mb-4 animate-in">资治通鉴 · 周纪一</p>
+            <h1 class="font-display text-5xl md:text-7xl mb-6 animate-in stagger-1" style="color: var(--text-primary);">
+                智伯之亡
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 animate-in stagger-2">
+                五贤陵人，不仁灭族 — 十二维度深度拆解
+            </p>
+            <div class="mt-8 flex justify-center gap-8 text-sm text-gray-500 animate-in stagger-3">
+                <span>智氏亡 · 三家分晋</span>
+                <span>|</span>
+                <span>公元前403年</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="relative z-10 flex">
+        <!-- Side Navigation -->
+        <nav class="hidden lg:block w-72 min-h-screen sticky top-0 border-r border-gray-800 bg-opacity-90" style="background: var(--bg-secondary);">
+            <div class="py-8">
+                <p class="px-6 text-xs tracking-widest text-gray-500 mb-4">分析维度</p>
+                <div class="space-y-1" id="navList">
+                    <div class="nav-item active" data-section="section1" data-num="01">管理学专家视角</div>
+                    <div class="nav-item" data-section="section2" data-num="02">家庭教育专家视角</div>
+                    <div class="nav-item" data-section="section3" data-num="03">博弈论专家视角</div>
+                    <div class="nav-item" data-section="section4" data-num="04">历史人物模拟</div>
+                    <div class="nav-item" data-section="section5" data-num="05">认知心理学视角</div>
+                    <div class="nav-item" data-section="section6" data-num="06">全学科融合分析</div>
+                    <div class="nav-item" data-section="section7" data-num="07">组织行为学视角</div>
+                    <div class="nav-item" data-section="section8" data-num="08">风险管理视角</div>
+                    <div class="nav-item" data-section="section9" data-num="09">信息论视角</div>
+                    <div class="nav-item" data-section="section10" data-num="10">法哲学视角</div>
+                    <div class="nav-item" data-section="section11" data-num="11">资源配置视角</div>
+                    <div class="nav-item" data-section="section12" data-num="12">反脆弱视角</div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Content Area -->
+        <main class="flex-1 px-6 md:px-12 py-12 max-w-5xl">
+            
+            <!-- Section 1: 管理学专家 -->
+            <section id="section1" class="mb-20 tab-content active">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">一、管理学专家视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">核心管理挑战</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        这段史料揭示了两个截然不同的组织面临的管理困境：
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-gold);">智氏集团困境</h4>
+                            <p class="text-sm text-gray-400">CEO选拔只看"硬实力指标"（外貌、技能、才艺、口才、果敢），完全忽视"软实力指标"（仁德、情商、团队协作）。智瑶拥有五项优势却因"不仁"导致整个集团覆灭。</p>
+                        </div>
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-jade);">赵氏集团困境</h4>
+                            <p class="text-sm text-gray-400">继承人选择的信息不对称问题。赵简子无法直接判断两个儿子谁是合格的接班人，需要设计一套长期考核机制来识别真正的人才。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">决策逻辑复盘</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2 text-gray-200">智宣子的决策逻辑：</h4>
+                        <p class="text-gray-400 text-sm mb-3">选择智瑶的逻辑：能力至上论。五贤（美鬓长大、射御足力、伎艺毕给、巧文辩慧、强毅果敢）都是显性、可量化的能力指标。</p>
+                        <div class="highlight-box">
+                            <p class="text-sm"><strong>逻辑漏洞：</strong>忽视了领导者的核心能力是"凝聚人心"而非"碾压对手"。五贤反而成为他"陵人"的资本，加速团队离心。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2 text-gray-200">赵简子的决策逻辑：</h4>
+                        <p class="text-gray-400 text-sm mb-3">设计"竹简测试"——将训戒之辞写在竹简上，三年后检验。这是一套精妙的"延迟满足测试"和"执行力测试"。</p>
+                        <div class="highlight-box">
+                            <p class="text-sm"><strong>优势分析：</strong>时间维度筛选（三年长期记忆）、行为维度筛选（随身携带）、态度维度筛选（认真对待小事）。无恤的"出诸袖中而奏之"体现了极致的执行力和敬畏心。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">现代管理映射</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">1</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">人才选拔中的"能力陷阱"</h4>
+                                <p class="text-sm text-gray-400">企业常被"明星员工"的高绩效迷惑，忽视其破坏团队协作的隐患。智瑶就是典型的"高能低德"型员工。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">2</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">绩效评估的时间维度</h4>
+                                <p class="text-sm text-gray-400">赵简子的"三年测试"启示我们：真正的能力需要时间检验。现代企业的季度考核可能过于短视。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">3</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">危机中的"归因偏差"</h4>
+                                <p class="text-sm text-gray-400">智伯在晋阳之战中说"水可以亡人国"，完全归因于外部条件，忽视人心向背这一根本变量。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">管理心法（行动指南）</h3>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-200">心法一：德才矩阵评估法</h4>
+                            <p class="text-sm text-gray-400">建立四象限人才评估模型：有德有才（重用）、有德无才（培养）、无德无才（不用）、无德有才（慎用/不用）。智瑶属于第四类，其破坏力远超其贡献。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-200">心法二：长期行为审计机制</h4>
+                            <p class="text-sm text-gray-400">关键岗位候选人需经过"延迟测试"——不是看其一时的表现，而是设置长期考核任务，观察其执行力和稳定性。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mt-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">多视角模拟</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-gray-600 pl-4">
+                            <h4 class="font-semibold text-gray-200">CEO视角</h4>
+                            <p class="text-sm text-gray-400 mt-2">智伯的覆灭证明：CEO的核心能力不是"我能做什么"，而是"我能让团队做什么"。五贤是个人能力，不仁是团队毒药。</p>
+                        </div>
+                        <div class="border-l-2 border-gray-600 pl-4">
+                            <h4 class="font-semibold text-gray-200">基层员工视角</h4>
+                            <p class="text-sm text-gray-400 mt-2">晋阳百姓"民无叛意"不是因为他们爱赵氏，而是因为尹铎"损其户数"——减少税负。员工忠诚来源于利益绑定，而非口号。</p>
+                        </div>
+                        <div class="border-l-2 border-gray-600 pl-4">
+                            <h4 class="font-semibold text-gray-200">竞争对手视角</h4>
+                            <p class="text-sm text-gray-400 mt-2">韩、魏的选择是典型的"搭便车+反戈一击"策略。他们先是顺从智伯，等其露出破绽后再联合反击。这启示我们：不要让合作伙伴积累过多怨恨。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mt-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">历史对比案例</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-2" style="color: var(--accent-gold);">相似案例：项羽</h4>
+                            <p class="text-sm text-gray-400">同样"力能扛鼎"、同样"不仁"，同样因为个人能力强而轻视团队建设，最终败给刘邦。能力优势反而成为失败根源。</p>
+                        </div>
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-2" style="color: var(--accent-jade);">相反案例：刘邦</h4>
+                            <p class="text-sm text-gray-400">自评"运筹帷幄不如子房，治国安邦不如萧何，连百万之军不如韩信"，但他懂得用人，最终成就帝业。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2: 家庭教育专家 -->
+            <section id="section2" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">二、家庭教育专家视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">教育目标反思</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        在春秋战国时代，贵族家庭的教育目标主要是培养合格的继承人，维护家族的政治地位和生存安全。智宣子和赵简子的教育目标都是"择优立后"。
+                    </p>
+                    <div class="highlight-box">
+                        <p class="text-sm"><strong>目标合理性分析：</strong>从家族存续角度看，目标是合理的。但智宣子的"优"定义偏差（只看能力不看德行），导致教育目标与结果南辕北辙。现代教育同样存在"唯成绩论"的偏差。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">育儿沟通模式</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-gold);">智宣子模式：权威独断型</h4>
+                            <p class="text-sm text-gray-400">智果进谏"若果立瑶也，智宗必灭"，智宣子"弗听"。这是典型的单向决策，缺乏有效沟通。对子女潜能的识别完全基于外部观察，缺乏深层互动。</p>
+                        </div>
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-jade);">赵简子模式：测试引导型</h4>
+                            <p class="text-sm text-gray-400">"书训戒之辞于二简，以授二子曰：谨识之"。设计情境让子女自我展现，而非直接说教。三年后再检验，是一种长期的、隐性的教育互动。</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-gray-300"><strong>心理影响分析：</strong>赵无恤在测试中表现出的是真正的"内化"——将父亲的训诫牢记于心并付诸行动。这种教育方式培养了子女的自主性和责任感。而智瑶的"五贤"很可能是先天禀赋或技能训练的结果，缺乏人格教育的根基。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">人性与潜能引导</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-vermilion);">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">智瑶的潜能识别</h4>
+                                <p class="text-sm text-gray-400 mt-1">智果精准识别了智瑶的"五贤一不仁"。问题是：智宣子将"不仁"视为可以忽略的小瑕疵，而非致命缺陷。这反映了"光环效应"——五贤的光芒掩盖了不仁的阴影。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-jade);">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">赵无恤的潜能引导</h4>
+                                <p class="text-sm text-gray-400 mt-1">赵简子采用的是"赋能型"引导——给资源（竹简）、给时间（三年）、给空间（自主决定如何记忆）。无恤的"出诸袖中"证明他将外在要求内化为自我驱动。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代教育映射</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">问题一：如何识别子女的核心优势？</h4>
+                            <p class="text-sm text-gray-400">赵简子的方法是设置长期任务观察执行力和态度。现代家长可以：不只看成绩单，更要看孩子对长期任务的坚持程度、面对困难的态度、对他人意见的接纳度。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">问题二：如何培养孩子的"仁"（同理心）？</h4>
+                            <p class="text-sm text-gray-400">智瑶的失败源于"不仁"。现代教育中，同理心、团队协作能力、情绪管理能力比才艺技能更决定孩子的长期发展。家长需警惕"才艺堆砌"而忽视人格培养。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mt-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">反思性调整策略</h3>
+                    <div class="highlight-box">
+                        <p class="text-sm mb-4"><strong>如果我是智宣子：</strong></p>
+                        <ol class="text-sm text-gray-300 space-y-2">
+                            <li>1. 重视智果的警告，而非简单无视</li>
+                            <li>2. 设计情境测试智瑶的"仁"——看他如何对待弱者、如何处理冲突</li>
+                            <li>3. 若必须立智瑶，则配置"德行导师"或权力制衡机制</li>
+                            <li>4. 将"仁"纳入继承人考核的核心指标</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mt-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">历史对比案例</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-2" style="color: var(--accent-gold);">正面案例：曾国藩教子</h4>
+                            <p class="text-sm text-gray-400">曾国藩家书强调"勤、俭、恒、谨"，重视人格养成而非功名获取。其子曾纪泽成为优秀外交家，家族兴旺。</p>
+                        </div>
+                        <div class="compare-card">
+                            <h4 class="font-semibold mb-2" style="color: var(--accent-gold);">反面案例：袁世凯教子</h4>
+                            <p class="text-sm text-gray-400">袁世凯诸子多不成器，其教育方式是物质满足加权力庇护，缺乏人格培养。袁克定晚年潦倒，印证了"富不过三代"。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: 博弈论专家 -->
+            <section id="section3" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">三、博弈论专家视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">博弈模型识别</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        这段历史包含多个嵌套博弈，最核心的是晋阳之战中的"三方博弈"，可分解为：
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <h4 class="font-semibold mb-2">智伯 vs 韩、魏</h4>
+                            <p class="text-xs text-gray-400">劫持博弈</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <h4 class="font-semibold mb-2">韩、魏 vs 赵氏</h4>
+                            <p class="text-xs text-gray-400">囚徒困境</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <h4 class="font-semibold mb-2">智伯 vs 三家联盟</h4>
+                            <p class="text-xs text-gray-400">零和博弈</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">参与者与支付矩阵</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="matrix-cell">博弈方</th>
+                                    <th class="matrix-cell">策略选项</th>
+                                    <th class="matrix-cell">潜在收益</th>
+                                    <th class="matrix-cell">潜在风险</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="matrix-cell font-semibold" style="color: var(--accent-vermilion);">智伯</td>
+                                    <td class="matrix-cell">继续进攻 / 接受联盟</td>
+                                    <td class="matrix-cell">灭赵，瓜分土地</td>
+                                    <td class="matrix-cell">韩魏反叛，族灭</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold" style="color: var(--accent-jade);">韩康子</td>
+                                    <td class="matrix-cell">继续助智 / 倒戈助赵</td>
+                                    <td class="matrix-cell">分赵地 / 存国自保</td>
+                                    <td class="matrix-cell">被智伯吞并 / 计划泄露被杀</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold" style="color: var(--accent-jade);">魏桓子</td>
+                                    <td class="matrix-cell">继续助智 / 倒戈助赵</td>
+                                    <td class="matrix-cell">分赵地 / 存国自保</td>
+                                    <td class="matrix-cell">被智伯吞并 / 计划泄露被杀</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold" style="color: var(--accent-gold);">赵襄子</td>
+                                    <td class="matrix-cell">死守 / 投降 / 求盟</td>
+                                    <td class="matrix-cell">存国 / 苟活</td>
+                                    <td class="matrix-cell">城破族灭 / 失去一切</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">信息对称性分析</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">关键信息不对称</h4>
+                            <p class="text-sm text-gray-400">韩、魏对智伯的真实态度是"私人信息"。表面上顺从，内心恐惧+怨恨。智伯未能准确解码这一信号。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">信号传递与误导</h4>
+                            <p class="text-sm text-gray-400">韩、魏通过"献地"向智伯传递"臣服"信号，但这是"虚假信号"——为了降低智伯的警惕。智伯的"吾乃今知水可以亡人国也"是"自曝弱点"信号，韩魏立刻读懂：安邑和平阳同样可被水攻。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">絺疵的情报失败</h4>
+                            <p class="text-sm text-gray-400">絺疵准确识别了韩魏"有忧色无喜志"的反常信号，但智伯将这一关键情报"共享"给韩魏，导致情报链断裂，絺疵被迫出逃齐国。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">纳什均衡与最优策略</h3>
+                    <div class="highlight-box">
+                        <p class="text-sm mb-3"><strong>最终状态分析：</strong></p>
+                        <p class="text-sm text-gray-300">韩、魏倒戈、赵氏存活、智氏灭亡，这是三方博弈的纳什均衡——没有任何一方能通过单方面改变策略获得更好结果。</p>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-gray-300"><strong>帕累托改进空间：</strong>如果智伯能承诺"灭赵后公平分配利益，不进一步吞并韩魏"，理论上可以达成三方共赢（智伯得地、韩魏存国、赵氏灭亡）。但智伯的"不仁"人品使他无法发出可信承诺。</p>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代博弈启示</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">商业谈判中的"可信承诺"</h4>
+                            <p class="text-sm text-gray-400">智伯无法让韩、魏相信他不会"卸磨杀驴"。现代商业中，合作协议必须有可执行的保障机制，否则对手会选择"先下手为强"。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">联盟博弈的"后发优势"</h4>
+                            <p class="text-sm text-gray-400">韩、魏选择"先顺从、后反戈"，利用智伯的轻敌心理积累力量，在关键时刻出手。现代企业联盟中，"搭便车+反戈"是常见策略。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: 历史人物模拟 -->
+            <section id="section4" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">四、历史人物模拟</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">人物视角模拟</h3>
+                    
+                    <div class="space-y-8">
+                        <!-- 毛泽东 -->
+                        <div class="border border-gray-700 rounded-lg overflow-hidden">
+                            <div class="p-4 bg-gray-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #8B0000;">
+                                    <span class="text-lg font-bold">毛</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">毛泽东</h4>
+                                    <p class="text-xs text-gray-500">革命家、战略家</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-300 mb-4"><strong>评价：</strong>智伯的问题在于"脱离群众"。他只相信自己的军事优势（五贤），不懂得统一战线。晋阳百姓"民无叛意"说明赵氏的"群众基础"比智伯的"精英优势"更牢固。</p>
+                                <p class="text-sm text-gray-300 mb-4"><strong>决策：</strong>如果我是智伯，首先要问：韩、魏为什么愿意跟我？是被迫还是自愿？要建立真正的统一战线，必须让韩、魏相信"跟着我有肉吃"。但智伯的"不仁"使他没有这个政治资本。</p>
+                                <div class="highlight-box">
+                                    <p class="text-xs text-gray-400">管理流派：群众路线、统一战线</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 拿破仑 -->
+                        <div class="border border-gray-700 rounded-lg overflow-hidden">
+                            <div class="p-4 bg-gray-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #1e3a5f;">
+                                    <span class="text-lg font-bold">拿</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">拿破仑</h4>
+                                    <p class="text-xs text-gray-500">军事家、皇帝</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-300 mb-4"><strong>评价：</strong>智伯犯了和我在俄国一样的错误——被早期胜利冲昏头脑。水攻晋阳是战术胜利，但战略上暴露了自己的软肋（汾水可灌安邑）。军事优势不能弥补战略盲区。</p>
+                                <p class="text-sm text-gray-300 mb-4"><strong>决策：</strong>作为智伯，我会在围城前就确保后方安全。让韩、魏的人质留在军中，或分兵控制他们的都城。绝不允许两支"不可靠"的军队在我的侧翼。</p>
+                                <div class="highlight-box">
+                                    <p class="text-xs text-gray-400">管理流派：军事化管理、风险控制</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 列宁 -->
+                        <div class="border border-gray-700 rounded-lg overflow-hidden">
+                            <div class="p-4 bg-gray-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #B22222;">
+                                    <span class="text-lg font-bold">列</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">列宁</h4>
+                                    <p class="text-xs text-gray-500">革命家、理论家</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-300 mb-4"><strong>评价：</strong>智伯代表的是"腐朽的封建贵族"——依靠个人能力而非阶级基础。他的失败不是个人的失败，是整个"贵族政治"模式的失败。赵襄子的胜利是"组织力"对"个人能力"的胜利。</p>
+                                <p class="text-sm text-gray-300 mb-4"><strong>决策：</strong>如果我是智伯，我会尝试建立"新的权力基础"——拉拢晋国的中下层贵族和商人，绕过韩、魏这些"旧势力"。但问题是：智伯的"不仁"使他无法建立任何阶级联盟。</p>
+                                <div class="highlight-box">
+                                    <p class="text-xs text-gray-400">管理流派：组织建设、阶级分析</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 凯撒 -->
+                        <div class="border border-gray-700 rounded-lg overflow-hidden">
+                            <div class="p-4 bg-gray-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #704214;">
+                                    <span class="text-lg font-bold">凯</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">凯撒</h4>
+                                    <p class="text-xs text-gray-500">统帅、独裁官</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-300 mb-4"><strong>评价：</strong>智伯缺乏"宽恕"的政治智慧。我征服高卢后给予当地贵族罗马公民权，而智伯攻城略地只知道索取。没有"胡萝卜"的"大棒"最终会打在自己身上。</p>
+                                <p class="text-sm text-gray-300 mb-4"><strong>决策：</strong>作为智伯，我会在韩、魏献地后给予回报——不仅仅是"不攻打"，而是真正的利益分享。让韩康子、魏桓子成为我的"盟友"而非"被迫的附庸"。但我最终也被刺杀了——宽恕也有风险。</p>
+                                <div class="highlight-box">
+                                    <p class="text-xs text-gray-400">管理流派：怀柔政策、利益整合</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 亚历山大 -->
+                        <div class="border border-gray-700 rounded-lg overflow-hidden">
+                            <div class="p-4 bg-gray-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: #4a5568;">
+                                    <span class="text-lg font-bold">亚</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">亚历山大大帝</h4>
+                                    <p class="text-xs text-gray-500">征服者、国王</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-gray-300 mb-4"><strong>评价：</strong>智伯的问题是"格局太小"。他的目标只是晋国霸权，而我追求的是"世界帝国"。当目标足够宏大，眼前的小恩怨就不足挂齿。</p>
+                                <p class="text-sm text-gray-300 mb-4"><strong>决策：</strong>如果我是智伯，我会将目标定在"统一六国"而非"压服韩魏"。为此，我需要韩、魏作为盟友而非附庸。但这也需要"仁"——亚历山大能融合波斯文化，智伯却连韩魏贵族的尊严都不给。</p>
+                                <div class="highlight-box">
+                                    <p class="text-xs text-gray-400">管理流派：愿景领导、跨文化整合</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">思想碰撞</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-gray-300 mb-4"><strong>核心矛盾：权力的合法性</strong></p>
+                        <p class="text-sm text-gray-400 mb-4">五位历史人物虽然风格各异，但都指向同一个问题：智伯的权力基础是什么？</p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li>- 毛泽东：群众基础</li>
+                            <li>- 拿破仑：军事实力+后方稳定</li>
+                            <li>- 列宁：阶级联盟</li>
+                            <li>- 凯撒：利益分享+宽容政策</li>
+                            <li>- 亚历山大：宏大愿景+文化融合</li>
+                        </ul>
+                        <p class="text-sm text-gray-300 mt-4">智伯的悲剧在于：他只相信"五贤"——个人能力，而忽视了一切真正的权力基础。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 5: 认知心理学 -->
+            <section id="section5" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">五、认知心理学视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">行为与情绪复盘</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">智伯的核心情绪：自恋与控制欲</h4>
+                            <p class="text-sm text-gray-400">智伯在蓝台宴会上"戏康子而侮段规"，被警告后说"难将由我，我不为难，谁敢兴之"。这是典型的自恋型人格特征：高估自己、低估风险、缺乏同理心。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">韩、魏的核心情绪：恐惧与怨恨</h4>
+                            <p class="text-sm text-gray-400">被索地、被羞辱、被迫出兵——韩、魏积累了大量负面情绪，但因实力差距选择压抑。这种"表面顺从、内心反抗"的状态，一旦有机会就会爆发。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">赵襄子的核心情绪：危机感与求生意志</h4>
+                            <p class="text-sm text-gray-400">面对绝境，赵襄子没有选择投降或死战，而是冷静分析利弊（长子城厚但民疲、邯郸粮足但民怨），最终选择"民必和"的晋阳。这是高"情绪智力"的表现。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">认知偏差分析</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="matrix-cell">认知偏差</th>
+                                    <th class="matrix-cell">表现</th>
+                                    <th class="matrix-cell">后果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">过度自信偏差</td>
+                                    <td class="matrix-cell">"难将由我，谁敢兴之"</td>
+                                    <td class="matrix-cell">忽视预警，不做防范</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">确认偏误</td>
+                                    <td class="matrix-cell">将絺疵的警告告诉韩魏</td>
+                                    <td class="matrix-cell">只相信自己想相信的（韩魏忠诚）</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">正常化偏见</td>
+                                    <td class="matrix-cell">"韩魏必反"后仍不改变策略</td>
+                                    <td class="matrix-cell">以为危机不会真的发生</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">归因错误</td>
+                                    <td class="matrix-cell">"水可以亡人国"</td>
+                                    <td class="matrix-cell">将成功归于自己的智慧，忽视对手的意志</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">光环效应</td>
+                                    <td class="matrix-cell">智宣子选智瑶</td>
+                                    <td class="matrix-cell">五贤的光环掩盖了不仁的缺陷</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">人性动因拆解</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-vermilion);">控制欲</div>
+                            <p class="text-sm text-gray-400">智伯不断索地、羞辱他人，深层需求是通过控制他人获得自我确认。这是不安全感的反向表达。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-jade);">安全感</div>
+                            <p class="text-sm text-gray-400">韩、魏献地是"花钱买平安"，但安全感需求的持续得不到满足，最终转化为反抗动力。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-gold);">归属感</div>
+                            <p class="text-sm text-gray-400">赵襄子选择晋阳，是因为尹铎"宽其民"——百姓认同他的统治。归属感是最可靠的力量来源。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代心理学映射</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">识别"表演性服从"</h4>
+                            <p class="text-sm text-gray-400">韩、魏的"献地"是表演性服从——表面顺从，内心反抗。现代职场中，员工"笑面虎"式服从领导，但关键时刻"翻车"，是同样机制。识别信号：过于顺从、缺乏主动性、私下有怨言。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">克服"损失厌恶"</h4>
+                            <p class="text-sm text-gray-400">智伯在絺疵警告后仍不改变策略，部分原因是"损失厌恶"——已投入太多（围城三年），不甘心放弃。现代决策中，"沉没成本"常让我们错过止损时机。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 6: 全学科融合 -->
+            <section id="section6" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">六、全学科融合分析</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">天文学视角：权力星系的坍缩</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        如果将晋国比作一个星系，智伯原本是最亮的主星——军事最强、资源最多。但他的"引力"（权力吸引力）是负面的：通过压迫而非吸引来维持轨道。
+                    </p>
+                    <div class="highlight-box">
+                        <p class="text-sm"><strong>坍缩机制：</strong>当主星无法通过"正向引力"（利益吸引）维持星系稳定，就必须通过"负向引力"（恐惧压迫）来维持。但这会积累势能，一旦超过临界点，整个星系会剧烈坍缩——韩魏背叛就是临界突破。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">流体力学视角：从层流到湍流</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        历史的"势"可以用流体力学解释。智伯初期的扩张是"层流"——阻力小、方向明确、各部分协调运动。但当他"戏康子、侮段规"后，系统开始出现扰动。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">扰动源</h4>
+                            <p class="text-sm text-gray-400">智伯的傲慢是系统的"扰动源"。每一次羞辱、每一次索地，都在增加系统的"雷诺数"（湍流指标）。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">临界点</h4>
+                            <p class="text-sm text-gray-400">"水可以亡人国"是临界点。这句话让韩魏意识到：他们和赵氏一样危险。系统从层流转为湍流。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">热力学视角：熵增与系统死亡</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        一个封闭系统必然走向熵增（混乱）。智氏集团之所以灭亡，是因为它没有建立"负熵机制"——即从外部获取能量、维持有序的能力。
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="matrix-cell">负熵机制</th>
+                                    <th class="matrix-cell">智氏</th>
+                                    <th class="matrix-cell">赵氏</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="matrix-cell">人才吸纳</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">无（只用自己人）</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">有（张孟谈等）</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell">民心得来</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">无（索取压迫）</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">有（尹铎减税）</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell">信息反馈</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">阻断（不听絺疵）</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">畅通（纳张孟谈建议）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">生物演化视角：生存策略</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-lg font-semibold mb-2" style="color: var(--accent-vermilion);">智伯：顶级掠食者策略</div>
+                            <p class="text-sm text-gray-400">狮子不吃狮子——但智伯对韩魏的压迫，打破了"同类不相食"的生态平衡，迫使猎物联合反抗。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-lg font-semibold mb-2" style="color: var(--accent-jade);">韩魏：拟态策略</div>
+                            <p class="text-sm text-gray-400">表面顺从、隐藏真实意图。这是生物界的"拟态"——通过伪装获得生存空间，等待反击机会。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-lg font-semibold mb-2" style="color: var(--accent-gold);">赵氏：共生策略</div>
+                            <p class="text-sm text-gray-400">晋阳之战中，赵氏与晋阳百姓形成"共生关系"——减税换取忠诚，共同抵御外敌。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">学科交叉总结</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        综合天文学、流体力学、热力学、生物演化视角，智伯之亡的本质是：<strong>一个试图通过单向压迫维持统治的系统，必然因为能量耗散、信息阻断、生态失衡而走向崩溃</strong>。无论是星系、流体、热力学系统还是生态系统，都遵循同样的规律——可持续的系统必须建立"双向能量流动"和"负熵机制"。
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Section 7: 组织行为学 -->
+            <section id="section7" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">七、组织行为学视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">系统变量提取</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">权力集中度</h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full" style="width: 90%; background: var(--accent-vermilion);"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">智氏: 高</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">基层认同度</h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full" style="width: 20%; background: var(--accent-vermilion);"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">智氏: 低</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">谏言通道畅通度</h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full" style="width: 10%; background: var(--accent-vermilion);"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">智氏: 极低</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">组织凝聚力</h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full" style="width: 5%; background: var(--accent-vermilion);"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">智氏: 极低</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">动力学回路分析</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-semibold mb-4" style="color: var(--accent-gold);">正反馈回路（增强回路）—— 智氏崩溃</h4>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="flex flex-wrap items-center gap-2 text-sm">
+                                <span class="px-3 py-1 bg-gray-700 rounded">傲慢行为</span>
+                                <span class="text-gray-500">→</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded">下属恐惧+怨恨</span>
+                                <span class="text-gray-500">→</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded">表面顺从、暗中策划</span>
+                                <span class="text-gray-500">→</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded">智伯更自信</span>
+                                <span class="text-gray-500">→</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded">更傲慢</span>
+                                <span class="text-gray-500">→</span>
+                                <span class="px-3 py-1 rounded" style="background: var(--accent-vermilion);">崩溃</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4" style="color: var(--accent-jade);">负反馈回路（平衡回路）—— 失效分析</h4>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <p class="text-sm text-gray-400 mb-4">正常组织中，以下机制应形成负反馈：</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="text-red-400">x</span>
+                                    <span>谏言机制（智果、智国、絺疵进谏无效）</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="text-red-400">x</span>
+                                    <span>利益制衡机制（韩魏无制衡力量）</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="text-red-400">x</span>
+                                    <span>道德约束机制（智伯"不仁"）</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 mt-4">所有负反馈机制均被智伯的个人权力打破，系统失去自我调节能力。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">群体动力学分析</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">集体盲思</h4>
+                            <p class="text-sm text-gray-400">智伯集团内部没有异见声音。智果因谏言被忽视而"别族"，絺疵因警告被泄露而"请使于齐"。异见者被排斥，形成"一言堂"。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">从众压力</h4>
+                            <p class="text-sm text-gray-400">韩魏表面服从智伯，不是认同他的领导，而是恐惧他的军事力量。这种"表演性从众"是组织不稳定的信号。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">内耗</h4>
+                            <p class="text-sm text-gray-400">智伯集团没有真正的团队凝聚力。智伯与韩魏之间是赤裸裸的权力关系，没有信任、没有共同愿景、没有利益共享。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">系统稳态重构建议</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">建立"异见者保护机制"</h4>
+                            <p class="text-sm text-gray-400">现代企业应建立"红队机制"——专门有人扮演"反对者"角色，防止决策者陷入确认偏误。智伯如果有这样的机制，或许不会把絺疵的警告告诉韩魏。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">建立"利益共享机制"</h4>
+                            <p class="text-sm text-gray-400">组织稳定需要利益绑定。智伯如果能让韩魏从"服从"中获得真正利益（而非只是避免损失），韩魏就不会倒戈。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 8: 风险管理 -->
+            <section id="section8" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">八、风险管理视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">弱信号识别</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        智伯之亡并非突然发生的，此前有多次"弱信号"预警：
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-gray-800 rounded-lg">
+                            <div class="timeline-dot mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">信号1：智果"别族"</h4>
+                                <p class="text-sm text-gray-400 mt-1">族内核心成员用脚投票，是最强烈的预警信号。现代人应建立"人才流失预警机制"——当核心员工离职时，要追问原因。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-gray-800 rounded-lg">
+                            <div class="timeline-dot mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">信号2：蓝台宴会羞辱事件</h4>
+                                <p class="text-sm text-gray-400 mt-1">智国警告"主不备难，难必至矣"，智伯不以为然。这是组织内的"风险警报"，应被记录和追踪。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-gray-800 rounded-lg">
+                            <div class="timeline-dot mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-200">信号3：韩魏"有忧色无喜志"</h4>
+                                <p class="text-sm text-gray-400 mt-1">絺疵精准识别了韩魏的情绪异常。这是"行为异常信号"，应触发深度调查。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">系统滞后性分析</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg mb-6">
+                        <h4 class="font-semibold text-gray-200 mb-2">反馈回路滞后</h4>
+                        <p class="text-sm text-gray-400">智伯的决策（索地、攻赵）到反馈（韩魏倒戈）之间存在长时间滞后。他以为"韩魏献地=韩魏忠诚"，但献地只是缓兵之计。滞后期内，韩魏在积累力量、等待时机。</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p class="text-sm"><strong>滞后性风险：</strong>复杂系统中，行动与结果之间常有延迟。智伯在"滞后期"内继续傲慢决策，实际上是在"透支未来"——当反馈最终到达时，已无可挽回。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">风险敞口与止损</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-200">最大风险敞口</h4>
+                            <div class="p-4 bg-gray-800 rounded-lg">
+                                <p class="text-sm text-gray-400 mb-2">智伯的最大风险敞口是：</p>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>- 侧翼完全暴露给"不可靠盟友"</li>
+                                    <li>- 后方无战略纵深</li>
+                                    <li>- 没有备份计划</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-200">止损措施评估</h4>
+                            <div class="p-4 bg-gray-800 rounded-lg">
+                                <p class="text-sm text-gray-400 mb-2">智伯的"补救"是：</p>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li style="color: var(--accent-vermilion);">- 无（继续原策略）</li>
+                                    <li style="color: var(--accent-vermilion);">- 无视絺疵警告</li>
+                                    <li style="color: var(--accent-vermilion);">- 泄露情报给对手</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-2">所有措施都是"助燃剂"而非"灭火器"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代风险管理启示</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">对冲策略一：多元联盟</h4>
+                            <p class="text-sm text-gray-400">不要让成功依赖于单一联盟。智伯的失败在于只依靠军事优势，没有建立多元权力基础。企业应避免过度依赖单一客户、单一供应商或单一市场。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">对冲策略二：应急预案</h4>
+                            <p class="text-sm text-gray-400">智伯没有"如果韩魏反叛怎么办"的预案。现代企业应为所有关键风险建立应急预案，并定期演练。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 9: 信息论 -->
+            <section id="section9" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">九、信息论视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">香农熵与信噪比</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        从信息论角度，智伯的失败本质是"信息解码失败"——他无法从噪声中提取有效信号。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">有效信号</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li>- 智果的警告（五贤一不仁）</li>
+                                <li>- 智国的警告（主不备难）</li>
+                                <li>- 絺疵的分析（韩魏必反）</li>
+                                <li>- 韩魏"有忧色无喜志"</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">噪声干扰</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li>- 自己的过度自信</</li>
+                                <li>- 韩、魏的虚假顺从</li>
+                                <li>- 军事优势的"光环"</li>
+                                <li>- 围城即将成功的"乐观"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlight-box mt-6">
+                        <p class="text-sm"><strong>信噪比崩溃：</strong>智伯的过度自信放大了"噪声"，压制了"信号"。当信噪比低于临界值，决策者实际上是在"盲飞"。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">编码与解码</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="matrix-cell">发送者</th>
+                                    <th class="matrix-cell">编码行为</th>
+                                    <th class="matrix-cell">智伯的解码</th>
+                                    <th class="matrix-cell">真实含义</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="matrix-cell">韩康子</td>
+                                    <td class="matrix-cell">献万家之邑</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">忠诚/畏惧</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">缓兵之计</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell">魏桓子</td>
+                                    <td class="matrix-cell">献万家之邑</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">忠诚/畏惧</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">待机反击</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell">智伯自己</td>
+                                    <td class="matrix-cell">"水可以亡人国"</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">炫耀胜利</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">暴露威胁韩魏</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell">絺疵</td>
+                                    <td class="matrix-cell">"韩魏必反"</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">将信将疑</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">核心情报</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">信息不对称与反向选择</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg mb-6">
+                        <h4 class="font-semibold text-gray-200 mb-2">韩魏的信息优势</h4>
+                        <p class="text-sm text-gray-400">韩、魏掌握"私人信息"——他们内心的真实想法。他们利用这一优势进行"信号欺骗"（献地=忠诚），而智伯没有有效的"信号甄别"机制。</p>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <h4 class="font-semibold text-gray-200 mb-2">"柠檬市场"效应</h4>
+                        <p class="text-sm text-gray-400">智伯周围，真正敢说真话的人（智果、絺疵）被边缘化，剩下的是"阿谀者"或"伪装者"。组织内部形成"坏消息被隐藏、好消息被放大"的柠檬市场。</p>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代传播启示</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg mt-4">
+                        <p class="text-sm text-gray-300"><strong>建立"防噪声"决策机制：</strong></p>
+                        <ul class="text-sm text-gray-400 mt-2 space-y-2">
+                            <li>1. 多渠道信息验证（不要只信"献地"这一种信号）</li>
+                            <li>2. 逆向思维测试（如果韩魏真的忠诚，他们会有什么行为？现在有吗？）</li>
+                            <li>3. 保护"异见者"（絺疵的情报不应被泄露给韩魏）</li>
+                            <li>4. 建立内部情报防火墙（核心决策信息分级管理）</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 10: 法哲学 -->
+            <section id="section10" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">十、法哲学视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">规则的合法性基础</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-gold);">智氏规则：权力意志</h4>
+                            <p class="text-sm text-gray-400">智伯的统治完全基于"权力意志"——我强，所以你服从。这种合法性来源脆弱：一旦力量对比变化，统治即瓦解。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-jade);">赵氏规则：契约精神</h4>
+                            <p class="text-sm text-gray-400">尹铎治晋阳，"损其户数"（减税），是赵简子与晋阳百姓的"契约"——我保护你，你支持我。这种双向契约更稳固。</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box mt-6">
+                        <p class="text-sm"><strong>合法性危机：</strong>智伯的"索地"行为，用现代法哲学来说，是"合法性危机"——他没有权利索取，只有力量索取。这种统治在稳定时看似有效，一旦动摇便无人支持。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">规则的异化机制</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">"潜规则"挤出"显规则"</h4>
+                            <p class="text-sm text-gray-400">晋国表面上是"六卿共治"（显规则），但智伯通过索地、攻赵，试图建立"智氏独霸"（潜规则）。当潜规则与显规则冲突，组织的"法治基础"即被侵蚀。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">双重标准</h4>
+                            <p class="text-sm text-gray-400">智伯可以向韩、魏索地，但韩、魏不能向智伯索地。这种"不对称规则"暴露了规则的本质——是"统治工具"而非"公平契约"。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">权力边界与制衡</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <h4 class="font-semibold text-gray-200 mb-2">缺失的安全阀</h4>
+                        <p class="text-sm text-gray-400 mb-4">智氏集团没有任何权力制衡机制：</p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li>- 无"董事会"制衡（智伯独断）</li>
+                            <li>- 无"外部审计"（没人能查智伯的决策）</li>
+                            <li>- 无"退出机制"（韩魏无法和平退出）</li>
+                            <li>- 无"申诉渠道"（被索地者无处申诉）</li>
+                        </ul>
+                        <p class="text-sm text-gray-400 mt-4">当系统没有安全阀，压力只能通过"爆炸"释放——韩魏倒戈就是系统爆炸。</p>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代企业治理启示</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">设计原则</h4>
+                            <p class="text-sm text-gray-400">现代企业治理需要平衡"效率"与"制衡"。智伯追求的是绝对效率（快速决策、强力执行），但缺乏制衡机制导致"一着不慎，满盘皆输"。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">具体建议</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>- 建立独立的"风险委员会"</li>
+                                <li>- 设置CEO决策的"红线机制"</li>
+                                <li>- 保障核心利益相关方的"退出权"</li>
+                                <li>- 建立"申诉与仲裁"机制</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 11: 资源配置 -->
+            <section id="section11" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">十一、资源配置视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">资产盘点</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-vermilion);">硬资产</div>
+                            <ul class="text-sm text-gray-400 text-left space-y-1">
+                                <li>- 最强的军事力量</li>
+                                <li>- 广阔的领土</li>
+                                <li>- 韩、魏的"献地"</li>
+                                <li>- 水攻的技术能力</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-gold);">软资产</div>
+                            <ul class="text-sm text-gray-400 text-left space-y-1">
+                                <li>- 智氏的"族姓"声望</li>
+                                <li>- 执政的"正统性"</li>
+                                <li>- 个人能力（五贤）</li>
+                                <li>- 韩、魏的表面服从</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg text-center">
+                            <div class="text-3xl mb-2" style="color: var(--accent-jade);">缺失资产</div>
+                            <ul class="text-sm text-gray-400 text-left space-y-1">
+                                <li>- 真正的盟友</li>
+                                <li>- 民心认同</li>
+                                <li>- 道德信用</li>
+                                <li>- 风险缓冲</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">杠杆点识别</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg mb-6">
+                        <h4 class="font-semibold text-gray-200 mb-2">智伯选择的杠杆点：军事压迫</h4>
+                        <p class="text-sm text-gray-400">智伯用军事力量作为杠杆，试图撬动整个晋国。这是"高杠杆"策略——投入小（一场战争）、产出大（独霸晋国）。</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p class="text-sm mb-3"><strong>杠杆断裂分析：</strong></p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li>1. 军事杠杆的"支点"是韩、魏的军队——但这个支点不稳定</li>
+                            <li>2. 高杠杆意味着高风险：一旦断裂，无缓冲余地</li>
+                            <li>3. 杠杆效率依赖"信息对称"——智伯不知道韩魏的真实意图</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+                        <h4 class="font-semibold text-gray-200 mb-2">赵襄子选择的杠杆点：民心</h4>
+                        <p class="text-sm text-gray-400">赵襄子选择晋阳，是因为"尹铎之所宽也，民必和矣"。民心是他的杠杆——虽然"杠杆率"低（三年围城），但稳定性高（民无叛意）。</p>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">资本杠杆风险</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="matrix-cell">杠杆类型</th>
+                                    <th class="matrix-cell">收益</th>
+                                    <th class="matrix-cell">风险</th>
+                                    <th class="matrix-cell">容错机制</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">智伯：军事高杠杆</td>
+                                    <td class="matrix-cell">快速扩张</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">极高（全军覆没）</td>
+                                    <td class="matrix-cell" style="color: var(--accent-vermilion);">无</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-cell font-semibold">赵氏：民心低杠杆</td>
+                                    <td class="matrix-cell">稳定持久</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">低（城破也不会被出卖）</td>
+                                    <td class="matrix-cell" style="color: var(--accent-jade);">有（民无叛意）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代资源配置启示</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">识别真正的"战略杠杆点"</h4>
+                            <p class="text-sm text-gray-400">智伯以为"军事力量"是杠杆点，但真正的杠杆点是"韩魏的忠诚"。在现代企业中，"核心资源"可能不是财务报表上的资产，而是员工忠诚度、客户信任、品牌声誉。</p>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">杠杆策略的风险管理</h4>
+                            <p class="text-sm text-gray-400">高杠杆策略（如并购、激进扩张）需要配套的风险缓冲。智伯的失败在于"全押"策略没有止损机制。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 12: 反脆弱 -->
+            <section id="section12" class="mb-20 tab-content">
+                <div class="section-title mb-8">
+                    <h2 class="font-display text-3xl" style="color: var(--text-primary);">十二、反脆弱视角</h2>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">压力源分析</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">智伯面临的压力源</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li>- 继承合法性挑战（智果反对他继位）</li>
+                                <li>- 六卿平衡的压力（必须扩张才能生存）</li>
+                                <li>- 内部异见者（智果别族、絺疵出逃）</li>
+                                <li>- 外部对抗（赵氏拒绝献地）</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">赵襄子面临的压力源</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li>- 继承地位不确定（赵简子的测试）</li>
+                                <li>- 智伯的索地威胁</li>
+                                <li>- 晋阳被围三年的生存压力</li>
+                                <li>- 内部资源枯竭（人马相食）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">脆弱性识别</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-vermilion);">智伯的脆弱性</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li><strong>过度依赖军事优势：</strong>当军事力量不能直接解决问题（围城三年），他没有备选方案</li>
+                                <li><strong>缺乏情感冗余：</strong>没有人真正爱戴他，失败时无人相救</li>
+                                <li><strong>信息茧房：</strong>只听自己想听的，真实信息被阻隔</li>
+                                <li><strong>战略刚性：</strong>只有进攻没有防守，没有撤退选项</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold mb-3" style="color: var(--accent-jade);">赵襄子的反脆弱性</h4>
+                            <ul class="text-sm text-gray-400 space-y-2">
+                                <li><strong>多元选择：</strong>长子、邯郸、晋阳三个选项，选择最优解</li>
+                                <li><strong>情感冗余：</strong>晋阳百姓的忠诚是他的"安全网"</li>
+                                <li><strong>信息开放：</strong>接纳张孟谈的建议，保持信息流动</li>
+                                <li><strong>战略弹性：</strong>防守中有反击准备（决水灌智伯军）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">反脆弱进化机制</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg mb-6">
+                        <h4 class="font-semibold text-gray-200 mb-2">赵襄子如何"从压力中获益"</h4>
+                        <div class="space-y-4 mt-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-jade);">1</div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-200">预压测试</h5>
+                                    <p class="text-sm text-gray-400">赵简子的"竹简测试"是一次预压测试——在真正的危机前，检验继承人的抗压能力。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-jade);">2</div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-200">资源冗余建设</h5>
+                                    <p class="text-sm text-gray-400">尹铎治晋阳"损其户数"，是在建设"情感冗余"——平时减少收入，战时获得忠诚。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-jade);">3</div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-200">危机中的选择权</h5>
+                                    <p class="text-sm text-gray-400">赵襄子没有"全押"任何一个选项，而是保留了选择权（可以走长子、邯郸或晋阳）。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm" style="background: var(--accent-jade);">4</div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-200">不对称收益设计</h5>
+                                    <p class="text-sm text-gray-400">守晋阳的下行风险是"城破身亡"，上行收益是"智氏覆灭、赵氏存续"。风险有限、收益无限。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wisdom-card">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-jade);">现代成长指南</h3>
+                    <div class="space-y-4 mt-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">心智升级策略一：建设"冗余"</h4>
+                            <p class="text-sm text-gray-400 mb-2">现代人的脆弱性往往来自"过度优化"——没有备用方案。</p>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>- 财务冗余：储蓄、多元收入来源</li>
+                                <li>- 技能冗余：不依赖单一技能</li>
+                                <li>- 关系冗余：不只依赖单一人际关系</li>
+                                <li>- 信息冗余：从多渠道获取信息</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-gray-200 mb-2">心智升级策略二：保持"选择权"</h4>
+                            <p class="text-sm text-gray-400 mb-2">赵襄子有三个退路，智伯没有退路。现代人应避免"全押"决策：</p>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>- 不把所有鸡蛋放一个篮子</li>
+                                <li>- 保留"撤退"选项</li>
+                                <li>- 在不确定性中保持灵活性</li>
+                                <li>- 避免"沉没成本陷阱"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card rounded-lg p-8 mt-8">
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--accent-vermilion);">核心总结</h3>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            智伯之亡，本质上是"脆弱性崩溃"——一个过度依赖单一优势、缺乏冗余、拒绝反馈的系统，在面对压力时必然崩溃。赵氏的胜利，是"反脆弱性胜出"——通过预压测试、冗余建设、选择权保留，在压力中不仅生存，更获得进化。
+                        </p>
+                        <p class="text-sm text-gray-300 leading-relaxed mt-4">
+                            这个故事告诉我们：真正的强者，不是"攻击力最强的人"，而是"最能承受压力、从压力中获益的人"。五贤（能力）可以让你赢一时，反脆弱（韧性）才能让你赢一世。
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 px-6 border-t border-gray-800 text-center">
+        <p class="text-sm text-gray-500 mb-4">资治通鉴 · 智伯之亡 · 十二维度深度拆解</p>
+        <p class="text-xs text-gray-600">"夫以其五贤陵人，而以不仁行之，其谁能待之？"</p>
+    </footer>
+    
+    <!-- Back to Top -->
+    <div class="floating-seal" id="backToTop" title="返回顶部">
+        <span class="font-display">智</span>
+    </div>
+    
+    <script>
+        // Initialize variables first
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.tab-content');
+        const progressBar = document.getElementById('progressBar');
+        const backToTop = document.getElementById('backToTop');
+        const canvas = document.getElementById('inkCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let inkBlobs = [];
+        let animationId = null;
+        
+        // Resize canvas
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Create ink blobs
+        function createInkBlob() {
+            if (inkBlobs.length > 15) return;
+            
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const maxRadius = Math.max(1, 30 + Math.random() * 60);
+            
+            inkBlobs.push({
+                x: x,
+                y: y,
+                radius: 0,
+                maxRadius: maxRadius,
+                opacity: 0.15 + Math.random() * 0.1,
+                speed: 0.3 + Math.random() * 0.5
+            });
+        }
+        
+        // Animate ink blobs
+        function animateInk() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = inkBlobs.length - 1; i >= 0; i--) {
+                const blob = inkBlobs[i];
+                blob.radius += blob.speed;
+                
+                const safeRadius = Math.max(0.1, blob.radius);
+                const gradient = ctx.createRadialGradient(
+                    blob.x, blob.y, 0,
+                    blob.x, blob.y, safeRadius
+                );
+                
+                const alpha = Math.max(0, Math.min(1, blob.opacity * (1 - blob.radius / blob.maxRadius)));
+                const colorValue = Math.floor(30 + 20 * (1 - blob.radius / blob.maxRadius));
+                
+                gradient.addColorStop(0, 'rgba(' + colorValue + ', ' + (colorValue + 10) + ', ' + (colorValue + 20) + ', ' + alpha.toFixed(3) + ')');
+                gradient.addColorStop(1, 'rgba(' + colorValue + ', ' + (colorValue + 10) + ', ' + (colorValue + 20) + ', 0)');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(blob.x, blob.y, safeRadius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                if (blob.radius > blob.maxRadius) {
+                    inkBlobs.splice(i, 1);
+                }
+            }
+            
+            if (Math.random() < 0.02) {
+                createInkBlob();
+            }
+            
+            animationId = requestAnimationFrame(animateInk);
+        }
+        
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (!prefersReducedMotion) {
+            for (let i = 0; i < 8; i++) {
+                createInkBlob();
+            }
+            animateInk();
+        }
+        
+        // Navigation click handling
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                
+                navItems.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+        
+        // Scroll handling
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
+            progressBar.style.width = scrollPercent + '%';
+            
+            // Show/hide back to top button
+            if (scrollTop > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        
+        // Back to top click
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Intersection Observer for scroll-based navigation
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    navItems.forEach(item => {
+                        if (item.getAttribute('data-section') === sectionId) {
+                            navItems.forEach(nav => nav.classList.remove('active'));
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => observer.observe(section));
+        
+        // Cleanup on page hide
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && animationId) {
+                cancelAnimationFrame(animationId);
+            } else if (!document.hidden && !prefersReducedMotion) {
+                animateInk();
+            }
+        });
+    </script>
+</body>
+</html>
