@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 史氏温邪案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">葉天士·史（四十）濕鬱溫邪案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <div class="leading-loose text-lg">
+                <p class="mb-4">史（四十），濕鬱溫邪。總是阻遏肺氣。嘔咳脘痞。即病形篇中。諸嘔喘滿。皆屬於肺。不明口鼻受侵阻氣之理。清中疏導。乃過病所。伐其無病之地矣。（熱鬱成毒）</p>
+                <p class="text-gray-600 text-base mb-4">處方：鮮枇杷葉、杏仁、象貝、黑山梔、兜鈴、馬勃。</p>
+                <p class="mb-4">又，輕浮苦辛治肺。咳嗆頗減。咽痛紅腫。皆邪窒既久。壅而成毒。嗌乾不喜飲。舌色淡不紅。仍清氣分。佐以解毒。</p>
+                <p class="text-gray-600 text-base">處方：雞子白、麥冬、大沙參、金銀花、綠豆皮、蔗漿。</p>
+            </div>
+            <div class="text-right mt-4">
+                <span class="stamp">清上泄熱</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（肺卫受邪）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：温邪由口鼻而入，首先阻遏肺气，肺合皮毛。虽然案中未直言恶寒，但“咳、咽红肿”属广义表部营卫受邪。然而病机已入气分，重点不在表寒。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里实热、诸呕喘满。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：高度符合（气分郁热）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中明确提出“热郁成毒”、“清气分”。“诸呕喘满皆属于肺”，此处肺热下迫影响胃气，虽无燥结，但属于广义阳明热证范畴，即气分热实证。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、胸胁苦满、心烦喜呕、诸孔窍疾患。</p>
+                    <div class="flex items-center gap-2 font-bold text-green-700">
+                        <span>结论：符合（窍道阻滞）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：咽痛红肿、咳呛、呕吐，且温邪窒塞，符合热郁半表半里循孔道上冲的特征。叶氏强调“温邪阻遏肺气”，本质是上焦枢机不利。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、畏寒肢冷、脉沉弱。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：病机为热郁化毒，舌色淡非虚寒之淡，而是邪阻气分。叶氏特别提醒“不可清中疏导，伐其无病之地”，即明确反对将其误诊为太阴虚寒或中焦湿滞。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细、恶寒、身痛、无热。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：此为外感温热实证，无少阴阳衰阴盛之象。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂/合病）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂、虚实夹杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：疑似（湿温合病）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：温邪夹湿，初起表现为“湿郁”，后期表现为“热毒”，存在复杂的邪正斗争。但主要矛盾集中在手太阴肺与足阳明胃，尚未发展至寒热错杂之厥阴期。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">上焦肺系（气分）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阳证、热证、实证</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阳阳明合病（肺胃同病）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">温湿阻肺，气机不宣，热郁成毒，肺胃失降。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>宣肺降逆（初诊）：</strong>鲜枇杷叶、兜铃、杏仁。旨在开宣肺气，降逆止呕。</li>
+                        <li><strong>清热解毒（治标）：</strong>黑山栀、马勃、象贝。针对“热郁成毒”与咽痛红肿。</li>
+                        <li><strong>甘润清芳（二诊）：</strong>麦冬、大沙参、蔗浆、鸡子白。针对“嗌干不喜饮”的津伤气燥，通过甘寒药物生津润燥。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特药法：鸡子白与蔗浆】</h3>
+                    <p class="leading-relaxed">
+                        叶天士二诊中使用了<strong>“鸡子白（鸡蛋清）”</strong>与<strong>“蔗浆”</strong>。
+                        <br><br>
+                        <strong>理由：</strong>
+                        1. <strong>鸡子白：</strong>入肺经，能润肺利咽、清热解毒。其质粘清，最能敷布红肿之咽喉，清降肺经浮火。
+                        2. <strong>蔗浆：</strong>甘寒润肺，不仅能缓解“嗌干”，且能中和燥药之性。对于温热病后期邪去而津伤者，具有“补而不滞”之效。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证为基准，临床常用替代方包括：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>甘露消毒丹：</strong>适用于湿热并重，咽痛口渴者（侧重湿热并化）。</li>
+                        <li>• <strong>普济消毒饮：</strong>针对咽痛红肿剧烈，热毒上攻者（侧重攻毒）。</li>
+                        <li>• <strong>桑菊饮：</strong>若症状较轻，仅为肺气失宣（侧重宣散）。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶氏《温热论》临床思维生成
+        </footer>
+    </div>
+</body>
+</html>

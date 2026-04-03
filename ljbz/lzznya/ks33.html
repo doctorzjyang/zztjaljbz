@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医案六经辨证分析 - 杨姓感温案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #332c22;
+        }
+        .chinese-border {
+            border: 2px solid #8d7665;
+            position: relative;
+        }
+        .chinese-border::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid #8d7665;
+            pointer-events: none;
+        }
+        .title-bg {
+            background-color: #8d7665;
+            color: #f4f1ea;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 4px solid #8d7665;
+        }
+        .stamp {
+            writing-mode: vertical-rl;
+            border: 2px solid #b22222;
+            color: #b22222;
+            padding: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- 头部 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">医案六经辨证分析报告</h1>
+            <div class="flex justify-center items-center gap-4">
+                <span class="h-px w-12 bg-gray-400"></span>
+                <p class="text-lg italic">叶天士·杨姓感温案</p>
+                <span class="h-px w-12 bg-gray-400"></span>
+            </div>
+        </header>
+
+        <!-- 原医案摘录 -->
+        <section class="chinese-border p-6 mb-10 bg-white">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">【医案原文】</h2>
+            <p class="leading-loose text-lg italic">
+                楊（二四）形瘦色蒼。體質偏熱。而五液不充。冬月溫暖。真氣少藏。其少陰腎臟。先已習習風生。乃陽動之化。不以育陰驅熱以卻溫氣。泛泛乎辛散。為暴感風寒之治。過辛泄肺。肺氣散。斯咳不已。苦味沉降。胃口戕。而腎關傷。致食減氣怯。行動數武。氣欲喘急。封藏納固之司漸失。內損顯然。非見病攻病矣。靜養百日。猶冀其安。
+                <br>
+                <span class="text-gray-600 text-base">处方：麦冬（米拌炒）、甜沙参、生甘草、南枣肉。冲入青蔗浆一杯。</span>
+            </p>
+            <div class="text-right mt-4">
+                <span class="stamp">内损虚中</span>
+            </div>
+        </section>
+
+        <!-- 任务1：六经对照 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务一：六经诊断对照表</h2>
+            <div class="grid gap-6">
+                <!-- 太阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">一、太阳病（表阳证）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：恶寒恶风、脉浮、头痛身痛、浮肿身痒。位表，性阳实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：误治/不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：叶氏明确指出，此非“暴感风寒”，若用“辛散”之法（太阳病治法）反而“过辛泄肺”，导致肺气消散、咳嗽不止。本案无恶寒、脉浮等表实证。</p>
+                </div>
+
+                <!-- 阳明 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">二、阳明病（里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口干、脉滑数、大便干、里阳证。位里，性阳热实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合（虚热非实热）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：虽然患者“体质偏热”、“五液不充”，表现出口干类阴伤之象，但属于虚热（育阴驱热范畴），非阳明经府之实热。若误用苦寒（阳明治法）则“胃口戕”，加重病情。</p>
+                </div>
+
+                <!-- 少阳 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">三、少阳病（半表半里实热）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：口苦、往来寒热、胸胁苦满、脉弦。位半表半里，性阳热实。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：案中未见少阳枢机不利之典型症状，其“风生”非外感少阳之热，而是少阴内动之风。</p>
+                </div>
+
+                <!-- 太阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">四、太阴病（里阴证/虚寒）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：大便稀、胃脘胀满、脉沉弱无力。位里，性阴虚寒。</p>
+                    <div class="flex items-center gap-2 font-bold text-blue-700">
+                        <span>结论：部分符合（脾胃受损）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：因误用苦味沉降导致“胃口戕”、“食减气怯”，表现出脾胃运化无力的太阴虚象，但此为治疗不当产生的继发损害。</p>
+                </div>
+
+                <!-- 少阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">五、少阴病（表阴证/全身虚损）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：脉沉细无力、恶寒、内损、虚损。位表/里，性阴虚。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-800">
+                        <span>结论：高度符合（病本层面）</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：叶氏直指“少阴肾脏，先已习习风生”，且“肾关伤”、“封藏纳固之司渐失”。患者“真气少藏”、“行动喘急”，完全符合少阴病精气亏损、内损虚衰的核心标准。</p>
+                </div>
+
+                <!-- 厥阴 -->
+                <div class="section-card p-5">
+                    <h3 class="font-bold text-lg mb-2">六、厥阴病（寒热错杂）</h3>
+                    <p class="text-sm text-gray-700 mb-2">标准：上热下寒、寒热错杂。位里/半表半里，性错杂。</p>
+                    <div class="flex items-center gap-2 font-bold text-red-700">
+                        <span>结论：不符合</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">依据：本案虽有“温气”与“内损”，但主线清晰，为少阴阴虚兼温邪，非典型的寒热错杂之厥阴病。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 任务2：诊断总结 -->
+        <section class="mb-10 p-6 border-2 border-dashed border-[#8d7665] bg-[#fffaf0]">
+            <h2 class="text-xl font-bold mb-4 text-center">任务二：最终诊断结论</h2>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病位</p>
+                    <p class="font-bold text-xl">里（少阴肾、肺胃）</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">最终病性</p>
+                    <p class="font-bold text-xl">阴证、虚证、虚热</p>
+                </div>
+                <div class="p-3 bg-white shadow-sm">
+                    <p class="text-gray-500 text-sm">合病情况</p>
+                    <p class="font-bold text-xl">少阴并太阴（内损感温）</p>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-gray-700">
+                核心辨证：<span class="text-red-800 font-bold">少阴精亏，真气不藏，肺胃受戕，阴虚感温。</span>
+            </p>
+        </section>
+
+        <!-- 任务3：方剂药法分析 -->
+        <section class="mb-10">
+            <h2 class="title-bg inline-block px-4 py-1 text-xl mb-6">任务三：方剂与治法深度解析</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【处方构成分析】</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>润肺生津（补肺之散）：</strong>麦冬、甜沙参。麦冬拌炒后更具和胃之力，与沙参合用，旨在收敛被辛散药泄掉的肺气，滋养五液。</li>
+                        <li><strong>甘缓和中（护胃之戕）：</strong>生甘草、南枣肉。甘味药调和脾胃，修复因误用苦寒而受伤的胃气（太阴受损）。</li>
+                        <li><strong>清润育阴（却温气）：</strong>青蔗浆。这是全方灵魂，极具生津止渴、润肺养阴之效，专针对“阴虚感温”。</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【独特治法：浆汁冲入】</h3>
+                    <p class="leading-relaxed">
+                        叶天士在此使用了<strong>“冲入青蔗浆”</strong>的特殊药法。
+                        <br><br>
+                        <strong>理由：</strong>患者“五液不充”，单纯的草木干品煎汤难以快速化生津液。蔗浆为天然“植物血液”，其甘平柔润之性远超干燥药材。对于“行动喘急、内损显然”的虚人，通过这种甘润法“育阴驱热”，既不伤脾胃，又能直达阴液亏损之处。
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 shadow-md">
+                    <h3 class="font-bold text-lg border-b mb-4 text-[#8d7665]">【替代方剂参考】</h3>
+                    <p class="leading-relaxed">
+                        若以此六经辨证及叶氏思路，临床可参考：
+                    </p>
+                    <ul class="mt-2 space-y-1 text-blue-900">
+                        <li>• <strong>沙参麦冬汤：</strong>清养肺胃，生津润燥的基础方。</li>
+                        <li>• <strong>六味地黄丸（改汤）：</strong>若侧重于少阴肾精补益。</li>
+                        <li>• <strong>生脉散：</strong>若气欲喘急严重，需加强益气敛阴之功。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            依据《各经病诊断标准》及叶天士《临证指南医案》生成
+        </footer>
+    </div>
+</body>
+</html>
