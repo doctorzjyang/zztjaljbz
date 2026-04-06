@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揭秘科学家：居里夫人 - 化学小报</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+        
+        :root {
+            --primary-blue: #e0f2fe;
+            --accent-green: #dcfce7;
+            --warm-yellow: #fef9c3;
+            --highlight-red: #ef4444;
+            --science-gray: #f8fafc;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* A4 比例容器 */
+        .a4-container {
+            width: 210mm;
+            height: 297mm;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 10mm;
+            box-sizing: border-box;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, #bae6fd 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .atom-deco {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .card {
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .portrait-area {
+            background: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .interactive-zone {
+            background-color: var(--warm-yellow);
+            border: 2px dashed #fbbf24;
+        }
+
+        .timeline-arrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #3b82f6;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .a4-container { box-shadow: none; margin: 0; }
+            .no-print { display: none; }
+        }
+
+        .experiment-btn {
+            transition: all 0.2s;
+        }
+        .experiment-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-container" id="poster">
+        <!-- 标题区域 -->
+        <header class="header-bg p-6 mb-6 text-center relative">
+            <!-- 装饰元素 -->
+            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-4xl opacity-80">🧪</div>
+            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-4xl opacity-80">⚗️</div>
+            
+            <h1 class="text-3xl font-bold text-slate-800 mb-2 relative z-10">
+                揭秘科学家：居里夫人
+                <span class="block text-xl font-medium text-blue-600 mt-1">—— 镭元素的发现者 ——</span>
+            </h1>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Chemistry Science Weekly · Junior High Edition</p>
+            
+            <!-- 原子轨道背景装饰 -->
+            <svg class="atom-deco right-10 top-2 w-20 h-20" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="10" fill="#3b82f6"/>
+                <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#3b82f6" stroke-width="1" transform="rotate(45 50 50)"/>
+                <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#3b82f6" stroke-width="1" transform="rotate(-45 50 50)"/>
+            </svg>
+        </header>
+
+        <div class="flex flex-1 gap-6 overflow-hidden">
+            <!-- 左侧：科学家肖像区 (1/3) -->
+            <aside class="w-1/3 flex flex-col gap-4">
+                <div class="portrait-area flex-1 rounded-xl p-4 flex flex-col items-center text-center">
+                    <div class="w-full aspect-[3/4] bg-slate-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden border-4 border-white shadow-sm">
+                        <!-- 占位图：居里夫人肖像插画 -->
+                        <div class="text-center p-4">
+                            <span class="text-6xl mb-2 block">👩‍🔬</span>
+                            <p class="text-sm font-bold text-slate-600">玛丽·居里<br>(Marie Curie)</p>
+                            <p class="text-xs text-slate-400 mt-2 italic">一位神情专注、穿着朴素的伟大女性</p>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-bold text-blue-800 border-b-2 border-blue-200 mb-2 pb-1">人物名片</h3>
+                        <p class="text-sm leading-relaxed text-slate-700">
+                            <strong>出生：</strong>1867年，波兰<br>
+                            <strong>荣誉：</strong>两次获得诺贝尔奖<br>
+                            <strong>品质：</strong>专注、坚毅、无私<br>
+                            <strong>信念：</strong>“科学不应是为了个人的荣誉，而是为了人类的福利。”
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 诺贝尔奖章图案装饰 -->
+                <div class="flex justify-center gap-4 py-2 opacity-80">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold border-2 border-yellow-600">N</div>
+                    <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold border-2 border-yellow-600">N</div>
+                </div>
+            </aside>
+
+            <!-- 右侧：主内容区 (2/3) -->
+            <main class="w-2/3 flex flex-col gap-4">
+                <!-- 发现故事区 -->
+                <section class="card bg-blue-50 border-blue-100 flex-1">
+                    <h2 class="text-lg font-bold text-blue-900 flex items-center gap-2 mb-3">
+                        <span class="bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-full text-sm">1</span>
+                        从废墟到辉煌：提炼镭的故事
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-sm text-slate-700 space-y-2">
+                            <p>在巴黎郊外一个简陋的棚屋里，居里夫妇开始了艰苦卓绝的工作。他们面对的是成吨的<strong>沥青铀矿</strong>渣。</p>
+                            <p class="bg-white/60 p-2 rounded italic">“那是我们生命中最快乐的时光，尽管我们常常冻得发抖。”</p>
+                            <p>经过千次、万次的溶解、结晶，他们终于在数吨矿渣中提取出了仅有的<strong>0.1克</strong>氯化镭。</p>
+                        </div>
+                        <div class="bg-white rounded p-2 flex flex-col items-center justify-center border border-blue-200">
+                            <div class="text-4xl">⚗️ ➡️ ✨</div>
+                            <p class="text-[10px] text-center mt-2 text-blue-600">【实验示意：沥青铀矿提炼过程】<br>加热、搅拌、沉淀、结晶</p>
+                        </div>
+                    </div>
+                    <!-- 协作场景 -->
+                    <div class="mt-3 flex items-center gap-3 bg-white/40 p-2 rounded-lg">
+                        <span class="text-2xl">👫</span>
+                        <p class="text-xs italic text-slate-600">皮埃尔是玛丽最亲密的战友，他们共同在深夜里观察那散发着淡蓝色荧光的试管，那是科学发现的“希望之光”。</p>
+                    </div>
+                </section>
+
+                <!-- 影响展示区 -->
+                <section class="card bg-green-50 border-green-100">
+                    <h2 class="text-lg font-bold text-green-900 flex items-center gap-2 mb-3">
+                        <span class="bg-green-600 text-white w-6 h-6 flex items-center justify-center rounded-full text-sm">2</span>
+                        镭：改变世界的光芒
+                    </h2>
+                    <div class="flex items-center gap-4">
+                        <div class="flex-1 space-y-2">
+                            <div class="flex items-start gap-2">
+                                <span class="text-green-600">●</span>
+                                <p class="text-xs"><strong>医学突破：</strong>用于癌症治疗的“放射疗法”之始。</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-green-600">●</span>
+                                <p class="text-xs"><strong>科学飞跃：</strong>揭示了原子内部的奥秘，开启了核物理时代。</p>
+                            </div>
+                        </div>
+                        <div class="w-32 h-20 bg-white rounded border border-green-200 flex items-center justify-center relative">
+                            <div class="text-2xl">🏥</div>
+                            <div class="absolute -right-2 top-0 text-xl">✨</div>
+                            <p class="absolute bottom-1 text-[8px] text-green-700">现代医学应用</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 互动元素设计 -->
+                <section class="interactive-zone p-4 rounded-xl">
+                    <div class="flex gap-4">
+                        <!-- 小实验 -->
+                        <div class="w-1/2">
+                            <h3 class="font-bold text-orange-800 text-sm mb-2 flex items-center gap-1">
+                                🏠 小实验：变色奇迹
+                            </h3>
+                            <p class="text-[10px] text-slate-600 mb-2">利用紫甘蓝汁检测家里液体的酸碱性！</p>
+                            <button onclick="toggleExp()" id="expBtn" class="experiment-btn bg-white px-3 py-1 rounded-full text-[10px] shadow-sm border border-orange-200 hover:bg-orange-50 font-bold text-orange-600">
+                                点击模拟实验过程
+                            </button>
+                            <div id="expResult" class="hidden mt-2 p-2 bg-white rounded text-[10px]">
+                                1. 紫甘蓝汁 + 醋 = <span class="text-red-500 font-bold">红色</span><br>
+                                2. 紫甘蓝汁 + 小苏打 = <span class="text-green-500 font-bold">蓝绿色</span>
+                            </div>
+                        </div>
+                        <!-- 思考题 -->
+                        <div class="w-1/2 border-l border-orange-200 pl-4">
+                            <h3 class="font-bold text-orange-800 text-sm mb-2">💡 思考一下</h3>
+                            <ul class="text-[10px] space-y-1 text-slate-700 list-disc list-inside">
+                                <li>如果你在实验中失败了1000次，你会选择放弃吗？</li>
+                                <li>你认为科学家最需要的品质是什么？</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- 底部条 -->
+        <footer class="mt-6 flex justify-between items-end border-t pt-4">
+            <div class="bg-blue-900 text-white px-4 py-2 rounded-r-full text-xs">
+                <strong>你知道吗？</strong> 镭的放射性极强，居里夫人的笔记至今仍有放射性，需保存在铅盒中。
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] text-slate-400">制作：杨晓茯</p>
+                <p class="text-[10px] text-slate-400">2026年4月 · 科学精神传承</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 打印提示 -->
+    <div class="no-print fixed bottom-10 right-10 flex flex-col gap-2">
+        <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 flex items-center gap-2">
+       
+        </button>
+    </div>
+
+    <script>
+        function toggleExp() {
+            const res = document.getElementById('expResult');
+            const btn = document.getElementById('expBtn');
+            if(res.classList.contains('hidden')) {
+                res.classList.remove('hidden');
+                btn.innerText = '重置实验';
+            } else {
+                res.classList.add('hidden');
+                btn.innerText = '点击模拟实验过程';
+            }
+        }
+    </script>
+</body>
+</html>
