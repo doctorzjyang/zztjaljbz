@@ -84,6 +84,9 @@ files.forEach(file => {
         content = content.replace('<body class="p-4 md:p-8">\n    <div class="max-w-4xl mx-auto">', '<body class="p-4 md:p-8">\n    <div class="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">');
     }
     
+    // 替换回到上级链接
+    content = content.replace(/href="\.\.\/ljzz\/index\.html"/g, 'href="../index.html"');
+    
     // 添加链接模块
     if (!content.includes('<!-- 左侧链接模块 -->')) {
         content = content.replace('<body class="p-4 md:p-8">\n    <div class="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">', '<body class="p-4 md:p-8">\n    <div class="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">\n' + linkModuleHTML);
