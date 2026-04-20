@@ -3,150 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>伤寒论 23-27 条深度解析</title>
+    <title>胡希恕伤寒论讲座：23-27条</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
-        body { background-color: #fcfaf2; font-family: system-ui, -apple-system, sans-serif; color: #2d2a26; }
-        .serif-font { font-family: 'Noto Serif SC', serif; }
-        .clause-container { background: white; border-radius: 16px; border: 1px solid #e5e0d0; margin-bottom: 3rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
-        .clause-header { background: #5d4037; color: #fff; padding: 1rem 1.5rem; font-weight: bold; }
-        .clause-content { padding: 1.5rem; font-size: 1.2rem; line-height: 1.8; border-bottom: 1px solid #f0ede4; background: #fff; }
-        .prescription-section { background: #fffdf0; padding: 1.5rem; border-left: 5px solid #d4a017; margin: 1rem 1.5rem; border-radius: 4px; }
-        .hu-summary { background: #eff6ff; padding: 1.5rem; border-top: 3px solid #1d4ed8; }
-        .mindmap-box { background: white; padding: 2rem; border-radius: 20px; border: 2px dashed #a8a29e; }
-        .formula-tag { display: inline-block; background: #d4a017; color: white; padding: 2px 10px; border-radius: 999px; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+        .serif {
+            font-family: 'Noto Serif SC', serif;
+        }
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-top: 4px solid #8b4513;
+        }
+        .formula-box {
+            background-color: #fffaf0;
+            border-left: 4px solid #d2691e;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        .highlight {
+            color: #8b4513;
+            font-weight: bold;
+        }
+        .mindmap-node {
+            border: 2px solid #8b4513;
+            border-radius: 8px;
+            padding: 10px;
+            background: #fff;
+            text-align: center;
+        }
     </style>
 </head>
-<body class="p-6 md:p-12">
-    <div class="max-w-5xl mx-auto">
-        <header class="text-center mb-16">
-            <h1 class="text-4xl font-bold serif-font text-stone-800">太阳病篇 (23-27 条)</h1>
-            <p class="text-stone-500 mt-3 text-lg italic">—— 论表郁轻证、小发汗法与辨证误治</p>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold serif text-amber-900 mb-4">胡希恕伤寒论讲座</h1>
+            <p class="text-xl text-amber-800">第 23 条 至 第 27 条 深度解析</p>
+            <div class="mt-4 flex justify-center space-x-2">
+                <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">太阳病篇</span>
+                <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">并病与微发汗</span>
+            </div>
         </header>
 
         <!-- 思维导图部分 -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-2">🧩</span> 23-27条 逻辑思维导图</h2>
-            <div class="mindmap-box">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <!-- 分支1 -->
-                    <div class="border p-4 rounded-lg bg-stone-50">
-                        <h3 class="font-bold text-amber-800 border-b pb-2 mb-2">表郁轻证 (23-25条)</h3>
-                        <p class="text-sm text-stone-600">八九日不解，如疟状，面有赤色</p>
-                        <div class="mt-2 space-y-1">
-                            <div class="bg-white p-1 text-xs border">各半汤 (5:5) - 邪正均势</div>
-                            <div class="bg-white p-1 text-xs border">二麻一汤 (2:1) - 邪少正多</div>
+        <section class="article-card p-6">
+            <h2 class="text-2xl font-bold serif border-b-2 border-amber-200 pb-2 mb-6">
+                <i class="fas fa-sitemap mr-2"></i>23-27条 核心逻辑思维导图
+            </h2>
+            <div class="bg-amber-50 p-6 rounded-lg overflow-x-auto">
+                <div class="flex flex-col items-center">
+                    <div class="mindmap-node font-bold bg-amber-200 w-48">太阳病传变与小发汗</div>
+                    <div class="h-8 w-0.5 bg-amber-800"></div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="mindmap-node w-40">第23条：太阳阳明并病</div>
+                            <div class="h-6 w-0.5 bg-amber-800"></div>
+                            <div class="mindmap-node w-40 bg-white text-sm">桂枝麻黄各半汤<br>(面赤、如疟、微恶寒)</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="mindmap-node w-40">第25条：桂二麻一证</div>
+                            <div class="h-6 w-0.5 bg-amber-800"></div>
+                            <div class="mindmap-node w-40 bg-white text-sm">太阳病服桂枝汤后<br>形似疟、热多寒少</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="mindmap-node w-40">第26-27条：桂枝加葛根汤</div>
+                            <div class="h-6 w-0.5 bg-amber-800"></div>
+                            <div class="mindmap-node w-40 bg-white text-sm">太阳病项背强几几<br>表未解而津液受损</div>
                         </div>
                     </div>
-                    <!-- 分支2 -->
-                    <div class="border p-4 rounded-lg bg-stone-50">
-                        <h3 class="font-bold text-red-800 border-b pb-2 mb-2">表郁兼内热 (26条)</h3>
-                        <p class="text-sm text-stone-600">汗出多，微恶寒，表证未罢</p>
-                        <div class="mt-2 space-y-1 text-xs">
-                            <div class="bg-white p-1 border">二越一汤 - 辛凉散郁</div>
-                        </div>
-                    </div>
-                    <!-- 分支3 -->
-                    <div class="border p-4 rounded-lg bg-stone-50">
-                        <h3 class="font-bold text-blue-800 border-b pb-2 mb-2">辨证与误治 (27条)</h3>
-                        <p class="text-sm text-stone-600">太少合病，不可误下</p>
-                        <div class="mt-2 space-y-1 text-xs">
-                            <div class="bg-white p-1 border">脉沉者 - 属少阴/太阴</div>
-                            <div class="bg-white p-1 border">脉浮紧 - 属太阳</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6 text-center text-xs text-stone-400">
-                    核心逻辑：从“重剂发汗”转向“轻剂调和”，处理病程后期缠绵不愈的表证。
                 </div>
             </div>
         </section>
 
-        <!-- 条文详情 -->
-        <div class="space-y-12">
+        <!-- 条文 23 -->
+        <section class="article-card">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-800 text-white px-3 py-1 rounded mr-3">第 23 条</span>
+                    <h2 class="text-xl font-bold serif">太阳与阳明并病（桂麻各半汤证）</h2>
+                </div>
+                <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-400 italic mb-6">
+                    太阳病，得之八九日，如疟状，发热恶寒，热多寒少，其人不呕，清便续自可，一日二三度发。脉微缓者，为欲愈也；脉微而恶寒者，此阴阳俱虚，不可更发汗、更下、更吐也；面色反有赤色者，未欲解也，以其不能得小汗出，身必痒，宜桂枝麻黄各半汤。
+                </div>
 
-            <!-- 第23条 -->
-            <div class="clause-container">
-                <div class="clause-header">第 23 条 · 桂枝麻黄各半汤证</div>
-                <div class="clause-content serif-font">
-                    太阳病，八九日如疟状，发热恶寒，热多寒少，其人不呕，呴呴欠。微留者，一日二三度发。脉微缓者，为欲解也；脉微而恶寒者，此阴阳俱虚，不可更发汗、更下、更吐也；面色反有赤色者，未欲解也，以其不能得小汗出，身必痒，宜桂枝麻黄各半汤。
+                <div class="formula-box">
+                    <h3 class="font-bold text-amber-900 mb-2">【桂枝麻黄各半汤方】</h3>
+                    <p>桂枝一两十六铢（去皮） 芍药一两 麻黄一两（去节） 甘草一两（炙） 杏仁二十四个（汤浸，去皮尖及双仁） 生姜一两（切） 大枣四枚（擘）</p>
+                    <p class="mt-2 text-sm">上七味，以水五升，先煮麻黄，减二升，去上沫，内诸药，煮取一升八合，去滓，温服六合。本云：桂枝汤三合，麻黄汤三合，并为六合，顿服，将息如桂枝汤法。</p>
                 </div>
-                <div class="prescription-section">
-                    <span class="formula-tag">桂枝麻黄各半汤方</span>
-                    <p class="text-sm">
-                        <strong>组成：</strong>桂枝（一两十六铢，去皮）、芍药（一两）、生姜（一两，切）、甘草（一两，炙）、麻黄（一两，去节）、大枣（四枚，擘）、杏仁（二十四枚，汤浸，去皮尖及双仁）。<br>
-                        <strong>煎服法：</strong>上七味，以水五升，先煮麻黄一二沸，去上沫，内诸药，煮取一升八合，去滓，温服六合。本云：桂枝汤三合，麻黄汤三合，并为六合，顿服。将息如上法。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h4 class="font-bold text-blue-900 mb-2">胡希恕总结：</h4>
-                    <p class="text-sm leading-relaxed">
-                        这一条讲的是“表郁轻证”。病到了八九日，邪气已衰，正气也虚，所以不再是大热大寒，而是像疟疾一样阵发。<strong>“面有赤色”和“身痒”</strong>是判断表郁的眼目，说明汗出不彻，邪气想出出不来，郁在皮肤。此时不能重汗，只能用各半汤这种“小发汗”法，分两次服，让身体微微出汗，病就解了。
-                    </p>
+
+                <div class="mt-6">
+                    <h3 class="font-bold text-lg mb-3"><i class="fas fa-comment-dots mr-2 text-amber-700"></i>胡老核心总结：</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><span class="highlight">1. 辨析“如疟状”：</span> 胡老指出，这并非疟疾，而是太阳病迁延八九日后，邪气欲入阳明而未全入。发热恶寒一日二三度发，说明邪气在表已微。</li>
+                        <li><span class="highlight">2. 面赤与身痒：</span> 面色赤是阳气郁于面部，身痒是邪气欲出而不得汗。这说明病虽轻但表仍未解。</li>
+                        <li><span class="highlight">3. 桂麻各半汤的用意：</span> 此汤是取桂枝汤、麻黄汤各三分之一的量。胡老强调，这是“小汗法”的代表，用于表证极轻、不能受大汗，但又必须发汗的情况。</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <!-- 第25条 (含24) -->
-            <div class="clause-container">
-                <div class="clause-header">第 25 条 · 桂枝二麻黄一汤证</div>
-                <div class="clause-content serif-font">
+        <!-- 条文 24 -->
+        <section class="article-card">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-800 text-white px-3 py-1 rounded mr-3">第 24 条</span>
+                    <h2 class="text-xl font-bold serif">太阳病初服桂枝汤后</h2>
+                </div>
+                <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-400 italic mb-6">
+                    太阳病，初服桂枝汤，反烦不解者，先刺风池、风府，却与桂枝汤则愈。
+                </div>
+                <div class="mt-6">
+                    <h3 class="font-bold text-lg mb-3"><i class="fas fa-comment-dots mr-2 text-amber-700"></i>胡老核心总结：</h3>
+                    <p class="text-gray-700">胡老认为，这里的“反烦”是药力激发了机体抗病能力，但邪气闭郁严重，单纯靠药力一时难以宣透。刺风池、风府是为了疏通经气，协同药力解除表邪。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 条文 25 -->
+        <section class="article-card">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-800 text-white px-3 py-1 rounded mr-3">第 25 条</span>
+                    <h2 class="text-xl font-bold serif">桂枝二麻黄一汤证</h2>
+                </div>
+                <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-400 italic mb-6">
                     服桂枝汤，大汗出，脉洪大者，与桂枝汤，如前法。若形如疟，日再发者，汗出必解，宜桂枝二麻黄一汤。
                 </div>
-                <div class="prescription-section">
-                    <span class="formula-tag">桂枝二麻黄一汤方</span>
-                    <p class="text-sm">
-                        <strong>组成：</strong>桂枝（一两十七铢，去皮）、芍药（一两六铢）、麻黄（十六铢，去节）、生姜（一两六铢，切）、杏仁（十六枚，去皮尖）、甘草（一两二铢，炙）、大枣（五枚，擘）。<br>
-                        <strong>煎服法：</strong>上七味，以水五升，先煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓，温服一升。日再服。本云：桂枝汤二分，麻黄汤一分，合为二升，分再服。今合为一方。
-                    </p>
+
+                <div class="formula-box">
+                    <h3 class="font-bold text-amber-900 mb-2">【桂枝二麻黄一汤方】</h3>
+                    <p>桂枝一两十七铢（去皮） 芍药一两六铢 麻黄十六铢（去节） 甘草一两二铢（炙） 杏仁十六个（去皮尖） 生姜一两六铢（切） 大枣五枚（擘）</p>
+                    <p class="mt-2 text-sm">上七味，以水五升，先煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓，温服一升，日再服。本云：桂枝汤二分，麻黄汤一分，合为二升，分再服，今合为一方，将息如前法。</p>
                 </div>
-                <div class="hu-summary">
-                    <h4 class="font-bold text-blue-900 mb-2">胡希恕总结：</h4>
-                    <p class="text-sm leading-relaxed">
-                        此条对比各半汤，邪气更轻。<strong>“日再发”</strong>（一天发作两次）说明波动的频率快但程度轻。比例上桂枝多、麻黄少，是因为此时正气已经不足以支撑剧烈的发汗，必须以桂枝汤调和营卫为主，稍微带一点麻黄宣散表邪。这是仲景用药极其精细的体现。
-                    </p>
+
+                <div class="mt-6">
+                    <h3 class="font-bold text-lg mb-3"><i class="fas fa-comment-dots mr-2 text-amber-700"></i>胡老核心总结：</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><span class="highlight">1. 脉洪大并非必用白虎：</span> 胡老特别指出，若服桂枝汤后脉洪大但仍有表证（如恶风寒），说明邪仍驻表，应继续用桂枝汤，不可贸然清里。</li>
+                        <li><span class="highlight">2. 桂二麻一的比例：</span> 此方中桂枝汤成分更多。用于热多寒少更明显、表气更虚的情况。相比各半汤，它的发汗力更缓和。</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <!-- 第26条 -->
-            <div class="clause-container">
-                <div class="clause-header">第 26 条 · 桂枝二越婢一汤证</div>
-                <div class="clause-content serif-font">
-                    服桂枝汤，大汗出后，大烦渴不解，脉洪大者，白虎加人参汤主之。若形如疟，日再发者，汗出必解，宜桂枝二越婢一汤。
+        <!-- 条文 26-27 -->
+        <section class="article-card">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-800 text-white px-3 py-1 rounded mr-3">第 26-27 条</span>
+                    <h2 class="text-xl font-bold serif">桂枝加葛根汤证（项背几几）</h2>
                 </div>
-                <div class="prescription-section">
-                    <span class="formula-tag">桂枝二越婢一汤方</span>
-                    <p class="text-sm">
-                        <strong>组成：</strong>桂枝（十八铢，去皮）、芍药（十八铢）、甘草（十八铢，炙）、生姜（一两一铢，切）、大枣（四枚，擘）、麻黄（十八铢，去节）、石膏（二十四铢，碎，绵裹）。<br>
-                        <strong>煎服法：</strong>上七味，以水五升，煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓，温服一升。本云：当裁为越婢汤、桂枝汤合之，饮一升。今合为一方。
-                    </p>
+                <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-400 italic mb-6">
+                    26. 服桂枝汤，大汗出后，大烦渴不解，脉洪大者，白虎加人参汤主之。<br>
+                    27. 太阳病，发热恶寒，热多寒少，脉微弱者，此无阳也，不可发汗。宜桂枝二越婢一汤。
                 </div>
-                <div class="hu-summary">
-                    <h4 class="font-bold text-blue-900 mb-2">胡希恕总结：</h4>
-                    <p class="text-sm leading-relaxed">
-                        注意本条与白虎汤证的鉴别。如果大汗后只是烦渴、脉洪大，那是热入阳明，用白虎加人参汤。但如果还有<strong>“形如疟”</strong>，说明表证未罢。这个方子里的<strong>石膏</strong>非常关键，它是为了清表郁化生的热。胡老常说，只要表证不解且伴有口渴、微心烦等热像，就要考虑在发汗方里加石膏，这就是辛温与辛凉的合方。
-                    </p>
+
+                <div class="formula-box">
+                    <h3 class="font-bold text-amber-900 mb-2">【桂枝二越婢一汤方】</h3>
+                    <p>桂枝（去皮） 芍药 麻黄 甘草（炙）各十八铢 大枣四枚（擘） 生姜一两二铢（切） 石膏二十四铢（碎，绵裹）</p>
+                    <p class="mt-2 text-sm">上七味，以水五升，煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓，温服一升，日再服。本云：当裁为越婢汤、桂枝汤，合之，饮一升，今合为一方，桂枝汤二分，越婢汤一分。</p>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-bold text-lg mb-3"><i class="fas fa-comment-dots mr-2 text-amber-700"></i>胡老核心总结：</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><span class="highlight">1. 白虎加人参汤的转机：</span> 26条是典型的表邪入里化热，伤及津液。此时恶寒已罢，纯是里热，故改用白虎加人参。</li>
+                        <li><span class="highlight">2. 桂枝二越婢一汤：</span> 27条中“脉微弱者，此无阳也”并非指没阳气，而是指表邪微弱、里热已萌。胡老认为此方是解表与清热并行的微剂。</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <!-- 第27条 -->
-            <div class="clause-container">
-                <div class="clause-header">第 27 条 · 太阳与少阳合病辨证</div>
-                <div class="clause-content serif-font">
-                    太阳病，发热恶寒，热多寒少。脉微弱者，此无阳也，不可发汗。宜桂枝二越婢一汤。
-                </div>
-                <div class="hu-summary">
-                    <h4 class="font-bold text-blue-900 mb-2">胡希恕总结：</h4>
-                    <p class="text-sm leading-relaxed">
-                        这一条争议较多，胡老对此有独特见解。这里的<strong>“无阳”</strong>不是指阳气全无，而是指表证的阳气（浮脉）不显，脉象反而微弱。这种情况下说明病邪可能已经不在表，或者已经向三阴（如少阴）转变。如果误以为是太阳表证而重发汗，就会大伤元气。仲景在这里再次给出桂枝二越婢一汤，意在通过极轻的剂量观察调和，是一种非常稳妥的试探性治疗，体现了“保胃气、存津液”的核心思想。
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <footer class="mt-20 text-center text-stone-400 text-sm border-t border-stone-200 pt-8 pb-12">
-            《伤寒论》23-27条：表郁轻证与合方应用专题
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm py-8 border-t border-amber-200">
+            <p>内容仅依据：Notebookml《胡希恕伤寒论、金匮要略讲座》整理</p>
+            <p class="mt-2">经方医学研究 · 止于至善</p>
         </footer>
     </div>
 </body>
