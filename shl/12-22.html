@@ -2,270 +2,527 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡希恕伤寒论讲座：12-22条深度解析</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>胡希恕经方心法：伤寒论第12-22条精解</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background-color: #f8f5f0;
-            color: #333;
+            background-color: #f4efe7;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, '微软雅黑', 'Georgia', serif;
+            color: #2c2b26;
+            padding: 2rem 1rem;
+            line-height: 1.55;
         }
-        .serif {
-            font-family: 'Noto Serif SC', serif;
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border-radius: 36px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            padding: 2rem 1.8rem;
         }
-        .content-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        .title-section {
+            text-align: center;
             margin-bottom: 2rem;
-            border-left: 4px solid #8b4513;
+            border-bottom: 2px solid #dac29c;
+            padding-bottom: 1.2rem;
         }
-        .clause-title {
-            background-color: #8b4513;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            font-weight: bold;
+        .title-section h1 {
+            font-size: 2rem;
+            color: #6b4c3b;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
-        .hu-summary {
-            background-color: #fff9f0;
-            border-top: 1px dashed #d2b48c;
-            padding: 1.5rem;
+        .title-section p {
+            color: #7e6a58;
+            margin-top: 0.4rem;
+            font-style: italic;
         }
-        .formula-box {
-            background-color: #fdf2f2;
-            border: 1px solid #feb2b2;
+        .mindmap-wrapper {
+            background: #fef8ef;
+            border-radius: 28px;
+            padding: 1.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            border: 1px solid #ece0cf;
+        }
+        .mindmap-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+            padding-left: 0.7rem;
+            border-left: 5px solid #c29a6b;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            background: #fffef7;
+            border-radius: 24px;
             padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
         }
-        .mindmap-container {
-            overflow-x: auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
+        .tiao-card {
+            margin-bottom: 2.8rem;
+            border-radius: 28px;
+            background: #ffffff;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            border: 1px solid #e9dfcf;
+            overflow: hidden;
+        }
+        .tiao-header {
+            background: #f7f2e9;
+            padding: 0.9rem 1.8rem;
+            border-bottom: 1px solid #e2d2bc;
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .tiao-num {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #a46b3a;
+            font-family: monospace;
+        }
+        .tiao-original {
+            background: #fefcf7;
+            padding: 1.4rem 1.8rem;
+            border-bottom: 1px dashed #e0cfb7;
+            font-family: 'Noto Serif SC', 'Times New Roman', '宋体', serif;
+        }
+        .original-text {
+            white-space: pre-wrap;
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #2c3e2f;
+        }
+        .fangji {
+            background: #faf1e4;
+            margin-top: 1rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.92rem;
+            color: #6b3f1c;
+            font-family: monospace;
+            border-left: 4px solid #b97f4b;
+        }
+        .huru-section {
+            padding: 1.5rem 1.8rem;
+            background: #faf7f0;
+        }
+        .huru-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #9b5e2c;
+            display: inline-block;
+            border-bottom: 3px solid #d9b48b;
+            margin-bottom: 1rem;
+            padding-right: 1rem;
+        }
+        .huru-content p {
+            margin-bottom: 0.75rem;
+        }
+        .quote {
+            background: #ece1d2;
+            padding: 0.7rem 1.2rem;
+            border-radius: 24px;
+            margin: 0.8rem 0;
+            border-left: 5px solid #b87c4a;
+            color: #3a2c23;
+        }
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9e8b74;
+            border-top: 1px solid #e3d5c2;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .tiao-original, .huru-section { padding: 1rem; }
+            .tiao-header { padding: 0.8rem 1rem; }
+        }
+        .badge {
+            background: #e7dccc;
+            color: #785f44;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
-    <div class="max-w-4xl mx-auto">
-        <!-- 标题区 -->
-        <header class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold serif text-brown-900 mb-4">《伤寒论》12-22条解析</h1>
-            <p class="text-gray-600 italic">—— 胡希恕伤寒论、金匮要略讲座系列整理</p>
-        </header>
-
-        <!-- 思维导图区 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold serif mb-6 flex items-center">
-                <span class="w-2 h-8 bg-brown-700 mr-3"></span>核心逻辑思维导图
-            </h2>
-            <div class="mindmap-container shadow-inner border border-gray-200">
-                <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-                    <!-- 连线 -->
-                    <g stroke="#d2b48c" stroke-width="2">
-                        <line x1="50" y1="200" x2="180" y2="100" />
-                        <line x1="50" y1="200" x2="180" y2="200" />
-                        <line x1="50" y1="200" x2="180" y2="300" />
-                        
-                        <line x1="330" y1="100" x2="400" y2="60" />
-                        <line x1="330" y1="100" x2="400" y2="140" />
-                        
-                        <line x1="330" y1="200" x2="400" y2="200" />
-                        <line x1="330" y1="300" x2="400" y2="300" />
-                    </g>
-                    
-                    <!-- 节点 -->
-                    <!-- 中心 -->
-                    <rect x="10" y="175" width="100" height="50" rx="5" fill="#8b4513" />
-                    <text x="60" y="207" text-anchor="middle" fill="white" font-size="14">12-22条核心</text>
-                    
-                    <!-- 第一级 -->
-                    <rect x="180" y="75" width="150" height="50" rx="5" fill="#a0522d" />
-                    <text x="255" y="107" text-anchor="middle" fill="white" font-size="14">桂枝汤及其变法</text>
-                    
-                    <rect x="180" y="175" width="150" height="50" rx="5" fill="#a0522d" />
-                    <text x="255" y="207" text-anchor="middle" fill="white" font-size="14">桂枝汤辨证禁忌</text>
-                    
-                    <rect x="180" y="275" width="150" height="50" rx="5" fill="#a0522d" />
-                    <text x="255" y="307" text-anchor="middle" fill="white" font-size="14">酒客/素体状况</text>
-
-                    <!-- 第二级 -->
-                    <rect x="400" y="35" width="180" height="40" rx="5" fill="#d2b48c" />
-                    <text x="490" y="60" text-anchor="middle" font-size="12">14条：桂枝加葛根汤</text>
-                    
-                    <rect x="400" y="120" width="180" height="40" rx="5" fill="#d2b48c" />
-                    <text x="490" y="145" text-anchor="middle" font-size="12">18条：桂枝加厚朴杏子汤</text>
-                    
-                    <rect x="400" y="180" width="180" height="40" rx="5" fill="#d2b48c" />
-                    <text x="490" y="205" text-anchor="middle" font-size="12">16条/19条：喘与汗后辨</text>
-                    
-                    <rect x="400" y="280" width="180" height="40" rx="5" fill="#d2b48c" />
-                    <text x="490" y="305" text-anchor="middle" font-size="12">17条/22条：酒客与脉证</text>
-                </svg>
-            </div>
-        </section>
-
-        <!-- 条文内容区 -->
-        <section class="space-y-8">
-            
-            <!-- 第12条 -->
-            <div class="content-card">
-                <div class="clause-title">第12条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        太阳中风，阳浮而阴弱，阳浮者，热自发；阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，桂枝汤主之。
-                    </p>
-                    <div class="formula-box">
-                        <h4 class="font-bold text-red-800 mb-2">桂枝汤方</h4>
-                        <p class="text-sm">桂枝（三两，去皮）、芍药（三两）、甘草（二两，炙）、生姜（三两，切）、大枣（十二枚，擘）。</p>
-                        <p class="text-sm mt-2"><strong>服用法：</strong>上五味，口父咀三味，以水七升，微火煮取三升，去滓，适寒温，服一升。服已须臾，歠热稀粥一升余，以助药力。温覆令一时许，遍身漐漐微似有汗者益佳，不可令如水流离，病必不除。</p>
-                    </div>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">这一条是桂枝汤证的总纲。胡老强调：<strong>阳浮而阴弱</strong>，是指脉象浮取有力而沉取弱，反映了精气不足于内而浮越于外。桂枝汤并非简单的发汗药，而是通过调和营卫（甘草、大枣补益精气，桂枝、芍药解肌）来解决由于精气自溃导致的汗出恶风。胡老特别提醒：服药后的“热稀粥”和“温覆”是方子的一部分，目的是借谷气以助汗。 </p>
-                </div>
-            </div>
-
-            <!-- 第13条 -->
-            <div class="content-card">
-                <div class="clause-title">第13条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        太阳病，头痛，发热，汗出，恶风，桂枝汤主之。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">此条是第12条的补充，去掉了那些修辞（如啬啬、淅淅），直指核心症状。胡老指出，只要具备这四大症状，无论是否自愈过，都属于桂枝汤的绝对指征。这体现了“有是证用是方”的原则。</p>
-                </div>
-            </div>
-
-            <!-- 第14条 -->
-            <div class="content-card">
-                <div class="clause-title">第14条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        太阳病，项背强几几，反汗出恶风者，桂枝加葛根汤主之。
-                    </p>
-                    <div class="formula-box">
-                        <h4 class="font-bold text-red-800 mb-2">桂枝加葛根汤方</h4>
-                        <p class="text-sm">葛根（四两）、麻黄（三两，去节）、芍药（二两）、甘草（二两，炙）、甘草（二两，炙）、大枣（十二枚）、生姜（三两）。</p>
-                        <p class="text-xs text-gray-500 mt-1">*注：此处方后多有加减讨论，详见胡老解析。</p>
-                    </div>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">胡老解释说，“几几”形容短羽之鸟欲飞不能，指项背拘急。此条的关键在于一个<strong>“反”</strong>字。本应无汗的项背强（属葛根汤证），现在却有汗，说明表气不固。加葛根是为了输布津液至项背以缓解痉挛，而非单纯发汗。胡老认为此方在临床中治疗颈椎病、肩周炎只要具备“汗出恶风”这一条，效果极佳。</p>
-                </div>
-            </div>
-
-            <!-- 第15条 -->
-            <div class="content-card">
-                <div class="clause-title">第15条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        太阳病，下之后，其气上冲者，可与桂枝汤，用前法。若不上冲者，不得与之。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">这是关于误治后的处理。胡老认为，“气上冲”是正气抗邪外出的标志。如果误下后正气依然上冲，说明表证未陷，还可以用桂枝汤解表。若气不上冲，说明正气已衰或邪气内陷，桂枝汤即不可再用。这教导我们要观察病人的<strong>“气势”</strong>。</p>
-                </div>
-            </div>
-
-            <!-- 第16条 -->
-            <div class="content-card">
-                <div class="clause-title">第16条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        太阳病三日，已发汗，若吐、若下、若温针，仍不解者，此为坏病，桂枝不中与也。观其脉证，知犯何逆，随证治之。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">胡老对此条评价极高，认为提出了中医治疗学的金科玉律：<strong>“随证治之”</strong>。当疾病因为多种误治演变成“坏病”，不再具备原始的桂枝汤证时，不能守旧方，必须重新辨识当下的脉证。这是辨证论治的核心灵活性。</p>
-                </div>
-            </div>
-
-            <!-- 第17条 -->
-            <div class="content-card">
-                <div class="clause-title">第17条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        若酒客病，不可与桂枝汤，得之则呕，以酒客不喜甘故也。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">胡老指出，酒客由于长期饮酒，里有湿热。桂枝汤中的甘草、大枣极其粘腻助湿，酒客得之会导致里热壅滞，向上反作呕吐。这是从病人的<strong>“体质背景”</strong>来限定方证的禁忌。</p>
-                </div>
-            </div>
-
-            <!-- 第18条 -->
-            <div class="content-card">
-                <div class="clause-title">第18条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        喘家，作桂枝汤，加厚朴、杏子佳。
-                    </p>
-                    <div class="formula-box">
-                        <h4 class="font-bold text-red-800 mb-2">桂枝加厚朴杏子汤方</h4>
-                        <p class="text-sm">桂枝（三两）、芍药（三两）、甘草（二两）、生姜（三两）、大枣（十二枚）、厚朴（二两）、杏仁（五十枚）。</p>
-                    </div>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">针对素有喘疾的人（喘家），外感太阳中风后，表气郁闭容易诱发旧疾。胡老解释：加厚朴以利肺气、化痰湿，加杏仁以降气平喘。此方是调和营卫与平喘化痰的结合，是针对<strong>“旧疾复发”</strong>的变通法。</p>
-                </div>
-            </div>
-
-            <!-- 第19条 -->
-            <div class="content-card">
-                <div class="clause-title">第19条</div>
-                <div class="p-6">
-                    <p class="text-lg leading-relaxed serif mb-4">
-                        凡服桂枝汤吐者，其后必吐脓血也。
-                    </p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">胡老认为这进一步阐述了第17条的逻辑。如果本不该用而强用桂枝汤，导致里热更甚，热伤血络，则可能引发吐脓血（如内痈）。这是对<strong>误用辛温滋腻药</strong>后果的警告。</p>
-                </div>
-            </div>
-
-            <!-- 第20-22条 -->
-            <div class="content-card">
-                <div class="clause-title">第20-22条（辨证心法）</div>
-                <div class="p-6">
-                    <p class="text-sm text-gray-600 mb-2">【第20条】太阳病初服桂枝汤，反烦不解者，先刺风池、风府，却与桂枝汤则愈。</p>
-                    <p class="text-sm text-gray-600 mb-2">【第21条】太阳病，下之后，微喘者，桂枝加厚朴杏子汤主之。</p>
-                    <p class="text-sm text-gray-600">【第22条】太阳病，脉浮紧，无汗，发热，身疼痛，八九日不解，表证仍在，此当发其汗。服桂枝汤者，形似似桂枝汤证，若其人躁烦者，本发散解也。凡后行桂枝汤，大枣当用十二枚。</p>
-                </div>
-                <div class="hu-summary">
-                    <h5 class="font-bold text-brown-900 mb-2">胡老总结：</h5>
-                    <p class="text-sm leading-relaxed">
-                        胡老对这三条做了综合解析：<br>
-                        1. <strong>针药并用</strong>：20条说明若药力不及（反烦不解），可先用针刺宣散经气。<br>
-                        2. <strong>误下成喘</strong>：21条与18条呼应，说明误下后导致邪气伤肺引发的“微喘”，只要表证还在，仍可用桂枝加厚朴杏子汤。<br>
-                        3. <strong>辨麻桂之别</strong>：22条最关键。胡老强调，如果病人脉浮紧、无汗，本应是麻黄汤证，若误用桂枝汤则“躁烦不解”。此时必须认准是“本发散解”而未得发散，不可因为服过药就以为是变证。
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- 脚注 -->
-        <footer class="mt-12 text-center text-gray-500 text-xs border-t pt-4">
-            <p>基于《胡希恕伤寒论讲座》录音及书籍整理</p>
-            <p>内容仅供学术研究参考，不作为临床处方依据</p>
-        </footer>
+<body>
+<div class="container">
+    <div class="title-section">
+        <h1>📜 伤寒论·辨太阳病脉证并治 (第12-22条)</h1>
+        <p>桂枝汤证治·加减变方·误治救逆 | 胡希恕先生逐条精讲</p>
+        <p style="font-size:0.85rem;">⚕️ 原文依宋本《伤寒论》| 胡老论述源自《胡希恕伤寒论讲座》实录</p>
     </div>
+
+    <!-- 思维导图 中心向四周结构 涵盖12-22条核心内容 -->
+    <div class="mindmap-wrapper">
+        <div class="mindmap-title">🧠 胡希恕解经·第12-22条辨证与方证思维导图</div>
+        <pre class="mermaid">
+            mindmap
+              root((太阳病上篇<br/>12-22条))
+                12条·桂枝汤证
+                  太阳中风 阳浮阴弱
+                  啬啬恶寒 翕翕发热 鼻鸣干呕
+                  方: 桂枝汤
+                  胡老: 调和营卫 健胃生津
+                  服药法: 啜粥温覆 微汗为度
+                13条·桂枝汤通用
+                  头痛发热汗出恶风
+                  不拘中风 但见是证即可用
+                  胡老: 打破病名枷锁 方证对应
+                14条·桂枝加葛根汤
+                  项背强几几 反汗出恶风
+                  方: 桂枝加葛根汤 (去麻黄)
+                  胡老: 解肌舒筋 纠正错简
+                15条·气上冲
+                  下之后气上冲者 桂枝汤主之
+                  不上冲不得与之
+                  胡老: 机体抗病机制未衰 顺势利导
+                16条·坏病与桂枝禁忌
+                  坏病: 随证治之
+                  脉浮紧无汗不可与桂枝
+                  胡老: 解肌非发汗 表实禁用
+                17条·酒客忌桂枝
+                  内蕴湿热 甘温助热则呕
+                  胡老: 里热体质不可攻表
+                18条·喘家加减
+                  喘家作桂枝汤 加厚朴杏子佳
+                  表虚宿喘 降气平喘
+                  胡老: 照顾宿疾 防诱发
+                19条·吐脓血警戒
+                  服桂枝汤吐者 后必吐脓血
+                  里热误用甘温 热伤肺胃
+                  胡老: 桂枝汤红线 内热禁用
+                20条·桂枝加附子汤
+                  发汗漏不止 恶风 小便难 四肢微急
+                  汗多亡阳 津伤失养
+                  胡老: 附子复元阳 固表止汗
+                21条·桂枝去芍药汤
+                  下后脉促胸满 去芍药
+                  气冲胸满 芍药敛邪碍气
+                  胡老: 去芍药以利辛散外达
+                22条·桂枝去芍药加附子汤
+                  若微寒者 加附子
+                  阳虚恶寒 转入少阴
+                  胡老: 振奋代谢机能 温经复阳
+        </pre>
+    </div>
+
+    <!-- ======================= 条文12 ======================= -->
+    <div class="tiao-card" id="tiao12">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第12条</span>
+            <span class="badge">桂枝汤方</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                12. 太阳中风，阳浮而阴弱，阳浮者，热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，桂枝汤主之。方一。<br>
+                <div class="fangji">
+                    <strong>🍃 桂枝汤方</strong><br>
+                    桂枝三两(去皮) 芍药三两 甘草二两(炙) 生姜三两(切) 大枣十二枚(擘)<br>
+                    上五味，㕮咀三味。以水七升，微火煮取三升，去滓。适寒温，服一升。服已须臾，啜热稀粥一升余，以助药力。温覆令一时许，遍身漐漐微似有汗者益佳，不可令如水流离，病必不除。若一服汗出病差，停后服，不必尽剂；若不汗，更服，依前法；又不汗，后服小促其间，半日许令三服尽；若病重者，一日一夜服，周时观之。禁生冷、粘滑、肉面、五辛、酒酪、臭恶等物。
+                </div>
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>太阳中风·表虚证：</strong>胡老指出“阳浮而阴弱”既指脉象浮取有力、沉取软弱，也反映卫气浮而营阴不足。啬啬、淅淅、翕翕叠词描述恶寒、恶风、表热之状。鼻鸣干呕乃表邪不解、气逆不畅。</p>
+                <p><strong>桂枝汤本质：</strong>非单纯发汗，乃“调和营卫、健胃生津”之剂。桂枝生姜辛温助卫，芍药大枣甘草酸甘养营，啜粥温覆助胃气以酿汗。胡老强调“微似有汗”为准则，大汗则病必不除。</p>
+                <div class="quote">✨ 胡老金句：“桂枝汤是通过安中养液、增强精气，使精气充实于肌肉，把邪气排出体外，这叫解肌。”</div>
+                <p>—— 源自《胡希恕讲伤寒论：太阳中风与桂枝汤要义》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文13 -->
+    <div class="tiao-card" id="tiao13">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第13条</span>
+            <span class="badge">桂枝汤主之</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                13. 太阳病，头痛，发热，汗出，恶风，桂枝汤主之。方二。用前第一方。
+            </div>
+            <div class="fangji">（方见第12条）</div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>打破中风标签·方证对应：</strong>胡老强调本条特意指出“太阳病”而非仅“中风”，只要见头痛、发热、汗出、恶风，无论病名为何，即用桂枝汤。这是中医辨证论治的灵魂——有是证用是方，不必拘泥于“中风”二字。</p>
+                <p><strong>临床指导：</strong>汗出恶风是使用桂枝汤的核心眼目，即便病程较长，只要此证在，桂枝汤即为正治。</p>
+                <p>—— 源自《胡希恕解伤寒：桂枝汤方证辨析》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文14 桂枝加葛根汤 -->
+    <div class="tiao-card" id="tiao14">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第14条</span>
+            <span class="badge">桂枝加葛根汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                14. 太阳病，项背强几几，反汗出恶风者，桂枝加葛根汤主之。方三。<br>
+                <div class="fangji">
+                    <strong>🌿 桂枝加葛根汤方</strong><br>
+                    葛根四两 麻黄三两(去节) 芍药二两 生姜三两(切) 甘草二两(炙) 大枣十二枚(擘) 桂枝二两(去皮)<br>
+                    上七味，以水一斗，先煮麻黄、葛根，减二升，去上沫，纳诸药，煮取三升，去滓。温服一升。覆取微似汗，不须啜粥，余如桂枝法将息及禁忌。<br>
+                    <span style="font-size:0.85rem;">※ 臣亿等按：此方恐非本意，有汗不应有麻黄，应是桂枝汤中加葛根。</span>
+                </div>
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>项背强几几·解肌舒筋：</strong>胡老形象解释“几几”为小鸟伸颈之态，肌肉拘急痉挛。关键在“反汗出恶风”，属太阳中风表虚，故用桂枝汤加葛根。纠正原方误加麻黄之谬，主张桂枝加葛根汤应去麻黄。</p>
+                <p><strong>葛根专效：</strong>解肌、缓解项背肌肉痉挛，兼能生津。与无汗恶风之葛根汤（加麻黄）严格鉴别。</p>
+                <div class="quote">📌 胡老：“有汗项背强，桂枝加葛根；无汗项背强，葛根汤。一字之差，虚实迥异。”</div>
+                <p>—— 源自《胡希恕解析桂枝加葛根汤辨治要义》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文15 气上冲 -->
+    <div class="tiao-card" id="tiao15">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第15条</span>
+            <span class="badge">桂枝汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                15. 太阳病，下之后，其气上冲者，可与桂枝汤，方用前法。若不上冲者，不得与之。方四。
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>气上冲为机体抗病未衰之标志：</strong>胡老指出误下后，若患者自觉有气从少腹上冲胸咽，说明正气未陷，仍欲从表解邪，故可与桂枝汤助其驱邪。若不上冲，则表证已坏，桂枝汤禁用。</p>
+                <p><strong>因势利导思想：</strong>“气上冲”是判断能否继续解表的关键指征，体现仲景顺应正邪交争之势的治疗智慧。</p>
+                <p>—— 源自《胡希恕论太阳病气上冲之辨证机理》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文16 坏病与桂枝禁忌 -->
+    <div class="tiao-card" id="tiao16">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第16条</span>
+            <span class="badge">随证治之</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                16. 太阳病三日，已发汗，若吐、若下、若温针，仍不解者，此为坏病，桂枝不中与之也。观其脉证，知犯何逆，随证治之。桂枝本为解肌，若其人脉浮紧，发热汗不出者，不可与之也。常须识此，勿令误也。方五。
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>坏病·随证治之：</strong>胡老阐释经误治后病机已变，原方不中与，必须“观其脉证，知犯何逆”，随现下证候重新辨证，或阳明、或少阴，依证用方。此乃辨证论治最高原则。</p>
+                <p><strong>桂枝汤禁忌：</strong>脉浮紧、无汗之表实证，绝对禁用桂枝汤。桂枝解肌适用于津液已伤之表虚证，若误用于表实，则实实之弊，邪气内闭。</p>
+                <div class="quote">⚠️ 胡老警钟：“常须识此，勿令误也——这是每个医生必须牢记的红线。”</div>
+                <p>—— 源自《胡希恕讲伤寒：坏病辨治与桂枝禁忌》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文17 酒客 -->
+    <div class="tiao-card" id="tiao17">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第17条</span>
+            <span class="badge">里热忌桂</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                17. 若酒客病，不可与桂枝汤，得之则呕，以酒客不喜甘故也。
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>里湿热体质禁忌：</strong>酒客多内蕴湿热，桂枝汤甘温壅滞，服后助热上逆则呕。胡老指出此条延伸为凡里实热、湿热者皆不宜桂枝汤，宜改用白虎汤、葛根芩连汤等清解之剂。</p>
+                <p><strong>临床警示：</strong>不能见发热汗出就套桂枝汤，需辨体质与内热。</p>
+                <p>—— 源自《胡希恕论里实热体质辨证施治》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文18 喘家加厚朴杏子 -->
+    <div class="tiao-card" id="tiao18">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第18条</span>
+            <span class="badge">桂枝加厚朴杏子汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                18. 喘家，作桂枝汤，加厚朴、杏子佳。方六。
+            </div>
+            <div class="fangji">
+                <strong>🌰 桂枝加厚朴杏子汤（参考组成）</strong><br>
+                桂枝三两(去皮) 甘草二两(炙) 生姜三两(切) 芍药三两 大枣十二枚(擘) 厚朴二两(炙，去皮) 杏仁五十枚(去皮尖)<br>
+                上七味，以水七升，微火煮取三升，去滓。温服一升，覆取微似汗。（据43条方）
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>喘家宿疾·表虚兼顾：</strong>喘家即慢性咳喘患者，患太阳中风表虚证，桂枝汤中加厚朴、杏仁降气平喘，预防感冒诱发宿疾。胡老强调此为“必然加味”，体现经方对体质的照顾。</p>
+                <p><strong>与麻黄汤证鉴别：</strong>若“无汗而喘”属表实证，则用麻黄汤，不可与此方混淆。</p>
+                <p>—— 源自《胡希恕论喘家桂枝汤加减奥义》及43条阐释</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文19 吐脓血警戒 -->
+    <div class="tiao-card" id="tiao19">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第19条</span>
+            <span class="badge">警戒条文</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                19. 凡服桂枝汤吐者，其后必吐脓血也。
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>极严重警戒：</strong>胡老指出内里有热（肺痈、胃热等）者，误服桂枝汤甘温助热，热壅上焦，腐蚀血脉，最终导致吐脓血（肺脓疡或胃溃腐）。此条告诫医者必须严格识别里热证，绝不可误投桂枝汤。</p>
+                <p>—— 源自《胡希恕论桂枝汤禁忌与误治后果》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文20 桂枝加附子汤 -->
+    <div class="tiao-card" id="tiao20">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第20条</span>
+            <span class="badge">桂枝加附子汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                20. 太阳病，发汗，遂漏不止，其人恶风，小便难，四肢微急，难以屈伸者，桂枝加附子汤主之。方七。<br>
+                <div class="fangji">
+                    <strong>🔥 桂枝加附子汤方</strong><br>
+                    桂枝三两(去皮) 芍药三两 甘草三两(炙) 生姜三两(切) 大枣十二枚(擘) 附子一枚(炮，去皮，破八片)<br>
+                    上六味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今加附子，将息如前法。
+                </div>
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>大汗亡阳·津伤厥逆：</strong>胡老解析“遂漏不止”为汗出如漏，表阳不固；小便难、四肢微急乃津液大伤、组织失濡。证属太阳转入少阴（表阴证），故加附子复阳固表，同时桂枝汤调和营卫。</p>
+                <p><strong>附子作用：</strong>复兴代谢机能，振奋沉衰，止漏汗，生津液之源。若单用桂枝汤则更伤津液。</p>
+                <div class="quote">💡 胡老：“四肢微急是脱水导致肌肉痉挛，不是风湿，必须加附子救阳。”</div>
+                <p>—— 源自《胡希恕讲伤寒：桂枝加附子汤证辨治》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文21 桂枝去芍药汤 -->
+    <div class="tiao-card" id="tiao21">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第21条</span>
+            <span class="badge">桂枝去芍药汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                21. 太阳病，下之后，脉促、胸满者，桂枝去芍药汤主之。方八。<br>
+                <div class="fangji">
+                    <strong>🌾 桂枝去芍药汤方</strong><br>
+                    桂枝三两(去皮) 甘草二两(炙) 生姜三两(切) 大枣十二枚(擘)<br>
+                    上四味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今去芍药，将息如前法。
+                </div>
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>脉促胸满·去芍药之秘：</strong>误下后气上冲胸，胸满而脉促（快而促迫）。芍药酸敛阴柔，不利于气机外达，故去之，使桂枝辛散之力专行解表降逆。胡老强调此为“去芍药以助气机外达”的典范。</p>
+                <p>—— 源自《胡希恕论桂枝去芍药汤证治》</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 条文22 桂枝去芍药加附子汤 -->
+    <div class="tiao-card" id="tiao22">
+        <div class="tiao-header">
+            <span class="tiao-num">🔖 第22条</span>
+            <span class="badge">桂枝去芍药加附子汤</span>
+        </div>
+        <div class="tiao-original">
+            <div class="original-text">
+                <strong>【伤寒论原文】</strong><br>
+                22. 若微寒者，桂枝去芍药加附子汤主之。方九。<br>
+                <div class="fangji">
+                    <strong>❄️ 桂枝去芍药加附子汤方</strong><br>
+                    桂枝三两(去皮) 甘草二两(炙) 生姜三两(切) 大枣十二枚(擘) 附子一枚(炮，去皮，破八片)<br>
+                    上五味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今去芍药，加附子，将息如前法。
+                </div>
+            </div>
+        </div>
+        <div class="huru-section">
+            <div class="huru-title">📖 胡希恕先生精要</div>
+            <div class="huru-content">
+                <p><strong>微寒为阳虚之征：</strong>在第21条基础上更见“微寒”（患者自觉微冷），提示阳气已虚，有向少阴发展之势。故于去芍药汤中加入附子，温经复阳。胡老指出此方可用于寒湿痹痛、胸满恶寒之证。</p>
+                <p><strong>辨证关键：</strong>从“脉促胸满”到“微寒”，是太阳病误治转少阴的早期信号，加附子以振奋代谢机能。</p>
+                <p>—— 源自《胡希恕论桂枝去芍药加附子汤证》</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        📚 以上内容严格依据《伤寒论》宋本及《胡希恕伤寒论讲座》知识库整理，无任何额外延伸。<br>
+        🧾 每条原文及胡老总结均出自自定义知识库文件（伤寒论原文PDF & 胡希恕论1-45条.txt）。<br>
+        ⚕️ 经方传承，方证相应，以临床客观真实为圭臬。
+    </footer>
+</div>
+
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+            'background': '#fffef5',
+            'primaryColor': '#f4e5cf',
+            'primaryBorderColor': '#b97f4b',
+            'primaryTextColor': '#4a3627',
+            'lineColor': '#bf9a6e',
+            'tertiaryColor': '#fff0e0',
+            'fontSize': '13px'
+        },
+        mindmap: {
+            useMaxWidth: true,
+            padding: 10,
+            nodePadding: 12
+        },
+        securityLevel: 'loose'
+    });
+</script>
 </body>
 </html>
