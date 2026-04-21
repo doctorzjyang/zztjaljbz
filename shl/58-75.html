@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡希恕伤寒论：第58-75条精讲</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap');
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f4f1ea;
+            color: #3e2723;
+        }
+        .card {
+            background-color: #fffdf8;
+            border: 1px solid #e7e0d3;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+        .prescription {
+            background-color: #fdfaf3;
+            border-left: 4px solid #8d6e63;
+        }
+        .hu-summary {
+            background-color: #f4ebe1;
+            border-radius: 0.5rem;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f4f1ea; }
+        ::-webkit-scrollbar-thumb { background: #d7ccc8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bcaaa4; }
+    </style>
+</head>
+<body class="antialiased min-h-screen py-8 px-4 sm:px-8">
+
+    <div class="max-w-6xl mx-auto space-y-8">
+        
+        <!-- Header -->
+        <header class="text-center space-y-4 py-8 border-b-2 border-[#8d6e63]">
+            <h1 class="text-4xl sm:text-5xl font-black text-[#4e342e]">《伤寒论》第58-75条精讲</h1>
+            <p class="text-lg text-[#5d4037] font-semibold tracking-widest">基于胡希恕先生讲座完整整理 · 汗下后变证及救逆之道</p>
+        </header>
+
+        <!-- Mind Map Section -->
+        <section class="bg-white p-6 rounded-2xl shadow-sm border border-[#e7e0d3]">
+            <h2 class="text-2xl font-bold mb-6 text-[#4e342e] flex items-center">
+                <span class="mr-2">❖</span> 核心辨证逻辑导图
+            </h2>
+            <div id="mindmap" class="w-full h-[600px] bg-[#faf8f5] rounded-xl overflow-hidden"></div>
+        </section>
+
+        <!-- Articles Section -->
+        <section class="space-y-8">
+            <h2 class="text-3xl font-bold text-[#4e342e] text-center pt-8">条文详析与胡老讲义</h2>
+            <div id="articles-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Data populated by JS -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-12 text-[#795548] text-sm border-t border-[#d7ccc8]">
+            <p>本内容严格依据【胡希恕伤寒论、金匮要略讲座】自定义知识库生成，未引入其他流派解释。</p>
+            <p>保留了胡老实战辨证心法与古法煎服细节。</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Article Data extracted strictly from the provided knowledge base
+        const articles = [
+            {
+                num: "第58条",
+                title: "阴阳自和泛论",
+                text: "凡病，若发汗、若吐、若下，若亡血、亡津液，阴阳自和者，必自愈。",
+                prescription: null,
+                summary: "这是一个泛论，不仅限于太阳病，适用于一切疾病。论述了在经历了汗、吐、下等治疗手段导致人体津血受损后，机体的一种转归规律。胡老强调，辨证的最高境界是“顺应自然”。药力只是辅助，如果病人的机能已经处于自我恢复的轨道上（阴阳自和），医生就应该“不乱治”，静观其变，体现了经方医学对人体正气的敬畏与顺应。"
+            },
+            {
+                num: "第59条",
+                title: "汗下重伤勿治自愈",
+                text: "大下之后，复发汗，小便不利者，亡津液故也。勿治之，得小便利，必自愈。",
+                prescription: null,
+                summary: "揭示了“汗下重伤”的病理后果。大下之后又发汗，双重打击导致津液严重丧失。胡老指出，这里的小便不利是因为“无水可利”。医生遇到这种情况不能被症状牵着鼻子走去利小便，否则会更伤津液。必须恪守“勿治”的原则，静待津液自我复生，这是处理重伤津液证候的一种高度克制的智慧。"
+            },
+            {
+                num: "第60条",
+                title: "内外俱虚之变证",
+                text: "下之后，复发汗，必振寒，脉微细。所以然者，以内外俱虚故也。",
+                prescription: null,
+                summary: "描述连番误治（先下后汗）导致的坏病。“振寒”是打颤颤地怕冷，由于表虚不固，机体失去温煦和防御能力；“脉微细”则是里虚的明确信号，里气受损精血不足。这种“内外俱虚”使抗病机制无法运作。胡老告诫，这是临床反面教材，处理这种虚损变证体现了“必先复其正气”的预判思维。"
+            },
+            {
+                num: "第61条",
+                title: "阳脱里寒极证",
+                text: "下之后，复发汗，昼日烦躁不得眠，夜而安静，不呕，不渴，无表证，脉沉微，身无大热者，干姜附子汤主之。",
+                prescription: "【干姜附子汤】干姜一两，附子（生用，去皮，切八片）一枚。以水三升，煮取一升，去滓，顿服。",
+                summary: "通过“昼夜动态表现”识别阳气欲脱的极端虚损证。昼日烦躁、夜而安静反映了“阴阳绝离”的危重态势（虚阳白日浮越，夜晚正气不支暂敛）。通过“不呕、不渴、无表证”排除了少阳、阳明，确证代谢机能沉衰的“里虚寒”。必须果断用干姜附子汤回阳救逆，复兴机能。绝对不可当成实热清热，否则必死。"
+            },
+            {
+                num: "第62条",
+                title: "营血不足桂枝新加汤证",
+                text: "发汗后，身疼痛，脉沉迟者，桂枝加芍药生姜各一两人参三两新加汤主之。",
+                prescription: "【桂枝新加汤】桂枝三两(去皮)，芍药四两，甘草二两(炙)，人参三两，大枣十二枚(擘)，生姜四两(切)。",
+                summary: "对“尺迟禁汗”逻辑的临床补救方案。胡老指出，汗后身疼不能惯性继续发汗，脉“沉迟”反映脉管内血液津液匮乏，营气不足。在补虚、益气、养血的基础上平稳解表，新加汤加重芍药养血缓急，生姜宣发走表，重用人参大生津液，在不伤正的前提下完成余邪驱除。"
+            },
+            {
+                num: "第63条",
+                title: "热壅于肺麻杏石甘汤证",
+                text: "发汗后，不可更行桂枝汤，汗出而喘，无大热者，可与麻黄杏仁甘草石膏汤。",
+                prescription: "【麻杏石甘汤】麻黄四两(去节)，杏仁五十个(去皮尖)，甘草二两(炙)，石膏半斤(碎，绵裹)。煮麻黄减二升去沫，内诸药...",
+                summary: "针对汗后表不解而邪热内壅于肺的变证。汗出而喘，胡老解析这纯粹是热壅。表不解，表也盛，热往上壅得厉害。有阳明病的味道，所以要加石膏。麻杏石甘汤不是误治后的方子，而是热邪内逼，解表与退热并行的实战应用。"
+            },
+            {
+                num: "第64条",
+                title: "发汗伤心阳桂枝甘草汤证",
+                text: "发汗过多，其人叉手自冒心，心下悸，欲得按者，桂枝甘草汤主之。",
+                prescription: "【桂枝甘草汤】桂枝四两(去皮)，甘草二两(炙)。以水三升，煮取一升，去滓，顿服。",
+                summary: "发汗不得法，发汗过多导致体液流失太多，血不足以养心，心就跳。由于骤然间发生高度的气上冲，所以叉手自冒心。桂枝甘草汤降冲气治心悸，胡老指出桂枝用量特别重达四两，专治气上冲，配合甘草缓急，此方虽简但能起大作用。"
+            },
+            {
+                num: "第65条",
+                title: "水气欲作奔豚证",
+                text: "发汗后，其人脐下悸者，欲作奔豚，茯苓桂枝甘草大枣汤主之。",
+                prescription: "【茯苓桂枝甘草大枣汤】茯苓半斤，桂枝四两(去皮)，甘草二两(炙)，大枣十五枚(擘)。甘澜水先煮茯苓...",
+                summary: "汗后水饮激动。发汗导致里有停水，气往上冲，少腹有水要带气冲上来，所以脐下悸，“欲作奔豚”。在桂枝甘草汤治气上冲的基础上，胡老指出加大量茯苓（半斤）伐肾邪利水，加大枣安中。引水下行，气冲得镇，表也就解了。"
+            },
+            {
+                num: "第66条",
+                title: "脾胃气虚腹胀满证",
+                text: "发汗后，腹胀满者，厚朴生姜半夏甘草人参汤主之。",
+                prescription: "【厚朴生姜半夏甘草人参汤】厚朴半斤(炙去皮)，生姜半斤(切)，半夏半升(洗)，甘草二两(炙)，人参一两。",
+                summary: "发汗后余留的虚胀虚满。患者本脾胃消化不良，大发汗丧失津液，影响脾胃产生虚胀，这不是实满，不用大黄。胡老强调此方健胃消胀，人参、半夏、生姜、甘草行气健胃祛水饮，加厚朴消胀，是健胃消胀的特效药。"
+            },
+            {
+                num: "第67条",
+                title: "心下水气上逆苓桂术甘汤证",
+                text: "伤寒若吐、若下后，心下逆满，气上冲胸，起则头眩，脉沉紧，发汗则动经，身为振振摇者，茯苓桂枝白术甘草汤主之。",
+                prescription: "【苓桂术甘汤】茯苓四两，桂枝三两(去皮)，白术、甘草各二两(炙)。",
+                summary: "误吐下后，表不解气上冲，携带胃中停水上逆。心下逆满、头眩都是水气影响，脉沉紧说明里有水饮。若再误发汗会导致经脉动惕（身为振振摇）。胡老解析此方既用桂枝甘草解表降冲，又加茯苓白术利水，表里水气双解。"
+            },
+            {
+                num: "第68条",
+                title: "由阳入阴芍药甘草附子汤证",
+                text: "发汗，病不解，反恶寒者，虚故也，芍药甘草附子汤主之。",
+                prescription: "【芍药甘草附子汤】芍药三两，甘草三两(炙)，附子一枚(炮，去皮，破八片)。",
+                summary: "正常的太阳病本就恶寒，“反恶寒”说明发汗丧失体液后，病情未好恶寒反重，病证已“由阳入阴”转为阴证（少阴病范畴）。胡老解析这是虚故也，单纯解表极其危险，必须用附子回阳救逆，芍药甘草育阴养液缓急，复阳与养液并重。"
+            },
+            {
+                num: "第69条",
+                title: "里虚寒极水饮动荡证",
+                text: "发汗，若下之，病仍不解，烦躁者，茯苓四逆汤主之。",
+                prescription: "【茯苓四逆汤】茯苓四两，人参一两，附子一枚(生用,去皮)，甘草二两(炙)，干姜一两半。",
+                summary: "处理“里虚寒极、水饮动荡”型烦躁的定法。汗下后病不解而烦躁，属于极度虚损的“虚烦”，绝不可当成实热清热。胡老指出，在四逆汤回阳的基础上，加入茯苓利尿定悸，人参大生津液，是救治汗下后精气欲脱危局的高级手段。"
+            },
+            {
+                num: "第70条",
+                title: "阳明里实初起调和胃气",
+                text: "发汗后，恶寒者，虚故也。不恶寒，但热者，实也。当和胃气，与调胃承气汤。",
+                prescription: "【调胃承气汤】甘草二两(炙)，芒硝半升，大黄四两(去皮，清酒洗)。",
+                summary: "辨析汗后病机向虚或实的转化。恶寒是转少阴虚寒；不恶寒但热，是汗后津丧胃干，热邪入里化为阳明实热。胡老解析调胃承气汤大黄芒硝清热荡实，关键在甘草保护胃气、使药力平和，体现“当和胃气”的实战灵活性。"
+            },
+            {
+                num: "第71条",
+                title: "胃中干与蓄水消渴辨治",
+                text: "太阳病，发汗后，大汗出，胃中干，烦躁不得眠，欲得饮水者，少少与饮之，令胃气和则愈。若脉浮，小便不利，微热消渴者，五苓散主之。",
+                prescription: "【五苓散】猪苓十八铢(去黑皮)，泽泻一两六铢，白术十八铢，茯苓十八铢，桂枝半两(去皮)。捣为散...",
+                summary: "汗后大汗出胃中干缺水，不可大灌，少少饮水令胃和即可。如果脉浮（表不解）、小便不利（蓄水）、消渴，说明水分无法正常输布，是蓄水证。胡老指出五苓散用桂枝解表化气，猪泽茯术利尿祛水，通调水道以解烦渴。"
+            },
+            {
+                num: "第72条",
+                title: "五苓散蓄水证简文",
+                text: "发汗已，脉浮数，烦渴者，五苓散主之。",
+                prescription: "（同五苓散方）",
+                summary: "承接上条的简文。脉浮数说明表未解，烦渴说明里有蓄水。胡老指出，这一段其实隐含了“小便不利”，因为上一条已经详说，此处就简略了。同样是水饮无法正常代谢，使用五苓散化气行水解表。"
+            },
+            {
+                num: "第73条",
+                title: "渴与不渴辨水停部位",
+                text: "伤寒，汗出而渴者，五苓散主之；不渴者，茯苓甘草汤主之。",
+                prescription: "【茯苓甘草汤】茯苓二两，桂枝二两(去皮)，甘草一两(炙)，生姜三两(切)。",
+                summary: "以“渴”与“不渴”定方辨停水部位。胡老分析，渴者说明水液分布障碍，是下焦蓄水证，用五苓散；不渴者说明是水饮停聚在中焦胃部，容易引发气上冲或心悸呕吐，用茯苓甘草汤（桂枝甘草加茯苓生姜）温降水气、利尿定悸。"
+            },
+            {
+                num: "第74条",
+                title: "水逆证辨治",
+                text: "中风发热，六七日不解而烦，有表里证，渴欲饮水，水入则吐者，名曰水逆，五苓散主之。",
+                prescription: "（同五苓散方）",
+                summary: "五苓散水逆证辨治。伤寒有表证发热，里有停水，水蓄于胃不能吸收下行，“水入则吐”称为水逆。胡老指出，必须使用五苓散化气行水，使停水下行从小便出，水行则吐止表解。"
+            },
+            {
+                num: "第75条",
+                title: "水饮内停禁水灌之",
+                text: "发汗后，饮水多必喘；以水灌之，亦喘。",
+                prescription: null,
+                summary: "禁忌非法物理降温。发汗后表证不解且有内饮，如果饮水过多增加水分负担，或者盲目用冷水灌洗体表（类似现代冰袋降温），会导致体表闭塞，激动水气而诱发气喘。胡老强调必须顺应抗病趋向，绝不能盲目闭塞体表。"
+            }
+        ];
+
+        // Mind Map Data Structure for ECharts
+        const mindMapData = {
+            name: '伤寒论 58-75条\n(汗下变证及救逆)',
+            children: [
+                {
+                    name: '泛论与机体自愈 (58-60)',
+                    children: [
+                        { name: '58条: 阴阳自和必自愈\n(顺应自然，不乱治)' },
+                        { name: '59条: 汗下伤津无水可利\n(勿治自愈)' },
+                        { name: '60条: 先下后汗坏病\n(内外俱虚，振寒脉微细)' }
+                    ]
+                },
+                {
+                    name: '阳虚/阴寒救逆重证 (61-62, 68-69)',
+                    children: [
+                        { name: '61条: 昼躁夜静里寒极\n(干姜附子汤)' },
+                        { name: '68条: 由阳入阴虚寒挛急\n(芍药甘草附子汤)' },
+                        { name: '62条: 营血不足脉沉迟\n(桂枝新加汤)' },
+                        { name: '69条: 里虚寒极虚烦\n(茯苓四逆汤)' }
+                    ]
+                },
+                {
+                    name: '阳气受损与水气变证 (64-67, 71-75)',
+                    children: [
+                        { name: '上冲心悸: 桂枝甘草汤(64)' },
+                        { name: '脐下悸(欲作奔豚): 苓桂甘枣汤(65)' },
+                        { name: '气冲头眩: 苓桂术甘汤(67)' },
+                        { name: '脾胃虚胀: 厚朴生姜半夏甘草人参汤(66)' },
+                        { name: '下焦蓄水烦渴: 五苓散(71,72,74)' },
+                        { name: '中焦停水不渴: 茯苓甘草汤(73)' },
+                        { name: '激水作喘禁忌: 禁以水灌之(75)' }
+                    ]
+                },
+                {
+                    name: '邪热内壅与化实 (63, 70)',
+                    children: [
+                        { name: '63条: 热壅于肺汗出而喘\n(麻杏石甘汤)' },
+                        { name: '70条: 阳明里实不恶寒但热\n(调胃承气汤)' }
+                    ]
+                }
+            ]
+        };
+
+        // Render Articles
+        const container = document.getElementById('articles-container');
+        articles.forEach(article => {
+            const hasPrescription = article.prescription ? `<div class="prescription mt-4 p-4 text-sm text-[#5d4037] leading-relaxed"><strong>方剂：</strong>${article.prescription}</div>` : '';
+            
+            const card = `
+                <div class="card p-6 rounded-xl flex flex-col h-full">
+                    <div class="border-b border-[#e7e0d3] pb-3 mb-4">
+                        <span class="inline-block px-3 py-1 bg-[#4e342e] text-white text-xs font-bold rounded-full mb-2">${article.num}</span>
+                        <h3 class="text-xl font-bold text-[#4e342e]">${article.title}</h3>
+                    </div>
+                    <div class="text-[#3e2723] text-lg leading-relaxed mb-4 font-medium">
+                        “${article.text}”
+                    </div>
+                    ${hasPrescription}
+                    <div class="hu-summary mt-auto p-4 text-[#4e342e] text-sm leading-loose border border-[#e7e0d3]">
+                        <strong class="text-[#8d6e63] text-base block mb-2">胡老讲义精要：</strong>
+                        ${article.summary}
+                    </div>
+                </div>
+            `;
+            container.innerHTML += card;
+        });
+
+        // Initialize ECharts Mind Map
+        document.addEventListener("DOMContentLoaded", () => {
+            const chartDom = document.getElementById('mindmap');
+            const myChart = echarts.init(chartDom);
+            
+            const option = {
+                tooltip: { trigger: 'item', triggerOn: 'mousemove' },
+                series: [
+                    {
+                        type: 'tree',
+                        data: [mindMapData],
+                        top: '5%',
+                        left: '10%',
+                        bottom: '5%',
+                        right: '25%',
+                        symbolSize: 10,
+                        symbol: 'circle',
+                        itemStyle: {
+                            color: '#8d6e63',
+                            borderColor: '#4e342e'
+                        },
+                        label: {
+                            position: 'left',
+                            verticalAlign: 'middle',
+                            align: 'right',
+                            fontSize: 14,
+                            fontFamily: 'Noto Serif SC',
+                            color: '#3e2723',
+                            backgroundColor: '#fffdf8',
+                            padding: [4, 8],
+                            borderRadius: 4,
+                            borderColor: '#d7ccc8',
+                            borderWidth: 1
+                        },
+                        leaves: {
+                            label: {
+                                position: 'right',
+                                verticalAlign: 'middle',
+                                align: 'left',
+                                backgroundColor: '#f4ebe1',
+                                borderColor: '#8d6e63'
+                            }
+                        },
+                        lineStyle: {
+                            color: '#d7ccc8',
+                            width: 2,
+                            curveness: 0.5
+                        },
+                        expandAndCollapse: true,
+                        animationDuration: 550,
+                        animationDurationUpdate: 750
+                    }
+                ]
+            };
+            
+            myChart.setOption(option);
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                myChart.resize();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5,203 +5,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>胡希恕伤寒论讲座：1-11条详解</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+        
         body {
-            background-color: #f8f5f0;
-            color: #332b2b;
-            font-family: "Noto Serif SC", serif;
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
-        .article-card {
-            background: #fff;
-            border-left: 4px solid #8b4513;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
-        }
-        .original-text {
-            font-weight: bold;
-            color: #8b4513;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-        .summary-box {
-            background-color: #fff9f0;
-            border: 1px dashed #d2b48c;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-        .summary-title {
-            color: #a0522d;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
+        .serif {
+            font-family: 'Noto Serif SC', serif;
         }
         .mindmap-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
             overflow-x: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
-        .nav-link {
-            transition: all 0.3s;
+        .node {
+            border: 2px solid #5a67d8;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: #ebf4ff;
+            min-width: 120px;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
         }
-        .nav-link:hover {
-            color: #8b4513;
-            text-decoration: underline;
+        .line {
+            height: 2px;
+            background: #a3bffa;
+            flex-grow: 1;
+            min-width: 20px;
+        }
+        .article-card {
+            border-left: 4px solid #5a67d8;
+            transition: all 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .hu-summary {
+            background-color: #fffaf0;
+            border-left: 4px solid #ed8936;
+        }
+        .formula-box {
+            background-color: #f0fff4;
+            border: 1px dashed #48bb78;
         }
     </style>
 </head>
 <body class="p-4 md:p-8">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
+        <!-- 头部 -->
         <header class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4">胡希恕《伤寒论》讲座专题</h1>
-            <p class="text-gray-600 italic">—— 辨太阳病脉证并治上（1-11条） ——</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-900 mb-4 serif">胡希恕《伤寒论》讲座整理</h1>
+            <p class="text-gray-600 italic">—— 第1条至第11条：太阳病纲领与辨证总则 ——</p>
+            <div class="mt-4 h-1 w-24 bg-indigo-500 mx-auto rounded-full"></div>
         </header>
 
         <!-- 思维导图部分 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-amber-800 mb-4 flex items-center">
-                <span class="mr-2">📍</span> 1-11条逻辑思维导图
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-800 flex items-center">
+                <span class="mr-2">📊</span> 1-11条逻辑思维导图
             </h2>
             <div class="mindmap-container">
-                <pre class="mermaid text-center">
-graph TD
-    A[太阳病总纲 第1条] --> B[太阳病分类]
-    B --> C[太阳中风 第2条: 表虚证/桂枝汤证]
-    B --> D[太阳伤寒 第3条: 表实证/麻黄汤证]
-    B --> E[太阳温病 第6条: 里热证]
-    
-    A --> F[辨证与传变]
-    F --> G[辨传与不传 第4, 5条: 以脉证为准]
-    F --> H[辨表里阴阳 第7条: 区分发于阳/发于阴]
-    F --> I[辨愈期 第8, 9, 10, 11条: 七日/六日/经尽/自愈]
+                <div class="flex items-center min-w-[900px] py-8">
+                    <!-- 中心节点 -->
+                    <div class="node font-bold bg-indigo-600 text-white border-indigo-700">太阳病辨证总纲</div>
+                    <div class="line"></div>
+                    
+                    <!-- 分支 1: 纲领 -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>提纲(1条)</b><br>脉浮、头项强痛、恶寒</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>分类(2-3条)</b><br>中风(汗出) vs 伤寒(无汗)</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>温病(6条)</b><br>发热而渴、不恶寒</div>
+                        </div>
+                    </div>
+                    
+                    <div class="line w-12"></div>
+                    
+                    <!-- 分支 2: 传变与预测 -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>传变判定(4-5条)</b><br>脉静不传、欲吐躁烦为传</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>愈期预测(8-11条)</b><br>七日自愈、欲解时</div>
+                        </div>
+                    </div>
 
-    style A fill:#f96,stroke:#333,stroke-width:2px
-    style B fill:#fff,stroke:#333
-                </pre>
+                    <div class="line w-12"></div>
+
+                    <!-- 分支 3: 阴阳辨证 -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center">
+                            <div class="line w-8"></div>
+                            <div class="node"><b>病发阴阳(7条)</b><br>发于阳(热恶寒) / 发于阴(无热恶寒)</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <p class="text-sm text-gray-500 mt-2">注：结构按条文逻辑从左向右展开。</p>
         </section>
 
-        <!-- 条文详析部分 -->
-        <section>
-            <h2 class="text-2xl font-bold text-amber-800 mb-6 flex items-center">
-                <span class="mr-2">📖</span> 条文详析与胡老总结
-            </h2>
-
+        <!-- 条文内容 -->
+        <section class="space-y-8">
             <!-- 第1条 -->
-            <div class="article-card">
-                <div class="original-text">【第1条】太阳之为病，脉浮，头项强痛而恶寒。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此为太阳病的总纲。胡老强调，太阳病即表证，其特征是病位在体表。只要见到“脉浮、头项强痛、恶寒”这组症状，不论其病因为何，皆可确认为太阳病。其中“恶寒”是判定表证的金标准，即“有一分恶寒，便有一分表证”。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第1条：太阳病提纲</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    太阳之为病，脉浮，头项强痛而恶寒。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老指出，这一条是给太阳病下的定义。只要具备这三个症状，就可以定名为太阳病。太阳病实质上是“表证”，机体欲发汗而不得，气血充实于体表，故脉浮；由于邪气在表，正气抗争，故出现头项强痛；恶寒是表证最关键的眼目。</p>
                 </div>
             </div>
 
             <!-- 第2条 -->
-            <div class="article-card">
-                <div class="original-text">【第2条】太阳病，发热，汗出，恶风，脉缓者，名为中风。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条界定了“太阳中风”的定义。胡老指出，中风属于“表虚证”。其核心特征是“汗出”，即皮肤腠理疏松，津液外泄。这里的“脉缓”对应“脉浮弱”，反映了荣卫不和。虽名为中风，实则是强调一种表证的虚化状态，治疗当用桂枝汤解肌和营卫。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第2条：太阳中风</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    太阳病，发热，汗出，恶风，脉缓者，名为中风。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老强调中风是“表虚证”。核心在于“汗出”。因为卫气不固，营气外泄，故见汗出、脉缓。这里的“缓”不是慢，而是松弛、不紧。中风证必用桂枝汤，以和解营卫。</p>
                 </div>
             </div>
 
             <!-- 第3条 -->
-            <div class="article-card">
-                <div class="original-text">【第3条】太阳病，或已发热，或未发热，必恶寒，体痛，呕逆，脉阴阳俱紧者，名为伤寒。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条是“太阳伤寒”的定义，属于“表实证”。其辨证眼目是“无汗”且“脉紧”。因为无汗，体液郁积在皮下导致体痛、呕逆。胡老强调，“必恶寒”说明即便不发热，只要有恶寒脉紧，即是伤寒表实。此证需用麻黄汤发汗开腠理。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第3条：太阳伤寒</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    太阳病，或已发热，或未发热，必恶寒，体痛，呕逆，脉阴阳俱紧者，名为伤寒。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老解析，伤寒是“表实证”。其特征是“无汗”。因为寒邪闭郁，毛孔不开，体液郁积皮下，导致体痛、脉紧。无论发热与否，只要“必恶寒”就是表证。伤寒证多用麻黄汤宣发。</p>
                 </div>
             </div>
 
             <!-- 第4条 -->
-            <div class="article-card">
-                <div class="original-text">【第4条】伤寒一日，太阳受之，脉若静者，为不传；颇欲吐，若躁烦，脉数急者，为传也。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条论述传变的判断标准。胡老认为，病情的传变不应按天数机械死扣，而应以“脉证”为准。脉象安静（不数、不促）则病邪仍在表，未向里传；若出现呕吐、躁烦、脉数急，则说明邪气已动，有传向阳明或少阳的趋势。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第4条：传变判定</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    伤寒一日，太阳受之，脉若静者，为不传；颇欲吐，若躁烦，脉数急者，为传也。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老认为，疾病是否传变不看天数，而看脉证的变化。脉静说明邪仍在表；“欲吐”是病邪向半表半里（少阳）传变的迹象，“躁烦”则是向里（阳明）传变的迹象。</p>
                 </div>
             </div>
 
             <!-- 第5条 -->
-            <div class="article-card">
-                <div class="original-text">【第5条】伤寒二三日，阳明、少阳证不见者，为不传也。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>承接上条，再次强调传变的客观性。只要没有出现阳明病（如不恶寒反恶热）或少阳病（如口苦、咽干、目眩）的证据，即便到了两三天，病位仍在太阳，治疗仍需按太阳病处理。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第5条：不传判定</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    伤寒二三日，阳明、少阳证不见者，为不传也。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">此条补充说明，只要没见到阳明、少阳的特殊症状，即便是到了二三日，依然按太阳病治。胡老强调“观其脉证”，不要被日期束缚。</p>
                 </div>
             </div>
 
             <!-- 第6条 -->
-            <div class="article-card">
-                <div class="original-text">【第6条】太阳病，发热而渴，不恶寒者，为温病。若发汗已，身灼热者，名风温。风温为病，脉阴阳俱浮，自汗出，身重，多眠睡，鼻息必鼾，语言难出。若被下者，小便不利，直视失溲。若被火者，微发黄色，剧则如惊痫，时瘛疭，若火熏之。一逆尚引日，再逆促命期。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条明确了“温病”与太阳病的区别。胡老强调，温病的关键在于“渴”且“不恶寒”，病机核心是里热。温病禁用辛温发汗，若误用麻黄、桂枝发汗（汗已身灼热），则演变为“风温”。胡老通过此条教诫临床医生：温病不可误汗、误下、误火，否则会导致神志及脏腑功能的严重损伤。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第6条：温病与风温</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    太阳病，发热而渴，不恶寒者，为温病。若发汗已，身灼热者，名风温。风温为病，脉阴阳俱浮，自汗出，身重，多眠睡，鼻息必鼾，语言难出。若被下者，小便不利，直视失溲；若被火者，微发黄色，剧则如惊痫，时瘛疭，若火熏之。一逆尚引日，再逆促命期。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老深度解析：温病虽冠以太阳病之名，但“不恶寒”说明邪已不在表，且“渴”说明里有热。这是表证转里的过程。若误用辛温发汗，会大伤津液形成“风温”，出现神志模糊、鼻鼾、语言难出等重症。胡老严诫温病绝不可误用麻桂发汗。</p>
                 </div>
             </div>
 
             <!-- 第7条 -->
-            <div class="article-card">
-                <div class="original-text">【第7条】病有发热恶寒者，发于阳也；无热恶寒者，发于阴也。发于阳，七日愈；发于阴，六日愈。以阳数七，阴数六故也。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条是八纲辨证的重要法则。胡老指出，这里的“阳”指太阳病，“阴”指少阴病。同样是表证，发热恶寒者为太阳表阳证；无热（或热不显）而单纯恶寒、脉沉细者为少阴表阴证。至于七日、六日之说，胡老认为这是古人的一种自然周期律总结，不必拘泥于具体数字，但反映了阴阳两证愈期的差异。</p>
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第7条：发于阳与发于阴</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed">
+                    病有发热恶寒者，发于阳也；无热恶寒者，发于阴也。发于阳，七日愈；发于阴，六日愈。以阳数七，阴数六故也。
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老认为，这里的“阳”指太阳，“阴”指少阴。发热恶寒是太阳表证（阳性）；无热恶寒是少阴里虚寒证（阴性）。至于六日、七日，是古代的一种术数表达，胡老主张理解其意即可，不可拘泥于数字。</p>
                 </div>
             </div>
 
-            <!-- 第8条 -->
-            <div class="article-card">
-                <div class="original-text">【第8条】太阳病，头痛至七日以上自愈者，以行其经尽故也。若欲作再经者，针足阳明，使经不传则愈。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>胡老解释说，“行其经尽”是指病邪在这一经的病程周期已结束。如果到了七日病还没好，且有向阳明传变的征兆，可以先针刺阳明经穴位进行预防。这体现了经方“上工治未病”的思想，即在传变发生前截断邪气。</p>
+            <!-- 第8-11条 -->
+            <div class="article-card bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3 serif">第8-11条：自愈与欲解时</h3>
+                <div class="bg-gray-50 p-4 rounded mb-4 text-lg leading-relaxed space-y-4">
+                    <p><b>第8条：</b>太阳病，头痛至七日以上自愈者，以行其经尽故也。若欲作再经者，针足阳明，使经不传则愈。</p>
+                    <p><b>第9条：</b>太阳病，欲解时，从巳至未上。</p>
+                    <p><b>第10条：</b>风家，表解而不了了者，十二日愈。</p>
+                    <p><b>第11条：</b>病人身大热，反欲得衣者，热在皮肤，寒在骨髓也；身大寒，反不欲近衣者，寒在皮肤，热在骨髓也。</p>
+                </div>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-orange-800 mb-2">【胡老总结】</h4>
+                    <p class="text-gray-700">胡老针对这几条指出：<br>
+                    1. <b>周期性：</b>太阳病有一定的自愈周期（七日左右），若邪气不尽可能“传经”，早期针刺足阳明可截断传变。<br>
+                    2. <b>欲解时：</b>巳、午、未是自然界阳气最旺之时，此时人体正气得助，最易驱邪。 <br>
+                    3. <b>真寒假热：</b>第11条揭示了阴阳格拒的道理。身大热反欲得衣是“真寒假热”，阳气衰微于内；反之则是“真热假寒”。临床必须透过现象看本质。</p>
                 </div>
             </div>
-
-            <!-- 第9条 -->
-            <div class="article-card">
-                <div class="original-text">【第9条】太阳病欲解时，从巳至未上。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条论述太阳病的“欲解时”。巳、午、未（上午9点到下午3点）是自然界阳气最旺的时候。胡老认为，此时人体正气得天阳之助，最易驱邪外出。这提示医生应顺应时机进行治疗或观察。</p>
-                </div>
-            </div>
-
-            <!-- 第10条 -->
-            <div class="article-card">
-                <div class="original-text">【第10条】风家，表解而不了了者，十二日愈。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>“风家”指平时体质偏弱、易患中风证的人。“不了了”是指表证虽然解了，但身体仍感觉不爽快、未完全恢复。胡老指出，这种情况下正气恢复需要两个周期（七加五或六加六），约十二日左右，体现了慢性调养的重要性。</p>
-                </div>
-            </div>
-
-            <!-- 第11条 -->
-            <div class="article-card">
-                <div class="original-text">【第11条】病人身大热，反欲得衣者，热在皮肤，寒在骨髓也；身大寒，反不欲近衣者，寒在皮肤，热在骨髓也。</div>
-                <div class="summary-box">
-                    <span class="summary-title">胡老总结：</span>
-                    <p>此条论述真寒假热与真热假寒的辨证细节。胡老强调“欲得衣”与“不欲近衣”是判断病机寒热的关键。身大热但想穿衣服，说明本质是里寒外溢（真寒假热）；身大寒但不想盖被子，说明本质是里热深伏（真热假寒）。临床不可被体表温度所迷惑，必须深究病人的主观感受。</p>
-                </div>
-            </div>
-
         </section>
 
-        <footer class="mt-12 text-center text-gray-500 border-top pt-8">
-            <p>基于《胡希恕伤寒论讲座》整理</p>
-            <p class="text-sm">经方医学 · 辨证论治</p>
+        <footer class="mt-12 text-center text-gray-500 border-t pt-6 text-sm">
+            本网页内容根据《胡希恕伤寒论讲座》及相关笔记整理生成。
         </footer>
     </div>
-
-    <script>
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
-    </script>
 </body>
 </html>

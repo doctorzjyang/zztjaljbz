@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伤寒论76-102条 胡希恕精讲</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+            background-color: #f7f5f0;
+            color: #333;
+        }
+        .mindmap-container {
+            overflow-x: auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        /* CSS 横向树状图 */
+        .tree ul {
+            display: flex;
+            flex-direction: column;
+            padding-left: 30px;
+            position: relative;
+        }
+        .tree li {
+            display: flex;
+            align-items: center;
+            padding: 15px 0 15px 20px;
+            position: relative;
+        }
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+        .tree li::before {
+            border-left: 2px solid #d1d5db;
+            bottom: 50%;
+            top: 0;
+        }
+        .tree li::after {
+            border-top: 2px solid #d1d5db;
+            top: 50%;
+            width: 20px;
+        }
+        .tree li:first-child::before {
+            top: 50%;
+        }
+        .tree li:last-child::before {
+            bottom: 50%;
+            height: auto;
+        }
+        .tree .node {
+            background-color: #fefce8;
+            border: 1px solid #d6d3d1;
+            padding: 10px 20px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-weight: bold;
+            color: #444;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .tree .node:hover {
+            background-color: #fde047;
+            transform: scale(1.02);
+        }
+        .tree > ul { padding-left: 0; }
+        .tree > ul > li::before, .tree > ul > li::after { display: none; }
+        .tree > ul > li { padding-left: 0; }
+        
+        .clause-card {
+            background: #fff;
+            border-left: 6px solid #b45309;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .formula-box {
+            background: #f5f5f4;
+            border: 1px dashed #d6d3d1;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+        .hu-commentary {
+            background: #fdf8f6;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            color: #431407;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="max-w-5xl mx-auto mb-8 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4">《伤寒论》第76-102条 胡希恕深度解读</h1>
+        <p class="text-gray-600">基于胡希恕先生讲座整理 · 纯粹的经方实战心法</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+        <!-- 思维导图 -->
+        <section class="mindmap-container">
+            <h2 class="text-xl font-bold mb-6 text-stone-800 border-b pb-2">本篇逻辑思维导图</h2>
+            <div class="tree">
+                <ul>
+                    <li>
+                        <div class="node text-amber-900 bg-amber-100">伤寒论 76-102条 辨证纲要</div>
+                        <ul>
+                            <li>
+                                <div class="node">栀子豉汤类（汗下误治，表热内陷） 76-81条</div>
+                                <ul>
+                                    <li><div class="node font-normal">虚烦懊憹 (76, 77, 78条)</div></li>
+                                    <li><div class="node font-normal">气滞腹满 (79条 - 栀子厚朴汤)</div></li>
+                                    <li><div class="node font-normal">寒热错杂 (80条 - 栀子干姜汤)</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node">真武救逆与汗法禁忌 82-89条</div>
+                                <ul>
+                                    <li><div class="node font-normal">阳虚水泛 (82条 - 真武汤)</div></li>
+                                    <li><div class="node font-normal">禁汗诸家 (83-88条 - 津血内枯禁发汗)</div></li>
+                                    <li><div class="node font-normal">寒极吐蛔 (89条)</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node">汗下先后与舍表救里 90-95条</div>
+                                <ul>
+                                    <li><div class="node font-normal">急当救里 (91, 92条 - 四逆汤)</div></li>
+                                    <li><div class="node font-normal">表里自和战汗 (93, 94条)</div></li>
+                                    <li><div class="node font-normal">营卫不和 (95条 - 桂枝汤)</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node">少阳总纲与三阳并病 96-99条</div>
+                                <ul>
+                                    <li><div class="node font-normal">少阳主证与补中托邪 (96, 97条 - 小柴胡汤)</div></li>
+                                    <li><div class="node font-normal">三阳并病及水逆禁忌 (98, 99条)</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node">建中理里定法 100-102条</div>
+                                <ul>
+                                    <li><div class="node font-normal">中虚腹痛 (100条 - 小建中汤)</div></li>
+                                    <li><div class="node font-normal">柴胡证一证便是 (101条)</div></li>
+                                    <li><div class="node font-normal">中虚悸烦 (102条 - 小建中汤)</div></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 条文列表 -->
+        <section>
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第76条：栀子豉汤类证</h3>
+                <p class="mb-4">发汗后，水药不得入口为逆，若更发汗，必吐下不止。发汗吐下后，虚烦不得眠，若剧者，必反复颠倒，心中懊憹，栀子豉汤主之；若少气者，栀子甘草豉汤主之；若呕者，栀子生姜豉汤主之。</p>
+                <div class="formula-box">
+                    <strong>【栀子豉汤方】</strong>栀子十四个（擘），香豉四合（绵裹）。上二味，以水四升，先煮栀子，得二升半，内豉，煮取一升半，去滓。分为二服，温进一服。得吐者，止后服。<br>
+                    <strong>【栀子甘草豉汤方】</strong>栀子十四个（擘），甘草二两（炙），香豉四合（绵裹）。<br>
+                    <strong>【栀子生姜豉汤方】</strong>栀子十四个（擘），生姜五两，香豉四合（绵裹）。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>本条论述水逆证及误发汗导致的虚烦。由于误发汗，激发里水，水药不得入口（五苓散证）。发汗吐下后，表热内陷胸膈，邪热无实邪依附，故称“虚烦”。热郁胸膈导致心中懊憹、反复颠倒，用栀子清透胸膈之热，香豉宣发郁热。根据少气（加甘草保胃气）或呕（加生姜降逆定呕）随证加减。此非实热结聚，故不可用承气攻下。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第77条：栀子豉汤证</h3>
+                <p class="mb-4">发汗，若下之，而烦热，胸中窒者，栀子豉汤主之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>汗下之后，表邪内陷，热客于胸中。“胸中窒”即胸中感到憋闷、滞塞不通，这是热邪与气机相搏的结果，程度较“懊憹”稍轻，但病机一致。仍以栀子豉汤清热除烦、宣发气机。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第78条：栀子豉汤治心中结痛</h3>
+                <p class="mb-4">伤寒五六日，大下之后，身热不去，心中结痛者，未欲解也，栀子豉汤主之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>伤寒没有给吃泻药的，五六日表不解，还得解表。“大下”是严重的误治，使表热内陷。身热不去，且“心中结痛”，这里的“心中”不是指胃，而是指着心脏部位，可能有类似急性心包炎的发生。邪热内陷影响到心囊发炎，故用栀子豉汤宣透清热。胡老临床用此方配合旁药治疗急性心囊炎确有其效。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第79条：栀子厚朴汤证</h3>
+                <p class="mb-4">伤寒下后，心烦腹满，卧起不安者，栀子厚朴汤主之。</p>
+                <div class="formula-box">
+                    <strong>【栀子厚朴汤方】</strong>栀子十四个（擘），厚朴四两（炙，去皮），枳实四枚（水浸，炙令黄）。上三味，以水三升半，煮取一升半，去滓，分二服，温进一服，得吐者，止后服。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这也是误下导致表热内陷的变证。“卧起不安”是本证最突出的动态表现，由两个原因叠加而成：一是内里邪热客于胸膈产生“虚烦”，二是热邪波及胃肠产生气滞“腹满”。两者共同作用，使患者剧烈烦躁。方中用栀子解烦热，用厚朴、枳实宽胸下气、除胀满。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第80条：栀子干姜汤证</h3>
+                <p class="mb-4">伤寒，医以丸药大下之，身热不去，微烦者，栀子干姜汤主之。</p>
+                <div class="formula-box">
+                    <strong>【栀子干姜汤方】</strong>栀子十四个（擘），干姜二两。上二味，以水三升半，煮取一升半，去滓，分温二服。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这是处理“热郁胸膈、胃中虚寒”的寒热错杂证定法。古人常用巴豆等丸药大下，极伤胃气。大下后身热不去、微烦，说明表热内陷胸膈；但大下又导致中焦脾胃虚寒。故用栀子清上部的虚烦，用干姜温中部的虚寒。清上温中，体现了极其精妙的配伍逻辑。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第81条：栀子汤禁忌</h3>
+                <p class="mb-4">凡用栀子汤，病人旧微溏者，不可与服之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这是栀子剂的禁忌证。栀子性苦寒，虽然能清热除烦，但容易伤胃肠阳气。如果病人平素（旧）就有大便偏稀、微溏等脾胃虚寒的表现，就绝对不能单独使用栀子汤，以免雪上加霜。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第82条：真武汤证</h3>
+                <p class="mb-4">太阳病发汗，汗出不解，其人仍发热，心下悸，头眩，身瞤动，振振欲擗地者，真武汤主之。</p>
+                <div class="formula-box">
+                    <strong>【真武汤方】</strong>茯苓三两，芍药三两，白术二两，生姜三两（切），附子一枚（炮，去皮，破八片）。上五味，以水八升，煮取三升，去滓，温服七合，日三服。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>太阳病发汗后反而恶化，水饮入经更深，由阳转阴，陷入少阴病的虚寒范畴。水饮上冲心脏则“心下悸”，冲头则“头眩”，泛滥肌肉筋脉则“身瞤动”、“振振欲擗地”（站立不稳欲摔倒）。机能已经极度沉衰。方中附子复兴代谢机能（回阳化气），茯苓白术健脾利水，生姜温胃散水，芍药缓解肌肉痉挛收敛浮阳。这是镇重利水救逆的定法。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第83-88条：汗法禁忌诸条</h3>
+                <p class="mb-4">
+                    83 咽喉干燥者，不可发汗。<br>
+                    84 淋家，不可发汗，发汗必便血。<br>
+                    85 疮家，虽身疼痛，不可发汗，汗出则痉。<br>
+                    86 衄家，不可发汗，汗出必额上陷，脉急紧，直视不能眴，不得眠。<br>
+                    87 亡血家，不可发汗，发汗则寒栗而振。<br>
+                    88 汗家，重发汗，必恍惚心乱，小便已阴疼，与禹余粮丸。
+                </p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这六条集中论述了发汗的禁忌证。核心精神就是“保护津液”。咽干、淋家、疮家、衄家、亡血家、汗家，本质上都是体内津液、血液（营气）已经极度匮乏。发汗需要动用大量体液，胡老强调“夺血者无汗，夺汗者无血”，若在津亏血少时强行发汗，必会导致痉挛、亡阳、心神失养等极其严重的变证。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第89条：里寒误汗变证</h3>
+                <p class="mb-4">病人有寒，复发汗，胃中冷，必吐蛔。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>大前提是患者“内有寒”（里位虚寒，机能沉衰）。医生不仅没有温里，反而误用发汗。发汗耗伤正气，导致胃中进一步冷寂虚衰。蛔虫喜温恶寒，胃中极度寒冷，蛔虫待不住就会上逆，导致“吐蛔”。这告诫医生必须明辨虚实寒热。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第90条：汗下先后之辨</h3>
+                <p class="mb-4">本发汗，而复下之，此为逆也；若先发汗，治不为逆。本先下之，而反汗之，为逆；若先下之，治不为逆。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>此条论述汗下的先后顺序。“先表后里”是定法，若表未解而先攻下，必致邪陷，是为“逆”。但胡老强调临床必须“随证治之”，不要死板。仲景提出此法，核心精髓在于“守护人体津液与辨清邪气趋向”，任何违背机体抗病态势的治疗都会重伤津液，将简单病演变为坏病。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第91条：急当救里与急当救表</h3>
+                <p class="mb-4">伤寒，医下之，续得下利清谷不止，身疼痛者，急当救里；后身疼痛，清便自调者，急当救表。救里宜四逆汤；救表宜桂枝汤。</p>
+                <div class="formula-box">
+                    <strong>【四逆汤方】</strong>甘草二两（炙），干姜一两半，附子一枚（生用，去皮，破八片）。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这是处理“表里同病且里证危急”的法定程序。误下导致表邪内陷，且“下利清谷”（排泄完谷不化），说明胃肠毫无热气，是极度里虚寒、机能崩溃。此时即便“身疼痛”（表未解），也必须“急当救里”，舍表救里，用四逆汤回阳救逆。待清便自调、里气恢复后，若身痛仍在，再行“救表”。为何救表用桂枝汤？因经过大下与下利，津血已严重受损，绝对禁麻黄汤，故只能用桂枝汤平稳解表。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第92条：脉证不符当救里</h3>
+                <p class="mb-4">病发热头痛，脉反沉，若不差，身体疼痛，当救其里，四逆汤方。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>这是一种极具欺骗性的危重病证。表面上看“发热、头痛、身体痛”是典型的太阳表证，但脉象却是“反沉”。按理表证应脉浮，沉脉说明病已入里，或机能极度沉衰，无力托邪外达。胡老指出，这种脉证不符多见于老年人或极度虚弱者感冒。绝不可强发汗，必须优先温补里气，舍表救里，方用四逆汤复兴机能。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第93条：表里俱虚与战汗自愈</h3>
+                <p class="mb-4">太阳病，先下而不愈，因复发汗，以此表里俱虚，其人因致冒，冒家汗出自愈。所以然者，汗出表和故也。里未和，然后复下之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>先下后汗，导致机体内外津血耗伤，表里俱虚，脑部失养而致“冒”（头晕目眩）。但若机体正气逐渐恢复，正邪相争，患者出汗（冒家汗出自愈），说明表气得和，机能恢复。待表解之后，如果里证确实有实邪未和，才可以考虑再下。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第94条：脉停战汗</h3>
+                <p class="mb-4">太阳病未解，脉阴阳俱停，必先振栗汗出而解。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>“脉阴阳俱停”指寸关尺脉伏而难寻，这是正邪相持到极点、正气正在积蓄力量的临界状态。随着正气奋起抗邪，机体必出现剧烈的颤抖发冷（振栗），随后大汗出，邪随汗解。这也是机体自愈规律的展现。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第95条：荣弱卫强</h3>
+                <p class="mb-4">太阳病，发热汗出者，此为荣弱卫强，故使汗出，欲救邪风者，宜桂枝汤。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>本条解释“荣弱卫强”的机理。这其实是个互词，指代“营卫不谐调”的动态失衡。卫气强于外而不守于内，驱使津液外泄而汗出；因为汗出，血管内的荣气（营阴）受损变弱。治疗此病，必须用桂枝汤调和营卫，复其动态平衡。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第96条：少阳病总纲与小柴胡汤</h3>
+                <p class="mb-4">伤寒五六日，中风，往来寒热，胸胁苦满，嘿嘿不欲饮食，心烦喜呕，或胸中烦而不呕，或渴，或腹中痛，或胁下痞硬，或心下悸、小便不利，或不渴、身有微热，或咳者，小柴胡汤主之。</p>
+                <div class="formula-box">
+                    <strong>【小柴胡汤方】</strong>柴胡半斤，黄芩三两，人参三两，半夏半升（洗），甘草（炙），生姜各三两（切），大枣十二枚（擘）。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>此为少阳病总纲。无论伤寒或中风，五六日后邪入半表半里。条文列出了柴胡四大主证（往来寒热、胸胁苦满、嘿嘿不欲饮食、心烦喜呕）及多种或然证。胡老解析小柴胡汤逻辑：柴芩清解半表半里郁热，姜夏驱水止呕。最关键是“必用人参”，邪能陷入是因为“里气虚”，用参草枣补中益气，里气充实才能协助柴芩将邪托出，妙在“扶正与祛邪结合”。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第97条：邪犯少阳机理</h3>
+                <p class="mb-4">血弱气尽，腠理开，邪气因入，与正气相搏，结于胁下。正邪分争，往来寒热，休作有时，嘿嘿不欲饮食。脏腑相连，其痛必下，邪高痛下，故使呕也，小柴胡汤主之。服柴胡汤已，渴者属阳明，以法治之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>本条解释邪入少阳的机理。因为外感发汗等原因导致“血弱气尽”（体表气血津液匮乏），腠理不固，邪气趁虚内陷。正邪在半表半里的“胁下”地带交争，互有胜负，故“往来寒热”。少阳枢机不利影响胃肠，故不欲食且呕。均用小柴胡汤和解。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第98条：三阳并病及水逆禁忌</h3>
+                <p class="mb-4">得病六七日，脉迟浮弱，恶风寒，手足温，医二三下之，不能食，而胁下满痛，面目及身黄，颈项强，小便难者，与柴胡汤，后必下重。本渴饮水而呕者，柴胡汤不中与也，食谷者哕。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>此条描述太阳、阳明、少阳“三阳并病”的复杂局势。脉迟浮弱示气血虚；恶风寒、颈项强是表证未罢；手足温示阳明里热；胁下满痛是少阳证。医生错用攻下，致脾胃受损生湿热发黄。此时虽有少阳证，但若患者有“渴饮水而呕”的水逆证（饮水不化），则绝对禁用柴胡汤，因小柴胡汤无利水之功，强用会致邪气激荡下重或哕逆。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第99条：三阳并病治取少阳</h3>
+                <p class="mb-4">伤寒四五日，身热恶风，颈项强，胁下满，手足温而渴者，小柴胡汤主之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>同为三阳并病。太阳禁下，阳明少阳禁汗吐下。此条与98条的区别在于没有“水逆”证，只有里热之渴。胡老指出，在复杂并病中，“治取少阳”是定法。临床上常以小柴胡汤加石膏治疗此种并病，清热和解，疗效极佳。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第100条：建中理里与少阳先后辨</h3>
+                <p class="mb-4">伤寒，阳脉涩，阴脉弦，法当腹中急痛，先与小建中汤。不差者，小柴胡汤主之。</p>
+                <div class="formula-box">
+                    <strong>【小建中汤方】</strong>桂枝三两（去皮），甘草二两（炙），大枣十二枚（擘），芍药六两，生姜三两（切），胶饴一升。
+                </div>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>本条是通过脉象定病位与虚实的重要准则。“阳脉涩”（浮取涩）说明中焦虚寒、营卫不足；“阴脉弦”（沉取弦）说明里位存在拘急痉挛性疼痛。遇到这种情况，必须遵循“先救里”的定法。小建中汤倍用芍药缓解筋脉拘急，重加饴糖健胃补虚大生津液。先用小建中温里补虚缓痛，若病仍不差（说明还有少阳邪结），再用小柴胡汤托邪外出。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第101条：柴胡证一证便是与瞑眩状态</h3>
+                <p class="mb-4">伤寒中风，有柴胡证，但见一证便是，不必悉具。凡柴胡汤病证而下之，若柴胡证不罢者，复与柴胡汤，必蒸蒸而振，却发热汗出而解。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>前半段是辨证要诀，只要见到柴胡四大主证之一，结合病机即可应用小柴胡汤，不必全具。后半段指出，少阳禁下，误下后若柴胡证仍在，仍用小柴胡汤。服药后出现“蒸蒸而振，发热汗出”，胡老解释说这不是柴胡汤发汗，而是邪盛正虚时服药中病，机体正邪剧烈交争的“瞑眩状态”，过后病即自解，医生应提前向患者说明。
+                </div>
+            </div>
+
+            <div class="clause-card">
+                <h3 class="text-lg font-bold mb-2">第102条：小建中汤治中虚悸烦</h3>
+                <p class="mb-4">伤寒二三日，心中悸而烦者，小建中汤主之。</p>
+                <div class="hu-commentary">
+                    <strong>胡老总结：</strong>本条描述中焦虚寒、营血不足引发的心脏神经症状。“悸”反映血不足以养心，心神失守；“烦”是血虚导致的虚烦。胡老强调，小建中汤不仅治腹痛，更是治疗这种虚寒性胃病、心悸虚烦的特效方。在伤寒初起即便才二三日，若现此证，说明体质本属中虚血少，应优先通过小建中汤温中补虚、养血安神。
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="max-w-5xl mx-auto mt-12 mb-8 text-center text-gray-500 text-sm">
+        <p>基于《胡希恕伤寒论讲座》知识库内容严格整理，无外部延伸依据。</p>
+    </footer>
+
+</body>
+</html>

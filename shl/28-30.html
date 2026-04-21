@@ -3,132 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡希恕伤寒论讲座：第28-30条</title>
+    <title>胡希恕伤寒论讲座：第28-30条详解</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
-        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; }
-        .article-card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 2rem; padding: 2rem; border-left: 6px solid #b91c1c; }
-        .clause-title { font-size: 1.25rem; font-weight: bold; color: #b91c1c; border-bottom: 1px solid #fee2e2; padding-bottom: 0.5rem; margin-bottom: 1rem; }
-        .original-text { background: #fff7ed; padding: 1rem; border-radius: 8px; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; border: 1px solid #ffedd5; }
-        .prescription { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem; margin: 1rem 0; }
-        .huxi-summary { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.5rem; border-radius: 0 8px 8px 0; }
-        .huxi-summary h3 { color: #1e40af; font-weight: bold; margin-bottom: 0.75rem; display: flex; align-items: center; }
-        .mindmap-container { background: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+        .serif {
+            font-family: 'Noto Serif SC', serif;
+        }
+        .mindmap-node {
+            transition: all 0.3s ease;
+            border: 2px solid #8b5e3c;
+        }
+        .mindmap-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .line-connector {
+            height: 2px;
+            background-color: #8b5e3c;
+            flex-grow: 1;
+        }
+        .prescription-box {
+            background-color: #fffaf0;
+            border-left: 4px solid #b91c1c;
+        }
+        .hu-summary {
+            background-color: #f0f4f8;
+            border-left: 4px solid #2563eb;
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
+        <!-- 头部 -->
         <header class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">《伤寒论》第28-30条辨治精要</h1>
-            <p class="text-lg text-gray-600">主讲：胡希恕 | 整理依据：胡希恕伤寒论、金匮要略讲座</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 serif">胡希恕伤寒论讲座</h1>
+            <p class="text-lg text-amber-700">第28条至第30条 · 专题深度解析</p>
+            <div class="mt-4 h-1 w-24 bg-amber-600 mx-auto"></div>
         </header>
 
-        <!-- 第28条 -->
-        <section class="article-card">
-            <div class="clause-title">第28条：桂枝去芍药汤证</div>
-            <div class="original-text">
-                太阳病，得解反未解，亦下之，下后脉促者，必恶寒者，桂枝去芍药汤主之。
-            </div>
-            <div class="prescription">
-                <strong>【桂枝去芍药汤方】</strong><br>
-                桂枝三两（去皮），甘草二两（炙），生姜三两（切），大枣十二枚（擘）。<br>
-                <strong>【煎服法】</strong><br>
-                上四味，以水七升，煮取三升，去滓，温服一升。本云桂枝汤，今去芍药。将息如前法。
-            </div>
-            <div class="huxi-summary">
-                <h3><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>胡老总结：</h3>
-                <ul class="list-disc ml-5 space-y-2">
-                    <li><strong>病机辨析：</strong>本条是“下后”表未解，但病机发生了变化。胡老强调，下后“脉促”代表里气上冲，胸中邪气盛，导致胸满。</li>
-                    <li><strong>为何去芍药：</strong>芍药性寒，主收敛，且其力在下。当误下后损伤里气，导致胸满、气逆明显时，不能再用芍药进行收敛，否则会阻碍桂枝的宣散，加重胸满。</li>
-                    <li><strong>核心症状：</strong>“必恶寒”是辨证眼目，证明表证依然存在。此时治疗重心在于利用桂枝的辛温宣散表邪并平冲降逆。</li>
-                </ul>
+        <!-- 思维导图部分 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 text-center serif text-amber-900">逻辑思维导图</h2>
+            <div class="overflow-x-auto pb-4">
+                <div class="min-w-[800px] flex items-center justify-between px-4">
+                    <!-- 核心 -->
+                    <div class="mindmap-node bg-amber-800 text-white p-4 rounded-lg shadow-md w-40 text-center font-bold">
+                        太阳病变证辨治
+                    </div>
+                    
+                    <div class="flex flex-col space-y-8 ml-8">
+                        <!-- 分支1 -->
+                        <div class="flex items-center">
+                            <div class="w-12 h-0.5 bg-amber-600"></div>
+                            <div class="mindmap-node bg-white p-4 rounded-lg shadow-sm w-64">
+                                <div class="font-bold text-amber-900 border-b mb-2">28条：胸满通阳</div>
+                                <p class="text-sm">桂枝去芍药汤</p>
+                                <p class="text-xs text-gray-500">主治：脉促胸满（表未解而阳受阻）</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 分支2 -->
+                        <div class="flex items-center">
+                            <div class="w-12 h-0.5 bg-amber-600"></div>
+                            <div class="mindmap-node bg-white p-4 rounded-lg shadow-sm w-64">
+                                <div class="font-bold text-amber-900 border-b mb-2">29条：表未解兼里寒</div>
+                                <p class="text-sm">桂枝去芍药加附子汤</p>
+                                <p class="text-xs text-gray-500">主治：微恶寒（阳气受损，需温经）</p>
+                            </div>
+                        </div>
+
+                        <!-- 分支3 -->
+                        <div class="flex items-center">
+                            <div class="w-12 h-0.5 bg-amber-600"></div>
+                            <div class="mindmap-node bg-white p-4 rounded-lg shadow-sm w-64 border-blue-500">
+                                <div class="font-bold text-blue-900 border-b mb-2">30条：错综复杂之救逆</div>
+                                <div class="text-xs space-y-1">
+                                    <p>1. 复阳：甘草干姜汤</p>
+                                    <p>2. 和络：芍药甘草汤</p>
+                                    <p>3. 攻里：调胃承气汤</p>
+                                    <p>4. 回阳：四逆汤</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 第29条 -->
-        <section class="article-card">
-            <div class="clause-title">第29条：桂枝去芍药加附子汤证</div>
-            <div class="original-text">
-                若微恶寒者，桂枝去芍药加附子汤主之。
-            </div>
-            <div class="prescription">
-                <strong>【桂枝去芍药加附子汤方】</strong><br>
-                于前本方（桂枝去芍药汤）内，加附子一枚（炮，去皮，破八片）。<br>
-                <strong>【煎服法】</strong><br>
-                上五味，以水七升，煮取三升，去滓，温服一升。本云：桂枝汤，今去芍药加附子，将息如前法。
-            </div>
-            <div class="huxi-summary">
-                <h3><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>胡老总结：</h3>
-                <ul class="list-disc ml-5 space-y-2">
-                    <li><strong>辨“微恶寒”：</strong>胡老指出，这里的“微恶寒”不是表证减轻，而是说明阳虚明显。下法伤阳，阳气衰微不能温煦，故出现恶寒。</li>
-                    <li><strong>附子的功用：</strong>加入附子是为了扶阳固脱。在桂枝去芍药的基础上，针对胸满且伴有显著阳虚（心肾阳衰）的情况，必须附子与桂枝并用，以强心复阳。</li>
-                    <li><strong>临床意义：</strong>此方体现了经方处理“虚实夹杂”证候的严密性，既要解决表未解的“实”，又要救治下后伤阳的“虚”。</li>
-                </ul>
-            </div>
-        </section>
+        <!-- 条文正文 -->
+        <main class="space-y-12">
+            
+            <!-- 第28条 -->
+            <article class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-700 text-white px-3 py-1 rounded-full text-sm mr-3">第 28 条</span>
+                    <h3 class="text-xl font-bold text-amber-900 serif">原文与方证</h3>
+                </div>
+                <div class="text-lg leading-relaxed mb-6 bg-amber-50 p-4 rounded border-l-4 border-amber-500">
+                    “太阳病，下之后，脉促胸满者，桂枝去芍药汤主之。”
+                </div>
+                
+                <div class="prescription-box p-4 rounded mb-6">
+                    <h4 class="font-bold text-red-800 mb-2">【桂枝去芍药汤方】</h4>
+                    <p class="mb-2 text-gray-700">桂枝三两（去皮）、甘草二两（炙）、大枣十二枚（擘）、生姜三两（切）</p>
+                    <p class="text-sm"><span class="font-bold">煎服法：</span>上四味，以水七升，煮取三升，去滓，温服一升。本云：桂枝汤，今去芍药。将息如前法。</p>
+                </div>
 
-        <!-- 第30条 -->
-        <section class="article-card">
-            <div class="clause-title">第30条：复脉与变证的处理</div>
-            <div class="original-text">
-                问曰：证象阳旦，按法治之而增剧，厥逆，咽中干，两胫拘急而谵语。师曰：夜半手足当温，两脚当伸。后如师言。何以知此？答曰：寸口脉浮而大，浮为风，大为虚，风则生微热，虚则两胫挛。病形象桂枝，因加附子参其间，增桂令汗出，附子温经，亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语烦乱，更饮甘草干姜汤，夜半阳气还，两足当热；胫尚微拘急，重与芍药甘草汤，尔乃胫伸；若胃气不和谵语者，少与调胃承气汤；若重发汗，复加烧针者，四逆汤主之。
-            </div>
-            <div class="prescription">
-                <p><strong>【甘草干姜汤方】</strong>：甘草四两（炙），干姜二两。水三升，煮取一升五合，去滓，分温再服。</p>
-                <p><strong>【芍药甘草汤方】</strong>：白芍药四两，甘草四两（炙）。水三升，煮取一升五合，去滓，分温再服。</p>
-                <p><strong>【调胃承气汤方】</strong>：大黄四两（去皮，清酒洗），甘草二两（炙），芒硝半斤。水三升，煮取一升，去滓，内芒硝，更上火微煮令沸，少少温服之。</p>
-                <p><strong>【四逆汤方】</strong>：甘草二两（炙），干姜一两半，附子一枚（生用，去皮，破八片）。水三升，煮取一升二合，去滓，分温再服。强人可大附子一枚，干姜三两。</p>
-            </div>
-            <div class="huxi-summary">
-                <h3><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>胡老总结：</h3>
-                <ul class="list-disc ml-5 space-y-2">
-                    <li><strong>阴阳先后论：</strong>胡老强调本条的核心是“先救其里，后调其表”。在阴阳两虚、误治导致变证丛生时，必须分清轻重缓急。</li>
-                    <li><strong>甘草干姜汤：</strong>此方并非单纯温补，而是通过辛甘合化，温中复气。胡老指出，必须先让阳气恢复（手足温），才能进行下一步治疗。</li>
-                    <li><strong>芍药甘草汤：</strong>用于解决两胫拘急。在阳气恢复的基础上，用酸甘化阴之法滋养阴液、缓急止痛。</li>
-                    <li><strong>动态辨证：</strong>胡老特别赞赏此条展现的“随证治之”精神：若出现胃气不和则少与调胃承气汤；若出现亡阳脱证则必用四逆汤。这体现了经方辨证论治的高度灵活性。</li>
-                </ul>
-            </div>
-        </section>
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-blue-800 mb-2">胡希恕总结完整版</h4>
+                    <ul class="list-disc ml-5 space-y-2 text-gray-700">
+                        <li><span class="font-bold">病机解析：</span>胡老认为，此条是太阳病误下后，邪气未陷于里，但表证未解，且由于“下”导致胸中阳气受阻，呈现“阳气怫郁”状态。</li>
+                        <li><span class="font-bold">脉促辨析：</span>胡老指出，这里的“脉促”是由于心胸阳气向上冲逆，而不是单纯的数脉。脉促且胸满，说明病位在心胸，由于芍药具有收敛、酸寒之性，会碍于阳气的宣发，故必须去掉。</li>
+                        <li><span class="font-bold">治疗核心：</span>去掉芍药后的桂枝汤，重点在于“通阳散寒”，使胸中怫郁之阳气得以外达。</li>
+                    </ul>
+                </div>
+            </article>
 
-        <!-- 思维导图 -->
-        <section class="mindmap-container">
-            <h2 class="text-2xl font-bold text-center mb-6">第28-30条 逻辑思维导图</h2>
-            <div class="mermaid">
-                graph TD
-                A[太阳病下后变证] --> B{第28条: 脉促/胸满/恶寒}
-                B --> B1[桂枝去芍药汤]
-                B1 --> B1_1[理由: 去芍药之寒收, 宣胸中之邪]
-                
-                A --> C{第29条: 脉促/胸满/微恶寒}
-                C --> C1[桂枝去芍药加附子汤]
-                C1 --> C1_1[理由: 附子温经扶阳, 救下后阳虚]
-                
-                A --> D{第30条: 阴阳俱虚/变证丛生}
-                D --> D1[第一步: 甘草干姜汤]
-                D1 --> D1_1[温中复阳, 待夜半阳回]
-                
-                D1 --> D2[第二步: 芍药甘草汤]
-                D2 --> D2_1[滋阴缓急, 治胫拘急]
-                
-                D2 --> D3{视转归随证治之}
-                D3 --> D3_1[胃气不和: 调胃承气汤]
-                D3 --> D3_2[亡阳重证: 四逆汤]
-                
-                style A fill:#f97316,stroke:#333,stroke-width:2px,color:#fff
-                style B1 fill:#22c55e,stroke:#333,color:#fff
-                style C1 fill:#22c55e,stroke:#333,color:#fff
-                style D1 fill:#3b82f6,stroke:#333,color:#fff
-            </div>
-        </section>
+            <!-- 第29条 -->
+            <article class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-700 text-white px-3 py-1 rounded-full text-sm mr-3">第 29 条</span>
+                    <h3 class="text-xl font-bold text-amber-900 serif">原文与方证</h3>
+                </div>
+                <div class="text-lg leading-relaxed mb-6 bg-amber-50 p-4 rounded border-l-4 border-amber-500">
+                    “若微恶寒者，桂枝去芍药加附子汤主之。”
+                </div>
 
-        <footer class="mt-12 text-center text-gray-400 text-sm italic">
-            * 本网页内容仅供学术研究参考，临床用药请遵医嘱。
+                <div class="prescription-box p-4 rounded mb-6">
+                    <h4 class="font-bold text-red-800 mb-2">【桂枝去芍药加附子汤方】</h4>
+                    <p class="mb-2 text-gray-700">于前项方内，加附子一枚（炮，去皮，破八片）</p>
+                    <p class="text-sm"><span class="font-bold">煎服法：</span>上五味，以水七升，煮取三升，去滓，温服一升。本云：桂枝去芍药汤，加附子。将息如前法。</p>
+                </div>
+
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-blue-800 mb-2">胡希恕总结完整版</h4>
+                    <ul class="list-disc ml-5 space-y-2 text-gray-700">
+                        <li><span class="font-bold">病情进退：</span>胡老强调，本条是接续28条而来的。28条仅是胸满脉促，若更见“微恶寒”，说明误下后不仅阳气受阻，且已经伤及里阳（机体代谢能力减弱）。</li>
+                        <li><span class="font-bold">微恶寒的意义：</span>这里的“微”字说明里虚尚轻，但由于出现了恶寒，证明表证仍在，且正气已显不足。此时单纯通阳已不够，必须加附子以温经散寒、复兴机能。</li>
+                        <li><span class="font-bold">配伍智慧：</span>胡老指出，附子配伍桂枝、生姜，能加强振奋阳气、通达表里的作用，是临床治疗虚人感冒或误治后正气受损的常用法门。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第30条 -->
+            <article class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-700 text-white px-3 py-1 rounded-full text-sm mr-3">第 30 条</span>
+                    <h3 class="text-xl font-bold text-amber-900 serif">原文与多方辨证</h3>
+                </div>
+                <div class="text-md leading-relaxed mb-6 bg-amber-50 p-4 rounded border-l-4 border-amber-500 whitespace-pre-wrap">“问曰：证象阳旦，按法治之而增剧，厥逆，咽中干，两胫拘急而谵语。师曰：言夜半两脚挛急，医姆教师给服桂枝汤。服已，其厥即复，两脚即伸，以此言之，桂枝汤先服，后服之何如？答曰：言夜半。服桂枝汤后，其厥即复，脚即伸，非以此。本云：其脚挛急，服桂枝汤，此非其方。若其人大便硬，小便少者，此为阳旦，法当先与小建中汤。不差者，与调胃承气汤。若更发汗，则大便必硬。若厥逆，咽中干，烦燥，吐逆者，作甘草干姜汤与之，以复其阳；若厥愈足温者，更作芍药甘草汤与之，其脚即伸；若胃气不和，谵语者，少与调胃承气汤；若重发汗，复加烧针者，四逆汤主之。”</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="prescription-box p-3 rounded">
+                        <h4 class="font-bold text-red-800 text-sm mb-1">【甘草干姜汤方】</h4>
+                        <p class="text-xs">甘草四两（炙）、干姜二两。水三升，煮一升五合，分温再服。</p>
+                    </div>
+                    <div class="prescription-box p-3 rounded">
+                        <h4 class="font-bold text-red-800 text-sm mb-1">【芍药甘草汤方】</h4>
+                        <p class="text-xs">白芍药四两、甘草四两（炙）。水三升，煮一升五合，分温再服。</p>
+                    </div>
+                    <div class="prescription-box p-3 rounded">
+                        <h4 class="font-bold text-red-800 text-sm mb-1">【调胃承气汤方】</h4>
+                        <p class="text-xs">大黄四两、甘草二两、芒硝半斤。水三升，煮去一升，入硝更沸，分服。</p>
+                    </div>
+                    <div class="prescription-box p-3 rounded">
+                        <h4 class="font-bold text-red-800 text-sm mb-1">【四逆汤方】</h4>
+                        <p class="text-xs">甘草二两（炙）、干姜一两半、附子一枚（生用）。水三升，煮一升二合，分温再服。</p>
+                    </div>
+                </div>
+
+                <div class="hu-summary p-4 rounded">
+                    <h4 class="font-bold text-blue-800 mb-2">胡希恕总结完整版</h4>
+                    <ul class="list-disc ml-5 space-y-2 text-gray-700">
+                        <li><span class="font-bold">误治与救逆顺序：</span>胡老指出此条极其关键，展示了病情由浅入深、由阳入阴后的“步步救急”法。
+                            <ul class="list-circle ml-5 mt-2 text-sm space-y-1">
+                                <li>1. <span class="font-bold">复阳为先：</span>误汗伤阳导致厥逆，先用甘草干姜汤辛甘化阳，先温中复气。</li>
+                                <li>2. <span class="font-bold">缓急在后：</span>阳气复（足温）后，津液未复导致挛急，再用芍药甘草汤酸甘化阴，缓和筋脉。</li>
+                                <li>3. <span class="font-bold">胃气为重：</span>若出现谵语说明里热结，少与调胃承气汤微和胃气，不可峻下。</li>
+                                <li>4. <span class="font-bold">回阳救逆：</span>若连番误治（重发汗+烧针）致里气大虚，必须用四逆汤抢救。</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-bold">辨证眼目：</span>胡老特别提醒，这里区分了“阳虚”与“阴伤”。厥逆、吐逆是阳虚（用干姜）；两脚挛急是血虚津伤（用芍药）。治疗必须分清主次先后，体现了经方“观其脉证，知犯何逆，随证治之”的精髓。</li>
+                    </ul>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-16 text-center text-gray-500 border-t pt-8">
+            <p>内容仅限胡希恕伤寒论讲座学习使用</p>
         </footer>
     </div>
-
-    <script>
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
-    </script>
 </body>
 </html>

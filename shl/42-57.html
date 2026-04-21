@@ -1,0 +1,276 @@
+import React, { useState } from 'react';
+import { BookOpen, ChevronRight, Brain, Info, AlertTriangle } from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('articles');
+
+  const contentData = [
+    {
+      id: 42,
+      title: "第42条：太阳病外证未解",
+      original: "太阳病，外证未解，脉浮弱者，当以汗解，宜桂枝汤。",
+      huSummary: "胡老指出，本条是针对太阳病经过治疗（或未治）后，表证（外证）依然存在的情况。这里的‘脉浮弱’是辨证的关键点。虽然是太阳病，但只要脉象表现为浮而无力（弱），就说明依然属于营卫不和、肌表疏泄的范畴，不可以用麻黄汤等峻烈发汗药。唯一的治法仍是‘汗解’，但必须用调和营卫、温和发汗的桂枝汤。这体现了‘有是证用是方’的原则，即表不解且脉浮弱，必用桂枝。",
+    },
+    {
+      id: 43,
+      title: "第43条：太阳病下之微喘",
+      original: "太阳病，下之微喘者，表未解故也，桂枝加厚朴杏子汤主之。",
+      huSummary: "胡老解析：太阳病误用下法，导致表邪内陷或者气机逆乱。若出现‘微喘’，说明邪气虽影响到肺，但主因仍是‘表未解’。下后表证仍在且兼喘，是桂枝汤证兼有肺气不布。胡老强调，这里的厚朴、杏子是为了平喘下气。若脉象不是特别沉实，依然要按照桂枝汤的框架来治，通过解表来宣肺止喘。",
+    },
+    {
+      id: 44,
+      title: "第44条：太阳病外证未解，不可下",
+      original: "太阳病，外证未解，不可下也，下之为逆；欲解外者，宜桂枝汤。",
+      huSummary: "这是伤寒论中的严厉警告。胡老强调：只要‘外证未解’（头痛、发热、恶寒等表证还在），无论病程多久，绝对禁止使用下法（攻下）。如果贸然攻下，就是‘逆’（错误的治疗），会导致邪气内陷。想要解除表证，最稳妥、最标准的方法就是使用桂枝汤。这再次重申了表证优先于里证处理的原则。",
+    },
+    {
+      id: 45,
+      title: "第45条：太阳病先发汗不解",
+      original: "太阳病，先发汗不解，而复下之，脉浮者不愈。浮为在外，而反下之，故令不愈。今脉浮，故知在外，当须解外则愈，宜桂枝汤。",
+      huSummary: "胡老认为本条是针对‘连续误治’的分析。先汗不解，又错用了下法，结果病还没好。判断的标准在于‘脉浮’。只要脉还浮，就证明邪气的位置还在‘外’（表）。既然在表，误用下法不仅治不好病，反而伤正。胡老总结：诊断病位是第一要务，脉浮就是表证的铁证，必须回归‘解外’的思路，宜用桂枝汤。",
+    },
+    {
+      id: 46,
+      title: "第46条：太阳病脉浮紧、无汗、发热",
+      original: "太阳病，脉浮紧，无汗，发热，身疼痛，八九日不解，表证仍在，此当发其汗。服药已微除，其人发烦目瞑，剧者必衄，衄乃解。所以然者，阳气重故也。麻黄汤主之。",
+      huSummary: "胡老解析麻黄汤证的‘血解’机理。脉浮紧、无汗、身痛是典型的麻黄汤证。即便拖到八九日，只要表实证（无汗、脉紧）还在，就要发汗。服药后若出现‘发烦、目瞑’甚至出血（衄血），不要惊慌，这是‘阳气重’（邪正交争剧烈）导致邪随血去的表现。胡老指出，这种‘衄乃解’是机体寻找出路排邪的一种方式，代表郁闭的阳气得到了宣泄。",
+    },
+    {
+      id: 47,
+      title: "第47条：太阳病脉浮紧，发热无汗，自衄者愈",
+      original: "太阳病，脉浮紧，发热，身无汗，自衄者愈。",
+      huSummary: "胡老简明总结：本条是第46条的自然延伸。即不需要喝麻黄汤，如果患者正气足，机体通过自身调节产生‘自衄’（流鼻血），也能达到和麻黄汤发汗一样的效果。这是‘红汗’代‘白汗’，郁热随血而散，病亦可痊愈。",
+    },
+    {
+      id: 48,
+      title: "第48条：二阳并病（小发汗法）",
+      original: "二阳并病，太阳证未罢，而复满痛，其脉调和者，不可下。阳气怫郁在表，当解之、蒸蒸而振，却发昏。以此当解，宜桂枝汤。",
+      huSummary: "胡老详细解析了‘二阳并病’。指太阳证还没完，阳明证（满痛）已见。关键在于‘脉调和’，说明里气未实，不可下。胡老认为‘面色缘缘正赤’是阳气怫郁在表的表现。此时不能大汗，只能‘小发汗’，用桂枝汤微和营卫。这种战汗（蒸蒸而振）后的汗出，是邪气退却、病向愈的标志。",
+    },
+    {
+      id: 49,
+      title: "第49条：脉浮紧，不可下",
+      original: "脉浮紧者，法当身疼痛，宜以汗解之。假令尺中迟者，不可发汗。何以知然？以荣气不足，血少故也。",
+      huSummary: "胡老提出了非常重要的‘禁汗’标准。虽然脉浮紧预示着有汗解的需求，但必须复查‘尺脉’。如果尺脉迟（或弱），说明‘荣气不足、血少’，即机体物质基础亏损。在这种情况下，虽然有表实，但因为里虚、津亏，绝对禁汗。胡老提醒：临床必须时刻关注病人的正气（津液）存亡。",
+    },
+    {
+      id: 50,
+      title: "第50条：脉浮紧，法当身疼痛",
+      original: "脉浮紧者，法当身疼痛，宜以汗解之。假令尺中迟者，不可发汗。何以知然？以荣气不足，血少故也。",
+      huSummary: "（注：此条文与49条高度关联或重复，胡老在讲座中通常合并讲解）强调了‘营气’作为发汗物质基础的重要性。无血（津液）则汗无从化，强行发汗会导致亡阳或更严重的变证。",
+    },
+    {
+      id: 51,
+      title: "第51条：脉浮者，病在表，可发汗，宜麻黄汤",
+      original: "脉浮者，病在表，可发汗，宜麻黄汤。",
+      huSummary: "胡老指出这是对麻黄汤应用的一个高度概括。但必须联系前文，即‘脉浮’且‘紧、无汗’时方可使用。这体现了伤寒论文字精简的特点，学习者不可断章取义，应结合辨证标准理解。",
+    },
+    {
+      id: 52,
+      title: "第52条：脉浮而数者，可发汗，宜麻黄汤",
+      original: "脉浮而数者，可发汗，宜麻黄汤。",
+      huSummary: "浮主表，数主热、主实。胡老解释：脉浮数且伴有寒热、无汗，说明表邪郁闭严重，正气抗邪有力，适合用麻黄汤宣散表邪。关键依然在于‘无汗’。",
+    },
+    {
+      id: 53,
+      title: "第53条：病常自汗出，宜桂枝汤",
+      original: "病常自汗出者，此为荣气和，荣气和者，外不谐，以卫气不共荣气谐和故尔。以荣行脉中，卫行脉外。复发其汗，荣卫和则愈，宜桂枝汤。",
+      huSummary: "胡老深入解析‘荣卫不和’。常自汗出是因为卫气不能固摄荣气。荣卫不谐是桂枝汤的本证。这里的‘复发其汗’不是要大汗，而是通过桂枝汤调和荣卫，使卫外有力、荣行有度，汗自止。这解释了桂枝汤‘既能发汗也能止汗’的辩证统一。",
+    },
+    {
+      id: 54,
+      title: "第54条：病人脏无他病，时发热自汗出",
+      original: "病人脏无他病，时发热、自汗出而不愈者，此卫气不和也。先其时发汗则愈，宜桂枝汤。",
+      huSummary: "胡老指出：‘脏无他病’排除了里证。‘时发热自汗出’是卫气在肌表运行失常。治疗的关键在于‘先其时’（在发热出汗前），利用桂枝汤先行调和。这体现了中医‘治在先机’的思想。",
+    },
+    {
+      id: 55,
+      title: "第55条：伤寒脉浮紧，不发汗，因致衄者",
+      original: "伤寒脉浮紧，不发汗，因致衄者，麻黄汤主之。",
+      huSummary: "胡老辨析：本条是说虽然流了鼻血（衄），但如果脉依然‘浮紧’，说明表邪并未随着衄血完全解除。这时候不能因为出血了就认为病好了，如果表实仍在，还必须用麻黄汤发汗。注意，这是在确认衄后表证未罢的特殊情况。",
+    },
+    {
+      id: 56,
+      title: "第56条：伤寒不大便六七日，头痛有热者",
+      original: "伤寒不大便六七日，头痛有热者，与承气汤；其小便清者，知不在里，仍在表也，当须发汗；若头痛者，必衄，宜桂枝汤。",
+      huSummary: "胡老认为这是极具实战意义的辨证。虽然六七日不大便且头痛，看起来像阳明实证，但‘小便清’是一个决定性的眼目。小便清说明里无热结。头痛有热仍是表证。此时若误用承气汤就错了。通过‘小便清’锁定病位在表，依然应当解表。这种细腻的观察是胡老非常推崇的。",
+    },
+    {
+      id: 57,
+      title: "第57条：伤寒发汗已解，半日许复烦",
+      original: "伤寒发汗已解，半日许复烦，脉浮数者，可更发汗，宜桂枝汤。",
+      huSummary: "胡老总结：发汗后暂时缓解，但很快又烦且脉浮数，说明余邪未尽，或者表气未和。此时正气已受发汗影响，不可再用麻黄汤，而应‘更发汗’，选择性质缓和、调和力量更强的桂枝汤来收全功。这体现了发汗法在不同阶段的灵活进退。",
+    }
+  ];
+
+  const MindMap = () => (
+    <div className="overflow-x-auto p-6 bg-gray-50 rounded-xl border border-gray-200">
+      <div className="min-w-[1000px] flex items-center space-x-8">
+        {/* Core Node */}
+        <div className="bg-red-600 text-white p-4 rounded-lg shadow-lg font-bold w-40 text-center">
+          太阳病辨证 (42-57条)
+        </div>
+
+        <div className="flex flex-col space-y-4">
+          {/* Group 1 */}
+          <div className="flex items-center space-x-4">
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-blue-100 p-3 rounded border-l-4 border-blue-500 w-64 text-sm">
+              <strong>表证未解与禁忌 (42-45)</strong>
+              <p className="text-xs mt-1 text-gray-600">外证未解脉浮弱当以汗解，严禁误下</p>
+            </div>
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-white p-2 rounded border border-gray-300 text-xs shadow-sm">
+              桂枝汤 / 桂枝加厚朴杏子汤
+            </div>
+          </div>
+
+          {/* Group 2 */}
+          <div className="flex items-center space-x-4">
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-green-100 p-3 rounded border-l-4 border-green-500 w-64 text-sm">
+              <strong>麻黄汤与衄解 (46-47, 51-52, 55)</strong>
+              <p className="text-xs mt-1 text-gray-600">阳气重致衄、脉浮数/紧应用指征</p>
+            </div>
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-white p-2 rounded border border-gray-300 text-xs shadow-sm">
+              麻黄汤 / 衄血自愈规律
+            </div>
+          </div>
+
+          {/* Group 3 */}
+          <div className="flex items-center space-x-4">
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-purple-100 p-3 rounded border-l-4 border-purple-500 w-64 text-sm">
+              <strong>荣卫不和与自汗 (53-54)</strong>
+              <p className="text-xs mt-1 text-gray-600">卫气不共荣气谐和，调和即止汗</p>
+            </div>
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-white p-2 rounded border border-gray-300 text-xs shadow-sm">
+              桂枝汤调和荣卫
+            </div>
+          </div>
+
+          {/* Group 4 */}
+          <div className="flex items-center space-x-4">
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-yellow-100 p-3 rounded border-l-4 border-yellow-500 w-64 text-sm">
+              <strong>特殊辨证眼目 (48-50, 56-57)</strong>
+              <p className="text-xs mt-1 text-gray-600">尺迟禁汗、小便清别表里、二阳并病</p>
+            </div>
+            <div className="h-0.5 w-8 bg-gray-400"></div>
+            <div className="bg-white p-2 rounded border border-gray-300 text-xs shadow-sm">
+              津液为本 / 辨小便知病位
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans p-4 md:p-8">
+      {/* Header */}
+      <header className="max-w-5xl mx-auto mb-10 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-red-800 mb-4">胡希恕《伤寒论》讲座笔记精选</h1>
+        <p className="text-lg text-slate-600">辨太阳病脉证并治（第42条 - 第57条）</p>
+        <div className="mt-6 flex justify-center space-x-4">
+          <button 
+            onClick={() => setActiveTab('articles')}
+            className={`px-6 py-2 rounded-full font-medium transition-all ${activeTab === 'articles' ? 'bg-red-700 text-white shadow-md' : 'bg-white text-red-700 border border-red-700'}`}
+          >
+            条文解读
+          </button>
+          <button 
+            onClick={() => setActiveTab('map')}
+            className={`px-6 py-2 rounded-full font-medium transition-all ${activeTab === 'map' ? 'bg-red-700 text-white shadow-md' : 'bg-white text-red-700 border border-red-700'}`}
+          >
+            思维导图
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-5xl mx-auto">
+        {activeTab === 'articles' ? (
+          <div className="space-y-8">
+            {contentData.map((item) => (
+              <div key={item.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div className="bg-slate-800 p-4 flex items-center justify-between">
+                  <h3 className="text-white font-bold flex items-center">
+                    <BookOpen className="w-5 h-5 mr-2 text-red-400" />
+                    {item.title}
+                  </h3>
+                  <span className="text-slate-400 text-sm">辨太阳病</span>
+                </div>
+                
+                <div className="p-6">
+                  {/* Original Text */}
+                  <div className="mb-6 bg-red-50 p-4 rounded-xl border-l-4 border-red-600">
+                    <div className="flex items-start">
+                      <Info className="w-5 h-5 text-red-600 mr-2 mt-1 flex-shrink-0" />
+                      <div>
+                        <span className="font-bold text-red-900 block mb-1">【条文原文】</span>
+                        <p className="text-red-950 text-lg leading-relaxed">{item.original}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hu's Summary */}
+                  <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <div className="flex items-start">
+                      <Brain className="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" />
+                      <div>
+                        <span className="font-bold text-blue-900 block mb-2">【胡老解读总结】</span>
+                        <p className="text-slate-700 leading-relaxed text-md whitespace-pre-wrap">
+                          {item.huSummary}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <ChevronRight className="text-red-600" /> 知识结构导图
+            </h2>
+            <MindMap />
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-red-50 rounded-lg">
+                <h4 className="font-bold text-red-800 mb-2 flex items-center">
+                  <AlertTriangle className="w-4 h-4 mr-2" />
+                  胡老临床金句
+                </h4>
+                <ul className="text-sm text-red-900 space-y-1 list-disc list-inside">
+                  <li>只要外证未解，决不可下，下之为逆。</li>
+                  <li>尺脉迟者不可发汗，营血不足无以为汗。</li>
+                  <li>小便清者，知病不在里，仍在表也。</li>
+                  <li>衄乃解，阳气怫郁在表的一种出路。</li>
+                </ul>
+              </div>
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <h4 className="font-bold text-blue-800 mb-2">辨证核心眼目</h4>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="bg-white px-2 py-1 rounded border border-blue-200 text-xs">脉浮弱 → 桂枝汤</span>
+                  <span className="bg-white px-2 py-1 rounded border border-blue-200 text-xs">无汗身痛 → 麻黄汤</span>
+                  <span className="bg-white px-2 py-1 rounded border border-blue-200 text-xs">小便清 → 病在表</span>
+                  <span className="bg-white px-2 py-1 rounded border border-blue-200 text-xs">自汗出 → 荣卫不和</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </main>
+
+      <footer className="max-w-5xl mx-auto mt-12 pb-12 text-center text-slate-500 text-sm">
+        <p>内容仅供学术交流使用，临床请在医师指导下参考。</p>
+        <p className="mt-1">© 胡希恕伤寒讲座 整理</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
