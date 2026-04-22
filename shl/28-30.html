@@ -1,472 +1,434 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>胡希恕经方心法：伤寒论第28-30条精解</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>伤寒论·条文28-30 · 胡希恕讲稿</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-color: #f4efe7;
-            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, '微软雅黑', 'Georgia', serif;
-            color: #2c2b26;
-            padding: 2rem 1rem;
-            line-height: 1.55;
+            font-family: 'Segoe UI', 'Noto Serif SC', '华文楷体', 'KaiTi', serif;
+            background: #f5f2eb;
+            color: #2e241b;
+            padding: 20px 16px 40px;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: #fffdf9;
-            border-radius: 36px;
-            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            padding: 2rem 1.8rem;
         }
-        .title-section {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #dac29c;
-            padding-bottom: 1.2rem;
+
+        .header {
+            margin-bottom: 30px;
         }
-        .title-section h1 {
-            font-size: 2rem;
-            color: #6b4c3b;
+
+        h1 {
+            font-size: 2.2rem;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 4px;
+            color: #3b2a1c;
+            border-left: 8px solid #b76e3c;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
         }
-        .title-section p {
-            color: #7e6a58;
-            margin-top: 0.4rem;
+
+        .sub {
+            color: #6e4f2f;
+            margin-left: 30px;
             font-style: italic;
+            font-size: 1.05rem;
         }
-        .mindmap-wrapper {
-            background: #fef8ef;
-            border-radius: 28px;
-            padding: 1.2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
-            border: 1px solid #ece0cf;
-        }
-        .mindmap-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #8b5a2b;
-            margin-bottom: 1rem;
-            padding-left: 0.7rem;
-            border-left: 5px solid #c29a6b;
-        }
-        .mermaid {
+
+        /* 音频播放器 — 悬停友好 */
+        .audio-wrapper {
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 8px 20px 8px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid #dccbb8;
             display: flex;
-            justify-content: center;
-            background: #fffef7;
-            border-radius: 24px;
-            padding: 1rem;
-        }
-        .tiao-card {
-            margin-bottom: 2.8rem;
-            border-radius: 28px;
-            background: #ffffff;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-            border: 1px solid #e9dfcf;
-            overflow: hidden;
-        }
-        .tiao-header {
-            background: #f7f2e9;
-            padding: 0.9rem 1.8rem;
-            border-bottom: 1px solid #e2d2bc;
-            display: flex;
-            align-items: baseline;
-            gap: 0.8rem;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
         }
-        .tiao-num {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #a46b3a;
-            font-family: monospace;
-        }
-        .tiao-original {
-            background: #fefcf7;
-            padding: 1.4rem 1.8rem;
-            border-bottom: 1px dashed #e0cfb7;
-            font-family: 'Noto Serif SC', 'Times New Roman', '宋体', serif;
-        }
-        .original-text {
-            white-space: pre-wrap;
-            font-size: 1rem;
-            line-height: 1.65;
-            color: #2c3e2f;
-        }
-        .fangji {
-            background: #faf1e4;
-            margin-top: 1rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.92rem;
-            color: #6b3f1c;
-            font-family: monospace;
-            border-left: 4px solid #b97f4b;
-        }
-        .huru-section {
-            padding: 1.5rem 1.8rem;
-            background: #faf7f0;
-        }
-        .huru-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #9b5e2c;
-            display: inline-block;
-            border-bottom: 3px solid #d9b48b;
-            margin-bottom: 1rem;
-            padding-right: 1rem;
-        }
-        .huru-content p {
-            margin-bottom: 0.75rem;
-        }
-        .quote {
-            background: #ece1d2;
-            padding: 0.7rem 1.2rem;
-            border-radius: 24px;
-            margin: 0.8rem 0;
-            border-left: 5px solid #b87c4a;
-            color: #3a2c23;
-        }
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #9e8b74;
-            border-top: 1px solid #e3d5c2;
-            padding-top: 1.5rem;
-        }
-        @media (max-width: 700px) {
-            .container { padding: 1rem; }
-            .tiao-original, .huru-section { padding: 1rem; }
-            .tiao-header { padding: 0.8rem 1rem; }
-        }
-        .badge {
-            background: #e7dccc;
-            color: #785f44;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-        }
-        /* 音频播放器样式 */
-        .audio-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: white;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            padding: 15px 20px;
+
+        .audio-label {
             display: flex;
             align-items: center;
-            gap: 15px;
-            z-index: 1000;
-            transition: all 0.3s ease;
+            gap: 10px;
+            font-weight: 500;
+            color: #4e3721;
         }
-        .audio-player:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+        .audio-label i {
+            font-size: 1.8rem;
         }
-        .audio-player button {
-            background: #8b5a2b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+
+        audio {
+            width: 380px;
+            max-width: 65%;
+            height: 42px;
+            border-radius: 30px;
+            background: #f3ede3;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f3ede3;
+        }
+
+        .audio-note {
+            font-size: 0.8rem;
+            color: #7b5e44;
+        }
+
+        /* 思维导图区域 — 从左到右 */
+        .mindmap {
+            margin: 30px 0 40px;
+            overflow-x: auto;
+            padding: 15px 5px 25px;
+            background: #e8dfd3;
+            border-radius: 40px 40px 24px 24px;
+            box-shadow: inset 0 0 0 1px #d6c8b8, 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .mindmap-title {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d1e0f;
+        }
+
+        .mindmap-flow {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 12px;
+            min-width: min-content;
+            padding: 8px 8px 0;
+        }
+
+        .map-node {
+            background: #fefaf5;
+            border-radius: 24px 8px 24px 8px;
+            padding: 14px 12px;
+            min-width: 150px;
+            flex: 0 0 auto;
+            box-shadow: 0 4px 10px rgba(90, 50, 30, 0.1);
+            border-left: 6px solid #b76e3c;
+            border: 1px solid #dacbbc;
+        }
+
+        .map-node strong {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+            color: #3f2818;
+            border-bottom: 1px dashed #b49b84;
+            padding-bottom: 5px;
+        }
+
+        .map-node p {
+            font-size: 0.9rem;
+            color: #3a2c1e;
+        }
+
+        .arrow-symbol {
+            font-size: 2rem;
+            align-self: center;
+            color: #9b7e64;
+            font-weight: 200;
+            margin: 0 -4px;
+        }
+
+        /* 条文卡片区 */
+        .articles-section {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .article-card {
+            background: #fffcf8;
+            border-radius: 28px;
+            padding: 26px 28px;
+            box-shadow: 0 10px 24px -6px rgba(60, 40, 20, 0.12);
+            border: 1px solid #e3d5c6;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dcc2a8;
+            padding-bottom: 10px;
+        }
+
+        .article-num {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #a7582c;
+            margin-right: 18px;
+            background: #efe1d2;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
-        .audio-player button:hover {
-            background: #6b4c3b;
-            transform: scale(1.05);
-        }
-        .audio-player button:active {
-            transform: scale(0.95);
-        }
-        .audio-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .audio-title {
+
+        .article-title {
+            font-size: 1.6rem;
             font-weight: 500;
-            font-size: 14px;
-            color: #333;
+            color: #3f2a16;
         }
-        .audio-time {
-            font-size: 12px;
-            color: #666;
+
+        .original-text {
+            background: #f6efe7;
+            padding: 22px 24px;
+            border-radius: 18px;
+            margin: 16px 0 22px;
+            font-family: 'Noto Serif SC', '华文楷体', serif;
+            border-left: 6px solid #9f7e5f;
+            box-shadow: inset 0 1px 6px rgba(0,0,0,0.02);
         }
-        .audio-progress {
-            width: 200px;
-            height: 4px;
-            background: #e2e8f0;
-            border-radius: 2px;
-            overflow: hidden;
+
+        .original-text p {
+            font-size: 1.12rem;
+            line-height: 1.8;
+            color: #2c1e12;
         }
-        .audio-progress-bar {
-            height: 100%;
-            background: #8b5a2b;
-            border-radius: 2px;
-            transition: width 0.1s linear;
+
+        .prescription {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: #e7dbcd;
+            border-radius: 18px;
+            font-size: 1rem;
+            color: #1e2f2f;
+            border: 1px dashed #7f6147;
+            white-space: pre-line;
+            font-family: 'Noto Serif SC', monospace;
+        }
+
+        .prescription strong {
+            font-size: 1.1rem;
+            color: #3d2b1a;
+        }
+
+        .huxi-section {
+            margin-top: 18px;
+            background: #e3d9cd;
+            padding: 20px 24px;
+            border-radius: 24px 12px 24px 12px;
+        }
+
+        .huxi-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #2f4b4b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .huxi-title span {
+            background: #5e6b5c;
+            color: #f3ede2;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .huxi-summary {
+            list-style-type: '▪ ';
+            padding-left: 28px;
+        }
+
+        .huxi-summary li {
+            margin-bottom: 10px;
+            font-size: 1.02rem;
+        }
+
+        .footnote {
+            margin-top: 40px;
+            text-align: right;
+            color: #7a6248;
+            font-size: 0.9rem;
+            border-top: 1px solid #cdbcab;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 1.8rem; }
+            .audio-wrapper { flex-direction: column; align-items: flex-start; gap: 8px; }
+            audio { width: 100%; max-width: 100%; }
+            .map-node { min-width: 130px; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="title-section">
-        <h1>📜 伤寒论·辨太阳病脉证并治 (第28-30条)</h1>
-        <p>水饮内停·阴阳两虚救逆·阳旦误治深度解析 | 胡希恕先生逐条精讲</p>
-        <p style="font-size:0.85rem;">⚕️ 原文依宋本《伤寒论》| 胡老论述源自《胡希恕伤寒论讲座》实录</p>
+    <div class="header">
+        <h1>⚕️ 伤寒论 · 太阳篇</h1>
+        <div class="sub">条文 28 — 30 · 利尿解表 · 误治救逆 · 胡希恕讲稿</div>
     </div>
 
-    <!-- 思维导图 中心向四周结构 涵盖28-30条核心内容 -->
-    <div class="mindmap-wrapper">
-        <div class="mindmap-title">🧠 胡希恕解经·第28-30条辨证与方证思维导图</div>
-        <pre class="mermaid">
-            mindmap
-              root((太阳病误治救逆<br/>28-30条))
-                28条·水饮内停&表不解
-                  主证: 头项强痛 翕翕发热 无汗<br/>心下满微痛 小便不利
-                  方证: 桂枝去桂加茯苓白术汤<br/>(胡老: 当去芍药 留桂解表)
-                  病机: 里气闭塞 水饮郁表<br/>利尿即是解表
-                  关键: 小便不利 → 水停心下<br/>利小便则表自解
-                29条·阴阳两虚误汗救逆
-                  初始证: 脉浮 自汗 小便数<br/>心烦 微恶寒 脚挛急
-                  误治: 反与桂枝攻表 → 厥逆咽干<br/>烦躁吐逆
-                  救逆一: 甘草干姜汤 → 复其阳<br/>(温中健胃 恢复胃气)
-                  救逆二: 芍药甘草汤 → 伸其脚<br/>(酸甘化阴 濡养筋脉)
-                  救逆三: 调胃承气汤 → 和胃气<br/>(微和燥结 止谵语)
-                  亡阳重证: 四逆汤 → 回阳救逆
-                30条·阳旦证误治与深度救逆
-                  证象阳旦: 脉浮大 虚象<br/>误增桂发汗 → 亡阳厥逆
-                  病理: 阳明内结 津枯谵语<br/>两胫拘急
-                  三阶段疗法:
-                    甘草干姜汤 → 夜半手足温
-                    芍药甘草汤 → 两脚当伸
-                    调胃承气汤 → 微溏止谵语
-                  胡老点睛: 先复胃气再复津液<br/>动态随证治之
-        </pre>
+    <!-- 音频播放区（悬停随时可点） -->
+    <div class="audio-wrapper">
+        <div class="audio-label">
+            <i>🎧</i> 胡希恕讲座·桂枝去桂加苓术及救逆
+        </div>
+        <audio controls preload="metadata">
+            <source src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/28-30.mp3" type="audio/mpeg">
+            您的浏览器不支持音频播放。
+        </audio>
+        <div class="audio-note">悬停控制 · 随时播放/暂停</div>
     </div>
 
-    <!-- ======================= 条文28 ======================= -->
-    <div class="tiao-card" id="tiao28">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第28条</span>
-            <span class="badge">桂枝去桂加茯苓白术汤证</span>
+    <!-- 思维导图：28-30条 水饮内停 · 误治救逆 -->
+    <div class="mindmap">
+        <div class="mindmap-title">🧠 水饮内停 · 误汗变证 · 救逆次第 (28-30)</div>
+        <div class="mindmap-flow">
+            <div class="map-node"><strong>㉘ 水饮内停</strong><p>头项强痛，翕翕发热，无汗，心下满微痛，小便不利<br>桂枝去桂加茯苓白术汤(胡老:去芍药)</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉙ 误汗变证</strong><p>脉浮自汗小便数，脚挛急<br>误与桂枝致厥逆咽干烦躁</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉙ 救逆第一步</strong><p>甘草干姜汤复其阳</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉙ 救逆第二步</strong><p>芍药甘草汤伸其脚</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉙ 救逆第三步</strong><p>调胃承气汤和胃气</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉙ 误治重症</strong><p>重发汗加烧针，四逆汤</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>㉚ 问答释疑</strong><p>证象阳旦，因虚加附增桂致亡阳<br>救逆步骤与29条呼应</p></div>
         </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                28．服桂枝汤，或下之，仍头项强痛，翕翕发热，无汗，心下满微痛，小便不利者，桂枝去桂加茯苓白术汤主之。方十五。<br>
-                <div class="fangji">
-                    <strong>📜 桂枝去桂加茯苓白术汤方</strong><br>
-                    芍药三两 甘草二两(炙) 生姜(切) 白术 茯苓各三两 大枣十二枚(擘)<br>
-                    上六味，以水八升，煮取三升，去滓。温服一升，小便利则愈。本云桂枝汤，今去桂枝，加茯苓、白术。
-                </div>
-            </div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生论治精要</div>
-            <div class="huru-content">
-                <p><strong>核心病机·水饮内停致表不解：</strong>胡老指出本条关键在“仍”字，发汗或误下后表证仍在，但患者“无汗、小便不利、心下满微痛”，说明体液不得从小便排出，水饮停聚心下。里气闭塞，故表气不通，虽发热而无汗。此时单纯解表无效，甚至激动水气。</p>
-                <p><strong>利尿即是解表：</strong>胡老强调“利小便”就是解表法。内有停水，小便不利，当以茯苓、白术利水逐饮，使里气通畅，表气自和，头痛发热随之而解。若强行发汗，必激动水饮上冲而生变。</p>
-                <div class="quote">✨ 关键校勘：胡老据《医宗金鉴》及临床逻辑认为本方应为“桂枝去芍药加茯苓白术汤”。因为“去桂则无以解表”，而芍药酸敛，不利于气机外达，故当去芍药留桂枝，配合苓术通阳利水。此为胡老独具慧眼之处。</div>
-                <p><strong>临床辨证眼目：</strong>外感发热头痛，兼见胃脘痞满、小便不利、无汗而热不退者，当考虑水饮为患，切勿一味苦寒清热或重剂发汗，投以本方通阳利水，往往热退症安。</p>
-                <p>—— 源自《胡希恕论利尿解表与去芍药之辨》及讲座实录。</p>
-            </div>
-        </div>
+        <div style="font-size:0.9rem; margin-top:12px; margin-left:10px; opacity:0.8;">⬅️ 从左至右 · 先表后里 · 复阳存阴 · 随证治之</div>
     </div>
 
-    <!-- ======================= 条文29 ======================= -->
-    <div class="tiao-card" id="tiao29">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第29条</span>
-            <span class="badge">甘草干姜汤·芍药甘草汤·调胃承气汤·四逆汤证</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                29．伤寒脉浮，自汗出，小便数，心烦，微恶寒，脚挛急，反与桂枝，欲攻其表，此误也。得之便厥，咽中干，烦躁吐逆者，作甘草干姜汤与之，以复其阳。若厥愈足温者，更作芍药甘草汤与之，其脚即伸。若胃气不和谵语者，少与调胃承气汤。若重发汗，复加烧针者，四逆汤主之。<br>
-                <div class="fangji">
-                    <strong>🍃 甘草干姜汤方</strong><br>
-                    甘草四两(炙) 干姜二两<br>
-                    上二味，以水三升，煮取一升五合，去滓，分温再服。
-                </div>
-                <div class="fangji">
-                    <strong>🌿 芍药甘草汤方</strong><br>
-                    白芍药 甘草(炙)各四两<br>
-                    上二味，以水三升，煮取一升五合，去滓，分温再服。
-                </div>
-                <div class="fangji">
-                    <strong>⚖️ 调胃承气汤方</strong><br>
-                    大黄四两(去皮，清酒洗) 甘草二两(炙) 芒硝半升<br>
-                    上三味，以水三升，煮取一升，去滓，纳芒硝，更上火微煮令沸，少少温服之。
-                </div>
-                <div class="fangji">
-                    <strong>🔥 四逆汤方</strong><br>
-                    甘草二两(炙) 干姜一两半 附子一枚(生用，去皮，破八片)<br>
-                    上三味，以水三升，煮取一升二合，去滓，分温再服。强人可大附子一枚、干姜三两。
-                </div>
-            </div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生论治精要（误治救逆典范）</div>
-            <div class="huru-content">
-                <p><strong>辨证眼目·津液已伤不可汗：</strong>胡老强调，本条“小便数”是关键，小便频数提示胃气虚衰、津液不摄，兼见脚挛急（津枯失养），虽脉浮、自汗、恶寒，绝非桂枝汤证。若误发其汗，必重伤津液阳气，导致厥逆咽干、烦躁吐逆。</p>
-                <p><strong>第一步救逆·甘草干姜汤（复其阳）：</strong>胡老释“复其阳”乃恢复胃气机能。甘草干姜辛甘温中，振奋胃阳，胃气一复，四肢得温，手足自暖。此非直接补火，而是健胃生津之基。</p>
-                <p><strong>第二步救逆·芍药甘草汤（伸其脚）：</strong>厥愈足温后，若脚仍拘急，乃津液未充、筋脉失养。芍药甘草酸甘化阴，濡养经筋，缓急舒挛，故“其脚即伸”。胡老称此方为“治脚挛急特效方”。</p>
-                <p><strong>第三步救逆·调胃承气汤（和胃止谵语）：</strong>若津亏胃燥，胃中不和而谵语，乃阳明微结，予调胃承气汤少少微和，不可大下，使胃气调和则谵语自止。</p>
-                <div class="quote">⚠️ 胡老警示：若医者误用烧针重发汗，阳气大衰，则当急用四逆汤回阳救逆。此条展示了仲景“观其脉证，知犯何逆，随证治之”的活法，先救阳后救阴，次调胃气，层次井然。</div>
-                <p>—— 源自《胡希恕辨伤寒论第29条：误治救逆解析》</p>
-            </div>
-        </div>
-    </div>
+    <!-- 条文列表 28~30 -->
+    <div class="articles-section" id="articles"></div>
 
-    <!-- ======================= 条文30 ======================= -->
-    <div class="tiao-card" id="tiao30">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第30条</span>
-            <span class="badge">阳旦证误治·附子参桂亡阳救逆</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                30．问曰：证象阳旦，按法治之而增剧，厥逆，咽中干，两胫拘急而谵语。师曰：言夜半手足当温，两脚当伸。后如师言。何以知此？答曰：寸口脉浮而大，浮为风，大为虚，风则生微热，虚则两胫挛，病形象桂枝，因加附子参其间，增桂令汗出，附子温经，亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语，烦乱，更饮甘草干姜汤。夜半阳气还，两足当热，胫尚微拘急，重与芍药甘草汤，尔乃胫伸。以承气汤微溏，则止其谵语，故知病可愈。<br>
-                <div class="fangji" style="margin-top:12px;">
-                    <em>※ 方药同前：甘草干姜汤、芍药甘草汤、调胃承气汤（承气汤微溏即调胃承气汤法）</em>
-                </div>
-            </div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生论治精要（误治深度解析与救逆）</div>
-            <div class="huru-content">
-                <p><strong>阳旦证本质与误治根源：</strong>胡老指出“阳旦证”即桂枝汤证。患者脉浮而大，“大为虚”，并非实热，医者误认表证，增桂加附子发汗，重伤津液，导致“亡阳”（津液大伤、机能沉衰），出现厥逆咽干、两胫拘急、阳明内结谵语等坏病。</p>
-                <p><strong>三步骤救逆·精辟逻辑：</strong></p>
-                <p>1️⃣ <strong>甘草干姜汤（复其阳）</strong> —— 胃气不振，四肢厥冷，先以辛甘化阳温中健胃，胃气复则手足温。此乃“救胃气以复津液之母”。</p>
-                <p>2️⃣ <strong>芍药甘草汤（伸其脚）</strong> —— 厥回足温后，筋脉仍挛急，用酸甘濡筋缓急，使脚能伸展，补津液之虚。</p>
-                <p>3️⃣ <strong>调胃承气汤（微溏止谵语）</strong> —— 阳明燥结轻证，微和胃气，泻热存津，不可大下，以“微溏”为度。</p>
-                <div class="quote">🧠 胡老金句：“这一条是张仲景给医生的错误‘打补丁’。如果第一步走错了，后面每一步该如何科学地拎回来。必须遵循‘先复胃气（阳），再复津液（阴），最后调和里实’的严密秩序。临床见到脉浮自汗，务必细察小便数、脚挛急等津亏之象，否则误汗必致危殆。”</div>
-                <p><strong>临床启示：</strong>治病不可执定方，当动态观察，甘草干姜汤非单纯补火，乃恢复胃气以生津；芍药甘草汤不独治脚，凡阴液不足筋脉失养皆可用；调胃承气汤重在“和胃”，而非攻伐。此条尽显经方随证治之的圆机活法。</p>
-                <p>—— 源自《胡希恕论伤寒论误治救逆法》及讲座精粹</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        📚 以上内容严格依据《伤寒论》宋本及《胡希恕伤寒论讲座》知识库整理，无任何额外延伸。<br>
-        🧾 每条原文及胡老总结均出自自定义知识库文件（伤寒论原文PDF & 胡希恕论1-45条.txt）。<br>
-        ⚕️ 经方传承，方证相应，以临床客观真实为圭臬。
-    </footer>
-</div>
-
-<!-- 音频播放器 -->
-<div class="audio-player">
-    <button id="play-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-    </button>
-    <div class="audio-info">
-        <div class="audio-title">28-30条解读音频</div>
-        <div class="audio-time">
-            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-        </div>
-    </div>
-    <div class="audio-progress">
-        <div class="audio-progress-bar" id="progress-bar"></div>
+    <div class="footnote">
+        📖 内容依据：《伤寒论》原文（赵开美本）· 胡希恕先生讲座核心观点<br>
+        仅限自定义知识库 · 不杂后世演绎
     </div>
 </div>
 
 <script>
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'base',
-        themeVariables: {
-            'background': '#fffef5',
-            'primaryColor': '#f4e5cf',
-            'primaryBorderColor': '#b97f4b',
-            'primaryTextColor': '#4a3627',
-            'lineColor': '#bf9a6e',
-            'tertiaryColor': '#fff0e0',
-            'fontSize': '13px'
-        },
-        mindmap: {
-            useMaxWidth: true,
-            padding: 10,
-            nodePadding: 12
-        },
-        securityLevel: 'loose'
-    });
+    (function() {
+        // ----- 条文28-30 原文 (据《伤寒论》校注) -----
+        const originalTexts = {
+            28: "服桂枝汤，或下之，仍头项强痛，翕翕发热，无汗，心下满微痛，小便不利者，桂枝去桂加茯苓白术汤主之。",
+            29: "伤寒脉浮，自汗出，小便数，心烦，微恶寒，脚挛急，反与桂枝，欲攻其表，此误也。得之便厥，咽中干，烦躁吐逆者，作甘草干姜汤与之，以复其阳。若厥愈足温者，更作芍药甘草汤与之，其脚即伸。若胃气不和谵语者，少与调胃承气汤。若重发汗，复加烧针者，四逆汤主之。",
+            30: "问曰：证象阳旦，按法治之而增剧，厥逆，咽中干，两胫拘急而谵语。师曰：言夜半手足当温，两脚当伸。后如师言。何以知此？答曰：寸口脉浮而大。浮为风，大为虚，风则生微热，虚则两胫挛，病形象桂枝，因加附子参其间，增桂令汗出，附子温经，亡阳故也。厥逆，咽中干，烦躁，阳明内结，谵语，烦乱，更饮甘草干姜汤。夜半阳气还，两足当热，胫尚微拘急，重与芍药甘草汤，尔乃胫伸。以承气汤微溏，则止其谵语，故知病可愈。"
+        };
 
-    // 音频播放器功能
-    const audio = new Audio('28-30.mp3');
-    const playBtn = document.getElementById('play-btn');
-    const currentTimeEl = document.getElementById('current-time');
-    const durationEl = document.getElementById('duration');
-    const progressBar = document.getElementById('progress-bar');
+        // 方剂完整内容 (含组成、煎服法)
+        const prescriptions = {
+            28: `桂枝去桂加茯苓白术汤方 (胡老主张去芍药)
+芍药三两  甘草二两（炙）  生姜（切）  白术  茯苓各三两  大枣十二枚（擘）
+上六味，以水八升，煮取三升，去滓。温服一升。小便利则愈。本云桂枝汤，今去桂枝，加茯苓、白术。`,
+            29: `甘草干姜汤方
+甘草四两（炙）  干姜二两
+上二味，以水三升，煮取一升五合，去滓。分温再服。
 
-    // 播放/暂停按钮点击事件
-    playBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="6" y="4" width="4" height="16"></rect>
-                    <rect x="14" y="4" width="4" height="16"></rect>
-                </svg>
-            `;
-        } else {
-            audio.pause();
-            playBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
+芍药甘草汤方
+白芍药  甘草（炙）各四两
+上二味，以水三升，煮取一升五合，去滓。分温再服。
+
+调胃承气汤方
+大黄四两（去皮，清酒洗）  甘草二两（炙）  芒硝半升
+上三味，以水三升，煮取一升，去滓，内芒硝，更上火微煮令沸，少少温服之。
+
+四逆汤方
+甘草二两（炙）  干姜一两半  附子一枚（生用，去皮，破八片）
+上三味，以水三升，煮取一升二合，去滓。分温再服。强人可大附子一枚、干姜三两。`,
+            30: "方见29条（甘草干姜汤、芍药甘草汤、调胃承气汤）。"
+        };
+
+        // 胡希恕核心总结 (提炼自知识库，仅关键点)
+        const huxiSummary = {
+            28: [
+                "核心辨证点：无汗而小便不利，心下满微痛。水饮内停，里气闭塞，导致表气不透。",
+                "胡老重要校勘：当为桂枝去芍药加茯苓白术汤。芍药收敛，碍于气机外达；保留桂枝以解表降逆。",
+                "治疗大法：利尿即是解表。茯苓、白术利小便，里气通，表自和。不可见表只知发汗。"
+            ],
+            29: [
+                "初始症状看似桂枝证，但小便数、脚挛急已露津亏里虚之机，绝不可发汗。",
+                "误与桂枝汤攻表，重伤津液阳气，导致厥逆、咽干、烦躁吐逆。",
+                "救逆次第（胡老视为典范）：①甘草干姜汤辛甘化阳，先复胃气（阳）；②厥愈足温后，芍药甘草汤酸甘化阴，濡养筋脉，以伸其脚；③若胃燥谵语，少与调胃承气汤微和胃气；④若再误汗烧针，阳亡危殆，急用四逆汤回阳。",
+                "强调“小便数者，绝不可发汗”，警示辨证须细。"
+            ],
+            30: [
+                "本条是对29条的机理问答。‘证象阳旦’即形似桂枝汤证，但脉浮大而虚，本有里虚津亏。",
+                "医生误加附子、增量桂枝强力发汗，导致亡阳（津液大伤）。",
+                "救治步骤与29条呼应：先甘草干姜汤复阳，再芍药甘草汤舒筋，最后调胃承气汤止谵语。",
+                "体现了张仲景对误治后‘随证治之’的动态救逆思想。"
+            ]
+        };
+
+        // 渲染
+        const container = document.getElementById('articles');
+        let html = '';
+
+        for (let i = 28; i <= 30; i++) {
+            const orig = originalTexts[i] || '';
+            const presc = prescriptions[i] || null;
+            const summaryItems = huxiSummary[i] || [];
+
+            let titleSuffix = '';
+            if (i === 28) titleSuffix = '桂枝去桂加茯苓白术汤 · 利尿解表';
+            else if (i === 29) titleSuffix = '误汗变证 · 甘草干姜汤 · 芍药甘草汤 · 四逆汤';
+            else if (i === 30) titleSuffix = '问答题 · 证象阳旦救逆解';
+
+            html += `
+                <div class="article-card">
+                    <div class="article-header">
+                        <div class="article-num">${i}</div>
+                        <div class="article-title">${titleSuffix}</div>
+                    </div>
+                    <div class="original-text">
+                        <p><strong>📜 原文</strong>　${orig}</p>
+                        ${ presc ? `<div class="prescription"><strong>🧪 方剂 · 煎服法</strong><br>${presc}</div>` : '' }
+                    </div>
+                    <div class="huxi-section">
+                        <div class="huxi-title">🎙️ 胡希恕先生核心提要 <span>随证治之</span></div>
+                        <ul class="huxi-summary">
+                            ${summaryItems.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
             `;
         }
-    });
 
-    // 音频加载完成后设置总时长
-    audio.addEventListener('loadedmetadata', () => {
-        const duration = Math.floor(audio.duration);
-        const minutes = Math.floor(duration / 60);
-        const seconds = duration % 60;
-        durationEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    });
+        container.innerHTML = html;
 
-    // 音频播放时更新进度条和当前时间
-    audio.addEventListener('timeupdate', () => {
-        const currentTime = Math.floor(audio.currentTime);
-        const duration = Math.floor(audio.duration);
-        const progress = (currentTime / duration) * 100;
-        
-        progressBar.style.width = `${progress}%`;
-        
-        const minutes = Math.floor(currentTime / 60);
-        const seconds = currentTime % 60;
-        currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    });
-
-    // 音频播放结束后重置按钮
-    audio.addEventListener('ended', () => {
-        playBtn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        `;
-    });
+        // 音频错误提示
+        const audio = document.querySelector('audio');
+        if (audio) {
+            audio.addEventListener('error', function() {
+                const note = document.querySelector('.audio-note');
+                if (note) note.innerHTML = '⚠️ 音频暂无法加载，请检查网络或链接。';
+            });
+        }
+    })();
 </script>
 </body>
 </html>
