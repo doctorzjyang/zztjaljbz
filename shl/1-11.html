@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>胡希恕经方心法：伤寒论第1-11条精解</title>
-    <!-- mermaid 用于思维导图 -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>伤寒论·条文1-11 · 胡希恕讲稿</title>
     <style>
         * {
             margin: 0;
@@ -14,528 +12,475 @@
         }
 
         body {
-            background-color: #f4efe7;
-            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, '微软雅黑', 'Georgia', serif;
-            color: #2c2b26;
-            padding: 2rem 1rem;
-            line-height: 1.55;
+            font-family: 'Segoe UI', 'Noto Serif SC', '华文楷体', 'KaiTi', serif;
+            background: #f5f2eb;
+            color: #2e241b;
+            padding: 20px 16px 40px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: #fffdf9;
-            border-radius: 36px;
-            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            padding: 2rem 1.8rem;
         }
 
-        /* 头部 */
-        .title-section {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #dac29c;
-            padding-bottom: 1.2rem;
+        /* 标题区 */
+        .header {
+            margin-bottom: 30px;
         }
-        .title-section h1 {
-            font-size: 2rem;
-            color: #6b4c3b;
+
+        h1 {
+            font-size: 2.2rem;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 4px;
+            color: #3b2a1c;
+            border-left: 8px solid #b76e3c;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
         }
-        .title-section p {
-            color: #7e6a58;
-            margin-top: 0.4rem;
+
+        .sub {
+            color: #6e4f2f;
+            margin-left: 30px;
             font-style: italic;
+            font-size: 1.05rem;
         }
 
-        /* 思维导图区 */
-        .mindmap-wrapper {
-            background: #fef8ef;
-            border-radius: 28px;
-            padding: 1.2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
-            border: 1px solid #ece0cf;
-        }
-        .mindmap-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #8b5a2b;
-            margin-bottom: 1rem;
-            padding-left: 0.7rem;
-            border-left: 5px solid #c29a6b;
-        }
-        .mermaid {
+        /* 音频播放器 — 悬停友好，固定位置但可滚动 */
+        .audio-wrapper {
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 8px 20px 8px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid #dccbb8;
             display: flex;
-            justify-content: center;
-            background: #fffef7;
-            border-radius: 24px;
-            padding: 1rem;
-        }
-
-        /* 条文卡片 */
-        .tiao-card {
-            margin-bottom: 2.8rem;
-            border-radius: 28px;
-            background: #ffffff;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-            transition: 0.2s;
-            border: 1px solid #e9dfcf;
-            overflow: hidden;
-        }
-        .tiao-header {
-            background: #f7f2e9;
-            padding: 0.9rem 1.8rem;
-            border-bottom: 1px solid #e2d2bc;
-            display: flex;
-            align-items: baseline;
-            gap: 0.8rem;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
         }
-        .tiao-num {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #a46b3a;
-            font-family: monospace;
+
+        .audio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            color: #4e3721;
         }
-        .no-fang-badge {
-            background: #e7dccc;
-            color: #785f44;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.7rem;
+
+        .audio-label i {
+            font-size: 1.8rem;
+        }
+
+        audio {
+            width: 380px;
+            max-width: 65%;
+            height: 42px;
             border-radius: 30px;
+            background: #f3ede3;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
         }
-        .tiao-original {
-            background: #fefcf7;
-            padding: 1.4rem 1.8rem;
-            border-bottom: 1px dashed #e0cfb7;
-            font-family: 'Noto Serif SC', 'Times New Roman', '宋体', serif;
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f3ede3;
         }
-        .original-text {
-            white-space: pre-wrap;
-            font-size: 1rem;
-            line-height: 1.65;
-            color: #2c3e2f;
-        }
-        .fangji-note {
-            background: #faf1e4;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #6b3f1c;
-            font-family: monospace;
-            border-left: 4px solid #b97f4b;
-        }
-        .huru-section {
-            padding: 1.5rem 1.8rem;
-            background: #faf7f0;
-        }
-        .huru-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #9b5e2c;
-            display: inline-block;
-            border-bottom: 3px solid #d9b48b;
-            margin-bottom: 1rem;
-            padding-right: 1rem;
-        }
-        .huru-content {
-            font-size: 1rem;
-            text-align: justify;
-            color: #2d3e3b;
-        }
-        .huru-content p {
-            margin-bottom: 0.75rem;
-        }
-        .quote {
-            background: #ece1d2;
-            padding: 0.7rem 1.2rem;
-            border-radius: 24px;
-            margin: 0.8rem 0;
-            border-left: 5px solid #b87c4a;
-            color: #3a2c23;
-            font-style: normal;
-        }
-        footer {
-            margin-top: 2rem;
-            text-align: center;
+
+        .audio-note {
             font-size: 0.8rem;
-            color: #9e8b74;
-            border-top: 1px solid #e3d5c2;
-            padding-top: 1.5rem;
+            color: #7b5e44;
         }
-        @media (max-width: 700px) {
-            .container {
-                padding: 1rem;
-            }
-            .tiao-original, .huru-section {
-                padding: 1rem;
-            }
-            .tiao-header {
-                padding: 0.8rem 1rem;
-            }
+
+        /* 思维导图区域 — 从左到右 */
+        .mindmap {
+            margin: 30px 0 40px;
+            overflow-x: auto;
+            padding: 15px 5px 25px;
+            background: #e8dfd3;
+            border-radius: 40px 40px 24px 24px;
+            box-shadow: inset 0 0 0 1px #d6c8b8, 0 6px 12px rgba(0,0,0,0.05);
         }
+
+        .mindmap-title {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d1e0f;
+        }
+
+        .mindmap-flow {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 12px;
+            min-width: min-content;
+            padding: 8px 8px 0;
+        }
+
+        .map-node {
+            background: #fefaf5;
+            border-radius: 24px 8px 24px 8px;
+            padding: 16px 14px;
+            min-width: 150px;
+            flex: 0 0 auto;
+            box-shadow: 0 4px 10px rgba(90, 50, 30, 0.1);
+            border-left: 6px solid #b76e3c;
+            transition: transform 0.1s ease;
+            border: 1px solid #dacbbc;
+        }
+
+        .map-node strong {
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 8px;
+            color: #3f2818;
+            border-bottom: 1px dashed #b49b84;
+            padding-bottom: 5px;
+        }
+
+        .map-node p {
+            font-size: 0.95rem;
+            color: #3a2c1e;
+        }
+
+        .arrow-symbol {
+            font-size: 2.2rem;
+            align-self: center;
+            color: #9b7e64;
+            font-weight: 200;
+            margin: 0 -4px;
+        }
+
+        /* 条文卡片区 */
+        .articles-section {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .article-card {
+            background: #fffcf8;
+            border-radius: 28px;
+            padding: 26px 28px;
+            box-shadow: 0 10px 24px -6px rgba(60, 40, 20, 0.12);
+            border: 1px solid #e3d5c6;
+            transition: all 0.15s;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dcc2a8;
+            padding-bottom: 10px;
+        }
+
+        .article-num {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #a7582c;
+            margin-right: 18px;
+            background: #efe1d2;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        .article-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #3f2a16;
+        }
+
+        .original-text {
+            background: #f6efe7;
+            padding: 22px 24px;
+            border-radius: 18px;
+            margin: 16px 0 22px;
+            font-family: 'Noto Serif SC', '华文楷体', serif;
+            border-left: 6px solid #9f7e5f;
+            box-shadow: inset 0 1px 6px rgba(0,0,0,0.02);
+        }
+
+        .original-text p {
+            font-size: 1.12rem;
+            line-height: 1.8;
+            color: #2c1e12;
+        }
+
+        .prescription {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: #e7dbcd;
+            border-radius: 18px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #1e2f2f;
+            border: 1px dashed #7f6147;
+        }
+
+        .huxi-section {
+            margin-top: 18px;
+            background: #e3d9cd;
+            padding: 20px 24px;
+            border-radius: 24px 12px 24px 12px;
+        }
+
+        .huxi-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #2f4b4b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .huxi-title span {
+            background: #5e6b5c;
+            color: #f3ede2;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .huxi-summary {
+            list-style-type: '▪ ';
+            padding-left: 28px;
+        }
+
+        .huxi-summary li {
+            margin-bottom: 10px;
+            font-size: 1.02rem;
+        }
+
         .footnote {
-            font-size: 0.85rem;
-            color: #9b7c5c;
-            margin-top: 0.5rem;
+            margin-top: 40px;
+            text-align: right;
+            color: #7a6248;
+            font-size: 0.9rem;
+            border-top: 1px solid #cdbcab;
+            padding-top: 20px;
+        }
+
+        /* 手机优化 */
+        @media (max-width: 700px) {
+            h1 { font-size: 1.8rem; }
+            .audio-wrapper { flex-direction: column; align-items: flex-start; gap: 8px; }
+            audio { width: 100%; max-width: 100%; }
+            .map-node { min-width: 130px; padding: 12px; }
+            .arrow-symbol { font-size: 1.8rem; }
+            .article-card { padding: 18px; }
+            .original-text { padding: 16px; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="title-section">
-        <h1>📜 伤寒论·辨太阳病脉证并治 (第1-11条)</h1>
-        <p>胡希恕先生逐条精讲 | 提纲·传变·温病·阴阳愈期·寒热真假</p>
-        <p style="font-size:0.85rem;">⚕️ 原文依宋本《伤寒论》| 胡老论述源自《胡希恕伤寒论讲座》及实录</p>
+    <div class="header">
+        <h1>⚕️ 伤寒论 · 太阳篇</h1>
+        <div class="sub">条文 1 — 11 · 胡希恕先生核心讲稿</div>
     </div>
 
-    <!-- 思维导图 (中心向四周结构，展现1-11条核心辨证逻辑) -->
-    <div class="mindmap-wrapper">
-        <div class="mindmap-title">🧠 胡希恕解经·太阳病首十一条思维导图</div>
-        <pre class="mermaid">
-            mindmap
-              root((太阳病纲要<br/>第1-11条))
-                1条·太阳提纲
-                  脉浮 头项强痛 恶寒
-                  表证本质: 正邪交争于表
-                  胡老: 恶寒为起码症候
-                2条·太阳中风
-                  发热汗出 恶风 脉缓
-                  表虚证 营卫不和
-                  方属桂枝汤证范畴
-                3条·太阳伤寒
-                  必恶寒 体痛呕逆 脉阴阳俱紧
-                  表实证 无汗
-                  胡老: 体液充斥 麻黄汤主之
-                4条·传变征兆
-                  脉静者不传
-                  颇欲吐 躁烦 脉数急者为传
-                  动态预判 警惕入里
-                5条·二三日不传
-                  阳明少阳证不见
-                  病轻 表证仍在
-                  预后良好
-                6条·温病辨治
-                  发热而渴 不恶寒
-                  禁汗禁下禁火
-                  风温: 脉阴阳俱浮 多眠睡
-                  误治伤津 再逆促命期
-                7条·阴阳愈期
-                  发热恶寒发于阳(太阳)
-                  无热恶寒发于阴(少阴)
-                  七日愈/六日愈 自然周期
-                  胡老: 阳数七阴数六乃附会
-                8条·自愈与截断
-                  七日以上自愈 经尽故也
-                  欲作再经 针足阳明
-                  预防传变之思想
-                9条·欲解时辨伪
-                  巳至未上(9-15点)
-                  胡老: 缺乏理性 靠不住
-                  批判五行术数臆测
-                10条·风家愈期
-                  表解而不了了
-                  十二日愈 自然恢复
-                  药不可过 静待康复
-                11条·寒热真假
-                  身大热反欲得衣(真寒假热)
-                  身大寒反不欲近衣(真热假寒)
-                  少阴/阳明重症 勿作表证
-        </pre>
+    <!-- 音频播放区（悬停随时可点） -->
+    <div class="audio-wrapper">
+        <div class="audio-label">
+            <i>🎧</i> 胡希恕讲座·太阳病纲领
+        </div>
+        <audio controls preload="metadata">
+            <source src="https://e.pcloud.link/publink/show?code=XZYp5iZEh1aJSOLqcYNXavOqVTIDSEJcoLV" type="audio/mpeg">
+            您的浏览器不支持音频播放，可点击链接下载。
+        </audio>
+        <div class="audio-note">悬停控制 · 随时播放/暂停</div>
     </div>
 
-    <!-- ======================= 条文1 ======================= -->
-    <div class="tiao-card" id="tiao1">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第1条</span>
-            <span class="no-fang-badge">无方</span>
+    <!-- 思维导图：从左到右结构，1-11条脉络 -->
+    <div class="mindmap">
+        <div class="mindmap-title">🧠 太阳病纲领 · 传变 · 辨真假 (1-11)</div>
+        <div class="mindmap-flow">
+            <div class="map-node"><strong>① 提纲</strong><p>脉浮，头项强痛而恶寒<br>➜ 表证总纲</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>② 中风</strong><p>发热汗出恶风脉缓<br>（表虚证）</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>③ 伤寒</strong><p>或已发热，必恶寒体痛呕逆，脉紧<br>（表实证）</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>④⑤ 传变</strong><p>脉静不传；脉数急、欲吐躁烦为传</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑥ 温病</strong><p>发热而渴不恶寒<br>❌禁汗，误治成风温</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑦ 阴阳</strong><p>发热恶寒发于阳<br>无热恶寒发于阴</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑧ 自愈/针</strong><p>七日以上自愈，针足阳明截传</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑨ 欲解时</strong><p>巳至未上·胡老：无理性，靠不住</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑩ 风家</strong><p>表解不了了，十二日愈</p></div>
+            <div class="arrow-symbol">→</div>
+            <div class="map-node"><strong>⑪ 寒热真假</strong><p>身大热反欲得衣→真寒假热</p></div>
         </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                1. 太阳之为病，脉浮，头项强痛而恶寒。
-            </div>
-            <div class="fangji-note">（本条为太阳病提纲，无方药）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>太阳病的“提纲”与表证本质：</strong>胡老指出，本条是太阳病提纲，凡具备脉浮、头项强痛而恶寒，无论西医何病（感冒、流感等）统属太阳病，即“表证”。恶寒是太阳病起码症候，是机体正邪交争于体表的反映。</p>
-                <p><strong>病理机制：</strong>脉浮因血液充盈于体表，机体欲汗出驱邪；头项强痛乃上部充血；恶寒因体表温度升高与外界温差所致。体现了正邪交争，机体欲从汗解的自然疗能。</p>
-                <p><strong>辨证排他性：</strong>若病人“渴而不恶寒”，则非太阳病，当属温病（阳明范畴）。本条为识别表证的金标准。</p>
-                <div class="quote">✨ 胡老金句：“太阳病就是人体正气在体表与外邪斗争，并试图通过发汗解决问题的规律性反应。”</div>
-                <p>—— 源自《胡希恕论太阳病提纲与表证本质》</p>
-            </div>
-        </div>
+        <div style="font-size:0.9rem; margin-top:12px; margin-left:10px; opacity:0.8;">⬅️ 从左至右 · 一气贯通</div>
     </div>
 
-    <!-- 条文2 -->
-    <div class="tiao-card" id="tiao2">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第2条</span>
-            <span class="no-fang-badge">无方（定义中风）</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                2. 太阳病，发热，汗出，恶风，脉缓者，名为中风。
-            </div>
-            <div class="fangji-note">（太阳中风证定义，桂枝汤证基础，本条无独立方）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>太阳中风的定义与“表虚证”：</strong>胡老强调此中风非脑溢血，乃证候类型。汗出为关键特征，因汗出肌疏故恶风；脉缓乃汗出津液略伤、血管张力松弛之象，属表虚证。</p>
-                <p><strong>病机·邪留肌肉：</strong>“中”有留居之意，邪气透表入肌肉层，致营卫不和。与伤寒（无汗表实）形成鲜明对比，指导桂枝汤调和营卫。</p>
-                <div class="quote">💡 胡老：“古人认为被风吹了才叫中风，实际是机体一种反应类型。脉缓、汗出、恶风，就是桂枝汤的适应证。”</div>
-                <p>—— 源自《胡希恕论太阳中风：表虚证与营卫辨析》</p>
-            </div>
-        </div>
+    <!-- 条文列表 1~11，每条包含原文、方（若存在）、胡老核心总结 -->
+    <div class="articles-section" id="articles">
+        <!-- 数据将用JS动态生成，保证一致且易维护，但也可直接硬编码。为精确，采用JS动态渲染 -->
     </div>
 
-    <!-- 条文3 -->
-    <div class="tiao-card" id="tiao3">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第3条</span>
-            <span class="no-fang-badge">无方（定义伤寒）</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                3. 太阳病，或已发热，或未发热，必恶寒，体痛，呕逆，脉阴阳俱紧者，名为伤寒。
-            </div>
-            <div class="fangji-note">（太阳伤寒证定义，麻黄汤证基础）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>太阳伤寒表实证：</strong>胡老指出“必恶寒”为太阳病起码条件，无论发热与否。无汗是核心，因寒邪束表，津液不得外泄，充斥脉内故脉紧；体液压迫肌肉骨节则体痛；气机向外受阻上逆作呕。</p>
-                <p><strong>脉阴阳俱紧：</strong>浮沉皆紧，提示表闭严重，津液充盈。治疗必须用麻黄汤强力开表发汗，与桂枝汤证有严格界限。</p>
-                <div class="quote">📌 胡老：“伤寒恶寒更重，由于表闭无汗，全身疼得厉害，脉绷紧如转索，这是典型的表实证。”</div>
-                <p>—— 源自《胡希恕论太阳伤寒表实证辨治》</p>
-            </div>
-        </div>
+    <div class="footnote">
+        📖 内容依据：《伤寒论》原文（赵开美本）· 胡希恕先生讲座核心观点<br>
+        仅限自定义知识库 · 不杂后世演绎
     </div>
-
-    <!-- 条文4 -->
-    <div class="tiao-card" id="tiao4">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第4条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                4. 伤寒一日，太阳受之。脉若静者，为不传；颇欲吐，若躁烦，脉数急者，为传也。
-            </div>
-            <div class="fangji-note">（论传变征兆，无方）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>“传”即由表入里（少阳或阳明）：</strong>胡老强调脉静（平稳无急数）为不传，病轻仅需小汗。若“颇欲吐”（少阳）、“躁烦”（阳明）、脉数急（病情急剧变化），则是传变之兆，医者须警惕。</p>
-                <p><strong>动态预判价值：</strong>本条教医生从脉证把握疾病进退，不可仅治当下证候。脉数急提示病势凶猛，及时调整治法。</p>
-                <p>—— 源自《胡希恕辨伤寒太阳篇传变论》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文5 -->
-    <div class="tiao-card" id="tiao5">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第5条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                5. 伤寒二三日，阳明、少阳证不见者，为不传也。
-            </div>
-            <div class="fangji-note">（续论不传，无方）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>动态观察两三日：</strong>胡老指出若经过二三日，仍无阳明里实（渴、大便硬、脉洪大）和少阳半表半里（口苦、咽干、目眩、胸胁苦满）等证，则病仍在表，不传变，病情轻浅易愈。</p>
-                <p><strong>临床意义：</strong>医生须连续观察，若两三日仍是纯表证，预后良好，不必过度治疗。这体现仲景辨证的稳健。</p>
-                <p>—— 源自《胡希恕论伤寒二三日不传之理》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文6 -->
-    <div class="tiao-card" id="tiao6">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第6条</span>
-            <span class="no-fang-badge">无方（温病与风温）</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                6. 太阳病，发热而渴，不恶寒者，为温病。若发汗已，身灼热者，名风温。风温为病，脉阴阳俱浮，自汗出，身重，多眠睡，鼻息必鼾，语言难出。若被下者，小便不利，直视失溲。若被火者，微发黄色，剧则如惊痫，时瘛疭，若火熏之。一逆尚引日，再逆促命期。
-            </div>
-            <div class="fangji-note">（温病禁汗下火，本条无具体方剂，胡老强调不可发汗）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>温病核心鉴别：</strong>“发热而渴，不恶寒”为里热外发，非太阳表证，绝对不可发汗。胡老用巴甫洛夫理论解释：里热极盛抑制了恶寒反应。</p>
-                <p><strong>误治变证·风温：</strong>误汗后津伤热炽，身灼热、多眠睡、鼻鼾语难，乃伤津累及神经。误下则小便不利、直视失溲；火疗则发黄、惊痫。预后极差，“再逆促命期”。</p>
-                <div class="quote">⚠️ 胡老警钟：“温病绝不能发汗，见到渴而不恶寒，就不可用桂枝汤、麻黄汤，当用甘寒清热之法。”</div>
-                <p>—— 源自《胡希恕温病辨治要旨》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文7 -->
-    <div class="tiao-card" id="tiao7">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第7条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                7. 病有发热恶寒者，发于阳也；无热恶寒者，发于阴也。发于阳，七日愈；发于阴，六日愈。以阳数七、阴数六故也。
-            </div>
-            <div class="fangji-note">（阴阳辨证及愈期）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>辨表阳证与表阴证：</strong>发热恶寒为太阳病（阳证）；无热恶寒为少阴病（阴证），反映机体抗病强弱。阳证正气尚足，阴证机能沉衰。</p>
-                <p><strong>对“七日愈”的自然周期观：</strong>胡老认为六日、七日是约略的疾病周期，体现了疾病进退的自然规律，但反对用“阳数七、阴数六”的五行术数附会，斥为“瞎造，没什么意思”。临床应重视症候而非迷信数字。</p>
-                <div class="quote">📖 胡老：“六七天往往是感冒的转折点，这是客观规律；至于阳数七阴数六，那是后人附会之言。”</div>
-                <p>—— 源自《胡希恕辨伤寒阴阳与自然愈期》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文8 -->
-    <div class="tiao-card" id="tiao8">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第8条</span>
-            <span class="no-fang-badge">无方（针足阳明）</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                8. 太阳病，头痛至七日以上自愈者，以行其经尽故也。若欲作再经者，针足阳明，使经不传则愈。
-            </div>
-            <div class="fangji-note">（自愈周期与预防传经）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>七日自愈乃“经尽”：</strong>胡老指出疾病约七日一个周期，若正气胜邪则自愈，此为自然消退。若病势欲传阳明，可针足阳明（如足三里）激发里气，截断传变。</p>
-                <p><strong>预防性思维：</strong>体现了中医“治未病”思想。虽胡老临床多用方药，但肯定针灸预防的参考价值。对“行其经尽”应客观看待，非迷信经络流转。</p>
-                <p>—— 源自《胡希恕论太阳病自愈与截断传变》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文9 -->
-    <div class="tiao-card" id="tiao9">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第9条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                9. 太阳病欲解时，从巳至未上。
-            </div>
-            <div class="fangji-note">（欲解时辰之说）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>彻底否定时辰愈病说：</strong>胡老直言此条“没有什么理性”“靠不住”。巳至未（9-15点）虽为阳气最盛，但太阳病此时也常热势最重，并非一定向愈。属照例文字，缺乏临床实证。</p>
-                <p><strong>批判强行解释：</strong>反对用阴阳五行、术数推演病理，强调经方医学应以客观证候为准，不可盲从古籍中的臆测成分。</p>
-                <div class="quote">🔥 胡老态度：“这个没有什么意思，事实也不一定。学医要关注脉证，不要钻时辰的牛角尖。”</div>
-                <p>—— 源自《胡希恕论太阳病欲解时：去伪存真的治学》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文10 -->
-    <div class="tiao-card" id="tiao10">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第10条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                10. 风家，表解而不了了者，十二日愈。
-            </div>
-            <div class="fangji-note">（中风病后余证自愈期）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>“风家”与“不了了”：</strong>指太阳中风体质之人，表证虽解但仍觉不爽（微酸痛、乏力）。十二日左右可完全康复，这是自然恢复周期。</p>
-                <p><strong>药不可过思想：</strong>胡老强调余证无需猛药攻补，应静待机体自我调整，体现“中病即止”、敬畏人体自愈力的治疗观。</p>
-                <p>—— 源自《胡希恕讲伤寒：风家愈期的自愈观》</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 条文11 -->
-    <div class="tiao-card" id="tiao11">
-        <div class="tiao-header">
-            <span class="tiao-num">🔖 第11条</span>
-            <span class="no-fang-badge">无方</span>
-        </div>
-        <div class="tiao-original">
-            <div class="original-text">
-                <strong>【伤寒论原文】</strong><br>
-                11. 病人身大热，反欲得衣者，热在皮肤，寒在骨髓也；身大寒，反不欲近衣者，寒在皮肤，热在骨髓也。
-            </div>
-            <div class="fangji-note">（辨寒热真假）</div>
-        </div>
-        <div class="huru-section">
-            <div class="huru-title">📖 胡希恕先生精要</div>
-            <div class="huru-content">
-                <p><strong>真寒假热与真热假寒之金标准：</strong>身大热反欲衣被，为真寒假热（少阴重症，如四逆汤证）；身大寒反不欲近衣，为真热假寒（阳明里热郁闭，如白虎汤证）。不可被表面体温迷惑。</p>
-                <p><strong>严禁误作太阳表证：</strong>胡老强调此类证候属少阴或阳明，若误发汗则“再逆促命期”。医生必须透过现象看本质，结合口渴、脉象、神志综合判断。</p>
-                <div class="quote">🎯 胡老：“临床上见到‘欲得衣’、‘不欲近衣’，是决定寒热真假的生死关键。绝不可见热治热，见寒治寒。”</div>
-                <p>—— 源自《胡希恕讲伤寒：寒热真假之辨》</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        📚 以上内容严格依据《伤寒论》宋本及《胡希恕伤寒论讲座》知识库整理，无任何额外延伸。<br>
-        🧾 每条原文及胡老总结均出自自定义知识库文件（伤寒论原文PDF & 胡希恕论1-45条.txt）。<br>
-        ⚕️ 经方传承，方证相应，以临床客观真实为圭臬。
-    </footer>
 </div>
 
 <script>
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'base',
-        themeVariables: {
-            'background': '#fffef5',
-            'primaryColor': '#f4e5cf',
-            'primaryBorderColor': '#b97f4b',
-            'primaryTextColor': '#4a3627',
-            'lineColor': '#bf9a6e',
-            'tertiaryColor': '#fff0e0',
-            'fontSize': '13px'
-        },
-        mindmap: {
-            useMaxWidth: true,
-            padding: 10,
-            nodePadding: 12
-        },
-        securityLevel: 'loose'
-    });
+    (function() {
+        // ----- 知识库：条文1-11 原文 (据《伤寒论》校注本) -----
+        const originalTexts = {
+            1: "太阳之为病，脉浮，头项强痛而恶寒。",
+            2: "太阳病，发热，汗出，恶风，脉缓者，名为中风。",
+            3: "太阳病，或已发热，或未发热，必恶寒，体痛，呕逆，脉阴阳俱紧者，名为伤寒。",
+            4: "伤寒一日，太阳受之。脉若静者，为不传。颇欲吐，若躁烦，脉数急者，为传也。",
+            5: "伤寒二三日，阳明、少阳证不见者，为不传也。",
+            6: "太阳病，发热而渴，不恶寒者，为温病。若发汗已，身灼热者，名风温。风温为病，脉阴阳俱浮，自汗出，身重，多眠睡，鼻息必鼾，语言难出。若被下者，小便不利，直视失溲。若被火者，微发黄色，剧则如惊痫，时瘛疭，若火熏之。一逆尚引日，再逆促命期。",
+            7: "病有发热恶寒者，发于阳也；无热恶寒者，发于阴也。发于阳，七日愈；发于阴，六日愈。以阳数七、阴数六故也。",
+            8: "太阳病，头痛至七日以上自愈者，以行其经尽故也。若欲作再经者，针足阳明，使经不传则愈。",
+            9: "太阳病欲解时，从巳至未上。",
+            10: "风家，表解而不了了者，十二日愈。",
+            11: "病人身大热，反欲得衣者，热在皮肤，寒在骨髓也；身大寒，反不欲近衣者，寒在皮肤，热在骨髓也。"
+        };
+
+        // 处方内容 (1-11条无实际方剂，但第6条涉及误治无具体方；根据要求“包含每个方子的完整内容”，若条文内未出方则标注)
+        // 但第12条才有桂枝汤，这里注明“本条无方”或保持空白。为严谨，不虚构。
+        const prescriptions = {
+            1: null, 2: null, 3: null, 4: null, 5: null,
+            6: null, 7: null, 8: null, 9: null, 10: null, 11: null
+        };
+
+        // ----- 胡希恕核心总结 (提炼自“胡希恕论……”文本，仅关键点) -----
+        const huxiSummary = {
+            1: [
+                "太阳病提纲：凡具脉浮、头项强痛而恶寒者，统称太阳病（表证）。",
+                "本质是机体欲通过发汗排邪，正邪交争于体表。",
+                "恶寒为必备症候，渴而不恶寒则非太阳病（多属温病/阳明）。"
+            ],
+            2: [
+                "太阳中风定义：表虚证。汗出、脉缓（张力松弛）是辨证眼目。",
+                "“中风”非外风直入，而是机体反应类型，邪在肌肉层，营卫不和。",
+                "与伤寒（无汗、脉紧）相对，桂枝汤解肌调和营卫。"
+            ],
+            3: [
+                "太阳伤寒：表实证。必恶寒，无汗，脉阴阳俱紧。",
+                "体痛因汗不得出，体液充斥压迫；呕逆为气机向上冲逆。",
+                "治法须麻黄汤开表发汗，与桂枝汤证严格区分。"
+            ],
+            4: [
+                "传变预判：脉静（平稳）为不传，病轻易愈。",
+                "若‘颇欲吐’（少阳）、‘躁烦’、脉数急，预示病邪入里化热，治疗须调整。",
+                "胡老强调动态观察脉象，脉数急是传变金标准。"
+            ],
+            5: [
+                "观察二三日，若阳明、少阳证不见，则邪仍在表，为不传。",
+                "此类感冒较轻，预后良好。"
+            ],
+            6: [
+                "温病核心：发热而渴、不恶寒，属里热，绝不可发汗。",
+                "误汗成风温（津伤热炽），再误下、火疗则直视失溲、惊痫，促命期。",
+                "必须严格区分太阳病与温病，温病当甘寒清热。"
+            ],
+            7: [
+                "鉴别表证阴阳：发热恶寒→太阳（阳证）；无热恶寒→少阴（阴证）。",
+                "“六日、七日愈”为约略周期，不可拘泥。",
+                "胡老批判‘阳数七阴数六’为附会术数，主张客观规律。"
+            ],
+            8: [
+                "七日以上自愈乃‘经尽’，疾病自然周期。",
+                "若欲再经，可针足阳明（足三里）截断传变，体现治未病。",
+                "反对以五行玄学硬解‘七日’，与西医观察的周期相合。"
+            ],
+            9: [
+                "胡老明确否定‘欲解时’的临床价值，认为‘没有理性’‘靠不住’。",
+                "告诫勿以阴阳术数强行解释，当以证候为准。"
+            ],
+            10: [
+                "风家（表虚易感者）表解后仍不了了（余不适），约十二日自愈。",
+                "不必过药，体现‘中病即止’，静候机体自和。"
+            ],
+            11: [
+                "辨寒热真假：身大热反欲得衣→真寒假热（少阴）；身大寒反不欲近衣→真热假寒（阳明）。",
+                "万不可见热投凉、见寒投热，须洞悉本质。",
+                "误作太阳发汗则危殆。"
+            ]
+        };
+
+        // 渲染
+        const container = document.getElementById('articles');
+        let html = '';
+
+        for (let i = 1; i <= 11; i++) {
+            const orig = originalTexts[i] || '';
+            const presc = prescriptions[i];
+            const summaryItems = huxiSummary[i] || [];
+
+            // 根据内容生成标题
+            let titleSuffix = '';
+            if (i === 1) titleSuffix = '太阳病提纲';
+            else if (i === 2) titleSuffix = '太阳中风';
+            else if (i === 3) titleSuffix = '太阳伤寒';
+            else if (i === 4) titleSuffix = '传变之辨';
+            else if (i === 5) titleSuffix = '不传';
+            else if (i === 6) titleSuffix = '温病·风温';
+            else if (i === 7) titleSuffix = '发于阳/阴';
+            else if (i === 8) titleSuffix = '自愈与针足阳明';
+            else if (i === 9) titleSuffix = '欲解时';
+            else if (i === 10) titleSuffix = '风家';
+            else if (i === 11) titleSuffix = '寒热真假';
+
+            html += `
+                <div class="article-card">
+                    <div class="article-header">
+                        <div class="article-num">${i}</div>
+                        <div class="article-title">${titleSuffix}</div>
+                    </div>
+                    <div class="original-text">
+                        <p><strong>📜 原文</strong>　${orig.replace(/\n/g, '<br>')}</p>
+                        ${ presc ? `<div class="prescription"><strong>🧪 方剂</strong><br>${presc}</div>` : '' }
+                    </div>
+                    <div class="huxi-section">
+                        <div class="huxi-title">🎙️ 胡希恕先生核心提要 <span>随证治之</span></div>
+                        <ul class="huxi-summary">
+                            ${summaryItems.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        container.innerHTML = html;
+
+        // 附加说明：第六条原文包含“风温”详细描述，确保完整。
+        // 音频链接：pcloud 可能无法直接流式播放，但保持src。若无法加载，可提示。
+        // 为确保按钮符合习惯，audio已自带控件。
+        const audio = document.querySelector('audio');
+        if (audio) {
+            audio.addEventListener('error', function() {
+                const wrapper = document.querySelector('.audio-wrapper');
+                const note = document.querySelector('.audio-note');
+                if (note) {
+                    note.innerHTML = '⚠️ 音频暂无法加载，可尝试右键链接另存。';
+                }
+            });
+        }
+    })();
 </script>
+
+<!-- 确保p标签内换行等，同时补一个优雅的降级 -->
 </body>
 </html>
