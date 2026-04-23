@@ -1,494 +1,405 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>伤寒论·条文12-22 · 胡希恕讲稿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡希恕讲伤寒论：第12-22条讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', 'Noto Serif SC', '华文楷体', 'KaiTi', serif;
-            background: #f5f2eb;
-            color: #2e241b;
-            padding: 20px 16px 40px;
-            line-height: 1.6;
+            background-color: #fcfaf2;
+            color: #333;
+            font-family: "Noto Serif SC", "SimSun", "STSong", serif;
         }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 500;
-            letter-spacing: 4px;
-            color: #3b2a1c;
-            border-left: 8px solid #b76e3c;
-            padding-left: 22px;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .sub {
-            color: #6e4f2f;
-            margin-left: 30px;
-            font-style: italic;
-            font-size: 1.05rem;
-        }
-
-        /* 音频播放器 — 悬停友好 */
-        .audio-wrapper {
-            position: sticky;
-            top: 10px;
-            z-index: 10;
-            background: rgba(255, 250, 240, 0.92);
-            backdrop-filter: blur(8px);
-            border-radius: 48px;
-            padding: 8px 20px 8px 24px;
-            margin-bottom: 28px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            border: 1px solid #dccbb8;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .audio-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: #4e3721;
-        }
-
-        .audio-label i {
-            font-size: 1.8rem;
-        }
-
-        audio {
-            width: 380px;
-            max-width: 65%;
-            height: 42px;
-            border-radius: 30px;
-            background: #f3ede3;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
-        }
-
-        audio::-webkit-media-controls-panel {
-            background-color: #f3ede3;
-        }
-
-        .audio-note {
-            font-size: 0.8rem;
-            color: #7b5e44;
-        }
-
-        /* 思维导图区域 — 从左到右 */
-        .mindmap {
-            margin: 30px 0 40px;
+        
+        /* 横向思维导图 CSS */
+        .mindmap-container {
             overflow-x: auto;
-            padding: 15px 5px 25px;
-            background: #e8dfd3;
-            border-radius: 40px 40px 24px 24px;
-            box-shadow: inset 0 0 0 1px #d6c8b8, 0 6px 12px rgba(0,0,0,0.05);
+            padding: 2rem 1rem;
+            background: #fffdf5;
+            border: 1px solid #e5e0d8;
+            border-radius: 0.5rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
-
-        .mindmap-title {
-            font-size: 1.3rem;
-            margin-left: 12px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2d1e0f;
-        }
-
-        .mindmap-flow {
+        .tree {
             display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            gap: 12px;
-            min-width: min-content;
-            padding: 8px 8px 0;
+            align-items: center;
+            min-width: max-content;
         }
-
-        .map-node {
-            background: #fefaf5;
-            border-radius: 24px 8px 24px 8px;
-            padding: 14px 12px;
-            min-width: 140px;
-            flex: 0 0 auto;
-            box-shadow: 0 4px 10px rgba(90, 50, 30, 0.1);
-            border-left: 6px solid #b76e3c;
-            border: 1px solid #dacbbc;
+        .tree-node {
+            padding: 0.75rem 1.25rem;
+            background-color: #8b2121;
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(139, 33, 33, 0.2);
+            z-index: 10;
         }
-
-        .map-node strong {
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 8px;
-            color: #3f2818;
-            border-bottom: 1px dashed #b49b84;
-            padding-bottom: 5px;
-        }
-
-        .map-node p {
-            font-size: 0.9rem;
-            color: #3a2c1e;
-        }
-
-        .arrow-symbol {
-            font-size: 2rem;
-            align-self: center;
-            color: #9b7e64;
-            font-weight: 200;
-            margin: 0 -4px;
-        }
-
-        /* 条文卡片区 */
-        .articles-section {
+        .tree-children {
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            margin-left: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #d4c5b9;
         }
-
-        .article-card {
-            background: #fffcf8;
-            border-radius: 28px;
-            padding: 26px 28px;
-            box-shadow: 0 10px 24px -6px rgba(60, 40, 20, 0.12);
-            border: 1px solid #e3d5c6;
-        }
-
-        .article-header {
+        .tree-child-wrapper {
             display: flex;
-            align-items: baseline;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #dcc2a8;
-            padding-bottom: 10px;
+            align-items: center;
+            position: relative;
+            margin: 0.5rem 0;
         }
-
-        .article-num {
-            font-size: 1.8rem;
+        .tree-child-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -2rem;
+            width: 2rem;
+            height: 2px;
+            background-color: #d4c5b9;
+        }
+        .tree-sub-node {
+            padding: 0.5rem 1rem;
+            background-color: #f4eee1;
+            color: #5c3a21;
+            border: 1px solid #d4c5b9;
+            border-radius: 0.25rem;
             font-weight: 600;
-            color: #a7582c;
-            margin-right: 18px;
-            background: #efe1d2;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            white-space: nowrap;
         }
-
-        .article-title {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: #3f2a16;
+        .tree-leaf-node {
+            padding: 0.25rem 0.75rem;
+            background-color: white;
+            color: #4a4a4a;
+            border: 1px solid #e0d9d3;
+            border-radius: 0.25rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            font-family: sans-serif;
         }
-
-        .original-text {
-            background: #f6efe7;
-            padding: 22px 24px;
-            border-radius: 18px;
-            margin: 16px 0 22px;
-            font-family: 'Noto Serif SC', '华文楷体', serif;
-            border-left: 6px solid #9f7e5f;
-            box-shadow: inset 0 1px 6px rgba(0,0,0,0.02);
+        
+        .clause-card {
+            background-color: white;
+            border: 1px solid #eae5df;
+            border-top: 4px solid #8b2121;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
         }
-
-        .original-text p {
-            font-size: 1.12rem;
+        .clause-card:hover {
+            transform: translateY(-2px);
+        }
+        .text-classical {
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: #2c1e12;
+            color: #1a1a1a;
+            background-color: #fbf9f4;
+            padding: 1.25rem;
+            border-radius: 0.375rem;
+            border-left: 4px solid #c19a6b;
         }
-
-        .prescription {
-            margin-top: 16px;
-            padding: 16px 20px;
-            background: #e7dbcd;
-            border-radius: 18px;
-            font-size: 1rem;
-            color: #1e2f2f;
-            border: 1px dashed #7f6147;
-            white-space: pre-line;
-            font-family: 'Noto Serif SC', monospace;
+        .formula-box {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            border: 1px dashed #ccc;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #444;
         }
-
-        .prescription strong {
-            font-size: 1.1rem;
-            color: #3d2b1a;
+        .hu-summary {
+            background-color: #fef8f5;
+            border: 1px solid #f2e5d9;
+            padding: 1.25rem;
+            border-radius: 0.375rem;
+            margin-top: 1.25rem;
         }
-
-        .huxi-section {
-            margin-top: 18px;
-            background: #e3d9cd;
-            padding: 20px 24px;
-            border-radius: 24px 12px 24px 12px;
+        
+        /* 音频播放器 */
+        #audio-widget {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px rgba(139, 33, 33, 0.3);
         }
-
-        .huxi-title {
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: #2f4b4b;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .huxi-title span {
-            background: #5e6b5c;
-            color: #f3ede2;
-            padding: 2px 14px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-        }
-
-        .huxi-summary {
-            list-style-type: '▪ ';
-            padding-left: 28px;
-        }
-
-        .huxi-summary li {
-            margin-bottom: 10px;
-            font-size: 1.02rem;
-        }
-
-        .footnote {
-            margin-top: 40px;
-            text-align: right;
-            color: #7a6248;
-            font-size: 0.9rem;
-            border-top: 1px solid #cdbcab;
-            padding-top: 20px;
-        }
-
-        @media (max-width: 700px) {
-            h1 { font-size: 1.8rem; }
-            .audio-wrapper { flex-direction: column; align-items: flex-start; gap: 8px; }
-            audio { width: 100%; max-width: 100%; }
-            .map-node { min-width: 130px; }
+        #audio-widget:hover {
+            transform: scale(1.05) translateY(-5px);
         }
     </style>
 </head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1>⚕️ 伤寒论 · 太阳篇</h1>
-        <div class="sub">条文 12 — 22 · 桂枝汤及其加减 · 胡希恕核心讲稿</div>
-    </div>
+<body class="antialiased">
 
-    <!-- 音频播放区（悬停随时可点） -->
-    <div class="audio-wrapper">
-        <div class="audio-label">
-            <i>🎧</i> 胡希恕讲座·桂枝汤类方
-        </div>
-        <audio controls preload="metadata">
-            <source src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/12-22.mp3" type="audio/mpeg">
-            您的浏览器不支持音频播放。
-        </audio>
-        <div class="audio-note">悬停控制 · 随时播放/暂停</div>
-    </div>
+    <!-- 顶部标题 -->
+    <header class="bg-[#8b2121] text-white py-8 px-4 shadow-lg text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2 tracking-widest">胡希恕伤寒论讲座</h1>
+        <p class="text-lg text-[#e6d0b3] font-light">第十二条至第二十二条 专题讲义</p>
+    </header>
 
-    <!-- 思维导图：12-22条 桂枝汤证及其加减、误治救逆 -->
-    <div class="mindmap">
-        <div class="mindmap-title">🧠 桂枝汤证 · 加减 · 误治救逆 (12-22)</div>
-        <div class="mindmap-flow">
-            <div class="map-node"><strong>⑫ 太阳中风</strong><p>阳浮阴弱，发热汗出恶风<br>桂枝汤主之</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑬ 桂枝汤泛用</strong><p>头痛发热汗出恶风<br>不必悉具中风</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑭ 项背强几几</strong><p>反汗出恶风<br>桂枝加葛根汤</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑮ 气上冲</strong><p>下之后气上冲<br>可与桂枝汤</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑯ 坏病·禁忌</strong><p>随证治之；脉浮紧无汗禁桂枝</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑰ 酒客</strong><p>里湿热禁桂枝汤<br>（以火济火）</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑱ 喘家</strong><p>桂枝加厚朴杏子汤</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑲ 服桂吐脓血</strong><p>内热误服甘温，必吐脓血</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>⑳ 漏汗</strong><p>发汗遂漏不止<br>桂枝加附子汤</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉑ 脉促胸满</strong><p>桂枝去芍药汤</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉒ 微寒</strong><p>桂枝去芍药加附子汤</p></div>
-        </div>
-        <div style="font-size:0.9rem; margin-top:12px; margin-left:10px; opacity:0.8;">⬅️ 从左至右 · 方证对应 · 随证治之</div>
-    </div>
-
-    <!-- 条文列表 12~22 -->
-    <div class="articles-section" id="articles"></div>
-
-    <div class="footnote">
-        📖 内容依据：《伤寒论》原文（赵开美本）· 胡希恕先生讲座核心观点<br>
-        仅限自定义知识库 · 不杂后世演绎
-    </div>
-</div>
-
-<script>
-    (function() {
-        // ----- 条文12-22 原文 (据《伤寒论》校注) -----
-        const originalTexts = {
-            12: "太阳中风，阳浮而阴弱。阳浮者，热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，桂枝汤主之。",
-            13: "太阳病，头痛，发热，汗出，恶风，桂枝汤主之。",
-            14: "太阳病，项背强几几，反汗出恶风者，桂枝加葛根汤主之。",
-            15: "太阳病，下之后，其气上冲者，可与桂枝汤，方用前法。若不上冲者，不得与之。",
-            16: "太阳病三日，已发汗，若吐，若下，若温针，仍不解者，此为坏病，桂枝不中与之也。观其脉证，知犯何逆，随证治之。桂枝本为解肌，若其人脉浮紧，发热汗不出者，不可与之也。常须识此，勿令误也。",
-            17: "若酒客病，不可与桂枝汤，得之则呕，以酒客不喜甘故也。",
-            18: "喘家，作桂枝汤，加厚朴、杏子佳。",
-            19: "凡服桂枝汤吐者，其后必吐脓血也。",
-            20: "太阳病，发汗，遂漏不止，其人恶风，小便难，四肢微急，难以屈伸者，桂枝加附子汤主之。",
-            21: "太阳病，下之后，脉促胸满者，桂枝去芍药汤主之。",
-            22: "若微寒者，桂枝去芍药加附子汤主之。"
-        };
-
-        // 方剂完整内容 (出自知识库，含组成、煎服法)
-        const prescriptions = {
-            12: `桂枝汤方
-桂枝三两（去皮） 芍药三两 甘草二两（炙） 生姜三两（切） 大枣十二枚（擘）
-上五味，㕮咀三味，以水七升，微火煮取三升，去滓。适寒温，服一升。服已须臾，啜热稀粥一升余，以助药力。温覆令一时许，遍身漐漐微似有汗者益佳，不可令如水流离，病必不除。若一服汗出病差，停后服，不必尽剂；若不汗，更服依前法；又不汗，后服小促其间，半日许令三服尽；若病重者，一日一夜服，周时观之。服一剂尽，病证犹在者，更作服；若汗不出，乃服至二三剂。禁生冷、粘滑、肉面、五辛、酒酪、臭恶等物。`,
-            13: "方用前第一方（桂枝汤）。",
-            14: `桂枝加葛根汤方
-葛根四两  麻黄三两（去节）  芍药二两  生姜三两（切）  甘草二两（炙）  大枣十二枚（擘）  桂枝二两（去皮）
-上七味，以水一斗，先煮麻黄、葛根，减二升，去上沫，内诸药，煮取三升，去滓。温服一升。覆取微似汗，不须啜粥，余如桂枝法将息及禁忌。
-臣亿等谨按：仲景本论，太阳中风自汗用桂枝，伤寒无汗用麻黄。今证云汗出恶风，而方中有麻黄，恐非本意也。第三卷有葛根汤证云无汗恶风，正与此方同，是合用麻黄也。此云桂枝加葛根汤，恐是桂枝中但加葛根耳。`,
-            15: "方用前法（桂枝汤）。",
-            16: "（无方，论治则与禁忌）",
-            17: "（无方，示禁忌）",
-            18: `桂枝加厚朴杏子汤方
-桂枝三两（去皮）  甘草二两（炙）  生姜三两（切）  芍药三两  大枣十二枚（擘）  厚朴二两（炙，去皮）  杏仁五十枚（去皮尖）
-上七味，以水七升，微火煮取三升，去滓。温服一升，覆取微似汗。`,
-            19: "（无方，警示）",
-            20: `桂枝加附子汤方
-桂枝三两（去皮）  芍药三两  甘草三两（炙）  生姜三两（切）  大枣十二枚（擘）  附子一枚（炮，去皮，破八片）
-上六味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今加附子。将息如前法。`,
-            21: `桂枝去芍药汤方
-桂枝三两（去皮）  甘草二两（炙）  生姜三两（切）  大枣十二枚（擘）
-上四味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今去芍药。将息如前法。`,
-            22: `桂枝去芍药加附子汤方
-桂枝三两（去皮）  甘草二两（炙）  生姜三两（切）  大枣十二枚（擘）  附子一枚（炮，去皮，破八片）
-上五味，以水七升，煮取三升，去滓。温服一升。本云桂枝汤，今去芍药加附子。将息如前法。`
-        };
-
-        // 胡希恕核心总结 (提炼自知识库，仅关键点)
-        const huxiSummary = {
-            12: [
-                "太阳中风证：阳浮而阴弱——轻按浮，重按弱，反映津液有所损伤，营卫不和。",
-                "桂枝汤本质：调和营卫，健胃生津，非单纯发汗。啜粥温覆取微汗，不可令如水流离。",
-                "服药法极其重要：半日许令三服尽，中病即止，体现了动态治疗。"
-            ],
-            13: [
-                "本条打破“中风”标签：只要见到头痛、发热、汗出、恶风，不必拘泥是否为中风，即可用桂枝汤。",
-                "体现了“方证对应”的灵魂，是中医辨证的核心精神。"
-            ],
-            14: [
-                "项背强几几（肌肉痉挛），反汗出恶风——表虚证基础上出现项背拘紧。",
-                "桂枝加葛根汤：葛根专解肌痉挛。胡老强调宋本误加麻黄，当去麻黄，有汗者绝不可用麻黄。",
-                "与葛根汤鉴别：无汗恶风用葛根汤（含麻黄）；有汗用桂枝加葛根汤。"
-            ],
-            15: [
-                "误下后，若气上冲，说明机体抗病机制仍欲从表解，可与桂枝汤顺势发汗。",
-                "若不上冲，则邪已内陷，不可再用桂枝汤，当“随证治之”。"
-            ],
-            16: [
-                "坏病定义：误治后病情已变，原方不适用，须“观其脉证，知犯何逆，随证治之”。",
-                "桂枝汤禁忌：脉浮紧、无汗的表实证，误用桂枝汤会助邪内闭（实实之弊）。",
-                "常须识此，勿令误也——胡老反复告诫。"
-            ],
-            17: [
-                "酒客（里湿热）不可与桂枝汤，甘温助热，得之则呕。",
-                "提示内热者禁用桂枝剂，否则“以火济火”。"
-            ],
-            18: [
-                "喘家（宿有喘疾）外感桂枝证，必加厚朴、杏仁以降逆平喘。",
-                "体现兼顾宿疾的加减法。若表实无汗而喘，则属麻黄汤证。"
-            ],
-            19: [
-                "内热盛者误服桂枝汤，甘温壅滞助热，可能导致肺痈吐脓血。",
-                "严重警戒：里热是桂枝汤的红线。"
-            ],
-            20: [
-                "发汗太过，漏汗不止，津液阳气两伤，陷入阴证倾向。",
-                "桂枝加附子汤：附子复兴代谢机能，固表止汗；桂枝汤调和营卫。",
-                "小便难、四肢微急皆是脱水失养之征。"
-            ],
-            21: [
-                "误下后脉促（急促）、胸满，乃气机上冲，胸中壅滞。",
-                "去芍药之敛，以利桂枝、生姜辛散外达，消除胸满。"
-            ],
-            22: [
-                "若更见微寒（畏寒），为阳虚更甚，加附子温经复阳。",
-                "本方亦常用于风湿痹痛属寒性者。"
-            ]
-        };
-
-        // 渲染
-        const container = document.getElementById('articles');
-        let html = '';
-
-        for (let i = 12; i <= 22; i++) {
-            const orig = originalTexts[i] || '';
-            const presc = prescriptions[i] || null;
-            const summaryItems = huxiSummary[i] || [];
-
-            let titleSuffix = '';
-            if (i === 12) titleSuffix = '太阳中风 · 桂枝汤证';
-            else if (i === 13) titleSuffix = '桂枝汤泛用';
-            else if (i === 14) titleSuffix = '桂枝加葛根汤';
-            else if (i === 15) titleSuffix = '气上冲 · 桂枝汤';
-            else if (i === 16) titleSuffix = '坏病 · 随证治之';
-            else if (i === 17) titleSuffix = '酒客禁桂枝汤';
-            else if (i === 18) titleSuffix = '喘家 · 桂枝加厚朴杏子';
-            else if (i === 19) titleSuffix = '服桂枝汤吐脓血';
-            else if (i === 20) titleSuffix = '桂枝加附子汤 (漏汗)';
-            else if (i === 21) titleSuffix = '桂枝去芍药汤';
-            else if (i === 22) titleSuffix = '桂枝去芍药加附子汤';
-
-            html += `
-                <div class="article-card">
-                    <div class="article-header">
-                        <div class="article-num">${i}</div>
-                        <div class="article-title">${titleSuffix}</div>
-                    </div>
-                    <div class="original-text">
-                        <p><strong>📜 原文</strong>　${orig}</p>
-                        ${ presc ? `<div class="prescription"><strong>🧪 方剂 · 煎服法</strong><br>${presc}</div>` : '' }
-                    </div>
-                    <div class="huxi-section">
-                        <div class="huxi-title">🎙️ 胡希恕先生核心提要 <span>方证对应</span></div>
-                        <ul class="huxi-summary">
-                            ${summaryItems.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- 1. 结构思维导图 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-[#5c3a21] mb-6 flex items-center">
+                <i class="fas fa-sitemap mr-3"></i> 条文逻辑思维导图 (第12-22条)
+            </h2>
+            <div class="mindmap-container">
+                <div class="tree">
+                    <div class="tree-node">太阳病 桂枝汤系及变证<br><span class="text-sm font-normal">(12-22条)</span></div>
+                    <div class="tree-children">
+                        <!-- 分支 1 -->
+                        <div class="tree-child-wrapper">
+                            <div class="tree-sub-node">桂枝汤本证 (表虚证)</div>
+                            <div class="flex flex-col ml-4 border-l border-[#d4c5b9] pl-4 py-2 space-y-2">
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第12条：太阳中风脉证 (阳浮阴弱)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第13条：桂枝汤的拿来主义 (汗出恶风)</div>
+                            </div>
+                        </div>
+                        <!-- 分支 2 -->
+                        <div class="tree-child-wrapper">
+                            <div class="tree-sub-node">兼证与禁忌</div>
+                            <div class="flex flex-col ml-4 border-l border-[#d4c5b9] pl-4 py-2 space-y-2">
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第14条：兼太阳经气不舒 (项背强几几)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第17/19条：湿热与内热禁忌 (酒客、吐者)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第18条：兼宿疾 (喘家作桂枝汤)</div>
+                            </div>
+                        </div>
+                        <!-- 分支 3 -->
+                        <div class="tree-child-wrapper">
+                            <div class="tree-sub-node">误治与坏病法则</div>
+                            <div class="flex flex-col ml-4 border-l border-[#d4c5b9] pl-4 py-2 space-y-2">
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第15条：下后气上冲 (抗病趋向仍向外)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第16条：坏病定法 (观其脉证，随证治之)</div>
+                            </div>
+                        </div>
+                        <!-- 分支 4 -->
+                        <div class="tree-child-wrapper">
+                            <div class="tree-sub-node">汗下变证与救逆</div>
+                            <div class="flex flex-col ml-4 border-l border-[#d4c5b9] pl-4 py-2 space-y-2">
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第20条：汗后漏不止阳虚 (加附子)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第21条：下后脉促胸满 (去芍药)</div>
+                                <div class="tree-leaf-node relative before:content-[''] before:absolute before:w-4 before:h-[2px] before:bg-[#d4c5b9] before:-left-4 before:top-1/2">第22条：下后见微寒阴证 (去芍药加附子)</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            `;
-        }
+            </div>
+        </section>
 
-        container.innerHTML = html;
+        <!-- 2. 条文及解析 -->
+        <section class="space-y-10">
+            <h2 class="text-2xl font-bold text-[#5c3a21] mb-6 border-b-2 border-[#e5e0d8] pb-2">
+                <i class="fas fa-book-open mr-2"></i> 原文及胡老辨证精要
+            </h2>
 
-        // 音频链接备错提示
-        const audio = document.querySelector('audio');
-        if (audio) {
-            audio.addEventListener('error', function() {
-                const note = document.querySelector('.audio-note');
-                if (note) note.innerHTML = '⚠️ 音频暂无法加载，请检查网络或链接。';
-            });
-        }
-    })();
-</script>
+            <!-- 第12条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第12条】 太阳中风证脉证</h3>
+                <div class="text-classical mb-4">
+                    太阳中风，阳浮而阴弱。阳浮者，热自发，阴弱者，汗自出。啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，桂枝汤主之。
+                </div>
+                <div class="formula-box">
+                    <strong>桂枝汤方：</strong>桂枝三两（去皮），芍药三两，甘草二两（炙），生姜三两（切），大枣十二枚（擘）。<br>
+                    <strong>制法服法：</strong>上五味，咀三味，以水七升，微火煮取三升，去滓，适寒温，服一升。服已，须臾啜热稀粥一升余，以助药力。温覆令一时许，遍身漐漐，微似有汗者益佳，不可令如水流漓，病必不除。若一服汗出病差，停后服，不必尽剂。若不汗，更服依前法... 禁生冷、黏滑、肉面、五辛、酒酪、臭恶等物。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>表虚证定性：</strong>本条确立了八纲辨证中“表虚证”的客观诊断标准。</li>
+                        <li><strong>脉象深度解析：</strong>“阳浮”指轻按脉浮，是机体抗病、血液充盈体表而发热的体现；“阴弱”指重按无力，反映体液(汗出)外流致脉管压力不足。</li>
+                        <li><strong>营卫不和逻辑：</strong>恶寒恶风发热如同羽毛覆盖般在表层。阳气抗邪于外则“热自发”，皮肤疏松津液外泄则“汗自出”。鼻鸣干呕是表证未透，气机上逆。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第13条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第13条】 桂枝汤的泛用指征</h3>
+                <div class="text-classical mb-4">
+                    太阳病，头痛，发热，汗出，恶风，桂枝汤主之。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>核心诊断标准：</strong>胡老强调，只要在表证阶段见到<strong>“汗出”</strong>与<strong>“恶风”</strong>，使用桂枝汤就绝对没错。汗出是区别于麻黄汤证的最重要标志。</li>
+                        <li><strong>打破病名枷锁：</strong>医生不必管它叫不叫“中风”，只要见到这组核心症候群即可用，这就是胡老极力推崇的<strong>“方证对应”</strong>。</li>
+                        <li><strong>纠正后世误解：</strong>桂枝汤不是专门用来“散风邪”的，它的作用是<strong>“调和营卫”</strong>，是针对体液流失导致抗病能力减弱的一种调理法。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第14条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第14条】 兼背部拘急的桂枝汤证</h3>
+                <div class="text-classical mb-4">
+                    太阳病，项背强几几，反汗出恶风者，桂枝加葛根汤主之。
+                </div>
+                <div class="formula-box">
+                    <strong>桂枝加葛根汤方（含胡老考证纠谬）：</strong>葛根四两，芍药三两，生姜三两（切），甘草二两（炙），大枣十二枚（擘），桂枝三两（去皮）。<br>
+                    <em>注：胡老明确指出，原书中本方含有“麻黄三两”且桂枝芍药为二两是<strong>传抄错误</strong>！此证既然是“汗出恶风”，绝不可用麻黄，故应为桂枝汤原方（桂芍各三两）加上葛根四两。</em><br>
+                    <strong>制法：</strong>以水一斗，先煮葛根，减二升，去白沫，内诸药，煮取三升，去滓，温服一升。覆取微似汗，不须啜粥，余如桂枝法。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>症状实质：</strong>“项背强几几”指的是脖颈到背部的肌肉发生痉挛拘急，转侧不自然。</li>
+                        <li><strong>方药玄机：</strong>既然有“汗出恶风”，就绝不能发大汗，所以仲景用桂枝汤为底调和营卫，加入葛根解肌生津、专治项背肌肉拘急。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第15条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第15条】 气上冲的辨证价值</h3>
+                <div class="text-classical mb-4">
+                    太阳病，下之后，其气上冲者，可与桂枝汤。方用前法。若不上冲者，不得与之。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>误治背景：</strong>太阳病在表，本应发汗，用了下法属于<strong>误治</strong>。</li>
+                        <li><strong>气上冲的本质：</strong>这是本条的精华。胡老指出，“气上冲”是机体抗病冲力（正气）仍想向外透发抗邪的表现，说明<strong>病邪仍在表</strong>，并未内陷。</li>
+                        <li><strong>治法判定：</strong>既然正气的趋向在表，就可以顺势利导，继续使用桂枝汤解表。如果不向上冲，说明邪已入里产生变证，则绝不可再用桂枝汤。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第16条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第16条】 坏病法则与桂枝禁忌</h3>
+                <div class="text-classical mb-4">
+                    太阳病三日，已发汗，若吐，若下，若温针，仍不解者，此为坏病，桂枝不中与之也。观其脉证，知犯何逆，随证治之。桂枝本为解肌，若其人脉浮紧，发汗不出者，不可与之也。常须识此，勿令误也。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>坏病的定义：</strong>由于乱用汗、吐、下、温针等错误手段，导致病机发生复杂逆转，原有的太阳病已变质，称为“坏病”。</li>
+                        <li><strong>活法总则：</strong>胡老强调了经方的灵魂——<strong>“观其脉证，知犯何逆，随证治之”</strong>。误治后原方不灵，必须重新根据当前哪经有证，就治哪经。</li>
+                        <li><strong>明确桂枝汤界限：</strong>桂枝汤专为“解肌”（有汗）而设。对于脉浮紧、发汗不出的表实证（麻黄汤证），绝对禁用。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第17, 18, 19, 20条 (禁忌及兼证) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 17 -->
+                <article class="clause-card rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-[#8b2121] mb-2">【第17条】 酒客病禁忌</h3>
+                    <div class="text-classical text-sm mb-3">若酒客病，不可与桂枝汤，得之则呕，以酒客不喜甘故也。</div>
+                    <div class="hu-summary mt-0 p-3 bg-gray-50 border-0 text-sm text-[#555]">
+                        <i class="fas fa-quote-left text-[#c19a6b]"></i> 胡老指出：平日嗜酒之人，胃中多有湿热，而桂枝汤甘温，服之容易引发胃气上逆而呕吐。提示辨证不可机械套用。
+                    </div>
+                </article>
+                <!-- 18 -->
+                <article class="clause-card rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-[#8b2121] mb-2">【第18条】 喘家兼表虚</h3>
+                    <div class="text-classical text-sm mb-3">喘家，作桂枝汤，加厚朴杏子佳。</div>
+                    <div class="formula-box text-xs mt-0 mb-3">
+                        <strong>桂枝加厚朴杏子汤：</strong>桂枝汤原方加 厚朴二两（炙去皮），杏仁五十枚（去皮尖）。
+                    </div>
+                    <div class="hu-summary mt-0 p-3 bg-gray-50 border-0 text-sm text-[#555]">
+                        <i class="fas fa-quote-left text-[#c19a6b]"></i> 胡老精要：在遵循桂枝汤调和营卫大方向上，加入厚朴、杏仁以<strong>降逆平喘</strong>，展示了中医解决当前表证同时兼顾患者宿疾的高级智慧。
+                    </div>
+                </article>
+                <!-- 19 -->
+                <article class="clause-card rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-[#8b2121] mb-2">【第19条】 内热误用之变</h3>
+                    <div class="text-classical text-sm mb-3">凡服桂枝汤吐者，其后必吐脓血也。</div>
+                    <div class="hu-summary mt-0 p-3 bg-gray-50 border-0 text-sm text-[#555]">
+                        <i class="fas fa-quote-left text-[#c19a6b]"></i> 胡老提示：若内有实热而误用甘温之桂枝汤，热迫血妄行，气逆于上，必然引发上部出血之变证。
+                    </div>
+                </article>
+                <!-- 20 -->
+                <article class="clause-card rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-[#8b2121] mb-2">【第20条】 汗漏不止与阳虚</h3>
+                    <div class="text-classical text-sm mb-3">太阳病，发汗，遂漏不止，其人恶风，小便难，四肢微急，难以屈伸者，桂枝加附子汤主之。</div>
+                    <div class="formula-box text-xs mt-0 mb-3">
+                        <strong>桂枝加附子汤：</strong>桂枝汤原方加 附子一枚（炮去皮破八片）。
+                    </div>
+                    <div class="hu-summary mt-0 p-3 bg-gray-50 border-0 text-sm text-[#555]">
+                        <i class="fas fa-quote-left text-[#c19a6b]"></i> 胡老精要：汗出过多导致表虚阳脱。加附子大辛大热，旨在<strong>复兴机体代谢机能，振奋沉衰的阳气</strong>，配合桂枝汤固表止汗。
+                    </div>
+                </article>
+            </div>
+
+            <!-- 第21条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第21条】 去芍药以降气冲</h3>
+                <div class="text-classical mb-4">
+                    太阳病，下之后，脉促胸满者，桂枝去芍药汤主之。
+                </div>
+                <div class="formula-box">
+                    <strong>桂枝去芍药汤方：</strong>桂枝三两（去皮），甘草二两（炙），生姜三两（切），大枣十二枚（擘）。<br>
+                    <strong>制法：</strong>上四味，以水七升，煮取三升，去滓，温服一升。本云桂枝汤，今去芍药。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>独家解读“脉促”：</strong>胡老认为这里的促不是指跳动间歇，而是指<strong>脉跳快而急促，且浮在寸位</strong>，反映了由于下后里虚，导致气机向上冲压的态势。</li>
+                        <li><strong>去芍药的玄机：</strong>因为芍药具有<strong>酸寒收敛</strong>的作用。在气机上壅、脉促胸满的情况下，必须去掉芍药，保留桂枝以利于药力向外透达降逆。</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 第22条 -->
+            <article class="clause-card rounded-lg p-6 md:p-8">
+                <h3 class="text-xl font-bold text-[#8b2121] mb-4">【第22条】 阳气受损的危险信号</h3>
+                <div class="text-classical mb-4">
+                    若微寒者，桂枝去芍药加附子汤主之。
+                </div>
+                <div class="formula-box">
+                    <strong>桂枝去芍药加附子汤方：</strong>桂枝三两（去皮），甘草二两（炙），生姜三两（切），大枣十二枚（擘），附子一枚（炮，去皮，破八片）。<br>
+                    <strong>制法：</strong>上五味，以水七升，煮取三升，去滓，温服一升。本云桂枝汤，今去芍药加附子。
+                </div>
+                <div class="hu-summary">
+                    <h4 class="font-bold text-[#c19a6b] mb-2"><i class="fas fa-lightbulb"></i> 胡老辨证精要：</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-[#4a4a4a] text-sm md:text-base">
+                        <li><strong>本条是第21条的深化：</strong>承接上条，若在脉促胸满的同时，患者感到“微寒”（主观发冷），则必须加附子。</li>
+                        <li><strong>“微寒”是阴阳转换的枢机：</strong>胡老精辟指出，误下不仅导致气冲，更损伤了阳气。这里的微寒预示着病情有从<strong>表阳证向少阴阴证转化的倾向</strong>，机体机能开始沉衰。</li>
+                        <li><strong>加附子救逆：</strong>必须果断加入附子振奋阳气，回阳救逆。胡老强调此方不仅用于感冒误治，后世亦常用于治疗寒性久治不愈的<strong>关节痹痛</strong>。</li>
+                    </ul>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- 3. 底部版权与声明 -->
+    <footer class="text-center text-gray-400 text-sm pb-8 mt-12">
+        <p>本网页内容严格基于自定义知识库内《胡希恕伤寒论讲座》原旨整理</p>
+        <p>尊重经典，不作延伸</p>
+    </footer>
+
+    <!-- 4. 悬浮音频播放器 -->
+    <div id="audio-widget" class="fixed bottom-6 right-6 bg-[#8b2121] text-white rounded-full p-4 cursor-pointer flex items-center justify-center w-16 h-16 z-50">
+        <i id="play-icon" class="fas fa-play text-2xl ml-1"></i>
+        <!-- 隐藏的 Audio 标签 -->
+        <audio id="shl-audio" loop>
+            <source src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/12-22.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- 音频控制 JS -->
+    <script>
+        const audioWidget = document.getElementById('audio-widget');
+        const audioEl = document.getElementById('shl-audio');
+        const playIcon = document.getElementById('play-icon');
+        let isPlaying = false;
+
+        audioWidget.addEventListener('click', function() {
+            if (isPlaying) {
+                audioEl.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                playIcon.classList.add('ml-1'); // 播放图标稍微偏右一点居中更好看
+            } else {
+                audioEl.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.remove('ml-1');
+                playIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
 </body>
 </html>

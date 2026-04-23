@@ -1,437 +1,183 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>伤寒论·条文23-27 · 胡希恕讲稿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡希恕伤寒论讲座 23-27条</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Noto Serif SC', '华文楷体', 'KaiTi', serif;
-            background: #f5f2eb;
-            color: #2e241b;
-            padding: 20px 16px 40px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 500;
-            letter-spacing: 4px;
-            color: #3b2a1c;
-            border-left: 8px solid #b76e3c;
-            padding-left: 22px;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .sub {
-            color: #6e4f2f;
-            margin-left: 30px;
-            font-style: italic;
-            font-size: 1.05rem;
-        }
-
-        /* 音频播放器 — 悬停友好 */
-        .audio-wrapper {
-            position: sticky;
-            top: 10px;
-            z-index: 10;
-            background: rgba(255, 250, 240, 0.92);
-            backdrop-filter: blur(8px);
-            border-radius: 48px;
-            padding: 8px 20px 8px 24px;
-            margin-bottom: 28px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            border: 1px solid #dccbb8;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .audio-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: #4e3721;
-        }
-
-        .audio-label i {
-            font-size: 1.8rem;
-        }
-
-        audio {
-            width: 380px;
-            max-width: 65%;
-            height: 42px;
-            border-radius: 30px;
-            background: #f3ede3;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
-        }
-
-        audio::-webkit-media-controls-panel {
-            background-color: #f3ede3;
-        }
-
-        .audio-note {
-            font-size: 0.8rem;
-            color: #7b5e44;
-        }
-
-        /* 思维导图区域 — 从左到右 */
-        .mindmap {
-            margin: 30px 0 40px;
-            overflow-x: auto;
-            padding: 15px 5px 25px;
-            background: #e8dfd3;
-            border-radius: 40px 40px 24px 24px;
-            box-shadow: inset 0 0 0 1px #d6c8b8, 0 6px 12px rgba(0,0,0,0.05);
-        }
-
-        .mindmap-title {
-            font-size: 1.3rem;
-            margin-left: 12px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2d1e0f;
-        }
-
-        .mindmap-flow {
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            gap: 12px;
-            min-width: min-content;
-            padding: 8px 8px 0;
-        }
-
-        .map-node {
-            background: #fefaf5;
-            border-radius: 24px 8px 24px 8px;
-            padding: 14px 12px;
-            min-width: 140px;
-            flex: 0 0 auto;
-            box-shadow: 0 4px 10px rgba(90, 50, 30, 0.1);
-            border-left: 6px solid #b76e3c;
-            border: 1px solid #dacbbc;
-        }
-
-        .map-node strong {
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 8px;
-            color: #3f2818;
-            border-bottom: 1px dashed #b49b84;
-            padding-bottom: 5px;
-        }
-
-        .map-node p {
-            font-size: 0.9rem;
-            color: #3a2c1e;
-        }
-
-        .arrow-symbol {
-            font-size: 2rem;
-            align-self: center;
-            color: #9b7e64;
-            font-weight: 200;
-            margin: 0 -4px;
-        }
-
-        /* 条文卡片区 */
-        .articles-section {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .article-card {
-            background: #fffcf8;
-            border-radius: 28px;
-            padding: 26px 28px;
-            box-shadow: 0 10px 24px -6px rgba(60, 40, 20, 0.12);
-            border: 1px solid #e3d5c6;
-        }
-
-        .article-header {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #dcc2a8;
-            padding-bottom: 10px;
-        }
-
-        .article-num {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #a7582c;
-            margin-right: 18px;
-            background: #efe1d2;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        }
-
-        .article-title {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: #3f2a16;
-        }
-
-        .original-text {
-            background: #f6efe7;
-            padding: 22px 24px;
-            border-radius: 18px;
-            margin: 16px 0 22px;
-            font-family: 'Noto Serif SC', '华文楷体', serif;
-            border-left: 6px solid #9f7e5f;
-            box-shadow: inset 0 1px 6px rgba(0,0,0,0.02);
-        }
-
-        .original-text p {
-            font-size: 1.12rem;
-            line-height: 1.8;
-            color: #2c1e12;
-        }
-
-        .prescription {
-            margin-top: 16px;
-            padding: 16px 20px;
-            background: #e7dbcd;
-            border-radius: 18px;
-            font-size: 1rem;
-            color: #1e2f2f;
-            border: 1px dashed #7f6147;
-            white-space: pre-line;
-            font-family: 'Noto Serif SC', monospace;
-        }
-
-        .prescription strong {
-            font-size: 1.1rem;
-            color: #3d2b1a;
-        }
-
-        .huxi-section {
-            margin-top: 18px;
-            background: #e3d9cd;
-            padding: 20px 24px;
-            border-radius: 24px 12px 24px 12px;
-        }
-
-        .huxi-title {
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: #2f4b4b;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .huxi-title span {
-            background: #5e6b5c;
-            color: #f3ede2;
-            padding: 2px 14px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-        }
-
-        .huxi-summary {
-            list-style-type: '▪ ';
-            padding-left: 28px;
-        }
-
-        .huxi-summary li {
-            margin-bottom: 10px;
-            font-size: 1.02rem;
-        }
-
-        .footnote {
-            margin-top: 40px;
-            text-align: right;
-            color: #7a6248;
-            font-size: 0.9rem;
-            border-top: 1px solid #cdbcab;
-            padding-top: 20px;
-        }
-
-        @media (max-width: 700px) {
-            h1 { font-size: 1.8rem; }
-            .audio-wrapper { flex-direction: column; align-items: flex-start; gap: 8px; }
-            audio { width: 100%; max-width: 100%; }
-            .map-node { min-width: 130px; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        body { font-family: 'Noto Serif SC', serif; background-color: #f4f1ea; color: #332b2b; }
+        .mindmap-container { overflow-x: auto; white-space: nowrap; padding: 40px 20px; background: #fff; border-radius: 12px; margin-bottom: 30px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05); }
+        .node { display: inline-block; vertical-align: middle; background: #fff; border: 2px solid #8b4513; padding: 12px 20px; border-radius: 8px; position: relative; font-weight: bold; margin: 10px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+        .connector { display: inline-block; width: 40px; height: 2px; background: #8b4513; vertical-align: middle; position: relative; }
+        .connector::after { content: ''; position: absolute; right: 0; top: -4px; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #8b4513; }
+        .audio-player { position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #8b4513; color: white; padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .audio-player:hover { transform: scale(1.05); background: #a0522d; }
+        .btn-play { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+        .btn-play:hover { background: rgba(255,255,255,0.4); }
+        .article-card { background: #fff; border-left: 5px solid #8b4513; margin-bottom: 40px; padding: 30px; border-radius: 0 12px 12px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .recipe-box { background: #fdf6e3; border: 1px dashed #d3af8e; padding: 20px; margin: 15px 0; border-radius: 8px; }
+        .hu-summary { background: #f0f7f4; border-radius: 8px; padding: 20px; margin-top: 20px; position: relative; }
+        .hu-summary::before { content: "胡老心法"; position: absolute; top: -12px; left: 20px; background: #2d5a27; color: white; padding: 2px 12px; font-size: 0.8rem; border-radius: 4px; }
+        .highlight { color: #b22222; font-weight: bold; }
     </style>
 </head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1>⚕️ 伤寒论 · 太阳篇</h1>
-        <div class="sub">条文 23 — 27 · 小发汗法 · 桂枝二越婢一汤 · 胡希恕讲稿</div>
-    </div>
+<body class="p-4 md:p-10">
 
-    <!-- 音频播放区（悬停随时可点） -->
-    <div class="audio-wrapper">
-        <div class="audio-label">
-            <i>🎧</i> 胡希恕讲座·小发汗及白虎加参
+    <header class="max-w-5xl mx-auto text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">《伤寒论》23-27条专题讲座</h1>
+        <p class="text-gray-600 italic">根据胡希恕先生讲座录音及笔记整理</p>
+    </header>
+
+    <!-- 1. 思维导图 -->
+    <section class="max-w-6xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-8 bg-amber-800"></span> 1. 条文逻辑思维导图
+        </h2>
+        <div class="mindmap-container">
+            <div class="node">太阳病变局</div>
+            <div class="connector"></div>
+            <div class="node">23条: 桂麻各半汤<br><span class="text-sm font-normal">(小汗法/不得小汗)</span></div>
+            <div class="connector"></div>
+            <div class="node">25条: 桂枝二麻黄一汤<br><span class="text-sm font-normal">(汗多后余邪)</span></div>
+            <div class="connector"></div>
+            <div class="node">26条: 桂枝加芍药生姜各一两...<br><span class="text-sm font-normal">(误下后阳气郁)</span></div>
+            <div class="connector"></div>
+            <div class="node">31条(27条序言): 葛根汤<br><span class="text-sm font-normal">(项背强几几/无汗)</span></div>
         </div>
-        <audio controls preload="metadata">
-            <source src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/23-27.mp3" type="audio/mpeg">
-            您的浏览器不支持音频播放。
-        </audio>
-        <div class="audio-note">悬停控制 · 随时播放/暂停</div>
-    </div>
+    </section>
 
-    <!-- 思维导图：23-27条 小发汗 · 津亏热化 -->
-    <div class="mindmap">
-        <div class="mindmap-title">🧠 表郁轻证 · 小发汗 · 津亏热化 (23-27)</div>
-        <div class="mindmap-flow">
-            <div class="map-node"><strong>㉓ 如疟·热多寒少</strong><p>欲愈/阴阳俱虚/面热身痒<br>桂枝麻黄各半汤(小汗)</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉔ 针药并施</strong><p>初服桂枝汤反烦<br>先刺风池风府，却与桂枝</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉕ 桂枝二麻黄一</strong><p>大汗后脉洪大(脉浮之误)<br>形似疟一日再发，微汗</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉖ 白虎加人参汤</strong><p>大汗后大烦渴不解<br>脉洪大，清热生津</p></div>
-            <div class="arrow-symbol">→</div>
-            <div class="map-node"><strong>㉗ 桂枝二越婢一</strong><p>热多寒少，脉微弱(无阳)<br>小汗兼清里热</p></div>
+    <!-- 2 & 3 条文内容与胡老总结 -->
+    <main class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="w-2 h-8 bg-amber-800"></span> 2. 条文精讲与辨证
+        </h2>
+
+        <!-- 第23条 -->
+        <div class="article-card">
+            <h3 class="text-xl font-bold mb-4">第23条</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                太阳病，得之八九日，如疟状，发热恶寒，热多寒少，其人不呕，清便续自可，一日二三度发。脉微缓者，为欲愈也；脉微而恶寒者，此阴阳俱虚，不可更发汗、更下、更吐也；面色反有赤色者，未欲解也，以其不能得小汗出，身必痒，宜<span class="highlight">桂枝麻黄各半汤</span>。
+            </p>
+            <div class="recipe-box">
+                <p class="font-bold mb-2">【桂枝麻黄各半汤】</p>
+                <p>桂枝（一两十六铢，去皮）、芍药（一两）、甘草（一两，炙）、麻黄（一两，去节）、大枣（四枚，擘）、杏仁（二十四枚，汤浸，去皮尖）、生姜（一两，切）。</p>
+                <p class="mt-2 text-sm text-gray-700">上七味，以水五升，先煮麻黄一两沸，去上沫，内诸药，煮取一升八合，去滓。温服六合，日三服。</p>
+            </div>
+            <div class="hu-summary">
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><span class="font-bold">辨证眼目：</span>“如疟状”并非疟疾，而是发热恶寒有时。由于病已八九日，邪气渐衰且由表入里，但表证未尽。</li>
+                    <li><span class="font-bold">面赤与身痒：</span>面部色赤说明阳气怫郁在表，想出汗而不能。身痒是由于邪在皮肤，由于“不得小汗出”，汗液排泄受阻。</li>
+                    <li><span class="font-bold">小汗法：</span>胡老强调，此时大发汗会伤正，不发汗邪不去，故取桂枝汤、麻黄汤之小半，合为“小汗法”。</li>
+                </ul>
+            </div>
         </div>
-        <div style="font-size:0.9rem; margin-top:12px; margin-left:10px; opacity:0.8;">⬅️ 从左至右 · 表郁轻证 · 津液虚实之辨</div>
+
+        <!-- 第24条 -->
+        <div class="article-card">
+            <h3 class="text-xl font-bold mb-4">第24条</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                太阳病，初服桂枝汤，反烦不解者，先刺风池、风府，却与桂枝汤则愈。
+            </p>
+            <div class="hu-summary">
+                <p>胡老指出，服桂枝汤后“反烦”，说明药后激起机体抗病能力，但邪气郁闭过甚。刺风池、风府是为了疏通经络气血，排除阻碍，为后续药力扫清道路。</p>
+            </div>
+        </div>
+
+        <!-- 第25条 -->
+        <div class="article-card">
+            <h3 class="text-xl font-bold mb-4">第25条</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                服桂枝汤，大汗出，脉洪大者，与桂枝汤，如前法。若形如疟，一日再发者，宜<span class="highlight">桂枝二麻黄一汤</span>。
+            </p>
+            <div class="recipe-box">
+                <p class="font-bold mb-2">【桂枝二麻黄一汤】</p>
+                <p>桂枝（一两十七铢，去皮）、芍药（一两六铢）、甘草（一两二铢，炙）、麻黄（十六铢，去节）、杏仁（十六枚，去皮尖）、大枣（五枚，擘）、生姜（一两六铢，切）。</p>
+                <p class="mt-2 text-sm text-gray-700">上七味，以水五升，先煮麻黄一两沸，去上沫，内诸药，煮取二升，去滓。温服一升，日再服。</p>
+            </div>
+            <div class="hu-summary">
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><span class="font-bold">脉洪大的处理：</span>若仅脉洪大而无白虎汤证（不口渴、不恶热），仍属桂枝汤证。</li>
+                    <li><span class="font-bold">更轻的汗法：</span>此方比各半汤中麻黄分量更少（二比一），适用于汗后余邪更微、正气更虚的情况。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 第26条 -->
+        <div class="article-card">
+            <h3 class="text-xl font-bold mb-4">第26条</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                服桂枝汤，大汗出后，大烦渴不解，脉洪大者，<span class="highlight">白虎加人参汤</span>主之。
+            </p>
+            <div class="recipe-box">
+                <p class="font-bold mb-2">【白虎加人参汤】</p>
+                <p>知母（六两）、石膏（一斤，碎）、甘草（二两，炙）、粳米（六合）、人参（三两）。</p>
+                <p class="mt-2 text-sm text-gray-700">上五味，以水一斗，煮米熟汤成，去滓。温服一升，日三服。</p>
+            </div>
+            <div class="hu-summary">
+                <p>这是<span class="font-bold">太阳转属阳明</span>的关键条文。胡老强调：见到“大烦渴”、“大汗出”、“脉洪大”，即是内热炽盛伤津，必须用白虎汤清热，加人参生津。此时禁用辛温。 </p>
+            </div>
+        </div>
+
+        <!-- 第27条 -->
+        <div class="article-card">
+            <h3 class="text-xl font-bold mb-4">第27条</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                太阳病，发热恶寒，热多寒少。脉微弱者，此无阳也，不可发汗。宜<span class="highlight">桂枝二越婢一汤</span>。
+            </p>
+            <div class="recipe-box">
+                <p class="font-bold mb-2">【桂枝二越婢一汤】</p>
+                <p>桂枝（十八铢，去皮）、芍药（十八铢）、甘草（十八铢，炙）、生姜（十八铢，切）、大枣（四枚，擘）、麻黄（十八铢，去节）、石膏（二十四铢，碎，绵裹）。</p>
+                <p class="mt-2 text-sm text-gray-700">上七味，以水五升，煮麻黄一两沸，去上沫，内诸药，煮取二升，去滓。温服一升，日再服。本方当裁为越婢汤、桂枝汤，合之，饮一升，今合为一升，桂枝汤二分，越婢汤一分。</p>
+            </div>
+            <div class="hu-summary">
+                <p>胡老解释：此处的“无阳”指<span class="font-bold">表气虚</span>。若脉微弱说明津液不足，绝对不可大汗。本方是桂枝汤（解肌）与越婢汤（清热散水）的合方，用于表有微热且伴有内热的情况，分量极轻，意在微汗。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 5. 悬停音频控制 -->
+    <div class="audio-player" id="playerContainer">
+        <div class="text-sm">
+            <div class="font-bold">胡希恕讲座录音</div>
+            <div class="text-xs opacity-80">23-27条：小汗法与传变</div>
+        </div>
+        <div class="flex gap-2">
+            <div class="btn-play" onclick="toggleAudio()" id="playBtn">
+                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+                <svg id="pauseIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                </svg>
+            </div>
+        </div>
+        <audio id="shlAudio" src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/23-27.mp3"></audio>
     </div>
 
-    <!-- 条文列表 23~27 -->
-    <div class="articles-section" id="articles"></div>
+    <script>
+        const audio = document.getElementById('shlAudio');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
 
-    <div class="footnote">
-        📖 内容依据：《伤寒论》原文（赵开美本）· 胡希恕先生讲座核心观点<br>
-        仅限自定义知识库 · 不杂后世演绎
-    </div>
-</div>
-
-<script>
-    (function() {
-        // ----- 条文23-27 原文 (据《伤寒论》校注) -----
-        const originalTexts = {
-            23: "太阳病，得之八九日，如疟状，发热恶寒，热多寒少，其人不呕，清便欲自可，一日二三度发。脉微缓者，为欲愈也；脉微而恶寒者，此阴阳俱虚，不可更发汗、更下、更吐也；面色反有热色者，未欲解也，以其不能得小汗出，身必痒，宜桂枝麻黄各半汤。",
-            24: "太阳病，初服桂枝汤，反烦不解者，先刺风池、风府，却与桂枝汤则愈。",
-            25: "服桂枝汤，大汗出，脉洪大者，与桂枝汤，如前法。若形似疟，一日再发者，汗出必解，宜桂枝二麻黄一汤。",
-            26: "服桂枝汤，大汗出后，大烦渴不解，脉洪大者，白虎加人参汤主之。",
-            27: "太阳病，发热恶寒，热多寒少。脉微弱者，此无阳也，不可发汗。宜桂枝二越婢一汤。"
-        };
-
-        // 方剂完整内容 (含组成、煎服法)
-        const prescriptions = {
-            23: `桂枝麻黄各半汤方
-桂枝一两十六铢（去皮）  芍药  生姜（切）  甘草（炙）  麻黄（去节）各一两  大枣四枚（擘）  杏仁二十四枚（汤浸，去皮尖及两仁者）
-上七味，以水五升，先煮麻黄一二沸，去上沫，内诸药，煮取一升八合，去滓。温服六合。本云桂枝汤三合，麻黄汤三合，并为六合，顿服。将息如上法。
-臣亿等谨按：桂枝汤方……今以算法约之，二汤各取三分之一，即得桂枝一两十六铢……`,
-            24: "方用前第一方（桂枝汤）。",
-            25: `桂枝二麻黄一汤方
-桂枝一两十七铢（去皮）  芍药一两六铢  麻黄十六铢（去节）  生姜一两六铢（切）  杏仁十六个（去皮尖）  甘草一两二铢（炙）  大枣五枚（擘）
-上七味，以水五升，先煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓。温服一升，日再服。本云桂枝汤二分、麻黄汤一分，合为二升，分再服。今合为一方，将息如前法。`,
-            26: `白虎加人参汤方
-知母六两  石膏一斤（碎，绵裹）  甘草二两（炙）  粳米六合  人参三两
-上五味，以水一斗，煮米熟汤成，去滓。温服一升，日三服。`,
-            27: `桂枝二越婢一汤方
-桂枝（去皮）  芍药  麻黄  甘草（炙）各十八铢  大枣四枚（擘）  生姜一两二铢（切）  石膏二十四铢（碎，绵裹）
-上七味，以水五升，煮麻黄一二沸，去上沫，内诸药，煮取二升，去滓。温服一升。本云当裁为越婢汤、桂枝汤，合之饮一升。今合为一方，桂枝汤二分、越婢汤一分。`
-        };
-
-        // 胡希恕核心总结 (提炼自知识库)
-        const huxiSummary = {
-            23: [
-                "太阳病八九日，如疟状热多寒少，分三种转归：①脉微缓，邪衰正复，欲愈；②脉微恶寒，阴阳俱虚，禁汗吐下；③面热身痒，阳气怫郁在表，不得小汗出。",
-                "桂枝麻黄各半汤：极小剂量，旨在小发汗，疏通毛窍，解除身痒面赤。",
-                "胡老强调：小汗微汗，不可令如水流漓。"
-            ],
-            24: [
-                "初服桂枝汤反烦不解，乃邪气盛实，药力受阻于肌肉层。",
-                "先刺风池、风府，宣泄经气，开郁闭之路，再服桂枝汤则愈。针药并用，为药力开路。",
-                "胡老坦言临床少见，但古人经验须心中有数。"
-            ],
-            25: [
-                "胡老校勘：脉洪大应为脉浮之误。若大汗后脉仍浮，表未解，可再与桂枝汤。",
-                "若形似疟一日再发，表郁稍重，用桂枝二麻黄一汤，药量极轻，微微透表。",
-                "对比各半汤，此方麻黄比例更小，针对定时发作余邪。"
-            ],
-            26: [
-                "服桂枝汤大汗出，津液大伤，表邪入里化热，转为阳明经证。",
-                "大烦渴不解、脉洪大，白虎加人参汤主之。人参健胃生津，配合石膏知母清热。",
-                "胡老强调：人参非单纯补气，乃鼓舞胃气以生津液。"
-            ],
-            27: [
-                "热多寒少，脉微弱为“无阳”，即津液亏虚，不可大发汗。",
-                "桂枝二越婢一汤：以桂枝汤小汗解表，越婢汤（麻黄、石膏）清透里热。",
-                "此方为小发汗兼清里热之法，石膏生津，麻黄量极轻，用于表邪未尽、已有内热津亏者。"
-            ]
-        };
-
-        // 渲染
-        const container = document.getElementById('articles');
-        let html = '';
-
-        for (let i = 23; i <= 27; i++) {
-            const orig = originalTexts[i] || '';
-            const presc = prescriptions[i] || null;
-            const summaryItems = huxiSummary[i] || [];
-
-            let titleSuffix = '';
-            if (i === 23) titleSuffix = '桂枝麻黄各半汤 · 小发汗';
-            else if (i === 24) titleSuffix = '针药并施 · 反烦不解';
-            else if (i === 25) titleSuffix = '桂枝二麻黄一汤 · 微透表';
-            else if (i === 26) titleSuffix = '白虎加人参汤 · 大烦渴';
-            else if (i === 27) titleSuffix = '桂枝二越婢一汤 · 小汗清里';
-
-            html += `
-                <div class="article-card">
-                    <div class="article-header">
-                        <div class="article-num">${i}</div>
-                        <div class="article-title">${titleSuffix}</div>
-                    </div>
-                    <div class="original-text">
-                        <p><strong>📜 原文</strong>　${orig}</p>
-                        ${ presc ? `<div class="prescription"><strong>🧪 方剂 · 煎服法</strong><br>${presc}</div>` : '' }
-                    </div>
-                    <div class="huxi-section">
-                        <div class="huxi-title">🎙️ 胡希恕先生核心提要 <span>方证对应</span></div>
-                        <ul class="huxi-summary">
-                            ${summaryItems.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `;
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                audio.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
         }
 
-        container.innerHTML = html;
-
-        // 音频错误提示
-        const audio = document.querySelector('audio');
-        if (audio) {
-            audio.addEventListener('error', function() {
-                const note = document.querySelector('.audio-note');
-                if (note) note.innerHTML = '⚠️ 音频暂无法加载，请检查网络或链接。';
-            });
-        }
-    })();
-</script>
+        // 监听结束重置图标
+        audio.onended = function() {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        };
+    </script>
 </body>
 </html>
