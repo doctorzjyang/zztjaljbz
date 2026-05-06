@@ -3,474 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>胡希恕《伤寒论》讲座：第42-57条解析</title>
+    <title>胡希恕讲《伤寒论》42-57条</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f7f4ed; /* 古典纸张背景色 */
-            color: #3e2723;
-            font-family: "Noto Serif SC", "SimSun", "Songti SC", serif;
+            background-color: #f8f5f0;
+            color: #2c2c2c;
+            font-family: 'Georgia', 'Times New Roman', 'SimSun', 'Songti SC', serif;
         }
-        
-        .header-bg {
-            background: linear-gradient(135deg, #4e342e, #3e2723);
-            color: #d7ccc8;
-        }
-
-        .card {
-            background-color: #ffffff;
-            border-left: 4px solid #8d6e63;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            color: #5d4037;
-            border-bottom: 2px dashed #bcaaa4;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .text-accent {
-            color: #d84315;
-            font-weight: 600;
-        }
-
-        /* 横向树状思维导图 CSS */
-        .tree-container {
-            overflow-x: auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #d7ccc8;
-            border-radius: 8px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
-        }
-        .tree {
-            display: flex;
-            align-items: flex-start;
-            white-space: nowrap;
-        }
+        /* 横向思维导图 CSS */
         .tree ul {
-            padding-left: 30px;
-            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-        /* 竖向连接线 */
-        .tree ul::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            bottom: 15px;
-            left: 0;
-            border-left: 2px solid #8d6e63;
+            position: relative;
+            margin-left: 24px;
+            padding-left: 24px;
+            border-left: 2px solid #d1d5db;
         }
         .tree li {
             position: relative;
-            padding: 10px 0 10px 30px;
+            padding: 12px 0 12px 24px;
             display: flex;
             align-items: center;
         }
-        /* 横向连接线 */
         .tree li::before {
             content: '';
             position: absolute;
-            top: 50%;
             left: 0;
-            width: 30px;
-            border-top: 2px solid #8d6e63;
-            transform: translateY(-50%);
+            top: 50%;
+            width: 24px;
+            border-top: 2px solid #d1d5db;
         }
-        /* 根节点和最后节点的连线修整 */
-        .tree > ul > li::before, .tree > ul::before {
-            display: none;
-        }
-        .tree > ul > li {
+        .tree > ul {
+            border-left: none;
+            margin-left: 0;
             padding-left: 0;
         }
-        .tree-node {
-            padding: 8px 16px;
-            background-color: #efebe9;
-            border: 1px solid #a1887f;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            color: #4e342e;
-            font-weight: bold;
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        .tree > ul > li::before {
+            display: none;
         }
-        .tree-node-root {
-            background-color: #5d4037;
-            color: #fff;
+        .node-box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-family: sans-serif;
+            transition: all 0.3s ease;
+        }
+        .node-box:hover {
+            border-color: #991b1b;
+            box-shadow: 0 4px 6px rgba(153,27,27,0.15);
+        }
+        .root-node {
+            background: #991b1b;
+            color: white;
+            font-weight: bold;
             font-size: 1.1rem;
             border: none;
         }
-        .tree-node-leaf {
-            background-color: #fff;
-            font-weight: normal;
-            border: 1px solid #d7ccc8;
+        .branch-node {
+            background: #fef2f2;
+            color: #991b1b;
+            font-weight: 600;
+        }
+        /* 播放器悬浮效果 */
+        .audio-player {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .audio-player:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body class="antialiased leading-relaxed">
+<body class="antialiased pb-24">
 
     <!-- Header -->
-    <header class="header-bg py-10 px-4 md:px-8 shadow-md">
-        <div class="max-w-6xl mx-auto">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-wider text-center">胡希恕《伤寒论》讲座</h1>
-            <p class="text-lg md:text-xl text-center opacity-90">第42条 — 第57条：汗法权变、表里辨析与误治救逆</p>
+    <header class="bg-red-900 text-white py-12 shadow-lg">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-wider">《伤寒论》第42-57条 讲座笔记</h1>
+            <p class="text-red-100 text-lg">胡希恕伤寒杂病论 · 辨太阳病脉证并治</p>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 md:px-8">
-        
-        <!-- 思维导图区域 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold section-title">第42-57条辨证逻辑思维导图</h2>
-            <div class="tree-container">
-                <div class="tree">
-                    <ul>
-                        <li>
-                            <div class="tree-node tree-node-root">伤寒论 42-57条 辨证心法</div>
-                            <ul>
-                                <li>
-                                    <div class="tree-node">桂枝汤加减与外证未解 (42-45条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">42条：外证未解脉浮弱 → 宜桂枝汤汗解</div></li>
-                                        <li><div class="tree-node tree-node-leaf">43条：误下后微喘表不解 → 桂枝加厚朴杏子汤</div></li>
-                                        <li><div class="tree-node tree-node-leaf">44条：外证未解不可下 → 宜桂枝汤</div></li>
-                                        <li><div class="tree-node tree-node-leaf">45条：先汗后下脉浮在外 → 须解外宜桂枝汤</div></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="tree-node">麻黄汤证与表实排邪 (46-47, 51-52, 55条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">46条：表实迁延不解，发烦目瞑 → 强发汗(麻黄汤)</div></li>
-                                        <li><div class="tree-node tree-node-leaf">47条：阳气重，表闭自衄 → 物理卸压，病自愈</div></li>
-                                        <li><div class="tree-node tree-node-leaf">51/52条：病在表(脉浮/浮数) → 可发汗(隐含表实无汗)</div></li>
-                                        <li><div class="tree-node tree-node-leaf">55条：衄而不愈，表郁仍在 → 仍当麻黄汤开表</div></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="tree-node">二阳并病与汗出不彻 (48条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">48条：阳气怫郁，面赤脉涩 → 禁下，当更发汗</div></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="tree-node">尺迟禁汗与虚损救逆 (49-50条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">49/50条：尺中迟(荣气不足,血少) → 严禁发汗，防亡阳脱液</div></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="tree-node">营卫不谐与桂枝调和 (53-54, 57条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">53/54条：病常自汗出 / 时发热自汗 → 桂枝汤调和营卫</div></li>
-                                        <li><div class="tree-node tree-node-leaf">57条：汗后半日复烦，脉浮数 → 表未尽，桂枝汤更发汗</div></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="tree-node">辨伪与表里定位 (56条)</div>
-                                    <ul>
-                                        <li><div class="tree-node tree-node-leaf">56条：不大便头痛有热，小便清 → 知热不在里仍在表</div></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+    <!-- 思维导图 -->
+    <section class="max-w-5xl mx-auto px-6 py-10 mt-8 bg-white rounded-xl shadow-sm border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-red-800 pb-2 inline-block">逻辑脉络 (思维导图)</h2>
+        <div class="overflow-x-auto pb-4">
+            <div class="tree min-w-max">
+                <ul>
+                    <li>
+                        <div class="node-box root-node">伤寒论 42-57条 辨证体系</div>
+                        <ul>
+                            <li>
+                                <div class="node-box branch-node">解外与误下变证 (桂枝法)</div>
+                                <ul>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第42/44/45条：</b>表未解脉浮者，禁下，必以汗解 (桂枝汤)</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第43条：</b>误下微喘者，表未解兼气逆 (桂枝加厚朴杏子汤)</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node-box branch-node">表实郁闭与衄血自愈 (麻黄法)</div>
+                                <ul>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第46条：</b>表实八九日不解，阳气重致衄，不衄则麻黄汤主之</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第47/55条：</b>自衄者愈；衄而不愈者，表闭仍在，宜麻黄汤</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第51/52条：</b>脉浮/浮数，病在表实，宜麻黄汤</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node-box branch-node">尺迟禁汗与里虚变证</div>
+                                <ul>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第49条：</b>误下身重心悸，尺中迟（营气不足），禁汗待自汗解</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第50条：</b>脉浮紧但尺中迟，血少禁汗，防亡阴脱液</div></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="node-box branch-node">二阳并病与营卫不和</div>
+                                <ul>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第48条：</b>二阳并病，面赤阳气怫郁，小发汗/更发汗解表</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第53/54条：</b>常自汗出/时发热汗出，营卫不和，宜桂枝汤</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第56条：</b>不大便兼头痛，辨“小便清”知病在表，解外防衄</div></li>
+                                    <li><div class="node-box text-sm text-gray-700"><b>第57条：</b>汗解后半日复烦，余邪生内热，可更发汗</div></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 条文详解区 -->
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- 第42条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 42 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，外证未解，脉浮弱者，当以汗解，宜桂枝汤。
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-600 mb-6 font-sans">
+                    <strong>桂枝汤方：</strong>桂枝三两（去皮），芍药三两，甘草二两（炙），生姜三两（切），大枣十二枚（擘）。上五味，咀三味，以水七升，微火煮取三升，去滓，适寒温，服一升。服已须臾，啜热稀粥一升余，以助药力。
+                </div>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        太阳病外证（表证）没有解除，脉象呈现“浮弱”。“浮”说明病在表，“弱”说明营卫不足，属于表虚证。此时绝不能随意攻下，也不能用麻黄汤大发其汗，唯一的正治之法是使用桂枝汤解肌发汗，调和营卫。这是确立“有是证用是方”的严谨规范。
+                    </p>
                 </div>
             </div>
-        </section>
+        </article>
 
-        <!-- 逐条解析区域 -->
-        <section>
-            <h2 class="text-2xl font-bold section-title mb-6">条文精讲与胡老解析</h2>
+        <!-- 第43条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 43 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，下之微喘者，表未解故也，桂枝加厚朴杏子汤主之。
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-600 mb-6 font-sans">
+                    <strong>桂枝加厚朴杏子汤方：</strong>桂枝三两（去皮），芍药三两，甘草二两（炙），生姜三两（切），大枣十二枚（擘），厚朴二两（炙，去皮），杏仁五十枚（去皮尖）。上七味，以水七升，微火煮取三升，去滓，温服一升，覆取微似汗。
+                </div>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        本条论述误下变证。太阳病本该解表，却误用了泻下法。误下后表邪未解而内陷，导致气机上逆而出现“微喘”。虽然有喘，但病机本质仍是“表未解”，因此治疗主轴仍是桂枝汤解表，同时加入厚朴、杏子以下气降逆平喘。这体现了“随证加减”治外兼顾宿疾或变证的智慧。
+                    </p>
+                </div>
+            </div>
+        </article>
 
-            <!-- 第42条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第42条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">外证未解脉浮弱</h3>
+        <!-- 第44条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 44 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，外证未解，不可下也，下之为逆。欲解外者，宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】太阳病，外证未解，脉浮弱者，当以汗解，宜桂枝汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        此条重申了“表未解，禁下”的宪法级铁律。只要外面的表证还在，不论里面有什么情况（除非极其危急），都绝对不可以攻下。攻下就会引邪入里，成为“逆治”。解表必须用发汗法，依据其为表虚，故明言“宜桂枝汤”。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p class="mb-2">这种脉象还应该以汗解，应该“宜桂枝汤”。桂枝汤的应用，主要是津液有所丧失，再用桂枝汤，不然的话应该用麻黄汤。</p>
-                    <p>当大夫不能守方治病，要是与桂枝证有些出入呢，就要加减了，他底下（第43条）就说的是一个加味方。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第43条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第43条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">下之微喘与桂枝加厚朴杏子汤</h3>
+        <!-- 第45条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 45 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，先发汗不解，而复下之，脉浮者不愈。浮为在外，而反下之，故令不愈。今脉浮，故知在外，当须解外则愈，宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723] mb-3">【条文】太阳病，下之微喘者，表未解故也，桂枝加厚朴杏子汤主之。</p>
-                    <div class="text-sm text-gray-700 bg-white p-3 border border-gray-100 rounded">
-                        <span class="font-bold">桂枝加厚朴杏子汤方：</span><br>
-                        桂枝三两（去皮），甘草二两（炙），生姜三两（切），芍药三两，大枣十二枚（擘），厚朴二两（炙，去皮），杏仁五十枚（去皮尖）。<br>
-                        上七味，以水七升，微火煮取三升，去滓，温服一升，覆取微似汗。
-                    </div>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        这里展示了连番误治（先发汗，又攻下）后的判断标准。判断病还没好且病位所在的金标准就是“脉浮”。只要脉依然浮，就证明机体的抗病趋向依然在体表（在外），此时大方向依然是“解外”。因为经过汗下，津血已虚，故只宜用桂枝汤平稳解表，切不可用麻黄汤。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>太阳病不应该吃泻药，这个大夫误用下法，致使病人“微喘”。这个喘也是气上冲的一种表现，气往上冲，表未解，所以还用桂枝汤。</p>
-                    <p>由于微喘，在桂枝汤证基础上加厚朴、杏仁以消胀定喘。得外感，喘非厉不可，是桂枝汤证，那么桂枝汤呢也要加厚朴、杏仁。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第44条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第44条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">外证未解不可下</h3>
+        <!-- 第46条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 46 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，脉浮紧，无汗，发热，身疼痛，八九日不解，表证仍在，此当发其汗。服药已微除，其人发烦目瞑，剧者必衄，衄乃解。所以然者，阳气重故也。麻黄汤主之。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】太阳病，外证未解，不可下也，下之为逆，欲解外者，宜桂枝汤。</p>
+                <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-600 mb-6 font-sans">
+                    <strong>麻黄汤方：</strong>麻黄三两（去节），桂枝二两（去皮），甘草一两（炙），杏仁七十个（去皮尖）。上四味，以水九升，先煮麻黄，减二升，去上沫，内诸药，煮取二升半，去滓，温服八合，覆取微似汗，不须啜粥，余如桂枝法将息。
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>本条特别提出外证。太阳病，如果外证（即桂枝汤证）未解，则不可攻下。如果服用泻药，则为误治（逆）。要想解除外证，依然应用桂枝汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans mb-2">
+                        这是表实证坚持不解的典型代表。胡老强调，辨证不能受“八九日”时间长短的干扰，只要具备“脉浮紧、无汗、发热、身疼痛”，就必须坚持发汗解表。
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans mb-2">
+                        <strong>药后反应解析：</strong>服麻黄汤后出现“发烦目瞑”（极度烦躁、闭目折腾），这是药力激发机体正气，正邪交争剧烈的排邪先兆。
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        <strong>衄血机理：</strong>“阳气重”指患者体内津液、血液充实。由于表闭严密，机体排邪受阻，血管内压力激增导致鼻微血管破裂出血（衄）。出血后压力释放，邪随血去，故“衄乃解”。若不自行衄血，则正局依然是麻黄汤主之。
+                    </p>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第45条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第45条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">先汗复下脉浮之治</h3>
+        <!-- 第47条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 47 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    太阳病，脉浮紧，发热，身无汗，自衄者愈。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】太阳病，先发汗不解，而复下之，脉浮者不愈。浮为在外，而反下之，故令不愈。今脉浮，故在外，当须解外则愈，宜桂枝汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        本条与46条互参。描述了表实郁闭与机体自愈的物理机制。由于“阳气重”（津血充实），机体通过自发的鼻出血（古人视为“红汗”）完成了代偿性的物理卸压，带走了郁积的病邪，从而达到不药而愈的效果。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p class="mb-2">本条批评医界“汗之不愈则下”之陋习。太阳病先发汗未解，是因为病重药轻，而非治法不当，此时应分析不解的原因。但医家一见汗之不解，辄用下法。</p>
-                    <p>病人脉浮，说明病仍在表（在外），故服泻药无效。虽经发汗、泻下，表邪未解，当须解外则愈，宜服桂枝汤。发汗、泻下之后，若再需解表，不用麻黄汤而用桂枝汤，说明桂枝汤作用平稳。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第46条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第46条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">表实不解与发烦目瞑致衄</h3>
+        <!-- 第48条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 48 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    二阳并病，太阳初得病时，发其汗，汗先出不彻，因转属阳明，续自微汗出，不恶寒。若太阳病证不罢者，不可下，下之为逆，如此可小发汗。设面色缘缘正赤者，阳气怫郁在表，当解之熏之。若发汗不彻，不足言，阳气怫郁不得越，当汗不汗，其人躁烦，不知痛处，乍在腹中，乍在四肢，按之不可得，其人短气但坐，以汗出不彻故也，更发汗则愈。何以知汗出不彻？以脉涩故知也。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723] mb-3">【条文】太阳病，脉浮紧，无汗发热，身疼痛，八九日不解，表证仍在，此当发其汗。服药已微除，其人发烦目瞑，剧者必衄，衄乃解。所以然者，阳气重故也。麻黄汤主之。</p>
-                    <div class="text-sm text-gray-700 bg-white p-3 border border-gray-100 rounded">
-                        <span class="font-bold">麻黄汤方（见前）</span>
-                    </div>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans mb-2">
+                        <strong>二阳并病：</strong>指太阳病表证未罢，同时出现了阳明病的迹象。胡老严正指出，只要表证没完（太阳病证不罢者），绝对不可使用下法，下之必内陷为逆治。
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        <strong>阳气怫郁之象：</strong>因为前次“汗出不彻”（发汗不到家），阳气（津液/热气）被郁闭在体表发越不出，导致面色通红（缘缘正赤）、烦躁、甚至出现游走不定按之无形的疼痛（乍在腹中，乍在四肢）。此时诊脉往往见“涩”（表邪郁闭致血行不畅）。治疗定法是必须“更发汗”或“小发汗”，彻底打通机体的排邪路径。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>坚持“表实证”的辨证原则：</strong>太阳伤寒表实证迁延八九日仍不愈，不应受发病日数干扰。只要具备“脉浮紧、无汗、发热、身疼痛”，说明病位依然在体表，机体排邪的大方向没有改变。</li>
-                        <li><strong>确立“当须发汗”的治则：</strong>表证仍在，且属于无汗的实证，最正确的方法依然是使用麻黄汤强力开表。</li>
-                        <li><strong>解析药后反应“发烦目瞑”：</strong>发烦并非病情恶化，而是药力激发了机体正气，使正邪交争剧烈；目瞑是闭目折腾，即将出汗或排邪的先兆。由于津液、血液充实（阳气重），血管压力激增，剧者通过鼻腔微血管破裂出血（衄）完成了代偿性排邪而解。</li>
-                    </ul>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第47条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第47条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">太阳病自衄而愈</h3>
+        <!-- 第49条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 49 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    49.脉浮数者，法当汗出而愈。若下之，身重、心悸者，不可发汗，当自汗出乃解。所以然者，尺中脉微，此里虚。须表里实，津液自和，便自汗出愈。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】太阳病，脉浮紧，发热，身无汗，自衄者，愈。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans mb-2">
+                        脉浮数本该用汗法，但若被误下，导致“身重心悸”。胡老指出，这是误下后里虚，水饮内停的反应。此时绝对**禁忌发汗**。
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        <strong>尺迟禁汗：</strong>其核心依据是“尺中迟”。迟脉并非单指慢，而是脉管搏动软弱不充实，代表“营气不足，血少”。强行外力发汗会抽干体液。必须等待机体精气充实，“津液自和”后产生生理性的“自汗”才能痊愈。临床可参考小建中汤类补虚化饮。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>核心病机在于<strong>表实郁闭与机体自愈</strong>。患者体内津液、血液非常充实（阳气重），当机体正气试图通过汗腺排邪而体表皮肤孔窍闭塞（无汗）时，血管内的压力急剧升高导致鼻出血（自衄）。</p>
-                    <p>古人认为这种衄血相当于“红汗”。机体通过鼻出血自行完成了“物理性卸压”，带走了郁积在血脉中的病邪，因此疾病自愈，不需要再服药。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第48条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第48条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">二阳并病与汗出不彻</h3>
+        <!-- 第50条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 50 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    脉浮紧者，法当身疼痛，宜以汗解之。假令尺中迟者，不可发汗。何以知然？以荣气不足，血少故也。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】二阳并病，太阳初得病时，发其汗，汗先出不彻，因转属阳明，续自微汗出，不恶寒。若太阳病证不罢者，不可下，下之为逆，如此可小发汗。设面色缘缘正赤者，阳气怫郁在表，当解之熏之。若发汗不彻，不足言，阳气怫郁不得越，当汗不汗，其人躁烦，不知痛处，乍在腹中，乍在四肢，按之不可得，其人短气但坐，以汗出不彻故也，更发汗则愈。何以知汗出不彻？以脉涩故知也。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        这是极其经典的“尺迟禁汗”红线。即便寸关脉“浮紧”且“身疼痛”，完全符合麻黄汤的表实证，医生也必须复核尺脉。若“尺中迟”，说明人体内部（下焦/营血）已经极度空虚匮乏。此时如果暴力发汗，会导致亡血脱液的严重变证。胡老提示，这种情况为后文“桂枝新加汤”（补津液、和营卫平稳解表）埋下了伏笔，体现了优先守护精气与津血的最高辨证准则。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>明确“二阳并病”的病理过程：</strong>病邪由太阳传向阳明时，前一经（太阳表证）未罢，后一经的迹象（阳明微汗出、不恶寒）已露萌芽。</li>
-                        <li><strong>严守“先解表”的治疗定法：</strong>只要太阳病证不罢，绝对不可使用下法，误下会导致邪气内陷。唯一的正确出路是“小发汗”解除在表余邪。</li>
-                        <li><strong>解析“阳气怫郁”与面赤：</strong>面色正赤是因为发汗不彻底（汗出不彻），阳气郁闭在表无法透达，产生烦躁、游走性疼痛（不知痛处）。通过“更发汗”（如大青龙汤等）来彻底打通机体的排邪路径，是治疗此类病症的定法。</li>
-                    </ul>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第49条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第49条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">尺迟不可发汗（上）</h3>
+        <!-- 第51条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 51 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    脉浮者，病在表，可发汗，宜麻黄汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】脉浮数者，法当汗出而愈。若下之，身重心悸者，不可发汗，当自汗出乃解。所以然者，尺中迟故也。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        此为“简文”。脉浮确实代表病位在表，总则上可发汗。但胡老提醒，不能死板套用，桂枝汤证脉也浮。这里说“宜麻黄汤”，其隐含的实战前提必然是“表实无汗”，不可机械读书。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>此条文与下文第50条逻辑一脉相承。“尺中迟”反映机体下部和里部营气不足，血少。在里虚血少的背景下，绝对严禁发汗，只能静待机体机能恢复“自汗出乃解”。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第50条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第50条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">尺迟不可发汗（下）</h3>
+        <!-- 第52条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 52 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    脉浮而数者，可发汗，宜麻黄汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】脉浮紧者，法当身疼痛，宜以汗解之。假令尺中迟者，不可发汗。何以知然？以荣气不足，血少故也。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        同上，也是强调病在表可发汗的总则。“数”代表邪正交争较为急迫，伴有表热，但在无汗的前提下，大方向依然是宜用麻黄汤开表宣散。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>识别“表实”与“里虚”的矛盾：</strong>患者脉象“浮紧”伴“身疼痛”，本应使用麻黄汤等强力发汗。但“尺中迟”是限制条件。</li>
-                        <li><strong>深度解析“尺中迟”：</strong>此处的“迟”主要指脉管搏动软弱、不充实，代表脉管内的津液和血液极度匮乏（荣气不足、血少）。</li>
-                        <li><strong>严厉的禁汗红线：</strong>发汗需动用体内大量津血，若误用麻黄汤暴力发汗，会导致津液迅速枯竭，产生“亡阳脱液”的严重变证。</li>
-                        <li><strong>后续策略：</strong>这种情况实际为后文的“新加汤”埋下了伏笔，需要通过补虚来化邪，在精气充实的基础上平稳排邪。</li>
-                    </ul>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第51条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第51条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">脉浮宜麻黄汤的隐含条件</h3>
+        <!-- 第53条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 53 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    病常自汗出者，此为荣气和。荣气和者，外不谐，以卫气不共荣气谐和故尔。以荣行脉中，卫行脉外。复发其汗，荣卫和则愈。宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】脉浮者，病在表，可发汗，宜麻黄汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        经常自发流汗，这是典型的“营卫不和”。营气行于脉中本是和顺的，但卫气行于脉外失去了固护的功能，导致“外不谐”而津液外泄。治疗方法是使用桂枝汤“复发其汗”，通过调和营卫，使卫气重新固密，出汗自然停止。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p class="mb-2">本条是一个非常精简的条文（简文），并不是建立新标准，而是对太阳病治疗原则的高度概括。</p>
-                    <p>脉浮代表病在表，机体的抗病趋向是向外的，最正确的治法就是发汗。但胡老强调，桂枝汤证脉也浮，这里虽然只提“脉浮”，但根据逻辑，使用麻黄汤的前提必须是隐含了<strong>“脉浮无汗”</strong>的表实条件，临床不可机械套用。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第52条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第52条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">脉浮数与麻黄汤</h3>
+        <!-- 第54条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 54 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    病人脏无他病，时发热自汗出而不愈者，此卫气不和也。先其时发汗则愈，宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】脉浮而数者，可发汗，宜麻黄汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        患者内脏没有其他疾病，但到了特定时间（定时）就会发热、自动流汗。胡老指出，这是卫气不和的表现。治疗策略是“截断”，即在发病时间之前（先其时）服用桂枝汤调和营卫，以防病发。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>这跟上面一样，只是脉浮而数，桂枝汤也脉浮而数啊。如果有汗的话，要用桂枝汤，无汗的要用麻黄汤。表实证不光是无汗，头疼、腰疼、骨节疼恶寒，都是麻黄汤证，这是必然的。因为简文，在此简约言之。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第53条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第53条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">荣弱卫强与自汗出</h3>
+        <!-- 第55条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 55 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    伤寒脉浮紧，不发汗，因致衄者，麻黄汤主之。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】病常自汗出者，此为荣气和。荣气和者，外不谐，以卫气不共荣气谐和故尔。以荣行脉中，卫行脉外。复发其汗，荣卫和则愈。宜桂枝汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        本条与47条“自衄者愈”形成对比。同样是表实证（无汗）压力过大致衄，但出血后病情并未解除（依然脉浮紧、发热无汗）。胡老强调，医生不可“刻舟求剑”，被已出血的病史吓住。既然病位表实的郁闭仍在（排邪未尽），就必须果断使用麻黄汤开表，引导机体完成未竟的排邪任务。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>“病常自汗出者”，就是一个单独的证，经常出汗的病人。这由于卫不和，血管外头这个气，不与脉内之营气调和，卫气不守于内，驱使津液外泄而汗出。用桂枝汤再发汗，使营卫协调就好了，桂枝汤起这个调和营卫的作用。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第54条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第54条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">脏无他病之时发热自汗</h3>
+        <!-- 第56条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 56 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    伤寒不大便六七日，头痛有热者，与承气汤。其小便清者，知不在里，仍在表也，当须发汗。若头痛者，必衄，宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】病人脏无他病，时发热，自汗出，而不愈者，此卫气不和也。先其时发汗则愈，宜桂枝汤。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans mb-2">
+                        <strong>以尿定位，鉴别表里：</strong>大便六七日不行伴头痛发热，极似阳明里实，易误判为承气汤证。胡老提出金标准：“看尿色”。若里实热盛，小便必红赤；如今“小便清”，则确凿证明热不在里而在表。不可只看大便，不看小便。
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        <strong>拨乱反正，平稳解表：</strong>既然在表且气机上冲（头痛欲衄），严禁误下。应回归解表的大方向，用桂枝汤平稳疏解头部郁滞，顺势利导防其衄血。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p>“脏无他病”，指内脏没有特殊疾病（如发炎等）。“时发热自汗出”，指到了特定时间发热出汗。这是卫气不和。在定时发热出汗前给他吃桂枝汤调和营卫就好。桂枝汤不只治中风，还能调协营卫，治疗这种神经性或习惯性的发热汗出。</p>
-                </div>
-            </article>
+            </div>
+        </article>
 
-            <!-- 第55条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第55条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">衄而不愈之麻黄汤证</h3>
+        <!-- 第57条 -->
+        <article class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gray-50 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h3 class="text-xl font-bold text-red-900">第 57 条</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-lg leading-relaxed text-gray-800 font-serif mb-4">
+                    伤寒发汗已解，半日许复烦，脉浮数者，可更发汗，宜桂枝汤。
                 </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】伤寒脉浮紧，不发汗，因致衄者，麻黄汤主之。</p>
+                <div class="bg-red-50 border-l-4 border-red-800 p-4">
+                    <h4 class="text-red-900 font-bold mb-2 font-sans"><i class="fas fa-comment-medical mr-2"></i>胡老辨证精要</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-sans">
+                        这是“发汗不彻底”（汗出不彻）导致的病情反复。初次发汗后表面上解除了，但过了半日又觉得心烦。胡老指出，只要复诊脉象依然是“浮数”，就证明表邪未尽，余邪郁闭生了内热（复烦）。此时必须再次发汗（更发汗），因已发过一次汗，故宜用平稳的桂枝汤。
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p class="mb-2">第55条应与第47条（自衄者，愈）对照来看。本条是表实郁闭导致的鼻出血，但出血后病证并没有解除（不愈）。</p>
-                    <p>患者阳气（津血）充实，但由于表闭严密排邪受阻致衄。出血后如果“脉浮紧、无汗发热”等指征依然存在，说明病位的郁闭依然是主要矛盾，邪气未随血排净。既然当前依然是典型的麻黄汤证，必须果断使用麻黄汤强力开表。</p>
-                </div>
-            </article>
-
-            <!-- 第56条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第56条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">小便清辨表里法</h3>
-                </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】伤寒不大便六七日，头痛有热者，与承气汤。其小便清者，知不在里，仍在表也，当须发汗。若头痛者，必衄，宜桂枝汤。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>临床辨证的陷阱：</strong>患者“不大便六七日”且“头痛有热”，表面看似阳明里实热证。但有时这只是粪便停留导致的“中毒”反应，并非真正里实热。</li>
-                        <li><strong>核心辨证眼目：看尿色定病位。</strong>如果怀疑是阳明里热，小便应该是红赤的（热伤津液）；如果<strong>小便清亮</strong>，则确凿证明热不在里，而是在表。这是临床上辨别“表热”与“里热”最易掌握的鉴别标准。</li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- 第57条 -->
-            <article class="card p-6 mb-6 rounded-lg">
-                <div class="flex items-center mb-3">
-                    <span class="bg-[#8d6e63] text-white px-3 py-1 rounded text-sm font-bold mr-3">第57条</span>
-                    <h3 class="text-xl font-bold text-[#4e342e]">桂枝汤解表复烦之法</h3>
-                </div>
-                <div class="bg-gray-50 p-4 rounded mb-4 border border-gray-200">
-                    <p class="font-bold text-[#3e2723]">【条文】伤寒发汗已解，半日许复烦，脉浮数者，可更发汗，宜桂枝汤。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-accent mb-2">胡老解析精要：</h4>
-                    <p class="mb-2">这一条描述的是初次发汗不彻底导致的病情波动。初次发汗后表证暂时消失，但半天后重新心烦，说明余邪依然郁闭在表引发内热而“复烦”。</p>
-                    <p><strong>脉浮数</strong>是核心眼目：脉浮确证病位依然在体表，脉数反映邪正交争剧烈且伴有余热。只要见到脉浮数且心烦，证明表证未解，必须再次采取发汗措施，用桂枝汤平稳解表。</p>
-                </div>
-            </article>
-
-        </section>
+            </div>
+        </article>
 
     </main>
 
-    <footer class="bg-[#3e2723] text-center py-6 text-[#d7ccc8] text-sm">
-        <p>数据来源：胡希恕伤寒论、金匮要略讲座自定义知识库</p>
-        <p>严格基于知识库原文整理，未经其他现代医学或流派延伸</p>
-    </footer>
+    <!-- 悬浮音频播放器 -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div class="audio-player bg-white p-3 rounded-full shadow-xl border border-gray-200 flex items-center space-x-3 cursor-pointer group">
+            <div id="playPauseBtn" class="bg-red-800 hover:bg-red-700 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors shadow-md">
+                <i class="fas fa-play text-lg" id="playIcon"></i>
+            </div>
+            <div class="overflow-hidden w-0 group-hover:w-48 transition-all duration-300 ease-in-out whitespace-nowrap px-1">
+                <span class="text-sm font-bold text-gray-700">胡老讲座音频 (42-57条)</span>
+            </div>
+            <audio id="bgAudio" src="https://cdn.jsdelivr.net/gh/doctorzjyang/shlmusic/42-57.mp3"></audio>
+        </div>
+    </div>
 
+    <script>
+        const audio = document.getElementById('bgAudio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        audio.addEventListener('ended', () => {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+        });
+    </script>
 </body>
 </html>
