@@ -1,188 +1,1087 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国学智慧与健康 - 首页</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #8B4513;
-            --secondary-color: #D4A574;
-            --bg-color: #FDF6E3;
-            --text-color: #3D2914;
-            --accent-color: #C41E3A;
-            --card-bg: #FFFBF0;
-            --border-color: #D4A574;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pediatric TCM Doctor in Shanghai | Dr. Zhoujian Yang</title>
+  <meta name="description" content="Traditional Chinese Medicine support for children in Shanghai, including recurrent cough, allergies, digestion, sleep, weak immunity and holistic pediatric care.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pediatric TCM Care in Shanghai | Dr. Zhoujian Yang">
+  <meta property="og:description" content="Gentle pediatric Traditional Chinese Medicine support for recurrent cough, allergies, digestion, sleep and holistic child health in Shanghai.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.doctorzjyang.cn/">
+  <meta property="og:image" content="https://www.doctorzjyang.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260529102918_334_113.jpg">
+  <style>
+    :root {
+      --ink: #18322e;
+      --muted: #5c6e68;
+      --green: #0f5d52;
+      --green-2: #dfece7;
+      --gold: #b48954;
+      --clay: #9b634c;
+      --paper: #fbf8f1;
+      --line: #e2dbcd;
+      --white: #ffffff;
+      --shadow: 0 18px 48px rgba(24, 50, 46, .12);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Noto Serif SC', 'SimSun', serif;
-            background-color: var(--bg-color);
-            background-image: 
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A574' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-                linear-gradient(to bottom, rgba(253,246,227,0.9), rgba(253,246,227,0.9));
-            color: var(--text-color);
-            line-height: 1.8;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* 容器 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(251, 248, 241, .92), rgba(255, 255, 255, .98) 42%),
+        var(--paper);
+      line-height: 1.6;
+    }
 
-        /* 标题 */
-        .title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .title h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-        /* 卡片容器 */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
+    .shell {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-        /* 卡片 */
-        .card {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(139,69,19,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 248, 241, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(226, 219, 205, .72);
+    }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-        }
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(139,69,19,0.15);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+    }
 
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green);
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
 
-        .card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
+    .brand strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.15;
+    }
 
-        .card p {
-            color: var(--text-color);
-            margin-bottom: 30px;
-            text-align: justify;
-        }
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
 
-        .card .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            font-size: 1rem;
-            border: 2px solid var(--primary-color);
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
 
-        .card .btn:hover {
-            background: transparent;
-            color: var(--primary-color);
-        }
+    .nav-links a:hover {
+      color: var(--green);
+    }
 
-        /* 响应式设计 */
-        @media (max-width: 1200px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 760;
+      font-size: 14px;
+      white-space: nowrap;
+    }
 
-        @media (max-width: 768px) {
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
+    .btn-primary {
+      color: var(--white);
+      background: var(--green);
+      box-shadow: 0 12px 28px rgba(15, 93, 82, .2);
+    }
 
-            .title h1 {
-                font-size: 2rem;
-            }
+    .btn-secondary {
+      color: var(--green);
+      background: var(--white);
+      border-color: rgba(15, 93, 82, .18);
+    }
 
-            .card {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 68px 0 46px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(180, 137, 84, .16), transparent 28%),
+        linear-gradient(118deg, rgba(15, 93, 82, .1), transparent 44%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .8fr);
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(44px, 6vw, 78px);
+      line-height: .98;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .hero-lede {
+      max-width: 650px;
+      margin-bottom: 28px;
+      color: #3f5650;
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 720px;
+    }
+
+    .trust-item {
+      min-height: 98px;
+      padding: 18px;
+      border: 1px solid rgba(15, 93, 82, .13);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .doctor-panel {
+      position: relative;
+    }
+
+    .portrait-frame {
+      position: relative;
+      overflow: hidden;
+      min-height: 590px;
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(15, 93, 82, .08)),
+        #e9e6df;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent 62%, rgba(24, 50, 46, .18));
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 590px;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+
+    .doctor-card {
+      position: absolute;
+      left: -28px;
+      bottom: 26px;
+      width: min(330px, calc(100% - 28px));
+      padding: 22px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 16px 38px rgba(24, 50, 46, .16);
+      border: 1px solid rgba(226, 219, 205, .9);
+    }
+
+    .doctor-card h2 {
+      margin-bottom: 4px;
+      font-size: 26px;
+      line-height: 1.16;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .doctor-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-tight {
+      padding-top: 36px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .75fr) minmax(280px, .55fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4.2vw, 52px);
+      line-height: 1.07;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .condition {
+      min-height: 112px;
+      padding: 20px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 26px rgba(24, 50, 46, .05);
+    }
+
+    .condition span {
+      display: block;
+      width: 34px;
+      height: 3px;
+      margin-bottom: 18px;
+      background: var(--gold);
+    }
+
+    .condition strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.28;
+    }
+
+    .soft-band {
+      background:
+        linear-gradient(90deg, rgba(223, 236, 231, .7), rgba(251, 248, 241, .55)),
+        #f7f3ea;
+      border-block: 1px solid rgba(226, 219, 205, .75);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .lead-box {
+      position: sticky;
+      top: 104px;
+      padding: 30px;
+      border-left: 4px solid var(--green);
+      background: rgba(255, 255, 255, .66);
+    }
+
+    .lead-box p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid rgba(226, 219, 205, .82);
+    }
+
+    .step-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green);
+      font-weight: 850;
+    }
+
+    .step h3 {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(320px, .8fr) minmax(0, 1fr);
+      gap: 52px;
+      align-items: center;
+    }
+
+    .about-image {
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #f0eadf;
+    }
+
+    .about-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+
+    .credential-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .credential-list li {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: #f7f3ea;
+      border: 1px solid var(--line);
+      color: #354d47;
+      font-weight: 650;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .method {
+      min-height: 150px;
+      padding: 20px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .method small {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .method h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .method p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .location-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .78fr);
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .location-main {
+      padding: 34px;
+      border-radius: 8px;
+      color: var(--white);
+      background: linear-gradient(135deg, #0f5d52, #173d39);
+      box-shadow: var(--shadow);
+    }
+
+    .location-main h2 {
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .location-main p {
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .location-facts {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 28px;
+    }
+
+    .fact {
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, .64);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .booking-steps {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 28px;
+      padding: 0;
+      list-style: none;
+      counter-reset: booking;
+    }
+
+    .booking-steps li {
+      position: relative;
+      min-height: 48px;
+      padding: 12px 14px 12px 54px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .16);
+      color: rgba(255, 255, 255, .9);
+      font-weight: 650;
+    }
+
+    .booking-steps li::before {
+      counter-increment: booking;
+      content: counter(booking);
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--green);
+      background: var(--white);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .map-card {
+      min-height: 100%;
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(24, 50, 46, .08);
+    }
+
+    .map-card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .map-card p {
+      color: var(--muted);
+    }
+
+    .mini-map {
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(15, 93, 82, .09) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(15, 93, 82, .09) 1px, transparent 1px),
+        #f4f0e7;
+      background-size: 34px 34px;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .pin {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border-radius: 50% 50% 50% 8px;
+      color: var(--white);
+      background: var(--clay);
+      transform: rotate(-45deg);
+      font-weight: 850;
+    }
+
+    .pin span {
+      transform: rotate(45deg);
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, .66);
+      font-size: 13px;
+    }
+
+    .final-cta {
+      padding: 58px 0;
+      background: #173d39;
+      color: var(--white);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: clamp(30px, 4vw, 46px);
+    }
+
+    .final-cta p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: 17px;
+    }
+
+    .site-footer {
+      padding: 30px 0;
+      background: #102c29;
+      color: rgba(255, 255, 255, .7);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .approach-grid,
+      .about,
+      .location-wrap,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .portrait-frame {
+        min-height: 500px;
+      }
+
+      .portrait-frame img {
+        height: 500px;
+      }
+
+      .doctor-card {
+        left: 18px;
+        bottom: 18px;
+      }
+
+      .condition-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .method-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .lead-box {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav .btn {
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .hero-lede {
+        font-size: 18px;
+      }
+
+      .trust-row,
+      .condition-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-frame,
+      .portrait-frame img {
+        height: 430px;
+        min-height: 430px;
+      }
+
+      .portrait-frame img {
+        object-position: center 16%;
+      }
+
+      .doctor-card {
+        position: static;
+        width: auto;
+        margin-top: -74px;
+        margin-inline: 14px;
+      }
+
+      .location-main,
+      .map-card {
+        padding: 24px;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr. Zhoujian Yang",
+      "medicalSpecialty": "Pediatric Traditional Chinese Medicine",
+      "description": "Chief TCM Physician providing pediatric Traditional Chinese Medicine support for children in Shanghai.",
+      "url": "https://www.doctorzjyang.cn/",
+      "image": "https://www.doctorzjyang.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260529102918_334_113.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "528 Zhangheng Road, Pudong New Area",
+        "addressLocality": "Shanghai",
+        "addressCountry": "CN"
+      },
+      "hospitalAffiliation": {
+        "@type": "Hospital",
+        "name": "Shuguang Hospital East Branch, Shanghai University of Traditional Chinese Medicine"
+      }
+    }
+  </script>
 </head>
 <body>
-    <div class="container">
-        <div class="title">
-            <h1>国学智慧与健康</h1>
-        </div>
-
-        <div class="cards-container">
-            <!-- 资治通鉴精读 -->
-            <div class="card">
-                <div class="card-icon">📚</div>
-                <h3>资治通鉴精读</h3>
-                <p>深入解读资治通鉴等经典著作，汲取历史智慧，指导现代生活。包含智氏兴衰、智伯灭族、豫让之义等经典历史事件的深入解读。</p>
-                <a href="zztj/index.html" class="btn">查看目录</a>
-            </div>
-
-            <!-- 医案精读 -->
-            <div class="card">
-                <div class="card-icon">🏥</div>
-                <h3>医案精读</h3>
-                <p>精选《伤寒论》《金匮要略》等经典医籍中的案例，深入分析辨证思路与治疗方法，传承中医临床智慧。</p>
-                <a href="ljbz/index.html" class="btn">查看医案</a>
-            </div>
-
-            <!-- 身高评估 -->
-            <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>身高评估</h3>
-                <p>基于科学数据的身高评估工具，助力儿童健康成长。包括儿童身高预测、生长发育监测和营养运动指导。</p>
-                <a href="sggy/height.html" class="btn">开始评估</a>
-            </div>
-
-            <!-- 伤寒论精读 -->
-            <div class="card">
-                <div class="card-icon">🩺</div>
-                <h3>伤寒论精读</h3>
-                <p>深入解读《伤寒论》经典条文，结合现代临床实践，传承张仲景医学思想，掌握六经辨证体系。</p>
-                <a href="shl/index.html" class="btn">开始学习</a>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Dr. Zhoujian Yang home">
+        <span class="brand-mark">YZ</span>
+        <span>
+          <strong>Dr. Zhoujian Yang</strong>
+          <span>Pediatric TCM Shanghai</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#conditions">Conditions</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+      </nav>
+      <a class="btn btn-primary" href="#location">Book a Visit</a>
     </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Pediatric TCM in Shanghai</p>
+          <h1>Natural, gentle care for your child's long-term health.</h1>
+          <p class="hero-lede">Traditional Chinese Medicine support for children with recurrent cough, allergies, weak digestion, poor sleep and respiratory concerns, guided by an experienced Shanghai pediatric TCM physician.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#location">Book a Consultation</a>
+            <a class="btn btn-secondary" href="#conditions">See What We Help With</a>
+          </div>
+          <div class="trust-row" aria-label="Care highlights">
+            <div class="trust-item">
+              <strong>Child-centered care</strong>
+              <span>Gentle assessment and family-friendly guidance.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Holistic perspective</strong>
+              <span>Breathing, digestion, sleep, energy and constitution.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Shanghai hospital clinic</strong>
+              <span>Sunday morning outpatient visits at Shuguang Hospital East Branch.</span>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-panel" aria-label="Dr. Zhoujian Yang portrait">
+          <div class="portrait-frame">
+            <img src="微信图片_20260529102918_334_113.jpg" alt="Dr. Zhoujian Yang, Chief TCM Physician">
+          </div>
+          <div class="doctor-card">
+            <h2>Dr. Zhoujian Yang</h2>
+            <p>Chief TCM Physician<br>Shanghai-style Pediatric TCM lineage</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="conditions">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Common concerns</p>
+            <h2>Support for the health problems foreign parents often search for.</h2>
+          </div>
+          <p>The goal is not only to respond to a symptom, but to understand why it keeps returning and how your child's body can become more resilient over time.</p>
+        </div>
+        <div class="condition-grid">
+          <div class="condition"><span></span><strong>Recurrent cough</strong></div>
+          <div class="condition"><span></span><strong>Allergic rhinitis</strong></div>
+          <div class="condition"><span></span><strong>Asthma-like wheezing support</strong></div>
+          <div class="condition"><span></span><strong>Eczema and allergy-prone constitution</strong></div>
+          <div class="condition"><span></span><strong>Poor appetite and weak digestion</strong></div>
+          <div class="condition"><span></span><strong>Constipation and bowel irregularity</strong></div>
+          <div class="condition"><span></span><strong>Frequent colds and low resilience</strong></div>
+          <div class="condition"><span></span><strong>Poor sleep, sweating or low energy</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-band" id="approach">
+      <div class="shell approach-grid">
+        <div class="lead-box">
+          <p class="section-kicker">Why Pediatric TCM</p>
+          <h2>A holistic view of your child's body, not just one symptom.</h2>
+          <p>Pediatric TCM looks at breathing, digestion, sleep, sweating, bowel movements, growth pattern, energy and allergy tendency together. This helps build a care plan that fits the child, not only the diagnosis name.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Detailed family consultation</h3>
+              <p>Review symptoms, medical history, triggers, medications, daily routine and seasonal patterns.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>TCM constitution assessment</h3>
+              <p>Tongue, pulse and whole-body signs are considered alongside the child's current concern.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Gentle treatment plan</h3>
+              <p>Pediatric Tuina, herbal medicine when appropriate, diet advice and home-care guidance may be used.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Follow-up for recurrence prevention</h3>
+              <p>The plan may be adjusted as sleep, appetite, cough, allergies and energy change over time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell about">
+        <div class="about-image">
+          <img src="微信图片_20260529102918_334_113.jpg" alt="Dr. Zhoujian Yang profile portrait">
+        </div>
+        <div>
+          <p class="section-kicker">About the doctor</p>
+          <h2>Dr. Zhoujian Yang, Chief TCM Physician</h2>
+          <p>Dr. Yang focuses on pediatric Traditional Chinese Medicine, especially respiratory, digestive and allergy-related concerns in children. His work combines classical TCM thinking with practical, child-friendly care for modern families in Shanghai.</p>
+          <ul class="credential-list">
+            <li>Member of Shanghai Famous TCM Physician Hu Zongde Studio</li>
+            <li>Fifth-generation inheritor of Shanghai-style Xu's Pediatric TCM lineage</li>
+            <li>Experienced in recurrent cough, rhinitis, eczema, weak digestion and constitution-based child care</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-band">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Treatment style</p>
+            <h2>Natural support with clear guidance for parents.</h2>
+          </div>
+          <p>Each plan is chosen according to the child's constitution, age, symptoms and tolerance. Emergency or acute medical issues should always be handled by appropriate urgent medical care.</p>
+        </div>
+        <div class="method-grid">
+          <div class="method">
+            <small>01</small>
+            <h3>Pediatric Tuina</h3>
+            <p>Gentle Chinese pediatric massage techniques used according to TCM assessment.</p>
+          </div>
+          <div class="method">
+            <small>02</small>
+            <h3>Herbal Medicine</h3>
+            <p>Herbal support may be considered when appropriate for the child's condition.</p>
+          </div>
+          <div class="method">
+            <small>03</small>
+            <h3>Diet Guidance</h3>
+            <p>Practical food and routine advice for digestion, phlegm, allergies and recovery.</p>
+          </div>
+          <div class="method">
+            <small>04</small>
+            <h3>Constitution Care</h3>
+            <p>Support for children who repeatedly catch colds or struggle after illness.</p>
+          </div>
+          <div class="method">
+            <small>05</small>
+            <h3>Seasonal Prevention</h3>
+            <p>Care adjusted around weather changes, school seasons and allergy periods.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <div class="shell location-wrap">
+        <div class="location-main">
+          <p class="section-kicker">Clinic location</p>
+          <h2>Sunday morning outpatient clinic at Shuguang Hospital East Branch.</h2>
+          <p>For international families in Shanghai, the clearest booking route is through the hospital's official WeChat appointment system.</p>
+          <div class="location-facts">
+            <div class="fact">
+              <span>Hospital</span>
+              <strong>Shuguang Hospital East Branch, Shanghai University of Traditional Chinese Medicine</strong>
+            </div>
+            <div class="fact">
+              <span>Address</span>
+              <strong>528 Zhangheng Road, Pudong New Area, Shanghai</strong>
+            </div>
+            <div class="fact">
+              <span>Clinic time</span>
+              <strong>Sunday morning, 8:00-11:15</strong>
+            </div>
+            <div class="fact">
+              <span>Appointment</span>
+              <strong>WeChat service account booking: search for Dr. Yang Zhoujian</strong>
+            </div>
+          </div>
+          <ol class="booking-steps" aria-label="WeChat appointment steps">
+            <li>Open WeChat and search for <strong>曙光医院服务号</strong>.</li>
+            <li>Enter <strong>门诊预约</strong> / outpatient appointment.</li>
+            <li>Search the doctor's name: <strong>杨周剑</strong>.</li>
+            <li>Select the Sunday morning clinic at Shuguang Hospital East Branch.</li>
+          </ol>
+          <div class="map-actions">
+            <a class="btn btn-secondary" href="https://uri.amap.com/search?keyword=%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6%E9%99%84%E5%B1%9E%E6%9B%99%E5%85%89%E5%8C%BB%E9%99%A2%E4%B8%9C%E9%99%A2%20%E5%BC%A0%E8%A1%A1%E8%B7%AF528%E5%8F%B7&city=%E4%B8%8A%E6%B5%B7&view=map&src=doctorzjyang.cn" target="_blank" rel="noopener">Open Amap</a>
+            <a class="btn btn-secondary" href="https://map.baidu.com/search/%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6%E9%99%84%E5%B1%9E%E6%9B%99%E5%85%89%E5%8C%BB%E9%99%A2%E4%B8%9C%E9%99%A2%20%E5%BC%A0%E8%A1%A1%E8%B7%AF528%E5%8F%B7/" target="_blank" rel="noopener">Open Baidu Map</a>
+          </div>
+          <p class="disclaimer">This website provides general information and does not replace in-person medical advice, diagnosis or emergency care.</p>
+        </div>
+        <aside class="map-card">
+          <h3>Booking note for foreign families</h3>
+          <p>Please prepare your child's basic medical history, current medications, recent test reports if available, and a short timeline of symptoms before the visit.</p>
+          <p>For appointment booking, use WeChat to search <strong>曙光医院服务号</strong>, choose <strong>门诊预约</strong>, then search <strong>杨周剑</strong>.</p>
+          <p>English appointment support can be arranged if needed. The medical consultation may be assisted by translation support.</p>
+          <div class="mini-map" aria-label="Clinic map illustration">
+            <div>
+              <div class="pin"><span>TCM</span></div>
+              <strong>Shuguang Hospital East Branch</strong>
+              <p>528 Zhangheng Road, Pudong</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell cta-grid">
+        <div>
+          <h2>Ready to plan a gentler path for your child?</h2>
+          <p>Book a Sunday morning visit through Shuguang Hospital East Branch and bring your child's symptom history for a constitution-based pediatric TCM assessment.</p>
+        </div>
+        <a class="btn btn-secondary" href="#location">View Appointment Details</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© 2026 Dr. Zhoujian Yang Pediatric TCM Shanghai</span>
+      <span>doctorzjyang.cn</span>
+    </div>
+  </footer>
 </body>
 </html>
