@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小儿发热咳嗽六经辨证选药参考</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">六经辨证选药参考</a>
+    <nav>
+      <a href="theory.html">理论基础</a>
+      <a href="index.html#consult">开始问诊</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">小儿发热 · 咳嗽 · 中成药</p>
+        <h1>先辨六经，再看药物方向</h1>
+        <p class="lead">通过危险信号排查、发热问诊、咳嗽问诊，给出六经辨证倾向、判断依据和可参考的中成药成分解析。</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#consult">开始问诊</a>
+        <a class="button" href="theory.html">查看理论基础</a>
+      </div>
+    </section>
+
+    <section class="notice danger">
+      <strong>安全提醒</strong>
+      <p>本工具仅用于学习和与医生、药师沟通参考，不能替代诊断。若出现呼吸困难、抽搐、精神很差、脱水、高热持续不退等情况，请及时就医。</p>
+    </section>
+
+    <section id="consult" class="panel">
+      <div class="panel-head">
+        <p class="eyebrow">Step 1</p>
+        <h2>先排查危险信号</h2>
+        <p class="muted">如果孩子出现以下任何情况，建议及时就医，不要依赖网页结果自行选药。</p>
+      </div>
+      <div id="redFlagList" class="risk-list"></div>
+      <button id="startBtn" class="button primary full">我已确认没有上述情况，进入问诊</button>
+    </section>
+
+    <section id="quiz" class="panel hidden">
+      <div class="progress">
+        <span id="progressText">1 / 7</span>
+        <div><i id="progressBar"></i></div>
+      </div>
+      <h2 id="questionTitle"></h2>
+      <p id="questionHint" class="muted">可选择一个或多个最符合孩子情况的选项；如果没有对应情况，直接点击下一步，或选择“没有这些情况”。</p>
+      <div id="options" class="option-grid"></div>
+      <div class="quiz-actions">
+        <button id="prevBtn" class="button">上一步</button>
+        <button id="nextBtn" class="button primary">下一步</button>
+      </div>
+    </section>
+
+    <section id="result" class="hidden"></section>
+  </main>
+
+  <footer>
+     </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
