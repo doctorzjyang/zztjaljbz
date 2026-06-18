@@ -28,7 +28,11 @@
       </div>
       <div class="status-panel">
         <span id="authState">正在检查登录状态</span>
-        <button id="logoutBtn" class="button subtle hidden" type="button">退出登录</button>
+        <p id="appMessage" class="message"></p>
+        <div class="actions">
+          <button id="reloadDataBtn" class="button subtle hidden" type="button">重新读取数据</button>
+          <button id="logoutBtn" class="button subtle hidden" type="button">退出登录</button>
+        </div>
       </div>
     </section>
 
@@ -131,4 +135,3 @@
   <script type="module" src="./app.js"></script>
 </body>
 </html>
-

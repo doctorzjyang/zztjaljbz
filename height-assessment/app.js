@@ -25,8 +25,12 @@ const percentileKeys = [
 ];
 
 function setMessage(text, tone = "warn") {
-  $("authMessage").textContent = text || "";
-  $("authMessage").style.color = tone === "ok" ? "#1f6865" : "#a94831";
+  ["authMessage", "appMessage"].forEach(id => {
+    const node = $(id);
+    if (!node) return;
+    node.textContent = text || "";
+    node.style.color = tone === "ok" ? "#1f6865" : "#a94831";
+  });
 }
 
 function today() {
@@ -178,6 +182,7 @@ async function refreshSession() {
 function renderAuth() {
   const logged = Boolean(state.user);
   $("authState").textContent = logged ? `已登录：${state.user.email}` : "未登录";
+  $("reloadDataBtn").classList.toggle("hidden", !logged);
   $("logoutBtn").classList.toggle("hidden", !logged);
   $("authPanel").classList.toggle("hidden", logged);
   $("workspace").classList.toggle("hidden", !logged);
@@ -423,13 +428,17 @@ async function saveChild(event) {
   };
   const id = $("childId").value;
   const query = id
-    ? supabase.from("children").update(payload).eq("id", id)
+    ? supabase.from("children").update(payload).eq("id", id).select().single()
     : supabase.from("children").insert(payload).select().single();
   const { data, error } = await query;
-  if (error) return setMessage(`保存档案失败：${error.message}`);
-  if (!id && data) state.selectedChildId = data.id;
+  if (error) {
+    console.error("save child failed", error);
+    return setMessage(`保存档案失败：${error.message}`);
+  }
+  if (!data?.id) return setMessage("保存档案没有返回数据库记录，请检查 Supabase 表权限或 RLS 策略。");
+  state.selectedChildId = data.id;
   await loadChildren();
-  setMessage("档案已保存。", "ok");
+  setMessage(`档案已保存，数据库记录 ID：${data.id}`, "ok");
 }
 
 async function saveMeasurement(event) {
@@ -443,13 +452,17 @@ async function saveMeasurement(event) {
     weight_kg: $("weightKg").value || null,
     note: $("note").value.trim() || null
   };
-  const { error } = await supabase.from("measurements").insert(payload);
-  if (error) return setMessage(`保存测量失败：${error.message}`);
+  const { data, error } = await supabase.from("measurements").insert(payload).select().single();
+  if (error) {
+    console.error("save measurement failed", error);
+    return setMessage(`保存测量失败：${error.message}`);
+  }
+  if (!data?.id) return setMessage("保存测量没有返回数据库记录，请检查 Supabase 表权限或 RLS 策略。");
   $("heightCm").value = "";
   $("weightKg").value = "";
   $("note").value = "";
   await loadMeasurements();
-  setMessage("测量记录已保存。", "ok");
+  setMessage(`测量记录已保存，数据库记录 ID：${data.id}`, "ok");
 }
 
 async function deleteMeasurement(id) {
@@ -550,6 +563,11 @@ function bindEvents() {
     state.measurements = [];
     state.selectedChildId = null;
     renderAuth();
+  });
+  $("reloadDataBtn").addEventListener("click", async () => {
+    setMessage("正在重新读取 Supabase 数据...", "ok");
+    await loadChildren();
+    setMessage("已重新读取数据。", "ok");
   });
   $("childForm").addEventListener("submit", saveChild);
   $("measurementForm").addEventListener("submit", saveMeasurement);
