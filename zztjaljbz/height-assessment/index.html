@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>儿童身高评估 | 杨周剑主任医师</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="../index.html">
+      <span>杨</span>
+      <strong>儿童身高评估</strong>
+    </a>
+    <nav>
+      <a href="../index.html">返回首页</a>
+      <a href="../fever-cough-assistant/index.html">发热咳嗽系统</a>
+      <a href="#report">评估报告</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-band">
+      <div>
+        <p class="eyebrow">Growth Tracker</p>
+        <h1>记录身高，判断趋势，而不是只看一次数值。</h1>
+        <p>支持邮箱注册登录、孩子档案、复测记录、遗传身高、百分位曲线、生长速度和就诊建议。数据仅供家长记录与就医沟通参考。</p>
+      </div>
+      <div class="status-panel">
+        <span id="authState">正在检查登录状态</span>
+        <button id="logoutBtn" class="button subtle hidden" type="button">退出登录</button>
+      </div>
+    </section>
+
+    <section id="authPanel" class="panel">
+      <div class="panel-head">
+        <p class="eyebrow">Account</p>
+        <h2>邮箱登录后保存孩子档案</h2>
+        <p class="muted">推荐使用邮箱，免费、可找回密码，也方便家长长期记录。首次使用请先注册。</p>
+      </div>
+      <form id="authForm" class="form-grid">
+        <label>
+          邮箱
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="parent@example.com">
+        </label>
+        <label>
+          密码
+          <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" required placeholder="至少 6 位">
+        </label>
+        <div class="actions">
+          <button class="button primary" name="mode" value="signin" type="submit">登录</button>
+          <button class="button" name="mode" value="signup" type="submit">注册</button>
+          <button id="resetPasswordBtn" class="button subtle" type="button">发送找回密码邮件</button>
+        </div>
+      </form>
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <section id="workspace" class="workspace hidden">
+      <aside class="panel side-panel">
+        <div class="panel-head">
+          <p class="eyebrow">Profiles</p>
+          <h2>孩子档案</h2>
+        </div>
+        <div id="childrenList" class="children-list"></div>
+        <form id="childForm" class="stack-form">
+          <input type="hidden" id="childId">
+          <label>姓名/昵称<input id="nickname" required placeholder="例如：小明"></label>
+          <label>性别
+            <select id="sex" required>
+              <option value="male">男孩</option>
+              <option value="female">女孩</option>
+            </select>
+          </label>
+          <label>出生日期<input id="birthDate" type="date" required></label>
+          <div class="two-cols">
+            <label>父亲身高 cm<input id="fatherHeight" type="number" min="120" max="230" step="0.1"></label>
+            <label>母亲身高 cm<input id="motherHeight" type="number" min="120" max="220" step="0.1"></label>
+          </div>
+          <button class="button primary" type="submit">保存档案</button>
+        </form>
+      </aside>
+
+      <section class="main-column">
+        <section class="panel">
+          <div class="panel-head">
+            <p class="eyebrow">Measurement</p>
+            <h2>添加复测记录</h2>
+          </div>
+          <form id="measurementForm" class="form-grid">
+            <label>测量日期<input id="measuredAt" type="date" required></label>
+            <label>当前身高 cm<input id="heightCm" type="number" min="30" max="230" step="0.1" required></label>
+            <label>体重 kg<input id="weightKg" type="number" min="1" max="200" step="0.1"></label>
+            <label>备注<input id="note" placeholder="睡眠、饮食、运动、疾病等"></label>
+            <button class="button primary" type="submit">保存测量</button>
+          </form>
+        </section>
+
+        <section id="report" class="panel report-panel">
+          <div class="panel-head report-head">
+            <div>
+              <p class="eyebrow">Report</p>
+              <h2>身高评估报告</h2>
+            </div>
+            <div class="actions">
+              <button id="downloadReportBtn" class="button" type="button">生成报告长图</button>
+              <button id="copyReminderBtn" class="button subtle" type="button">复制复测提醒</button>
+            </div>
+          </div>
+          <div id="summaryCards" class="summary-grid"></div>
+          <canvas id="growthChart" width="980" height="520" aria-label="身高百分位曲线图"></canvas>
+          <div id="adviceBox" class="advice-box"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <p class="eyebrow">History</p>
+            <h2>历史记录</h2>
+          </div>
+          <div id="measurementsTable" class="records"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>数据参考：7岁以下儿童生长标准 WS/T 423-2022；7岁-18岁儿童青少年身高发育等级评价 WS/T 612-2018。</span>
+    <span>本工具不能替代医生诊断。</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
+
