@@ -224,6 +224,30 @@ select {
   font: inherit;
 }
 
+input[type="password"] {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.password-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.password-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
 .option-card:has(input:checked), .check-item:has(input:checked) {
   border-color: var(--primary);
   background: #edf8f6;
@@ -643,6 +667,10 @@ footer {
   .panel, .notice, .article { padding: 15px; }
 
   .button { width: 100%; }
+
+  .password-form {
+    grid-template-columns: 1fr;
+  }
 
   .quiz-actions {
     display: grid;

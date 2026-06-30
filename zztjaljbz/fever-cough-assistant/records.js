@@ -4,9 +4,17 @@
 
   const recordsList = document.getElementById("recordsList");
   const recordStatus = document.getElementById("recordStatus");
+  const recordsActions = document.getElementById("recordsActions");
+  const passwordPanel = document.getElementById("passwordPanel");
+  const recordsPanel = document.getElementById("recordsPanel");
+  const passwordForm = document.getElementById("passwordForm");
+  const recordsPassword = document.getElementById("recordsPassword");
+  const passwordStatus = document.getElementById("passwordStatus");
   const refreshRecordsBtn = document.getElementById("refreshRecordsBtn");
   const exportCsvBtn = document.getElementById("exportCsvBtn");
   const limitSelect = document.getElementById("limitSelect");
+  const RECORDS_PASSWORD = "dhyzj923";
+  const SESSION_KEY = "doctorzjyang_records_access";
   let currentRows = [];
 
   function formatTime(value) {
@@ -113,5 +121,29 @@
   refreshRecordsBtn.addEventListener("click", loadRecords);
   limitSelect.addEventListener("change", loadRecords);
   exportCsvBtn.addEventListener("click", exportCsv);
-  loadRecords();
+
+  function unlockRecords() {
+    passwordPanel.classList.add("hidden");
+    recordsPanel.classList.remove("hidden");
+    recordsActions.classList.remove("hidden");
+    sessionStorage.setItem(SESSION_KEY, "granted");
+    loadRecords();
+  }
+
+  passwordForm.addEventListener("submit", event => {
+    event.preventDefault();
+    if (recordsPassword.value === RECORDS_PASSWORD) {
+      unlockRecords();
+      return;
+    }
+    passwordStatus.textContent = "密码不正确，请重新输入。";
+    recordsPassword.value = "";
+    recordsPassword.focus();
+  });
+
+  if (sessionStorage.getItem(SESSION_KEY) === "granted") {
+    unlockRecords();
+  } else {
+    recordsPassword.focus();
+  }
 })();
