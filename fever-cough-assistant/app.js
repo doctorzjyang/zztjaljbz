@@ -39,8 +39,8 @@
     const total = APP_DATA.questions.length;
     questionTitle.textContent = question.title;
     questionHint.textContent = state.step === 0
-      ? "请选择这次主要想判断的方向。"
-      : "可选择一个或多个最符合孩子情况的选项；如果没有对应情况，直接点击下一步，或选择“没有这些情况”。";
+      ? "按资料中的“0+10问诊”先记录主诉，再从吃喝拉撒睡汗冷热等线索判断六经。"
+      : "可选择一个或多个最符合孩子情况的选项；如果没有对应情况，直接点击下一步，或选择“没有明显异常/没有这些情况”。";
     progressText.textContent = `${state.step + 1} / ${total}`;
     progressBar.style.width = `${((state.step + 1) / total) * 100}%`;
     prevBtn.disabled = state.step === 0;
@@ -114,15 +114,16 @@
     const hasResult = ranked.length > 0;
     const main = ranked[0] || [null, 0];
     const companions = ranked.slice(1);
-    const serious = scores.shaoyin >= 4 || scores.jueyin >= 4;
+    const serious = scores.shaoyin >= 6 || scores.jueyin >= 6;
     return { scores, ranked, main, companions, evidence, tags, serious, hasResult };
   }
 
   function medicinePool(tags) {
+    const selectedText = getSelectedOptions().map(({ option }) => option.label).join("、");
     const coughAnswers = selectedFor("cough");
-    const hasSpecificCough = coughAnswers.some(label => label !== "没有这些情况");
+    const hasSpecificCough = coughAnswers.some(label => !/没有/.test(label)) || /咳|喘|痰|鼻|咽|声嘶/.test(selectedText);
     const hasFever = tags.has("fever") || (!tags.has("fever") && !tags.has("cough"));
-    const hasCough = tags.has("cough") && hasSpecificCough;
+    const hasCough = tags.has("cough") || hasSpecificCough;
     return [
       ...(hasFever ? APP_DATA.feverMedicines : []),
       ...(hasCough ? APP_DATA.coughMedicines : [])

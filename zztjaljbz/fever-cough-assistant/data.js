@@ -48,98 +48,149 @@ const APP_DATA = {
   ],
   questions: [
     {
-      id: "main",
-      title: "这次主要想判断什么？",
+      id: "chief",
+      title: "0. 主诉：这次最主要的问题是什么？",
       multi: true,
       options: [
-        { label: "发热", tags: ["fever"] },
-        { label: "咳嗽", tags: ["cough"] },
-        { label: "发热并咳嗽", tags: ["fever", "cough"] }
+        { label: "发热", tags: ["fever"], scores: { taiyang: 1, yangming: 1 }, evidence: "发热需继续结合冷热、汗出、口渴、大便等线索分表里寒热。" },
+        { label: "咳嗽", tags: ["cough"], scores: { taiyang: 1 }, evidence: "咳嗽初起常先看太阳表证，也要结合痰色痰量判断里热或痰湿。" },
+        { label: "喘息/气急", tags: ["cough"], scores: { taiyang: 1, yangming: 1 }, evidence: "喘息可见表邪束肺或痰热壅肺，若喘憋明显应先就医。" },
+        { label: "鼻塞、流涕、喷嚏", tags: ["cough"], scores: { taiyang: 2 }, evidence: "鼻塞流涕喷嚏提示邪在体表、肺卫不宣。" },
+        { label: "咽痛、声嘶、疱疹或扁桃体问题", tags: ["fever", "cough"], scores: { shaoyang: 1, yangming: 2 }, evidence: "咽喉红肿疼痛、疱疹、化脓多提示热象，常需辨少阳与阳明。" },
+        { label: "呕吐、腹痛或腹泻", scores: { taiyin: 2, shaoyang: 1 }, evidence: "呕吐腹痛腹泻需重点看脾胃太阴，也可能夹少阳枢机不利。" },
+        { label: "便秘、口臭或积食", scores: { yangming: 3 }, evidence: "便秘口臭积食偏向阳明里热或食积化热。" },
+        { label: "头痛、颈项痛、身痛", scores: { taiyang: 2 }, evidence: "头痛、颈项痛、身痛常提示太阳表证。" }
       ]
     },
     {
-      id: "surface",
-      title: "有没有明显表证？",
+      id: "eat",
+      title: "1. 吃：食欲、口味和胃部反应",
       multi: true,
       options: [
-        { label: "怕冷怕风", scores: { taiyang: 3 }, evidence: "怕冷怕风提示表证未解。" },
-        { label: "流清鼻涕/鼻塞", scores: { taiyang: 2 }, evidence: "清涕鼻塞常见于太阳表证。" },
-        { label: "头痛身痛", scores: { taiyang: 2 }, evidence: "头痛身痛提示邪在肌表。" },
-        { label: "眼睑或面部浮肿", scores: { taiyang: 2 }, evidence: "眼睑或面部浮肿可见太阳表证中的风水表现。" },
-        { label: "皮肤痒/湿疹样渗出", scores: { taiyang: 1 }, evidence: "皮肤瘙痒、粗糙或渗出也可作为太阳表部反应参考。" },
-        { label: "出汗后稍舒服", scores: { taiyang: 1 }, evidence: "汗出后缓解，多与表证相关。" },
-        { label: "没有这些情况", scores: {}, evidence: "", none: true }
+        { label: "食欲差、不想吃", scores: { taiyin: 2, shaoyang: 1 }, evidence: "食欲差提示脾胃运化不足，也可见少阳不和。" },
+        { label: "食量大、容易饿", scores: { yangming: 2 }, evidence: "食量大、容易饥饿可作为阳明胃热参考。" },
+        { label: "饿但不想吃", scores: { jueyin: 2 }, evidence: "饥不欲食提示寒热错杂方向，需结合上下寒热判断。" },
+        { label: "恶心、干呕或咳后想吐", scores: { shaoyang: 2, taiyin: 1 }, evidence: "恶心欲吐可见少阳不和，也可兼痰饮或脾胃不和。" },
+        { label: "嗳气、反酸、烧心", scores: { jueyin: 2, shaoyang: 1 }, evidence: "嗳气反酸烧心常提示气机上逆或寒热错杂。" },
+        { label: "吃凉的容易肚子不舒服", scores: { taiyin: 2 }, evidence: "遇凉加重偏太阴虚寒、脾胃阳气不足。" },
+        { label: "没有明显异常", scores: {}, evidence: "", none: true }
       ]
     },
     {
-      id: "shaoyang",
-      title: "有没有半表半里的表现？",
+      id: "drink",
+      title: "2. 喝：口渴、口苦、咽干",
       multi: true,
       options: [
-        { label: "一阵冷一阵热", scores: { shaoyang: 3 }, evidence: "寒热往来是少阳证的重要线索。" },
-        { label: "口苦/咽干", scores: { shaoyang: 2 }, evidence: "口苦咽干提示少阳郁热。" },
-        { label: "胸胁不舒服", scores: { shaoyang: 2 }, evidence: "胸胁不舒符合少阳枢机不利。" },
-        { label: "恶心想吐", scores: { shaoyang: 2, taiyin: 1 }, evidence: "恶心可见于少阳，也可兼脾胃不和。" },
-        { label: "情绪烦躁", scores: { shaoyang: 1, yangming: 1 }, evidence: "烦躁可见少阳郁热或阳明里热。" },
-        { label: "眼耳鼻咽喉红肿疼痛", scores: { shaoyang: 2, yangming: 1 }, evidence: "孔窍部位红肿疼痛可作为少阳实热上冲的参考，也常兼阳明热象。" },
-        { label: "没有这些情况", scores: {}, evidence: "", none: true }
+        { label: "不太渴或喜欢热饮", scores: { taiyin: 1, shaoyin: 1 }, evidence: "不渴或喜热饮偏寒象，需结合精神和四肢温度判断。" },
+        { label: "口渴明显、喜欢冷饮", scores: { yangming: 3 }, evidence: "口渴喜冷饮是阳明里热的重要线索。" },
+        { label: "口苦", scores: { shaoyang: 3, jueyin: 1 }, evidence: "口苦多提示少阳郁热；若兼手足冷、腹泻等，要考虑寒热错杂。" },
+        { label: "咽干、口干", scores: { shaoyang: 2, shaoyin: 1 }, evidence: "咽干口干可见少阳郁热，也可能提示阴液不足。" },
+        { label: "口渴但喝不多或喝了不解渴", scores: { jueyin: 2, yangming: 1 }, evidence: "口渴而饮水不多或不解渴，需警惕寒热错杂或津液输布不利。" },
+        { label: "没有明显异常", scores: {}, evidence: "", none: true }
       ]
     },
     {
-      id: "insideHeat",
-      title: "有没有阳明里热、食积或痰热表现？",
+      id: "stool",
+      title: "3. 拉：大便情况",
       multi: true,
       options: [
-        { label: "高热明显", scores: { yangming: 3 }, evidence: "高热明显提示里热偏盛。" },
-        { label: "口干/口渴喜冷饮", scores: { yangming: 3 }, evidence: "口干、口渴喜冷饮是阳明里热的重要线索。" },
-        { label: "咽红咽痛", scores: { yangming: 2, shaoyang: 1 }, evidence: "咽红咽痛提示热邪上扰。" },
-        { label: "口气重", scores: { yangming: 3 }, evidence: "口气重常是胃府实热、食积腐化的表现，偏向阳明。" },
-        { label: "大便干结", scores: { yangming: 3 }, evidence: "便干是阳明腑热或积滞的重要依据。" },
-        { label: "积食/嗳腐/腹胀拒按", scores: { yangming: 3 }, evidence: "积食伴实热表现时属于阳明食积化热范畴。" },
-        { label: "舌苔黄厚腻", scores: { yangming: 3 }, evidence: "舌苔黄厚腻提示湿热、痰热或食积化热内蕴，归阳明里实热方向。" },
-        { label: "痰黄黏稠", scores: { yangming: 3 }, evidence: "痰黄黏稠提示里痰热，也属于阳明里热范畴。" },
-        { label: "没有这些情况", scores: {}, evidence: "", none: true }
+        { label: "大便干硬、两三天不解或排便费力", scores: { yangming: 3 }, evidence: "大便干硬是阳明腑热或积滞的重要依据。" },
+        { label: "大便臭味很重或肛门灼热", scores: { yangming: 3 }, evidence: "臭味重、灼热感提示里热、湿热或食积化热。" },
+        { label: "大便稀、味道不大或夹不消化食物", scores: { taiyin: 3 }, evidence: "便稀味轻、不消化偏太阴脾虚寒湿。" },
+        { label: "腹胀腹痛，喜欢揉按或热敷", scores: { taiyin: 2 }, evidence: "腹痛喜温喜按偏虚寒，常从太阴考虑。" },
+        { label: "腹胀腹痛，拒按或按着更难受", scores: { yangming: 2 }, evidence: "腹胀拒按偏实证、积滞或里热。" },
+        { label: "便干口臭和便稀怕冷交替出现", scores: { jueyin: 3, yangming: 1, taiyin: 1 }, evidence: "寒热表现交替出现，提示厥阴寒热错杂方向。" },
+        { label: "大便基本正常", scores: {}, evidence: "", none: true }
       ]
     },
     {
-      id: "taiyin",
-      title: "有没有脾胃虚弱或痰湿表现？",
+      id: "urine",
+      title: "4. 撒：小便情况",
       multi: true,
       options: [
-        { label: "食欲差", scores: { taiyin: 2 }, evidence: "食欲差提示脾胃运化不足。" },
-        { label: "胃脘或肚子胀满", scores: { taiyin: 2 }, evidence: "胃脘或腹部胀满可见太阴里虚寒、运化不利。" },
-        { label: "大便稀/腹泻", scores: { taiyin: 3 }, evidence: "便稀腹泻提示太阴脾虚或寒湿。" },
-        { label: "畏寒肢冷", scores: { taiyin: 2, shaoyin: 1 }, evidence: "畏寒肢冷提示里寒或阳气不足，需与阳明食积化热区分。" },
-        { label: "舌苔白厚腻", scores: { taiyin: 2 }, evidence: "舌苔白厚腻偏寒湿痰湿，常见太阴运化不利。" },
-        { label: "白痰多/清稀痰", scores: { taiyin: 2, taiyang: 1 }, evidence: "白痰清稀多偏寒湿或表寒。" },
-        { label: "夜间咳嗽迁延", scores: { taiyin: 2 }, evidence: "夜咳迁延常与痰湿、脾虚或余邪有关。" },
-        { label: "没有这些情况", scores: {}, evidence: "", none: true }
+        { label: "小便黄、味重", scores: { yangming: 2 }, evidence: "小便黄味重常与里热或津液不足相关。" },
+        { label: "小便清长", scores: { shaoyin: 2, taiyin: 1 }, evidence: "小便清长偏寒象，需结合精神、畏寒和四肢温度。" },
+        { label: "小便明显减少", scores: { yangming: 1 }, evidence: "小便明显减少需留意脱水风险，若伴口唇干、精神差应及时就医。" },
+        { label: "小便正常", scores: {}, evidence: "", none: true }
+      ]
+    },
+    {
+      id: "sleep_spirit",
+      title: "5. 睡：睡眠和精神状态",
+      multi: true,
+      options: [
+        { label: "精神尚可，但烦躁、哭闹或坐卧不安", scores: { yangming: 2, shaoyang: 1 }, evidence: "烦躁坐卧不安可见阳明热扰，也可兼少阳郁热。" },
+        { label: "睡不安、翻滚、趴睡、撅屁股睡或磨牙", scores: { yangming: 2, taiyin: 1 }, evidence: "睡不安、趴睡、磨牙常与食积化热或脾胃不和有关。" },
+        { label: "精神差、嗜睡、声音低弱", scores: { shaoyin: 4 }, evidence: "精神差、嗜睡、声音低弱是少阴类风险线索，不建议自行选药。" },
+        { label: "心烦失眠、手足心热", scores: { shaoyin: 2, yangming: 1 }, evidence: "心烦失眠、手足心热提示热扰或阴液不足方向。" },
+        { label: "咳嗽或喘息影响睡眠", tags: ["cough"], scores: { taiyang: 1, yangming: 1, taiyin: 1 }, evidence: "夜间咳喘需结合痰色、痰量和寒热判断表证、痰热或痰湿。" },
+        { label: "睡眠和精神基本正常", scores: {}, evidence: "", none: true }
+      ]
+    },
+    {
+      id: "sweat",
+      title: "6. 汗：出汗情况",
+      multi: true,
+      options: [
+        { label: "无汗或很少出汗", scores: { taiyang: 2 }, evidence: "发热怕冷而无汗偏太阳伤寒表实方向。" },
+        { label: "出汗后怕风，汗出后稍舒服", scores: { taiyang: 2 }, evidence: "汗出怕风、汗后稍缓偏太阳中风表虚方向。" },
+        { label: "汗多、皮肤热或汗黏", scores: { yangming: 3 }, evidence: "汗多皮肤热、汗黏偏阳明里热。" },
+        { label: "冷汗、虚汗或汗出后更没精神", scores: { shaoyin: 3 }, evidence: "冷汗虚汗伴精神差提示正气不足，不宜自行发汗。" },
+        { label: "汗出不明显", scores: {}, evidence: "", none: true }
+      ]
+    },
+    {
+      id: "cold_heat",
+      title: "7. 冷热：怕冷、怕热和寒热往来",
+      multi: true,
+      options: [
+        { label: "怕冷怕风明显", scores: { taiyang: 3 }, evidence: "怕冷怕风是太阳表证核心线索之一。" },
+        { label: "发热轻，但非常怕冷、精神差", scores: { shaoyin: 4 }, evidence: "发热轻而畏寒重、精神差需警惕少阴方向。" },
+        { label: "怕热、面红或高热明显", scores: { yangming: 3 }, evidence: "怕热、高热、面红偏阳明里热。" },
+        { label: "一阵冷一阵热", scores: { shaoyang: 3 }, evidence: "寒热往来是少阳病的重要判断点。" },
+        { label: "冷热不明显", scores: {}, evidence: "", none: true }
+      ]
+    },
+    {
+      id: "temperature",
+      title: "8. 温差：手脚、肚皮和上下寒热",
+      multi: true,
+      options: [
+        { label: "手脚心烫、肚皮烫", scores: { yangming: 2 }, evidence: "手足心热、腹部热可见里热或食积化热。" },
+        { label: "手脚凉、小腿凉", scores: { shaoyin: 2, taiyin: 1 }, evidence: "手脚凉、小腿凉偏寒象，需结合精神状态。" },
+        { label: "上面热：口苦口渴咽痛；下面冷：腹泻或手脚冷", scores: { jueyin: 4 }, evidence: "上热下寒是厥阴寒热错杂的重要线索。" },
+        { label: "手足心热、口干咽燥", scores: { shaoyin: 2, yangming: 1 }, evidence: "手足心热、口干咽燥可作为热化或阴液不足参考。" },
+        { label: "没有明显温差", scores: {}, evidence: "", none: true }
       ]
     },
     {
       id: "cough",
-      title: "咳嗽痰象更接近哪种？",
+      title: "9. 其它：鼻、咽、咳、痰",
       multi: true,
       options: [
-        { label: "初起干咳或白痰", scores: { taiyang: 2 }, evidence: "咳嗽初起、干咳或白痰常先看太阳表证。" },
-        { label: "黄痰黏稠", scores: { yangming: 3 }, evidence: "黄痰黏稠提示痰热壅肺。" },
-        { label: "痰多不易咳出", scores: { yangming: 2, taiyin: 1 }, evidence: "痰多黏稠常需清热化痰，也要看脾胃。" },
-        { label: "痰白量多", scores: { taiyin: 3 }, evidence: "痰白量多提示脾虚痰湿偏重。" },
-        { label: "咳后想吐", scores: { shaoyang: 1, taiyin: 2 }, evidence: "咳后欲吐多与痰饮、胃气上逆相关。" },
+        { label: "清鼻涕、喷嚏、鼻塞", tags: ["cough"], scores: { taiyang: 3 }, evidence: "清涕喷嚏鼻塞常提示太阳表证。" },
+        { label: "黄鼻涕、鼻甲红肿或鼻涕黏稠", tags: ["cough"], scores: { yangming: 2, shaoyang: 1 }, evidence: "黄涕黏稠或鼻部红肿偏热象，可见阳明或少阳。" },
+        { label: "白痰、清稀痰", tags: ["cough"], scores: { taiyin: 2, taiyang: 1 }, evidence: "白痰清稀多偏寒湿或表寒。" },
+        { label: "黄痰、黏痰、不易咳出", tags: ["cough"], scores: { yangming: 3 }, evidence: "黄痰黏稠提示痰热壅肺。" },
+        { label: "咽痛、疱疹、扁桃体红肿或化脓", tags: ["fever", "cough"], scores: { yangming: 3, shaoyang: 1 }, evidence: "咽喉红肿、疱疹、化脓多属热象，需辨阳明与少阳。" },
+        { label: "声嘶、咽干", tags: ["cough"], scores: { shaoyang: 2, yangming: 1 }, evidence: "声嘶咽干常提示少阳郁热或上焦热象。" },
+        { label: "咳喘明显", tags: ["cough"], scores: { taiyang: 1, yangming: 2 }, evidence: "咳喘需辨表邪束肺与痰热壅肺；若喘憋明显应及时就医。" },
         { label: "没有这些情况", scores: {}, evidence: "", none: true }
       ]
     },
     {
-      id: "weakCold",
-      title: "有没有明显虚寒或复杂表现？",
+      id: "tongue_history",
+      title: "10. 病史/舌象：可观察到的辅助线索",
       multi: true,
       options: [
-        { label: "精神萎靡、手脚冰凉", scores: { shaoyin: 5 }, evidence: "精神差伴四肢冷需警惕少阴类重证。" },
-        { label: "低热但非常怕冷", scores: { shaoyin: 4 }, evidence: "低热畏寒且正气不足，不宜自行选药。" },
-        { label: "鼻塞流涕但体质虚弱、脉弱或乏力", scores: { shaoyin: 4 }, evidence: "鼻塞流涕若伴体质虚弱、脉沉细无力，应警惕少阴表阴证。" },
-        { label: "上热下寒、反复难辨", scores: { jueyin: 4 }, evidence: "寒热错杂、迁延反复需医生辨证。" },
-        { label: "既有便干口气重，又有便稀畏寒肢冷", scores: { jueyin: 4, yangming: 1, taiyin: 1 }, evidence: "阳明里热与太阴里寒同时存在时，提示寒热错杂或厥阴方向，需医生辨证。" },
-        { label: "没有这些情况", scores: {}, evidence: "", none: true }
+        { label: "舌淡红、苔薄白", scores: { taiyang: 1 }, evidence: "舌淡红、苔薄白常可见于外感表证初起。" },
+        { label: "舌红、苔薄黄", scores: { yangming: 2, shaoyang: 1 }, evidence: "舌红苔薄黄提示热象初显，需结合咽痛、口渴、大便判断。" },
+        { label: "舌红、苔黄厚干或黄厚腻", scores: { yangming: 3 }, evidence: "舌红苔黄厚干或黄厚腻偏阳明里热、食积、痰热。" },
+        { label: "舌淡白、苔白厚湿润", scores: { taiyin: 3 }, evidence: "舌淡白、苔白厚湿润偏太阴寒湿或痰湿。" },
+        { label: "舌红少苔，口干咽燥", scores: { shaoyin: 2 }, evidence: "舌红少苔、口干咽燥提示热化或阴液不足方向。" },
+        { label: "舌苔黄白相间，病情反复难辨", scores: { jueyin: 3 }, evidence: "黄白相间、寒热难辨可作为厥阴寒热错杂参考。" },
+        { label: "反复感冒、体质弱、病程迁延", scores: { taiyin: 1, shaoyin: 2 }, evidence: "反复感冒、体质弱、迁延不愈需关注太阴脾虚和少阴正虚。" },
+        { label: "没有观察到或不确定", scores: {}, evidence: "", none: true }
       ]
     }
   ],
