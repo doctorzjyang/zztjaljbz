@@ -214,6 +214,16 @@ input[type="checkbox"], input[type="radio"] {
   margin-top: 2px;
 }
 
+select {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
 .option-card:has(input:checked), .check-item:has(input:checked) {
   border-color: var(--primary);
   background: #edf8f6;
@@ -322,6 +332,25 @@ input[type="checkbox"], input[type="radio"] {
 
 .medicine-card p { margin-bottom: 8px; }
 
+.medicine-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.medicine-title-row span {
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.medicine-section {
+  scroll-margin-top: 82px;
+}
+
 .tagline {
   color: var(--primary-dark);
   font-size: 13px;
@@ -355,6 +384,53 @@ summary {
 .ingredient-list span {
   display: block;
   color: var(--muted);
+}
+
+.records-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.records-toolbar label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.records-list {
+  display: grid;
+  gap: 12px;
+}
+
+.record-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.record-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.record-card header span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.record-card pre {
+  overflow-x: auto;
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  color: var(--muted);
+  font: inherit;
 }
 
 .content-grid {

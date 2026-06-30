@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>脱敏问诊数据查询 | 小儿发热咳嗽六经辨证选药参考</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">六经辨证选药参考</a>
+    <nav>
+      <a href="../index.html">返回首页</a>
+      <a href="index.html">问诊首页</a>
+      <a href="medicines.html">全部中成药</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero theory-hero">
+      <div>
+        <p class="eyebrow">Private Records</p>
+        <h1>脱敏问诊数据查询</h1>
+        <p class="lead">仅查询问诊时间、症状选择、六经分数、系统辨证结论和推荐药名。不采集姓名、电话、住址、身份证、精确生日等个人信息。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="refreshRecordsBtn" class="button primary" type="button">刷新数据</button>
+        <button id="exportCsvBtn" class="button" type="button">导出 CSV</button>
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>权限提示</strong>
+      <p>你当前提供的 Supabase 策略只允许匿名写入。如果本页无法读取，请在 Supabase 为个人查询设置安全的 SELECT 策略，或只在 Supabase 后台查看数据。</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <p class="eyebrow">Records</p>
+        <h2>最近问诊记录</h2>
+        <p id="recordStatus" class="muted">正在读取。</p>
+      </div>
+      <div class="records-toolbar">
+        <label>
+          显示数量
+          <select id="limitSelect">
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+          </select>
+        </label>
+      </div>
+      <div id="recordsList" class="records-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="../index.html">返回主站首页</a>
+      <a href="index.html">问诊首页</a>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="records.js"></script>
+</body>
+</html>

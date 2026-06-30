@@ -1,8 +1,12 @@
 (function () {
+  const SUPABASE_URL = "https://frugibobukmwcawwrtho.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_BLVRdzvA_ROqJf4XFANumw_tX7webdl";
+
   const state = {
     step: 0,
     answers: {},
-    redFlags: new Set()
+    redFlags: new Set(),
+    lastSavedSignature: ""
   };
 
   const redFlagList = document.getElementById("redFlagList");
@@ -262,6 +266,51 @@
     return lines;
   }
 
+  function symptomPayload() {
+    return APP_DATA.questions.map(question => ({
+      questionId: question.id,
+      question: question.title,
+      selected: state.answers[question.id] || []
+    })).filter(item => item.selected.length);
+  }
+
+  function diagnosisText(calc, main, relatedNames, redFlagTexts) {
+    if (redFlagTexts.length) return "勾选危险信号，建议及时就医，本工具不生成用药推荐。";
+    if (calc.serious) return "出现少阴/厥阴相关线索，不建议自行选药，需医生辨证。";
+    if (!calc.hasResult) return "暂未形成明确六经辨证结果。";
+    return `主证：${main.name}${relatedNames.length ? "；涉及：" + relatedNames.join("、") : ""}`;
+  }
+
+  async function saveConsultRecord(calc, meds, diagnosis) {
+    const payload = {
+      symptoms: symptomPayload(),
+      scores: calc.scores,
+      diagnosis,
+      medicines: meds.map(med => med.name)
+    };
+    const signature = JSON.stringify(payload);
+    if (state.lastSavedSignature === signature) return;
+    state.lastSavedSignature = signature;
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/consult_records`, {
+        method: "POST",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error(await response.text());
+      setExportStatus("脱敏问诊记录已保存。");
+    } catch (error) {
+      console.warn("脱敏问诊记录保存失败", error);
+      setExportStatus("脱敏问诊记录暂未保存成功，不影响本次页面结果。");
+    }
+  }
+
   function buildReportText(calc, meds, main, relatedNames, redFlagTexts, principles) {
     const title = "小儿发热咳嗽六经辨证问诊摘要";
     const syndromeTitle = calc.hasResult
@@ -376,6 +425,7 @@
       .filter(item => state.redFlags.has(item.id))
       .map(item => item.text);
     const principles = treatmentPrinciples(calc);
+    const diagnosis = diagnosisText(calc, main, relatedNames, redFlagTexts);
     lastReportText = buildReportText(calc, meds, main, relatedNames, redFlagTexts, principles);
 
     let warning = "";
@@ -462,7 +512,7 @@
           <button class="button" type="button" data-export="download-report">下载文本报告</button>
           <button class="button" type="button" data-export="copy-link">复制复现链接</button>
         </div>
-        <p id="exportStatus" class="muted export-status">复现链接包含本次症状选择。当前本地链接适合在本机打开；正式部署后可发给医生复现。</p>
+        <p id="exportStatus" class="muted export-status">正在保存脱敏问诊记录。复现链接包含本次症状选择，不含姓名、电话、住址、身份证、生日等个人信息。</p>
       </section>
 
       <section class="notice">
@@ -471,6 +521,7 @@
         <p>中成药多来自古代经方或老中医有效经验方，在临床上经过实践检验；但具体到每个患者，体质、病程、兼夹证和用药禁忌各有特点，因此仍需在医师指导下使用，必要时由医生开具更个性化的中药方。</p>
       </section>
     `;
+    saveConsultRecord(calc, meds, diagnosis);
     result.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
