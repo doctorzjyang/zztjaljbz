@@ -65,6 +65,7 @@ function normalizeStandards(rows) {
   return rows.map(row => ({
     month: parseAgeToMonths(row["年龄"]),
     sex: row["性别"],
+    source: row.source || "",
     p3: Number(row["3rd"]),
     p10: Number(row["10 th"]),
     p25: Number(row["25th"]),
@@ -84,8 +85,25 @@ async function loadStandards() {
   state.standards.female = normalizeStandards(girl);
 }
 
-function interpolateStandard(sex, months) {
+function chartSegment(months) {
+  if (Number.isFinite(months) && months >= 84) {
+    return { key: "school", label: "7岁及以上（年度标准）", xMin: 84, xMax: 216, tickStart: 7, tickEnd: 18, tickStep: 1 };
+  }
+  const startMonth = Number.isFinite(months) && months < 12 ? 0 : 12;
+  return { key: "preschool", label: startMonth === 0 ? "0-7岁（月龄标准）" : "1-7岁（月龄标准）", xMin: startMonth, xMax: 84, tickStart: startMonth / 12, tickEnd: 7, tickStep: 1 };
+}
+
+function standardsForSegment(sex, segment) {
   const data = state.standards[sex] || [];
+  return data.filter(item => {
+    if (segment.key === "school") return item.month >= 84 && item.month <= 216;
+    return item.month >= segment.xMin && item.month < 84;
+  });
+}
+
+function interpolateStandard(sex, months) {
+  const segment = chartSegment(months);
+  const data = standardsForSegment(sex, segment);
   if (!data.length) return null;
   if (months <= data[0].month) return data[0];
   if (months >= data[data.length - 1].month) return data[data.length - 1];
@@ -288,20 +306,26 @@ function renderAdvice(report) {
 
 function chartScale(report) {
   const child = report?.child;
-  const standards = child ? state.standards[child.sex] : state.standards.male;
-  const points = sortedMeasurements().map(m => ({
+  const latestMonths = report?.months;
+  const segment = chartSegment(latestMonths);
+  const standards = child ? standardsForSegment(child.sex, segment) : standardsForSegment("male", segment);
+  const allPoints = sortedMeasurements().map(m => ({
     month: child ? monthsBetween(child.birth_date, m.measured_at) : 0,
     height: Number(m.height_cm)
   }));
-  const xs = [...standards.map(s => s.month), ...points.map(p => p.month)];
+  const points = allPoints.filter(point => point.month >= segment.xMin && point.month <= segment.xMax);
+  const xs = [...standards.map(s => s.month), ...points.map(p => p.month), segment.xMin, segment.xMax];
   const ys = [...standards.flatMap(s => percentileKeys.map(([key]) => s[key])), ...points.map(p => p.height)];
+  const yMin = ys.length ? Math.floor((Math.min(...ys) - 3) / 5) * 5 : 45;
+  const yMax = ys.length ? Math.ceil((Math.max(...ys) + 3) / 5) * 5 : 185;
   return {
-    xMin: Math.max(0, Math.min(...xs, 0)),
-    xMax: Math.min(216, Math.max(...xs, 216)),
-    yMin: Math.floor(Math.min(...ys, 45) / 5) * 5,
-    yMax: Math.ceil(Math.max(...ys, 185) / 5) * 5,
+    xMin: segment.xMin,
+    xMax: segment.xMax,
+    yMin,
+    yMax,
     standards,
-    points
+    points,
+    segment
   };
 }
 
@@ -319,11 +343,15 @@ function drawChart(report) {
   const x = m => pad.l + (m - scale.xMin) / (scale.xMax - scale.xMin) * (w - pad.l - pad.r);
   const y = cm => h - pad.b - (cm - scale.yMin) / (scale.yMax - scale.yMin) * (h - pad.t - pad.b);
 
+  ctx.fillStyle = "#3f5f61";
+  ctx.font = "15px Microsoft YaHei, sans-serif";
+  ctx.fillText(scale.segment.label, pad.l, 20);
+
   ctx.strokeStyle = "#eee6dc";
   ctx.lineWidth = 1;
   ctx.fillStyle = "#716a60";
   ctx.font = "14px Microsoft YaHei, sans-serif";
-  for (let age = 0; age <= 18; age += 2) {
+  for (let age = scale.segment.tickStart; age <= scale.segment.tickEnd; age += scale.segment.tickStep) {
     const px = x(age * 12);
     ctx.beginPath();
     ctx.moveTo(px, pad.t);
@@ -331,13 +359,13 @@ function drawChart(report) {
     ctx.stroke();
     ctx.fillText(`${age}岁`, px - 13, h - 18);
   }
-  for (let cm = scale.yMin; cm <= scale.yMax; cm += 10) {
+  for (let cm = scale.yMin; cm <= scale.yMax; cm += 5) {
     const py = y(cm);
     ctx.beginPath();
     ctx.moveTo(pad.l, py);
     ctx.lineTo(w - pad.r, py);
     ctx.stroke();
-    ctx.fillText(`${cm}`, 18, py + 4);
+    ctx.fillText(`${fmt(cm)}cm`, 12, py + 4);
   }
 
   percentileKeys.forEach(([key, label, color]) => {
@@ -372,6 +400,8 @@ function drawChart(report) {
       ctx.beginPath();
       ctx.arc(x(point.month), y(point.height), 6, 0, Math.PI * 2);
       ctx.fill();
+      ctx.font = "13px Microsoft YaHei, sans-serif";
+      ctx.fillText(`${fmt(point.height)}cm`, x(point.month) + 8, y(point.height) - 8);
     });
   }
 }
