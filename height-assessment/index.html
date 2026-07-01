@@ -81,6 +81,59 @@
             <label>父亲身高 cm<input id="fatherHeight" type="number" min="120" max="230" step="0.1"></label>
             <label>母亲身高 cm<input id="motherHeight" type="number" min="120" max="220" step="0.1"></label>
           </div>
+          <section class="form-section">
+            <h3>骨龄记录</h3>
+            <label>是否拍过骨龄
+              <select id="boneAgeChecked">
+                <option value="false">未拍/不清楚</option>
+                <option value="true">已拍</option>
+              </select>
+            </label>
+            <label>骨龄结果（岁，可填小数）
+              <input id="boneAgeYears" type="number" min="0" max="20" step="0.1" placeholder="例如：8.5">
+            </label>
+          </section>
+
+          <section class="form-section">
+            <h3>青春期发育记录</h3>
+            <div class="checkbox-grid">
+              <label><input id="pubertyBreast" type="checkbox">女孩：乳房发育</label>
+              <label><input id="pubertyMenarche" type="checkbox">女孩：已有月经初潮</label>
+              <label><input id="pubertyTestis" type="checkbox">男孩：睾丸增大</label>
+              <label><input id="pubertyVoice" type="checkbox">男孩：变声</label>
+              <label><input id="pubertyPubicHair" type="checkbox">阴毛/腋毛出现</label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3>生活方式评分</h3>
+            <div class="two-cols">
+              <label>夜间睡眠 小时/天<input id="sleepHours" type="number" min="4" max="14" step="0.1" placeholder="例如：9.5"></label>
+              <label>每周运动 天数<input id="exerciseDays" type="number" min="0" max="7" step="1" placeholder="0-7"></label>
+            </div>
+            <label>奶量/蛋白摄入
+              <select id="milkProtein">
+                <option value="">未填写</option>
+                <option value="good">较好：每天奶类/蛋白较规律</option>
+                <option value="partial">一般：偶尔不足</option>
+                <option value="low">不足：奶类/蛋白明显少</option>
+              </select>
+            </label>
+            <label>挑食情况
+              <select id="pickyEating">
+                <option value="">未填写</option>
+                <option value="no">不明显</option>
+                <option value="mild">轻中度挑食</option>
+                <option value="severe">明显挑食</option>
+              </select>
+            </label>
+            <div class="checkbox-grid">
+              <label><input id="constipation" type="checkbox">便秘/大便不规律</label>
+              <label><input id="rhinitisAdenoid" type="checkbox">鼻炎/腺样体/睡眠打鼾</label>
+              <label><input id="recurrentInfections" type="checkbox">反复呼吸道感染</label>
+            </div>
+            <label>屏幕时间 小时/天<input id="screenHours" type="number" min="0" max="12" step="0.1" placeholder="例如：1.5"></label>
+          </section>
           <button class="button primary" type="submit">保存档案</button>
         </form>
       </aside>

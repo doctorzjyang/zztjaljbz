@@ -165,6 +165,39 @@ h2 {
   gap: 10px;
 }
 
+.form-section {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fffaf1;
+}
+
+.form-section h3 {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 16px;
+}
+
+.checkbox-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.checkbox-grid label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+}
+
+.checkbox-grid input[type="checkbox"] {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--primary);
+}
+
 label {
   display: grid;
   gap: 6px;
@@ -279,6 +312,11 @@ input, select {
   color: var(--muted);
 }
 
+.summary-card.warning {
+  border-color: #e2a68b;
+  background: #fff5ef;
+}
+
 canvas {
   display: block;
   width: 100%;
@@ -348,4 +386,3 @@ footer {
   .report-head { display: grid; }
   .button { width: 100%; }
 }
-
