@@ -1,0 +1,25 @@
+<view class="page theory-page">
+  <view class="hero">
+    <text class="eyebrow">六经治疗发热咳嗽</text>
+    <text class="title">看层次、看寒热、看孩子有没有力气</text>
+    <text class="muted" wx:for="{{intro}}" wx:key="*this">{{item}}</text>
+  </view>
+
+  <view class="card channel-card" wx:for="{{channels}}" wx:key="key">
+    <view class="channel-head">
+      <text class="channel-title">{{item.title}}</text>
+      <text class="tag">{{item.position}}</text>
+    </view>
+    <text class="field-title">常见线索</text>
+    <text class="body-text">{{item.summary}}</text>
+    <text class="field-title">发热咳嗽中怎么看</text>
+    <text class="body-text">{{item.feverCough}}</text>
+    <text class="field-title">治疗方向</text>
+    <text class="body-text">{{item.treatment}}</text>
+  </view>
+
+  <view class="card notice">
+    <text class="field-title">安全提示</text>
+    <text class="body-text">小于3个月发热、呼吸困难、抽搐、意识异常、明显脱水、精神很差、发热超过3天不缓解等情况，应及时就医。</text>
+  </view>
+</view>

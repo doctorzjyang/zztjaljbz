@@ -14,5 +14,17 @@
     <button class="button primary">开始记录</button>
   </view>
 
+  <view class="card tool-card" bindtap="openTheory">
+    <text class="tag">科普介绍</text>
+    <text class="tool-title">六经治疗发热咳嗽</text>
+    <text class="muted">了解太阳、少阳、阳明、太阴、少阴、厥阴在儿童外感发热咳嗽中的常见线索和处理方向。</text>
+  </view>
+
+  <view class="card tool-card" bindtap="openMedicines">
+    <text class="tag">资料库</text>
+    <text class="tool-title">中成药资料</text>
+    <text class="muted">查看常用中成药的组成、功效、六经归属和注意事项，便于与医生或药师沟通。</text>
+  </view>
+
   <text class="footer-note">工具仅供健康记录和就医沟通参考，不能替代医生诊断和治疗。</text>
 </view>

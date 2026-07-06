@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/six-channel/index"
+    "pages/six-channel/index",
+    "pages/theory/index",
+    "pages/medicines/index"
   ],
   "window": {
     "navigationBarTitleText": "儿童健康线索记录",

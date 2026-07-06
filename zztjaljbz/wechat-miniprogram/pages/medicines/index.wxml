@@ -1,0 +1,22 @@
+<view class="page medicine-page">
+  <view class="hero">
+    <text class="eyebrow">资料库</text>
+    <text class="title">中成药组成、功效与六经归属</text>
+    <text class="muted">以下内容用于学习和与医生、药师沟通参考，不包含剂量、疗程或自行用药指令。</text>
+  </view>
+
+  <view class="card medicine-card" wx:for="{{medicines}}" wx:key="name">
+    <text class="medicine-name">{{item.name}}</text>
+    <view class="pill-row">
+      <text class="tag">{{item.syndromesText}}</text>
+    </view>
+    <text class="field-title">组成</text>
+    <text class="body-text">{{item.ingredientsText}}</text>
+    <text class="field-title">功效</text>
+    <text class="body-text">{{item.effect}}</text>
+    <text class="field-title">适合线索</text>
+    <text class="body-text">{{item.suitable}}</text>
+    <text class="field-title">注意事项</text>
+    <text class="body-text">{{item.caution}}</text>
+  </view>
+</view>

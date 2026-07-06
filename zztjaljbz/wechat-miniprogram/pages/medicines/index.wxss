@@ -1,0 +1,60 @@
+.medicine-page {
+  padding-bottom: 40rpx;
+}
+
+.hero {
+  margin-bottom: 24rpx;
+}
+
+.eyebrow,
+.title,
+.medicine-name,
+.field-title,
+.body-text {
+  display: block;
+}
+
+.eyebrow {
+  color: #a45b38;
+  font-size: 24rpx;
+  font-weight: 800;
+  margin-bottom: 12rpx;
+}
+
+.title {
+  color: #174d4b;
+  font-size: 42rpx;
+  font-weight: 850;
+  line-height: 1.25;
+  margin-bottom: 18rpx;
+}
+
+.medicine-card {
+  margin-bottom: 24rpx;
+}
+
+.medicine-name {
+  color: #25231f;
+  font-size: 34rpx;
+  font-weight: 850;
+  line-height: 1.35;
+  margin-bottom: 12rpx;
+}
+
+.pill-row {
+  margin-bottom: 14rpx;
+}
+
+.field-title {
+  color: #174d4b;
+  font-size: 27rpx;
+  font-weight: 800;
+  margin-top: 16rpx;
+  margin-bottom: 6rpx;
+}
+
+.body-text {
+  color: #4a443d;
+  font-size: 27rpx;
+  line-height: 1.65;
+}

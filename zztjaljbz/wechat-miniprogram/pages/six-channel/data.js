@@ -44,7 +44,7 @@ const redFlags = [
   { id: "spirit", text: "精神很差、持续嗜睡、明显烦躁无法安抚" },
   { id: "dehydration", text: "尿明显减少、口唇干、哭时少泪，怀疑脱水" },
   { id: "neck", text: "颈项强直、剧烈头痛、畏光或皮疹按压不褪色" },
-  { id: "longFever", text: "高热接近或超过40℃，或发热超过3天仍不缓解" }
+  { id: "longFever", text: "发热超过3天仍不缓解" }
 ];
 
 const questions = [
@@ -54,12 +54,7 @@ const questions = [
     options: [
       { label: "发热", scores: { taiyang: 1, yangming: 1 }, evidence: "发热需结合冷热、汗出、口渴、大便等线索分表里寒热。" },
       { label: "咳嗽", scores: { taiyang: 1 }, evidence: "咳嗽初起常先看太阳表证，也要结合痰色痰量判断里热或痰湿。" },
-      { label: "喘息/气急", scores: { taiyang: 1, yangming: 1 }, evidence: "喘息可见表邪束肺或痰热壅肺，若喘憋明显应先就医。" },
-      { label: "鼻塞、流涕、喷嚏", scores: { taiyang: 2 }, evidence: "鼻塞流涕喷嚏提示邪在体表、肺卫不宣。" },
-      { label: "咽痛、声嘶、疱疹或扁桃体问题", scores: { shaoyang: 1, yangming: 2 }, evidence: "咽喉红肿疼痛、疱疹、化脓多提示热象。" },
-      { label: "呕吐、腹痛或腹泻", scores: { taiyin: 2, shaoyang: 1 }, evidence: "呕吐腹痛腹泻需重点看脾胃太阴，也可能夹少阳枢机不利。" },
-      { label: "便秘、口臭或积食", scores: { yangming: 3 }, evidence: "便秘口臭积食偏向阳明里热或食积化热。" },
-      { label: "头痛、颈项痛、身痛", scores: { taiyang: 2 }, evidence: "头痛、颈项痛、身痛常提示太阳表证。" }
+     
     ]
   },
   {
@@ -184,25 +179,25 @@ const questions = [
 ];
 
 const medicines = [
-  { name: "葛根汤颗粒", syndromes: ["taiyang"], suitable: "怕冷、无汗、头项身痛、清涕等太阳表实线索。", caution: "汗多、心悸、体虚或里热明显者慎用。" },
-  { name: "风寒感冒颗粒", syndromes: ["taiyang"], suitable: "风寒表证，发热怕冷、鼻塞流清涕、咳嗽轻。", caution: "咽红口渴、黄痰便干或里热偏重者慎用。" },
-  { name: "感冒清热颗粒", syndromes: ["taiyang", "yangming"], suitable: "外感表证兼轻微热象，发热、怕冷、鼻涕清黄交替。", caution: "纯风寒或纯里热都需重新判断。" },
-  { name: "小儿柴桂退热颗粒/口服液", syndromes: ["taiyang", "shaoyang"], suitable: "发热伴怕冷、寒热往来、咽部不适等太阳少阳线索。", caution: "高热便秘、腹泻明显或精神差时需医生判断。" },
-  { name: "小儿豉翘清热颗粒", syndromes: ["taiyang", "shaoyang", "yangming"], suitable: "发热、咽痛、烦躁、便干或积滞，三阳合病线索。", caution: "大便稀、脾胃弱、怕冷清涕重者慎用。" },
-  { name: "银翘解毒颗粒", syndromes: ["taiyang", "yangming"], suitable: "风热外感，发热、咽红咽痛、舌红苔薄黄。", caution: "怕冷重、清涕白痰、无汗表寒明显者慎用。" },
-  { name: "蓝芩口服液", syndromes: ["shaoyang", "yangming"], suitable: "咽红咽痛、口干咽干、里热或少阳郁热偏重。", caution: "偏寒凉，腹泻、腹痛、脾胃虚寒者慎用。" },
-  { name: "蒲地蓝口服液", syndromes: ["shaoyang", "yangming"], suitable: "咽喉红肿疼痛、热毒偏盛、发热兼咽部热象。", caution: "偏寒凉，腹泻、食少、寒象明显者慎用。" },
-  { name: "连花清瘟胶囊", syndromes: ["taiyang", "shaoyang", "yangming"], suitable: "流感样外感属热毒袭肺，发热或高热、肌肉酸痛、咳嗽咽痛。", caution: "含麻黄、大黄，儿童须按说明或遵医嘱；风寒白痰便稀者慎用。" },
-  { name: "四磨汤口服液", syndromes: ["yangming"], suitable: "食积气滞，口臭、腹胀腹痛、大便硬或臭稀。", caution: "体虚气弱、清稀腹泻或无积滞者慎用。" },
-  { name: "通宣理肺颗粒", syndromes: ["taiyang", "taiyin"], suitable: "风寒束表兼痰湿，鼻塞流涕、头痛无汗、咳嗽白痰。", caution: "含麻黄，里热黄痰便干时不宜单独使用。" },
-  { name: "小青龙颗粒", syndromes: ["taiyang", "taiyin"], suitable: "外寒内饮，怕冷、清涕、白痰清稀、咳嗽痰多。", caution: "含麻黄、细辛，儿童需按说明或遵医嘱；黄痰咽红里热者慎用。" },
-  { name: "二陈丸", syndromes: ["taiyin"], suitable: "太阴痰湿，咳嗽痰白、痰多、腹胀、恶心。", caution: "黄痰黏稠、咽红口渴等痰热明显者慎用。" },
-  { name: "橘红痰咳颗粒", syndromes: ["taiyin"], suitable: "痰湿咳嗽，痰多、白痰或痰鸣。", caution: "痰黄黏稠、发热咽红等痰热偏重者需重辨。" },
-  { name: "小儿消积止咳口服液", syndromes: ["yangming", "taiyin"], suitable: "食积咳嗽，夜咳重、痰鸣、腹胀、口臭。", caution: "体虚、肺虚久咳、大便溏薄者慎用；低龄儿童按说明或遵医嘱。" },
-  { name: "小儿清肺化痰颗粒", syndromes: ["yangming"], suitable: "黄痰黏稠、肺热咳嗽、咽痛热象。", caution: "白痰清稀、畏寒明显者慎用。" },
-  { name: "祛痰灵口服液", syndromes: ["yangming"], suitable: "痰热壅肺，咳嗽痰多、痰黏厚或稠黄。", caution: "寒咳白痰、便溏、脾胃虚寒者慎用。" },
-  { name: "蛇胆川贝枇杷膏", syndromes: ["shaoyang", "yangming"], suitable: "咳嗽咽痒、痰热或咽部热象兼痰黏不爽。", caution: "寒咳白痰清稀、便稀或脾胃虚寒者慎用。" },
-  { name: "牛黄蛇胆川贝液", syndromes: ["shaoyang", "yangming"], suitable: "痰热咳嗽、咽喉不适、黄痰或热象较明显。", caution: "偏寒凉，寒咳白痰、腹泻或脾胃虚寒者慎用。" }
+  { name: "葛根汤颗粒", syndromes: ["taiyang"], ingredients: ["葛根", "麻黄", "桂枝", "生姜", "甘草", "芍药", "大枣"], effect: "发汗解表，升津舒筋。", suitable: "怕冷、无汗、头项身痛、清涕等太阳表实线索。", caution: "汗多、心悸、体虚或里热明显者慎用。" },
+  { name: "风寒感冒颗粒", syndromes: ["taiyang"], ingredients: ["麻黄", "葛根", "紫苏叶", "防风", "桂枝", "白芷", "陈皮", "苦杏仁", "桔梗", "甘草", "干姜"], effect: "解表发汗，疏风散寒。", suitable: "风寒表证，发热怕冷、鼻塞流清涕、咳嗽轻。", caution: "咽红口渴、黄痰便干或里热偏重者慎用。" },
+  { name: "感冒清热颗粒", syndromes: ["taiyang", "yangming"], ingredients: ["荆芥穗", "薄荷", "防风", "柴胡", "紫苏叶", "葛根", "桔梗", "苦杏仁", "白芷", "苦地丁", "芦根"], effect: "疏风散寒，解表清热。", suitable: "外感表证兼轻微热象，发热、怕冷、鼻涕清黄交替。", caution: "纯风寒或纯里热都需重新判断。" },
+  { name: "小儿柴桂退热颗粒/口服液", syndromes: ["taiyang", "shaoyang"], ingredients: ["柴胡", "桂枝", "葛根", "浮萍", "黄芩", "白芍", "蝉蜕"], effect: "发汗解表，清里退热。", suitable: "发热伴怕冷、寒热往来、咽部不适等太阳少阳线索。", caution: "高热便秘、腹泻明显或精神差时需医生判断。" },
+  { name: "小儿豉翘清热颗粒", syndromes: ["taiyang", "shaoyang", "yangming"], ingredients: ["连翘", "淡豆豉", "薄荷", "荆芥", "炒栀子", "大黄", "青蒿", "赤芍", "槟榔", "厚朴", "黄芩", "半夏", "柴胡", "甘草"], effect: "疏风解表，清热导滞。", suitable: "发热、咽痛、烦躁、便干或积滞，三阳合病线索。", caution: "大便稀、脾胃弱、怕冷清涕重者慎用。" },
+  { name: "银翘解毒颗粒", syndromes: ["taiyang", "yangming"], ingredients: ["金银花", "连翘", "薄荷", "荆芥", "淡豆豉", "牛蒡子", "桔梗", "淡竹叶", "甘草"], effect: "疏风解表，清热解毒。", suitable: "风热外感，发热、咽红咽痛、舌红苔薄黄。", caution: "怕冷重、清涕白痰、无汗表寒明显者慎用。" },
+  { name: "蓝芩口服液", syndromes: ["shaoyang", "yangming"], ingredients: ["板蓝根", "黄芩", "栀子", "黄柏", "胖大海"], effect: "清热解毒，利咽消肿。", suitable: "咽红咽痛、口干咽干、里热或少阳郁热偏重。", caution: "偏寒凉，腹泻、腹痛、脾胃虚寒者慎用。" },
+  { name: "蒲地蓝口服液", syndromes: ["shaoyang", "yangming"], ingredients: ["蒲公英", "苦地丁", "板蓝根", "黄芩"], effect: "清热解毒，抗炎消肿。", suitable: "咽喉红肿疼痛、热毒偏盛、发热兼咽部热象。", caution: "偏寒凉，腹泻、食少、寒象明显者慎用。" },
+  { name: "连花清瘟胶囊", syndromes: ["taiyang", "shaoyang", "yangming"], ingredients: ["连翘", "金银花", "炙麻黄", "炒苦杏仁", "石膏", "板蓝根", "绵马贯众", "鱼腥草", "广藿香", "大黄", "红景天", "薄荷脑", "甘草"], effect: "清瘟解毒，宣肺泄热。", suitable: "流感样外感属热毒袭肺，发热或高热、肌肉酸痛、咳嗽咽痛。", caution: "含麻黄、大黄，儿童须按说明或遵医嘱；风寒白痰便稀者慎用。" },
+  { name: "四磨汤口服液", syndromes: ["yangming"], ingredients: ["木香", "枳壳", "乌药", "槟榔"], effect: "顺气降逆，消积止痛。", suitable: "食积气滞，口臭、腹胀腹痛、大便硬或臭稀。", caution: "体虚气弱、清稀腹泻或无积滞者慎用。" },
+  { name: "通宣理肺颗粒", syndromes: ["taiyang", "taiyin"], ingredients: ["紫苏叶", "前胡", "桔梗", "苦杏仁", "麻黄", "甘草", "陈皮", "半夏", "茯苓", "枳壳", "黄芩"], effect: "解表散寒，宣肺止嗽。", suitable: "风寒束表兼痰湿，鼻塞流涕、头痛无汗、咳嗽白痰。", caution: "含麻黄，里热黄痰便干时不宜单独使用。" },
+  { name: "小青龙颗粒", syndromes: ["taiyang", "taiyin"], ingredients: ["麻黄", "桂枝", "白芍", "干姜", "细辛", "炙甘草", "法半夏", "五味子"], effect: "解表化饮，止咳平喘。", suitable: "外寒内饮，怕冷、清涕、白痰清稀、咳嗽痰多。", caution: "含麻黄、细辛，儿童需按说明或遵医嘱；黄痰咽红里热者慎用。" },
+  { name: "二陈丸", syndromes: ["taiyin"], ingredients: ["陈皮", "半夏", "茯苓", "甘草"], effect: "燥湿化痰，理气和胃。", suitable: "太阴痰湿，咳嗽痰白、痰多、腹胀、恶心。", caution: "黄痰黏稠、咽红口渴等痰热明显者慎用。" },
+  { name: "橘红痰咳颗粒", syndromes: ["taiyin"], ingredients: ["化橘红", "百部", "苦杏仁", "茯苓", "半夏", "五味子", "甘草"], effect: "理肺祛痰，止咳平喘。", suitable: "痰湿咳嗽，痰多、白痰或痰鸣。", caution: "痰黄黏稠、发热咽红等痰热偏重者需重辨。" },
+  { name: "小儿消积止咳口服液", syndromes: ["yangming", "taiyin"], ingredients: ["山楂", "槟榔", "枳实", "枇杷叶", "瓜蒌", "莱菔子", "葶苈子", "桔梗", "连翘", "蝉蜕"], effect: "清热肃肺，消积止咳。", suitable: "食积咳嗽，夜咳重、痰鸣、腹胀、口臭。", caution: "体虚、肺虚久咳、大便溏薄者慎用；低龄儿童按说明或遵医嘱。" },
+  { name: "小儿清肺化痰颗粒", syndromes: ["yangming"], ingredients: ["麻黄", "石膏", "苦杏仁", "前胡", "黄芩", "紫苏子", "葶苈子", "竹茹"], effect: "清热化痰，止咳平喘。", suitable: "黄痰黏稠、肺热咳嗽、咽痛热象。", caution: "白痰清稀、畏寒明显者慎用。" },
+  { name: "祛痰灵口服液", syndromes: ["yangming"], ingredients: ["鲜竹沥", "鱼腥草"], effect: "清肺化痰，止咳。", suitable: "痰热壅肺，咳嗽痰多、痰黏厚或稠黄。", caution: "寒咳白痰、便溏、脾胃虚寒者慎用。" },
+  { name: "蛇胆川贝枇杷膏", syndromes: ["shaoyang", "yangming"], ingredients: ["蛇胆汁", "川贝母", "枇杷叶", "桔梗", "水半夏", "薄荷脑"], effect: "润肺止咳，祛痰定喘。", suitable: "咳嗽咽痒、痰热或咽部热象兼痰黏不爽。", caution: "寒咳白痰清稀、便稀或脾胃虚寒者慎用。" },
+  { name: "牛黄蛇胆川贝液", syndromes: ["shaoyang", "yangming"], ingredients: ["人工牛黄", "川贝母", "蛇胆汁", "薄荷脑"], effect: "清热化痰，止咳。", suitable: "痰热咳嗽、咽喉不适、黄痰或热象较明显。", caution: "偏寒凉，寒咳白痰、腹泻或脾胃虚寒者慎用。" }
 ];
 
 module.exports = {
