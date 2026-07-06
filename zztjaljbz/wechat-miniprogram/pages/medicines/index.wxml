@@ -2,7 +2,15 @@
   <view class="hero">
     <text class="eyebrow">资料库</text>
     <text class="title">中成药组成、功效与六经归属</text>
-    <text class="muted">以下内容用于学习和与医生、药师沟通参考，不包含剂量、疗程或自行用药指令。</text>
+    <text class="muted">目前共收录 {{totalCount}} 种中成药。以下内容用于学习和与医生、药师沟通参考，不包含剂量、疗程或自行用药指令。</text>
+  </view>
+
+  <view class="search-panel">
+    <view class="search-box">
+      <input class="search-input" value="{{keyword}}" bindinput="onSearchInput" placeholder="搜索药名、组成、功效、六经" confirm-type="search" />
+      <button wx:if="{{keyword}}" class="clear-button" bindtap="clearSearch">清除</button>
+    </view>
+    <text class="result-count">显示 {{filteredCount}} / {{totalCount}} 种</text>
   </view>
 
   <view class="card medicine-card" wx:for="{{medicines}}" wx:key="name">
@@ -18,5 +26,10 @@
     <text class="body-text">{{item.suitable}}</text>
     <text class="field-title">注意事项</text>
     <text class="body-text">{{item.caution}}</text>
+  </view>
+
+  <view wx:if="{{noResults}}" class="card empty-card">
+    <text class="medicine-name">未找到匹配药物</text>
+    <text class="body-text">可以尝试输入药名、单味组成、六经名称或“黄痰、怕冷、咽痛”等线索。</text>
   </view>
 </view>

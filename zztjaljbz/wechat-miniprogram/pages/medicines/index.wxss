@@ -33,6 +33,52 @@
   margin-bottom: 24rpx;
 }
 
+.search-panel {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 -32rpx 24rpx;
+  padding: 18rpx 32rpx;
+  background: rgba(247, 243, 234, 0.96);
+  border-bottom: 1rpx solid #eadfce;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  min-height: 76rpx;
+  padding: 0 18rpx;
+  border: 1rpx solid #d8cdbc;
+  border-radius: 12rpx;
+  background: #fffdf8;
+}
+
+.search-input {
+  flex: 1;
+  min-height: 72rpx;
+  color: #25231f;
+  font-size: 28rpx;
+}
+
+.clear-button {
+  width: 112rpx;
+  min-height: 56rpx;
+  margin: 0 0 0 12rpx;
+  padding: 0;
+  border-radius: 999rpx;
+  background: #eef5f2;
+  color: #2d6f68;
+  font-size: 24rpx;
+  line-height: 56rpx;
+}
+
+.result-count {
+  display: block;
+  margin-top: 10rpx;
+  color: #756f66;
+  font-size: 24rpx;
+}
+
 .medicine-name {
   color: #25231f;
   font-size: 34rpx;
@@ -57,4 +103,8 @@
   color: #4a443d;
   font-size: 27rpx;
   line-height: 1.65;
+}
+
+.empty-card {
+  margin-bottom: 24rpx;
 }
