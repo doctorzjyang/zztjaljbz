@@ -43,6 +43,23 @@
   margin-bottom: 24rpx;
 }
 
+.model-image {
+  display: block;
+  width: 100%;
+  margin-top: 20rpx;
+  border-radius: 14rpx;
+  border: 1rpx solid #e8dfd0;
+  background: #fff;
+}
+
+.image-hint {
+  display: block;
+  margin-top: 8rpx;
+  color: #756f66;
+  font-size: 24rpx;
+  text-align: center;
+}
+
 .section-title {
   color: #174d4b;
   font-size: 34rpx;

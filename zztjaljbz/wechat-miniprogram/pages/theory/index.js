@@ -8,6 +8,7 @@ Page({
       "本页只做中医儿科科普和就医沟通参考，不能替代医生诊断。"
     ],
     modelIntro: "可以把身体想成一座城堡。发热不是单纯的温度数字，而是守军和外来病邪交战时产生的反应。六经辨证要先看战场在哪里，再看孩子自身还有多少抵抗力。",
+    modelImage: "/assets/six-channel-castle-model.jpg",
     castleParts: [
       { name: "城墙", body: "体表、皮肤、肌肉、关节", meaning: "邪气还在外面，多看怕冷、汗出、鼻涕、身痛。" },
       { name: "夹层通道", body: "半表半里、胸腹之间的枢纽", meaning: "邪气卡在进退之间，多看寒热往来、口苦、恶心、咽干。" },
@@ -33,5 +34,12 @@ Page({
       { key: "shaoyin", title: syndromes.shaoyin.name, position: syndromes.shaoyin.position, summary: syndromes.shaoyin.summary, treatment: "少阴提示正气不足或病情较深，儿童不适合自行判断处理。", feverCough: "精神差、嗜睡、声音低弱、畏寒肢冷时建议医生评估。" },
       { key: "jueyin", title: syndromes.jueyin.name, position: syndromes.jueyin.position, summary: syndromes.jueyin.summary, treatment: "厥阴常见寒热错杂，需要综合判断，不能简单清热或温里。", feverCough: "上热下寒、表现反复、病程迁延时应由医生辨证。" }
     ]
+  },
+
+  previewModelImage() {
+    wx.previewImage({
+      urls: [this.data.modelImage],
+      current: this.data.modelImage
+    });
   }
 });

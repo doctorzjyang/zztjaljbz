@@ -8,6 +8,8 @@
   <view class="card model-card">
     <text class="section-title">城堡模型：先把六经想明白</text>
     <text class="body-text">{{modelIntro}}</text>
+    <image class="model-image" src="{{modelImage}}" mode="widthFix" bindtap="previewModelImage" show-menu-by-longpress="true"></image>
+    <text class="image-hint">点击图片可放大查看</text>
     <view class="model-row" wx:for="{{castleParts}}" wx:key="name">
       <text class="model-name">{{item.name}}</text>
       <text class="model-body">{{item.body}}</text>
