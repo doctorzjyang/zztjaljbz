@@ -39,6 +39,8 @@
       <text class="channel-title">{{item.title}}</text>
       <text class="tag">{{item.position}}</text>
     </view>
+    <image class="channel-image" src="{{item.image}}" mode="widthFix" data-src="{{item.image}}" bindtap="previewChannelImage" show-menu-by-longpress="true"></image>
+    <text class="image-hint">点击图片可放大查看</text>
     <text class="field-title">常见线索</text>
     <text class="body-text">{{item.summary}}</text>
     <text class="field-title">发热咳嗽中怎么看</text>
