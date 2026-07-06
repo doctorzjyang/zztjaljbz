@@ -1,28 +1,31 @@
 .home {
-  display: grid;
-  gap: 28rpx;
+  padding-bottom: 40rpx;
 }
 
 .hero {
-  display: grid;
-  gap: 14rpx;
   padding: 28rpx 4rpx 8rpx;
+  margin-bottom: 28rpx;
 }
 
 .eyebrow {
+  display: block;
   color: #a45b38;
   font-size: 24rpx;
   font-weight: 700;
+  margin-bottom: 14rpx;
 }
 
 .title {
+  display: block;
   color: #174d4b;
   font-size: 52rpx;
   font-weight: 800;
   line-height: 1.15;
+  margin-bottom: 14rpx;
 }
 
 .lead {
+  display: block;
   color: #5f594f;
   font-size: 30rpx;
   line-height: 1.65;
@@ -30,8 +33,7 @@
 
 .tool-card,
 .pending-card {
-  display: grid;
-  gap: 24rpx;
+  margin-bottom: 28rpx;
 }
 
 .tool-title {
@@ -43,6 +45,7 @@
 }
 
 .footer-note {
+  display: block;
   color: #827a70;
   font-size: 24rpx;
   line-height: 1.7;
