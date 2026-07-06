@@ -2,7 +2,7 @@
   <view class="top">
     <text class="eyebrow">儿童外感六经线索评估</text>
     <text class="title">先看危险信号，再记录症状线索</text>
-    <text class="muted">本工具只生成健康线索和就医沟通摘要，不提供诊断、处方、剂量或自行用药建议。</text>
+    <text class="muted">本工具生成健康线索、辨证参考和就医沟通摘要，不提供诊断、处方、剂量或疗程。</text>
   </view>
 
   <view class="card risk-card">
@@ -62,6 +62,18 @@
         <text>{{item}}</text>
       </view>
       <text wx:if="{{noEvidence}}" class="muted">本次选择到的阳性线索较少，建议继续观察并记录变化。</text>
+    </view>
+
+    <view class="card">
+      <text class="section-title">中成药参考建议</text>
+      <text class="muted">{{result.medicineAdvice.note}}</text>
+      <view wx:if="{{result.medicineAdvice.hasMedicineAdvice}}">
+        <view class="medicine-card" wx:for="{{result.medicineAdvice.list}}" wx:key="name">
+          <text class="medicine-name">{{item.name}}</text>
+          <text class="medicine-text">适合线索：{{item.suitable}}</text>
+          <text class="medicine-text">注意：{{item.caution}}</text>
+        </view>
+      </view>
     </view>
 
     <view class="card">

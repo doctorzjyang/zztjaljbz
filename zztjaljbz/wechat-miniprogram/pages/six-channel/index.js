@@ -1,4 +1,4 @@
-const { syndromes, redFlags, questions } = require("./data");
+const { syndromes, redFlags, questions, medicines } = require("./data");
 
 const syndromeKeys = ["taiyang", "shaoyang", "yangming", "taiyin", "shaoyin", "jueyin"];
 
@@ -109,6 +109,40 @@ Page({
     return { scores, ranked, evidence: Array.from(new Set(evidence)) };
   },
 
+  medicineAdvice(calc, needsDoctor) {
+    if (needsDoctor) {
+      return {
+        hasMedicineAdvice: false,
+        note: "已出现危险信号或复杂风险线索，不生成中成药建议，请优先医生评估。",
+        list: []
+      };
+    }
+    const active = calc.ranked
+      .filter(item => item.score >= 2 && item.key !== "shaoyin" && item.key !== "jueyin")
+      .map(item => item.key);
+    if (!active.length) {
+      return {
+        hasMedicineAdvice: false,
+        note: "当前线索不足，暂不生成中成药建议。",
+        list: []
+      };
+    }
+    const mainKey = calc.ranked[0] ? calc.ranked[0].key : "";
+    const list = medicines.map(med => {
+      const hit = med.syndromes.filter(key => active.includes(key)).length;
+      const mainBonus = med.syndromes.includes(mainKey) ? 3 : 0;
+      const multiBonus = med.syndromes.length > 1 && hit > 1 ? 2 : 0;
+      return { ...med, score: hit * 2 + mainBonus + multiBonus };
+    }).filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+    return {
+      hasMedicineAdvice: list.length > 0,
+      note: "以下为可与医生或执业药师沟通的中成药方向，不包含剂量和疗程，儿童用药请以说明书、医生或药师意见为准。",
+      list
+    };
+  },
+
   buildResult() {
     const calc = this.calculate();
     const main = calc.ranked[0];
@@ -135,7 +169,8 @@ Page({
     const doctorReason = redFlagTexts.length
       ? redFlagTexts.join("；")
       : "少阴或厥阴风险线索较突出，建议由医生综合辨证。";
-    const reportText = this.reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related });
+    const medicineAdvice = this.medicineAdvice(calc, needsDoctor);
+    const reportText = this.reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related, medicineAdvice });
     return {
       title,
       summary,
@@ -143,14 +178,18 @@ Page({
       evidence: calc.evidence.slice(0, 10),
       needsDoctor,
       doctorReason,
+      medicineAdvice,
       reportText
     };
   },
 
-  reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related }) {
+  reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related, medicineAdvice }) {
     const scoreText = syndromeKeys.map(key => `${syndromes[key].name}${calc.scores[key]}分`).join("，");
     const relatedText = related.length ? related.map(item => item.name).join("、") : "无明显伴随线索";
     const evidenceText = calc.evidence.length ? calc.evidence.slice(0, 10).map(item => `- ${item}`).join("\n") : "- 阳性线索较少。";
+    const medicineText = medicineAdvice.list.length
+      ? medicineAdvice.list.map(item => `- ${item.name}：${item.suitable} 注意：${item.caution}`).join("\n")
+      : `- ${medicineAdvice.note}`;
     return [
       "儿童外感六经线索评估摘要",
       "",
@@ -164,6 +203,9 @@ Page({
       "",
       "判断依据：",
       evidenceText,
+      "",
+      "中成药参考建议：",
+      medicineText,
       "",
       needsDoctor ? `建议医生评估：${doctorReason}` : "建议：继续观察体温、精神、饮食、二便、咳嗽痰象变化。如病情加重或家长拿不准，请及时就医。",
       "",

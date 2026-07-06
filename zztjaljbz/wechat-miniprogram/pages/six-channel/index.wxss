@@ -143,6 +143,30 @@
   border-bottom: 1rpx solid #eee5d7;
 }
 
+.medicine-card {
+  margin-top: 20rpx;
+  padding: 18rpx;
+  border: 1rpx solid #e8dfd0;
+  border-radius: 14rpx;
+  background: #fffaf1;
+}
+
+.medicine-name {
+  display: block;
+  color: #174d4b;
+  font-size: 30rpx;
+  font-weight: 800;
+  margin-bottom: 10rpx;
+}
+
+.medicine-text {
+  display: block;
+  color: #4a443d;
+  font-size: 26rpx;
+  line-height: 1.6;
+  margin-top: 6rpx;
+}
+
 .summary-text {
   display: block;
   white-space: pre-wrap;
