@@ -5,6 +5,33 @@
     <text class="muted" wx:for="{{intro}}" wx:key="*this">{{item}}</text>
   </view>
 
+  <view class="card model-card">
+    <text class="section-title">城堡模型：先把六经想明白</text>
+    <text class="body-text">{{modelIntro}}</text>
+    <view class="model-row" wx:for="{{castleParts}}" wx:key="name">
+      <text class="model-name">{{item.name}}</text>
+      <text class="model-body">{{item.body}}</text>
+      <text class="model-meaning">{{item.meaning}}</text>
+    </view>
+  </view>
+
+  <view class="card model-card">
+    <text class="section-title">判断发热咳嗽，先问这三件事</text>
+    <view class="question-block" wx:for="{{modelQuestions}}" wx:key="title">
+      <text class="question-title">{{item.title}}</text>
+      <text class="body-text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="card model-card">
+    <text class="section-title">为什么同样发热，方向不同？</text>
+    <view class="example-block" wx:for="{{modelExamples}}" wx:key="title">
+      <text class="question-title">{{item.title}}</text>
+      <text class="body-text">{{item.text}}</text>
+    </view>
+    <text class="tip-text">所以六经不是只看体温高低，而是同时看位置、寒热、虚实和孩子整体状态。</text>
+  </view>
+
   <view class="card channel-card" wx:for="{{channels}}" wx:key="key">
     <view class="channel-head">
       <text class="channel-title">{{item.title}}</text>
