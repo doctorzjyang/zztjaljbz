@@ -1,0 +1,23 @@
+<view class="page home">
+  <view class="hero">
+    <text class="eyebrow">中医儿科工具</text>
+    <text class="title">儿童健康线索记录</text>
+    <text class="lead">用于记录孩子外感、咳嗽、身高等健康线索，生成就医沟通参考。</text>
+  </view>
+
+  <view class="card tool-card" bindtap="openSixChannel">
+    <view>
+      <text class="tag">已完成第一版</text>
+      <text class="tool-title">儿童外感六经线索评估</text>
+      <text class="muted">按“0+10”问题记录冷热、汗出、二便、咳痰、精神等表现，生成六经线索和风险提示。</text>
+    </view>
+    <button class="button primary">开始记录</button>
+  </view>
+
+  <view class="card pending-card">
+    <text class="tool-title">身高评估系统</text>
+    <text class="muted">后续迁移孩子档案、身高曲线、红旗提示和报告长图。</text>
+  </view>
+
+  <text class="footer-note">工具仅供健康记录和就医沟通参考，不能替代医生诊断和治疗。</text>
+</view>

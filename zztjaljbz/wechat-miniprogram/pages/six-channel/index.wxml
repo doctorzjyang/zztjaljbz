@@ -1,0 +1,76 @@
+<view class="page six-page">
+  <view class="top">
+    <text class="eyebrow">儿童外感六经线索评估</text>
+    <text class="title">先看危险信号，再记录症状线索</text>
+    <text class="muted">本工具只生成健康线索和就医沟通摘要，不提供诊断、处方、剂量或自行用药建议。</text>
+  </view>
+
+  <view class="card risk-card">
+    <text class="section-title">需要优先就医的情况</text>
+    <checkbox-group bindchange="onRedFlagChange">
+      <label class="check-row" wx:for="{{redFlags}}" wx:key="id">
+        <checkbox value="{{item.id}}" checked="{{redFlagMap[item.id]}}" color="#2d6f68" />
+        <text>{{item.text}}</text>
+      </label>
+    </checkbox-group>
+    <view wx:if="{{hasRedFlags}}" class="warning-box">
+      <text>已勾选危险信号，建议及时就医。本次仍可导出症状记录，但不做普通居家观察建议。</text>
+    </view>
+  </view>
+
+  <view class="card question-card" wx:if="{{showQuestion}}">
+    <view class="progress-row">
+      <text class="tag">{{step + 1}} / {{total}}</text>
+      <text class="muted">可多选；无对应情况可选“没有明显异常”。</text>
+    </view>
+    <view class="progress"><view class="progress-bar" style="width: {{progress}}%;"></view></view>
+    <text class="question-title">{{currentQuestion.title}}</text>
+    <checkbox-group bindchange="onQuestionChange">
+      <label class="option" wx:for="{{currentQuestion.options}}" wx:key="label">
+        <checkbox value="{{item.label}}" checked="{{selectedMap[item.label]}}" color="#2d6f68" />
+        <text>{{item.label}}</text>
+      </label>
+    </checkbox-group>
+    <view class="actions">
+      <button class="button ghost" bindtap="prevStep" disabled="{{isFirstStep}}">上一步</button>
+      <button class="button primary" bindtap="nextStep">{{nextText}}</button>
+    </view>
+  </view>
+
+  <view class="result-wrap" wx:if="{{result}}">
+    <view class="{{resultCardClass}}">
+      <text class="section-title">评估结果</text>
+      <text class="result-main">{{result.title}}</text>
+      <text class="muted">{{result.summary}}</text>
+      <text class="doctor-tip" wx:if="{{result.needsDoctor}}">建议医生评估：{{result.doctorReason}}</text>
+    </view>
+
+    <view class="card">
+      <text class="section-title">六经分数</text>
+      <view class="score-row" wx:for="{{result.scoreList}}" wx:key="key">
+        <view class="score-head">
+          <text>{{item.name}}</text>
+          <text>{{item.score}}分</text>
+        </view>
+        <view class="score-track"><view class="score-bar" style="width: {{item.percent}}%;"></view></view>
+      </view>
+    </view>
+
+    <view class="card">
+      <text class="section-title">判断依据</text>
+      <view class="evidence" wx:for="{{result.evidence}}" wx:key="*this">
+        <text>{{item}}</text>
+      </view>
+      <text wx:if="{{noEvidence}}" class="muted">本次选择到的阳性线索较少，建议继续观察并记录变化。</text>
+    </view>
+
+    <view class="card">
+      <text class="section-title">就医沟通摘要</text>
+      <text class="summary-text">{{result.reportText}}</text>
+      <view class="actions single">
+        <button class="button primary" bindtap="copyReport">复制摘要</button>
+        <button class="button ghost" bindtap="restart">重新评估</button>
+      </view>
+    </view>
+  </view>
+</view>

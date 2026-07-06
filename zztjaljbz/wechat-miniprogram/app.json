@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/six-channel/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "儿童健康线索记录",
+    "navigationBarBackgroundColor": "#f7f3ea",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f3ea"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

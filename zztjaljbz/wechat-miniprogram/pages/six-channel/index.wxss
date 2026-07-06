@@ -1,0 +1,147 @@
+.six-page {
+  display: grid;
+  gap: 24rpx;
+}
+
+.top {
+  display: grid;
+  gap: 12rpx;
+}
+
+.eyebrow {
+  color: #a45b38;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.title {
+  color: #174d4b;
+  font-size: 44rpx;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.section-title {
+  display: block;
+  color: #174d4b;
+  font-size: 32rpx;
+  font-weight: 800;
+  margin-bottom: 18rpx;
+}
+
+.risk-card,
+.question-card,
+.result-wrap {
+  display: grid;
+  gap: 22rpx;
+}
+
+.check-row,
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee5d7;
+  color: #2c2925;
+  font-size: 29rpx;
+  line-height: 1.55;
+}
+
+.check-row:last-child,
+.option:last-child {
+  border-bottom: 0;
+}
+
+.warning-box,
+.doctor-tip {
+  display: block;
+  padding: 18rpx 20rpx;
+  border-radius: 14rpx;
+  background: #fff1e8;
+  color: #9a4320;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.progress-row,
+.score-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.progress,
+.score-track {
+  height: 14rpx;
+  overflow: hidden;
+  border-radius: 999rpx;
+  background: #eadfce;
+}
+
+.progress-bar,
+.score-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: #2d6f68;
+}
+
+.question-title {
+  color: #25231f;
+  font-size: 34rpx;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+}
+
+.actions.single {
+  margin-top: 20rpx;
+}
+
+.result-wrap {
+  display: grid;
+  gap: 24rpx;
+}
+
+.result-warning {
+  border-color: #e2a68b;
+  background: #fff7f1;
+}
+
+.result-main {
+  display: block;
+  color: #25231f;
+  font-size: 38rpx;
+  font-weight: 850;
+  line-height: 1.35;
+  margin-bottom: 12rpx;
+}
+
+.score-row {
+  display: grid;
+  gap: 10rpx;
+  margin: 18rpx 0;
+  font-size: 28rpx;
+}
+
+.evidence {
+  padding: 14rpx 0;
+  color: #3d3831;
+  font-size: 27rpx;
+  line-height: 1.65;
+  border-bottom: 1rpx solid #eee5d7;
+}
+
+.summary-text {
+  display: block;
+  white-space: pre-wrap;
+  color: #3d3831;
+  font-size: 27rpx;
+  line-height: 1.7;
+}

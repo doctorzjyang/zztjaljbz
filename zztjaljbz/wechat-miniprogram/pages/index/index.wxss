@@ -1,0 +1,49 @@
+.home {
+  display: grid;
+  gap: 28rpx;
+}
+
+.hero {
+  display: grid;
+  gap: 14rpx;
+  padding: 28rpx 4rpx 8rpx;
+}
+
+.eyebrow {
+  color: #a45b38;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.title {
+  color: #174d4b;
+  font-size: 52rpx;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.lead {
+  color: #5f594f;
+  font-size: 30rpx;
+  line-height: 1.65;
+}
+
+.tool-card,
+.pending-card {
+  display: grid;
+  gap: 24rpx;
+}
+
+.tool-title {
+  display: block;
+  margin: 16rpx 0 10rpx;
+  color: #25231f;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.footer-note {
+  color: #827a70;
+  font-size: 24rpx;
+  line-height: 1.7;
+}
