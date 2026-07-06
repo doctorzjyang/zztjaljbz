@@ -15,6 +15,7 @@
 
   <view class="card medicine-card" wx:for="{{medicines}}" wx:key="name">
     <text class="medicine-name">{{item.name}}</text>
+    <text class="field-title">六经归属</text>
     <view class="pill-row">
       <text class="tag">{{item.syndromesText}}</text>
     </view>
