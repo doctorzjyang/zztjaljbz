@@ -26,7 +26,10 @@
     <checkbox-group bindchange="onQuestionChange">
       <label class="option" wx:for="{{currentQuestion.options}}" wx:key="label">
         <checkbox value="{{item.label}}" checked="{{selectedMap[item.label]}}" color="#2d6f68" />
-        <text>{{item.label}}</text>
+        <view class="option-content">
+          <text class="option-label">{{item.label}}</text>
+          <text wx:if="{{item.note}}" class="option-note">{{item.note}}</text>
+        </view>
       </label>
     </checkbox-group>
     <view class="actions">

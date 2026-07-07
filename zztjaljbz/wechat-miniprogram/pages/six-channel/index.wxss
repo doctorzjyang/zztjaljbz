@@ -52,6 +52,29 @@
   margin-right: 16rpx;
 }
 
+.option-content,
+.option-label,
+.option-note {
+  display: block;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-label {
+  color: #2c2925;
+  font-size: 29rpx;
+  line-height: 1.5;
+}
+
+.option-note {
+  margin-top: 6rpx;
+  color: #756f66;
+  font-size: 24rpx;
+  line-height: 1.55;
+}
+
 .risk-line:last-of-type,
 .option:last-child {
   border-bottom: 0;
