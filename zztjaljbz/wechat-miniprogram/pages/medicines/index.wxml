@@ -21,6 +21,7 @@
       >{{item.name}}</text>
       <button wx:if="{{activeChannels.length}}" class="filter-clear" bindtap="clearChannels">清空归经</button>
     </view>
+    <text class="filter-note">多选时仅显示同时包含所选归经的中成药。</text>
     <text class="result-count">显示 {{filteredCount}} / {{totalCount}} 种</text>
   </view>
 

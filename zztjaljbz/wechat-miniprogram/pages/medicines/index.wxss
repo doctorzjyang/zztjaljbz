@@ -108,6 +108,14 @@
   line-height: 52rpx;
 }
 
+.filter-note {
+  display: block;
+  margin-top: 8rpx;
+  color: #756f66;
+  font-size: 23rpx;
+  line-height: 1.5;
+}
+
 .result-count {
   display: block;
   margin-top: 10rpx;

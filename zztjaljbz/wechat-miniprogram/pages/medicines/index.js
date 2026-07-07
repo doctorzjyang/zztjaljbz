@@ -125,7 +125,7 @@ function filterMedicines(keyword, activeChannels) {
       ].join(" ").toLowerCase().includes(lower)
       : true;
     const channelMatched = selected.length
-      ? selected.some(key => item.syndromes.includes(key))
+      ? selected.every(key => item.syndromes.includes(key))
       : true;
     return keywordMatched && channelMatched;
   });
