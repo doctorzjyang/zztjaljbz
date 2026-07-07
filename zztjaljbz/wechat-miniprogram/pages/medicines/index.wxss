@@ -72,6 +72,42 @@
   line-height: 56rpx;
 }
 
+.channel-filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12rpx -6rpx 0;
+}
+
+.channel-chip {
+  margin: 6rpx;
+  padding: 10rpx 18rpx;
+  border: 1rpx solid #d8cdbc;
+  border-radius: 999rpx;
+  background: #fffdf8;
+  color: #4a443d;
+  font-size: 25rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.channel-chip.active {
+  border-color: #2d6f68;
+  background: #2d6f68;
+  color: #fff;
+}
+
+.filter-clear {
+  width: 140rpx;
+  min-height: 52rpx;
+  margin: 6rpx;
+  padding: 0;
+  border-radius: 999rpx;
+  background: #fff1e8;
+  color: #a45b38;
+  font-size: 24rpx;
+  line-height: 52rpx;
+}
+
 .result-count {
   display: block;
   margin-top: 10rpx;

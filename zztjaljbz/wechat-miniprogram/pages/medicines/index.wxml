@@ -3,12 +3,23 @@
     <text class="eyebrow">资料库</text>
     <text class="title">中成药组成、功效与六经归属</text>
     <text class="muted">目前共收录 {{totalCount}} 种中成药。以下内容用于学习和与医生、药师沟通参考，不包含剂量、疗程或自行用药指令。</text>
+    <text class="muted">可用于判断家里现有中成药的归经和作用，也可以根据归经选择中成药。</text>
   </view>
 
   <view class="search-panel">
     <view class="search-box">
       <input class="search-input" value="{{keyword}}" bindinput="onSearchInput" placeholder="搜索药名、组成、功效、六经" confirm-type="search" />
       <button wx:if="{{keyword}}" class="clear-button" bindtap="clearSearch">清除</button>
+    </view>
+    <view class="channel-filter">
+      <text
+        class="channel-chip {{activeChannelMap[item.key] ? 'active' : ''}}"
+        wx:for="{{channelFilters}}"
+        wx:key="key"
+        data-key="{{item.key}}"
+        bindtap="toggleChannel"
+      >{{item.name}}</text>
+      <button wx:if="{{activeChannels.length}}" class="filter-clear" bindtap="clearChannels">清空归经</button>
     </view>
     <text class="result-count">显示 {{filteredCount}} / {{totalCount}} 种</text>
   </view>

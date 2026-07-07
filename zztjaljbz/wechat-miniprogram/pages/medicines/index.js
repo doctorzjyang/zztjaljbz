@@ -101,9 +101,48 @@ const medicineList = medicines.map(item => ({
   syndromesText: syndromeLabel(item.syndromes)
 }));
 
+const channelFilters = [
+  { key: "taiyang", name: "太阳" },
+  { key: "shaoyang", name: "少阳" },
+  { key: "yangming", name: "阳明" },
+  { key: "taiyin", name: "太阴" },
+  { key: "shaoyin", name: "少阴" },
+  { key: "jueyin", name: "厥阴" }
+];
+
+function filterMedicines(keyword, activeChannels) {
+  const lower = (keyword || "").trim().toLowerCase();
+  const selected = activeChannels || [];
+  return medicineList.filter(item => {
+    const keywordMatched = lower
+      ? [
+        item.name,
+        item.ingredientsText,
+        item.effect,
+        item.syndromesText,
+        item.suitable,
+        item.caution
+      ].join(" ").toLowerCase().includes(lower)
+      : true;
+    const channelMatched = selected.length
+      ? selected.some(key => item.syndromes.includes(key))
+      : true;
+    return keywordMatched && channelMatched;
+  });
+}
+
+function channelMap(keys) {
+  const map = {};
+  keys.forEach(key => { map[key] = true; });
+  return map;
+}
+
 Page({
   data: {
     keyword: "",
+    channelFilters,
+    activeChannels: [],
+    activeChannelMap: {},
     totalCount: medicineList.length,
     filteredCount: medicineList.length,
     noResults: false,
@@ -112,17 +151,7 @@ Page({
 
   onSearchInput(event) {
     const keyword = (event.detail.value || "").trim();
-    const lower = keyword.toLowerCase();
-    const filtered = lower
-      ? medicineList.filter(item => [
-        item.name,
-        item.ingredientsText,
-        item.effect,
-        item.syndromesText,
-        item.suitable,
-        item.caution
-      ].join(" ").toLowerCase().includes(lower))
-      : medicineList;
+    const filtered = filterMedicines(keyword, this.data.activeChannels);
     this.setData({
       keyword,
       medicines: filtered,
@@ -132,11 +161,38 @@ Page({
   },
 
   clearSearch() {
+    const filtered = filterMedicines("", this.data.activeChannels);
     this.setData({
       keyword: "",
-      medicines: medicineList,
-      filteredCount: medicineList.length,
-      noResults: false
+      medicines: filtered,
+      filteredCount: filtered.length,
+      noResults: filtered.length === 0
+    });
+  },
+
+  toggleChannel(event) {
+    const key = event.currentTarget.dataset.key;
+    const active = this.data.activeChannels.includes(key)
+      ? this.data.activeChannels.filter(item => item !== key)
+      : [...this.data.activeChannels, key];
+    const filtered = filterMedicines(this.data.keyword, active);
+    this.setData({
+      activeChannels: active,
+      activeChannelMap: channelMap(active),
+      medicines: filtered,
+      filteredCount: filtered.length,
+      noResults: filtered.length === 0
+    });
+  },
+
+  clearChannels() {
+    const filtered = filterMedicines(this.data.keyword, []);
+    this.setData({
+      activeChannels: [],
+      activeChannelMap: {},
+      medicines: filtered,
+      filteredCount: filtered.length,
+      noResults: filtered.length === 0
     });
   },
 
