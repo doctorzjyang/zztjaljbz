@@ -37,7 +37,7 @@
   margin-bottom: 24rpx;
 }
 
-.check-row,
+.risk-line,
 .option {
   display: flex;
   align-items: flex-start;
@@ -48,14 +48,27 @@
   line-height: 1.55;
 }
 
-.check-row checkbox,
 .option checkbox {
   margin-right: 16rpx;
 }
 
-.check-row:last-child,
+.risk-line:last-of-type,
 .option:last-child {
   border-bottom: 0;
+}
+
+.risk-index {
+  flex: 0 0 44rpx;
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 14rpx;
+  border-radius: 999rpx;
+  background: #eef5f2;
+  color: #2d6f68;
+  font-size: 24rpx;
+  font-weight: 800;
+  line-height: 44rpx;
+  text-align: center;
 }
 
 .warning-box,

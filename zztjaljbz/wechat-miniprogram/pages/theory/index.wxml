@@ -17,6 +17,19 @@
     </view>
   </view>
 
+  <view class="card relation-card">
+    <text class="section-title">六经与阴阳、表里的对应</text>
+    <text class="body-text">可以先把六经看成一张地图：太阳在表，少阳在半表半里，阳明、太阴多在里；三阳偏阳、偏热、偏实，三阴更要关注寒、虚、正气和寒热错杂。</text>
+    <view class="relation-row" wx:for="{{relations}}" wx:key="channel">
+      <view class="relation-head">
+        <text class="relation-channel">{{item.channel}}</text>
+        <text class="relation-layer">{{item.layer}}</text>
+      </view>
+      <text class="relation-meta">{{item.yinYang}}</text>
+      <text class="relation-text">{{item.key}}</text>
+    </view>
+  </view>
+
   <view class="card model-card">
     <text class="section-title">判断发热咳嗽，先问这三件事</text>
     <view class="question-block" wx:for="{{modelQuestions}}" wx:key="title">

@@ -1,10 +1,12 @@
 const { syndromes, redFlags, questions, medicines } = require("./data");
 
 const syndromeKeys = ["taiyang", "shaoyang", "yangming", "taiyin", "shaoyin", "jueyin"];
+const riskNotice = "若出现上述任一信号，建议及时就医。本次仍可导出症状记录，但不做普通居家观察建议。";
+const riskList = redFlags.map((item, index) => ({ ...item, no: index + 1 }));
 
 Page({
   data: {
-    redFlags,
+    redFlags: riskList,
     questions,
     step: 0,
     total: questions.length,
@@ -14,20 +16,10 @@ Page({
     nextText: questions.length === 1 ? "查看结果" : "下一步",
     answers: {},
     selectedMap: {},
-    redFlagValues: [],
-    redFlagMap: {},
-    hasRedFlags: false,
     noEvidence: false,
     resultCardClass: "",
     showQuestion: true,
     result: null
-  },
-
-  onRedFlagChange(event) {
-    const values = event.detail.value || [];
-    const redFlagMap = {};
-    values.forEach(id => { redFlagMap[id] = true; });
-    this.setData({ redFlagValues: values, redFlagMap, hasRedFlags: values.length > 0 });
   },
 
   onQuestionChange(event) {
@@ -147,12 +139,8 @@ Page({
     const calc = this.calculate();
     const main = calc.ranked[0];
     const related = calc.ranked.slice(1).filter(item => item.score >= 2);
-    const redFlagTexts = this.data.redFlagValues.map(id => {
-      const item = redFlags.find(flag => flag.id === id);
-      return item ? item.text : "";
-    }).filter(Boolean);
     const serious = calc.scores.shaoyin >= 6 || calc.scores.jueyin >= 6;
-    const needsDoctor = redFlagTexts.length > 0 || serious;
+    const needsDoctor = serious;
     const maxScore = Math.max(...syndromeKeys.map(key => calc.scores[key]), 1);
     const scoreList = syndromeKeys.map(key => ({
       key,
@@ -166,11 +154,9 @@ Page({
     const summary = main
       ? `${main.summary}${main.advice}`
       : "本次选择到的阳性症状较少，可继续观察体温、精神、饮食、二便、咳嗽痰象等变化。";
-    const doctorReason = redFlagTexts.length
-      ? redFlagTexts.join("；")
-      : "少阴或厥阴风险线索较突出，建议由医生综合辨证。";
+    const doctorReason = "少阴或厥阴风险线索较突出，建议由医生综合辨证。";
     const medicineAdvice = this.medicineAdvice(calc, needsDoctor);
-    const reportText = this.reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related, medicineAdvice });
+    const reportText = this.reportText({ title, calc, needsDoctor, doctorReason, main, related, medicineAdvice });
     return {
       title,
       summary,
@@ -183,7 +169,7 @@ Page({
     };
   },
 
-  reportText({ title, calc, redFlagTexts, needsDoctor, doctorReason, main, related, medicineAdvice }) {
+  reportText({ title, calc, needsDoctor, doctorReason, main, related, medicineAdvice }) {
     const scoreText = syndromeKeys.map(key => `${syndromes[key].name}${calc.scores[key]}分`).join("，");
     const relatedText = related.length ? related.map(item => item.name).join("、") : "无明显伴随线索";
     const evidenceText = calc.evidence.length ? calc.evidence.slice(0, 10).map(item => `- ${item}`).join("\n") : "- 阳性线索较少。";
@@ -199,7 +185,7 @@ Page({
       `六经分数：${scoreText}`,
       "",
       "危险信号：",
-      redFlagTexts.length ? redFlagTexts.map(item => `- ${item}`).join("\n") : "- 未勾选危险信号。",
+      `- ${riskNotice}`,
       "",
       "判断依据：",
       evidenceText,

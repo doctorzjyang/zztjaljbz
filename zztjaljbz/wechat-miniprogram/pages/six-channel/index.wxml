@@ -7,14 +7,12 @@
 
   <view class="card risk-card">
     <text class="section-title">需要优先就医的情况</text>
-    <checkbox-group bindchange="onRedFlagChange">
-      <label class="check-row" wx:for="{{redFlags}}" wx:key="id">
-        <checkbox value="{{item.id}}" checked="{{redFlagMap[item.id]}}" color="#2d6f68" />
-        <text>{{item.text}}</text>
-      </label>
-    </checkbox-group>
-    <view wx:if="{{hasRedFlags}}" class="warning-box">
-      <text>已勾选危险信号，建议及时就医。本次仍可导出症状记录，但不做普通居家观察建议。</text>
+    <view class="risk-line" wx:for="{{redFlags}}" wx:key="id">
+      <text class="risk-index">{{item.no}}</text>
+      <text>{{item.text}}</text>
+    </view>
+    <view class="warning-box">
+      <text>若出现上述任一信号，建议及时就医。本次仍可导出症状记录，但不做普通居家观察建议。</text>
     </view>
   </view>
 

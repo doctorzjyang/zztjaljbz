@@ -20,7 +20,18 @@
       <text class="tag">{{item.syndromesText}}</text>
     </view>
     <text class="field-title">组成</text>
-    <text class="body-text">{{item.ingredientsText}}</text>
+    <view class="ingredient-list">
+      <text
+        class="ingredient-pill"
+        wx:for="{{item.ingredientItems}}"
+        wx:for-item="herb"
+        wx:key="name"
+        data-name="{{herb.name}}"
+        data-syndromes="{{herb.syndromesText}}"
+        data-role="{{herb.role}}"
+        bindtap="showHerbInfo"
+      >{{herb.name}}</text>
+    </view>
     <text class="field-title">功效</text>
     <text class="body-text">{{item.effect}}</text>
     <text class="field-title">适合线索</text>

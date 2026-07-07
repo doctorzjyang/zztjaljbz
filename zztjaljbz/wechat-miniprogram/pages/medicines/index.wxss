@@ -91,6 +91,28 @@
   margin-bottom: 14rpx;
 }
 
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -6rpx;
+}
+
+.ingredient-pill {
+  margin: 6rpx;
+  padding: 10rpx 16rpx;
+  border: 1rpx solid #d8cdbc;
+  border-radius: 999rpx;
+  background: #fffdf8;
+  color: #4a443d;
+  font-size: 25rpx;
+  line-height: 1.35;
+}
+
+.ingredient-pill:active {
+  background: #eef5f2;
+  color: #174d4b;
+}
+
 .field-title {
   color: #174d4b;
   font-size: 27rpx;
