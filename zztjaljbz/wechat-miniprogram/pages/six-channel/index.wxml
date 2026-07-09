@@ -72,8 +72,11 @@
       <view wx:if="{{result.medicineAdvice.hasMedicineAdvice}}">
         <view class="medicine-card" wx:for="{{result.medicineAdvice.list}}" wx:key="name">
           <text class="medicine-name">{{item.name}}</text>
+          <text class="medicine-text">归经：{{item.syndromesText}}</text>
+          <text class="medicine-text">组成：{{item.ingredientsText}}</text>
+          <text class="medicine-text">功效：{{item.effect}}</text>
           <text class="medicine-text">适合线索：{{item.suitable}}</text>
-          <text class="medicine-text">注意：{{item.caution}}</text>
+          <text class="medicine-text">注意事项：{{item.caution}}</text>
         </view>
       </view>
     </view>

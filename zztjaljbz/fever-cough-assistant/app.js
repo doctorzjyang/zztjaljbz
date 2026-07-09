@@ -161,6 +161,14 @@
     }).join("");
   }
 
+  function medicineSyndromeText(med) {
+    return med.syndromes.map(key => APP_DATA.syndromes[key] ? APP_DATA.syndromes[key].name : key).join("、");
+  }
+
+  function medicineEffectText(med) {
+    return med.effect || med.suitable || "需结合资料库、说明书和医生辨证理解。";
+  }
+
   function activeSyndromes(calc) {
     return calc.ranked
       .filter(([key]) => key !== "shaoyin" && key !== "jueyin")
@@ -347,9 +355,11 @@
     } else if (meds.length) {
       meds.forEach((med, index) => {
         lines.push(`${index + 1}. ${med.name}`);
-        lines.push(`   对应方向：${med.syndromes.map(s => APP_DATA.syndromes[s].name).join(" / ")}`);
+        lines.push(`   归经：${medicineSyndromeText(med)}`);
         lines.push(`   组成：${med.ingredients.join("、")}`);
-        lines.push(`   注意：${med.caution}`);
+        lines.push(`   功效：${medicineEffectText(med)}`);
+        lines.push(`   适合线索：${med.suitable}`);
+        lines.push(`   注意事项：${med.caution}`);
       });
     } else {
       lines.push("当前未匹配到合适的药物参考。");
@@ -452,15 +462,17 @@
         <article class="medicine-card">
           <div>
             <h3>${med.name}</h3>
-            <p class="tagline">${med.syndromes.map(s => APP_DATA.syndromes[s].name).join(" / ")}</p>
+            <p class="tagline">${medicineSyndromeText(med)}</p>
           </div>
-          <p><strong>适合方向：</strong>${med.suitable}</p>
+          <p><strong>归经：</strong>${medicineSyndromeText(med)}</p>
           <p><strong>组成：</strong>${med.ingredients.join("、")}</p>
+          <p><strong>功效：</strong>${medicineEffectText(med)}</p>
+          <p><strong>适合线索：</strong>${med.suitable}</p>
           <details>
             <summary>查看主要成分作用</summary>
             <ul class="ingredient-list">${explainIngredients(med.ingredients)}</ul>
           </details>
-          <p class="caution"><strong>注意：</strong>${med.caution}</p>
+          <p class="caution"><strong>注意事项：</strong>${med.caution}</p>
         </article>
       `).join("")
       : `<p class="muted">当前结果不生成药品推荐。</p>`;

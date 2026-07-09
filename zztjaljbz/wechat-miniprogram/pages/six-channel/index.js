@@ -4,6 +4,18 @@ const syndromeKeys = ["taiyang", "shaoyang", "yangming", "taiyin", "shaoyin", "j
 const riskNotice = "若出现上述任一信号，建议及时就医。本次仍可导出症状记录，但不做普通居家观察建议。";
 const riskList = redFlags.map((item, index) => ({ ...item, no: index + 1 }));
 
+function syndromeLabel(keys) {
+  return keys.map(key => syndromes[key] ? syndromes[key].name : key).join("、");
+}
+
+function withMedicineText(med) {
+  return {
+    ...med,
+    ingredientsText: med.ingredients.join("、"),
+    syndromesText: syndromeLabel(med.syndromes)
+  };
+}
+
 Page({
   data: {
     redFlags: riskList,
@@ -124,7 +136,7 @@ Page({
       const hit = med.syndromes.filter(key => active.includes(key)).length;
       const mainBonus = med.syndromes.includes(mainKey) ? 3 : 0;
       const multiBonus = med.syndromes.length > 1 && hit > 1 ? 2 : 0;
-      return { ...med, score: hit * 2 + mainBonus + multiBonus };
+      return withMedicineText({ ...med, score: hit * 2 + mainBonus + multiBonus });
     }).filter(item => item.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 5);
@@ -174,7 +186,14 @@ Page({
     const relatedText = related.length ? related.map(item => item.name).join("、") : "无明显伴随线索";
     const evidenceText = calc.evidence.length ? calc.evidence.slice(0, 10).map(item => `- ${item}`).join("\n") : "- 阳性线索较少。";
     const medicineText = medicineAdvice.list.length
-      ? medicineAdvice.list.map(item => `- ${item.name}：${item.suitable} 注意：${item.caution}`).join("\n")
+      ? medicineAdvice.list.map(item => [
+        `- ${item.name}`,
+        `  归经：${item.syndromesText}`,
+        `  组成：${item.ingredientsText}`,
+        `  功效：${item.effect}`,
+        `  适合线索：${item.suitable}`,
+        `  注意事项：${item.caution}`
+      ].join("\n")).join("\n")
       : `- ${medicineAdvice.note}`;
     return [
       "儿童外感六经线索评估摘要",
