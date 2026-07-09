@@ -112,6 +112,17 @@
   align-items: center;
 }
 
+.select-tip {
+  display: block;
+  margin: 12rpx 0 16rpx;
+  padding: 14rpx 16rpx;
+  border-radius: 12rpx;
+  background: #eef5f2;
+  color: #174d4b;
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
 .progress,
 .score-track {
   height: 14rpx;

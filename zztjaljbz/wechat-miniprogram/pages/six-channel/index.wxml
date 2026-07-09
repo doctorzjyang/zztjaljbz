@@ -21,6 +21,7 @@
       <text class="tag">{{step + 1}} / {{total}}</text>
       <text class="muted">可多选；无对应情况可选“没有明显异常”。</text>
     </view>
+    <text class="select-tip">每条不需要全部符合，基本符合，或符合其中几项，就可以选择。</text>
     <view class="progress"><view class="progress-bar" style="width: {{progress}}%;"></view></view>
     <text class="question-title">{{currentQuestion.title}}</text>
     <checkbox-group bindchange="onQuestionChange">
