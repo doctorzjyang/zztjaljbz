@@ -38,9 +38,7 @@
     const question = APP_DATA.questions[state.step];
     const total = APP_DATA.questions.length;
     questionTitle.textContent = question.title;
-    questionHint.textContent = state.step === 0
-      ? "按资料中的“0+10问诊”先记录主诉，再从吃喝拉撒睡汗冷热等线索判断六经。"
-      : "可选择一个或多个最符合孩子情况的选项；如果没有对应情况，直接点击下一步，或选择“没有明显异常/没有这些情况”。";
+    questionHint.textContent = "每条不需要全部符合，基本符合，或符合其中几项，就可以选择。无对应情况可选“没有明显异常”。";
     progressText.textContent = `${state.step + 1} / ${total}`;
     progressBar.style.width = `${((state.step + 1) / total) * 100}%`;
     prevBtn.disabled = state.step === 0;
@@ -53,7 +51,10 @@
       return `
         <label class="option-card" for="${id}">
           <input id="${id}" type="${question.multi ? "checkbox" : "radio"}" name="${question.id}" value="${option.label}" data-none="${option.none ? "true" : "false"}" ${checked}>
-          <span>${option.label}</span>
+          <span>
+            <strong>${option.label}</strong>
+            ${option.note ? `<small>${option.note}</small>` : ""}
+          </span>
         </label>
       `;
     }).join("");

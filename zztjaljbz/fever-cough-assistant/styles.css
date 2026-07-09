@@ -192,6 +192,23 @@ h3 {
   background: #fff;
 }
 
+.option-card strong,
+.option-card small {
+  display: block;
+}
+
+.option-card strong {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.option-card small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .risk-item::before {
   content: "!";
   display: inline-flex;
